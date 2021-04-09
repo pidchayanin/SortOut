@@ -6,14 +6,6 @@ target 'SortOut' do
   use_frameworks!
 
   # Pods for SortOut
-
-  target 'SortOutTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SortOutUITests' do
-    # Pods for testing
-  end
+  pod 'SwiftyJSON'
 
 end

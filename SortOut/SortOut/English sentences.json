@@ -1,0 +1,52 @@
+[
+ {
+   "number": 1,
+   "sentence1": ["Two", "women", "are", "embracing", "while", "holding", "packages"],
+   "image": "img1.jpg"
+ },
+ {
+   "number": 2,
+   "sentence1": ["Two", "men", "on", "bicycles", "competing", "in", "a", "race"],
+   "image": "img2.jpg"
+ },
+ {
+   "number": 3,
+   "sentence1": ["Families", "are", "waiting", "in", "line", "at", "a", "park"],
+   "image": "img3.jpg"
+ },
+ {
+   "number": 4,
+   "sentence1": ["Two", "women", "having", "drinks", "at", "the", "bar"],
+   "image": "img4.jpg"
+ },
+ {
+   "number": 5,
+   "sentence1": ["Two", "doctors", "perform", "surgery", "on", "patient"],
+   "image": "img5.jpg"
+ },
+ {
+   "number": 6,
+   "sentence1": ["A", "dog", "jumps", "to", "catch", "a", "toy"],
+   "image": "img6.jpg"
+ },
+ {
+   "number": 7,
+   "sentence1": ["Kids", "are", "on", "an", "amusement", "ride"],
+   "image": "img7.jpg"
+ },
+ {
+   "number": 8,
+   "sentence1": ["A", "man", "is", "playing", "golf", "outside"],
+   "image": "img8.jpg"
+ },
+ {
+   "number": 9,
+   "sentence1": ["The", "woman", "is", "walking"],
+   "image": "img9.jpg"
+ },
+ {
+   "number": 10,
+   "sentence1": ["A", "man", "is", "taking", "a", "picture"],
+   "image": "img10.jpg"
+ }
+]
