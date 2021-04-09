@@ -1,0 +1,6 @@
+framework module Pods_SortOut {
+  umbrella header "Pods-SortOut-umbrella.h"
+
+  export *
+  module * { export * }
+}
