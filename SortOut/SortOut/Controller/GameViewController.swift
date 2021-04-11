@@ -181,7 +181,7 @@ class GameViewController: UIViewController {
     
     func retreiveData() {
         var tempStr = ""
-        let number1 = Int.random(in: 0 ..< 20)
+        let number1 = Int.random(in: 0 ..< 30)
         let number2 = Int.random(in: 0 ..< number1)
         var tempInt = 0
         var tempInt1 = 0
@@ -209,7 +209,26 @@ class GameViewController: UIViewController {
             
             for item in array {
                 
+                var word1 = ""
+                var word2 = ""
+                var word3 = ""
+                var word4 = ""
+                var word5 = ""
+                var word6 = ""
+                var word7 = ""
+                var word8 = ""
+                
                 let number = item.1["number"]
+                
+//                word1 = sentences[0].stringValue
+//                word2 = sentences[1].stringValue
+//                word3 = sentences[2].stringValue
+//                word4 = sentences[3].stringValue
+//                word5 = sentences[4].stringValue
+//                word6 = sentences[5].stringValue
+//                word7 = sentences[6].stringValue
+//                word8 = sentences[7].stringValue
+                
 //                let word1 = item.1["sentence1"][0]
 //                let word2 = item.1["sentence1"][1]
 //                let word3 = item.1["sentence1"][2]
@@ -248,16 +267,71 @@ class GameViewController: UIViewController {
                     numbers = tempInt1
                     print("numbers: ", numbers)
 //                    print("Int: ", tempInt1)
+                    
                     let sentences = item.1["sentence1"].arrayValue.shuffled()
                     //let testWord1 = sentences[0]
-                    let word1 = sentences[0].stringValue
-                    let word2 = sentences[1].stringValue
-                    let word3 = sentences[2].stringValue
-                    let word4 = sentences[3].stringValue
-                    let word5 = sentences[4].stringValue
-                    let word6 = sentences[5].stringValue
-                    let word7 = sentences[6].stringValue
-                    let word8 = sentences[7].stringValue
+                    if sentences.count <= 8 && sentences.count > 7 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                        word4 = sentences[3].stringValue
+                        word5 = sentences[4].stringValue
+                        word6 = sentences[5].stringValue
+                        word7 = sentences[6].stringValue
+                        word8 = sentences[7].stringValue
+                    }
+                    else if sentences.count <= 7 && sentences.count > 6 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                        word4 = sentences[3].stringValue
+                        word5 = sentences[4].stringValue
+                        word6 = sentences[5].stringValue
+                        word7 = sentences[6].stringValue
+                    }
+                    else if sentences.count <= 6 && sentences.count > 5 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                        word4 = sentences[3].stringValue
+                        word5 = sentences[4].stringValue
+                        word6 = sentences[5].stringValue
+                    }
+                    else if sentences.count <= 5 && sentences.count > 4 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                        word4 = sentences[3].stringValue
+                        word5 = sentences[4].stringValue
+                    }
+                    else if sentences.count <= 4 && sentences.count > 3 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                        word4 = sentences[3].stringValue
+                    }
+                    else if sentences.count <= 3 && sentences.count > 2 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                        word3 = sentences[2].stringValue
+                    }
+                    else if sentences.count <= 2 && sentences.count > 1 {
+                        word1 = sentences[0].stringValue
+                        word2 = sentences[1].stringValue
+                    }
+                    else if sentences.count <= 1 && sentences.count > 0 {
+                        word1 = sentences[0].stringValue
+                    }
+//                    else {
+//                        word1 = sentences[0].stringValue
+//                        word2 = sentences[1].stringValue
+//                        word3 = sentences[2].stringValue
+//                        word4 = sentences[3].stringValue
+//                        word5 = sentences[4].stringValue
+//                        word6 = sentences[5].stringValue
+//                        word7 = sentences[6].stringValue
+//                        word8 = sentences[7].stringValue
+//                    }
                     //let sentencesArr = sentences.arrayValue.map({$0["sentence1"].stringValue})
                     //print(sentences)
                     //print(testWord1)
