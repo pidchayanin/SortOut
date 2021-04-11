@@ -5,6 +5,7 @@
 //  Created by Pidchayanin Chutipattana on 21/2/2564 BE.
 //
 
+import Foundation
 import UIKit
 import SwiftyJSON
 
@@ -196,21 +197,37 @@ class GameViewController: UIViewController {
             
             let array = json
             
+//            for (index,subJson):(String, JSON) in json {
+//                // Do something you want
+//                //print(index.count,  subJson["sentence1"])
+//                for key in subJson["sentence1"] {
+//                    let result = key.1.arrayValue.map({$0["sentence1"].stringValue})
+//                    print("key", key.1)
+//                    //print("result: ", result)
+//                }
+//            }
+            
             for item in array {
                 
                 let number = item.1["number"]
-                let word1 = item.1["sentence1"][0]
-                let word2 = item.1["sentence1"][1]
-                let word3 = item.1["sentence1"][2]
-                let word4 = item.1["sentence1"][3]
-                let word5 = item.1["sentence1"][4]
-                let word6 = item.1["sentence1"][5]
-                let word7 = item.1["sentence1"][6]
-                let word8 = item.1["sentence1"][7]
-                
+//                let word1 = item.1["sentence1"][0]
+//                let word2 = item.1["sentence1"][1]
+//                let word3 = item.1["sentence1"][2]
+//                let word4 = item.1["sentence1"][3]
+//                let word5 = item.1["sentence1"][4]
+//                let word6 = item.1["sentence1"][5]
+//                let word7 = item.1["sentence1"][6]
+//                let word8 = item.1["sentence1"][7]
+                //print(item.1["sentence1"].shuffled())
                 //print(number)
+                //print(word1)
                 
                 tempStr = number.rawString()!
+                
+                //TODO: Put words in an array and loop array
+                
+                
+                
                 
                 
                 tempInt += 1
@@ -231,6 +248,28 @@ class GameViewController: UIViewController {
                     numbers = tempInt1
                     print("numbers: ", numbers)
 //                    print("Int: ", tempInt1)
+                    let sentences = item.1["sentence1"].arrayValue.shuffled()
+                    //let testWord1 = sentences[0]
+                    let word1 = sentences[0].stringValue
+                    let word2 = sentences[1].stringValue
+                    let word3 = sentences[2].stringValue
+                    let word4 = sentences[3].stringValue
+                    let word5 = sentences[4].stringValue
+                    let word6 = sentences[5].stringValue
+                    let word7 = sentences[6].stringValue
+                    let word8 = sentences[7].stringValue
+                    //let sentencesArr = sentences.arrayValue.map({$0["sentence1"].stringValue})
+                    //print(sentences)
+                    //print(testWord1)
+//                    for i in testWord1 {
+//                        let tester1 = i.stringValue.lowercased().split(separator: ",")
+//                        //print(tester1)
+//                        for j in tester1 {
+//                            let tester2 = j
+//                            print(tester2)
+//                        }
+//                    }
+                    
                     if word7.isEmpty == true {
                         words7 = "null"
                     }
@@ -255,14 +294,14 @@ class GameViewController: UIViewController {
                     else if word1.isEmpty == true {
                         words1 = "null"
                     }
-                    words1 = word6.rawString()!
-                    words2 = word5.rawString()!
-                    words3 = word3.rawString()!
-                    words4 = word2.rawString()!
-                    words5 = word1.rawString()!
-                    words6 = word7.rawString()!
-                    words7 = word8.rawString()!
-                    words8 = word4.rawString()!
+                    words1 = word1
+                    words2 = word2
+                    words3 = word3
+                    words4 = word4
+                    words5 = word5
+                    words6 = word6
+                    words7 = word7
+                    words8 = word8
                 }
                 
                 
