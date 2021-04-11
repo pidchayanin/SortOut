@@ -77,7 +77,7 @@ class GameViewController: UIViewController {
 //
 //        if ((number1 + number2) % 9) + 1 == tempInt{
 //            print("tempInt: ", tempInt)
-        if words1 == "null"{
+        if words1 == ""{
             word1Button.isHidden = true
             word2Button.setTitle(words2, for: .normal)
             word3Button.setTitle(words3, for: .normal)
@@ -87,7 +87,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words2 == "null"{
+        if words2 == ""{
             word2Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word3Button.setTitle(words3, for: .normal)
@@ -97,7 +97,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words3 == "null"{
+        if words3 == ""{
             word3Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
@@ -107,7 +107,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words4 == "null"{
+        if words4 == ""{
             word4Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
@@ -117,7 +117,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words5 == "null"{
+        if words5 == ""{
             word5Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
@@ -127,7 +127,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words6 == "null"{
+        if words6 == ""{
             word6Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
@@ -137,7 +137,7 @@ class GameViewController: UIViewController {
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words7 == "null" {
+        if words7 == "" {
             word7Button.isHidden = true
 //                word8Button.isHidden = true
 //                word6Button.isHidden = true
@@ -153,7 +153,7 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word8Button.setTitle(words8, for: .normal)
         }
-        if words8 == "null"{
+        if words8 == ""{
             word8Button.isHidden = true
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
@@ -344,30 +344,30 @@ class GameViewController: UIViewController {
 //                        }
 //                    }
                     
-                    if word7.isEmpty == true {
-                        words7 = "null"
-                    }
-                    else if word8.isEmpty == true {
-                        words8 = "null"
-                    }
-                    else if word6.isEmpty == true {
-                        words6 = "null"
-                    }
-                    else if word5.isEmpty == true {
-                        words5 = "null"
-                    }
-                    else if word4.isEmpty == true {
-                        words4 = "null"
-                    }
-                    else if word3.isEmpty == true {
-                        words3 = "null"
-                    }
-                    else if word2.isEmpty == true {
-                        words2 = "null"
-                    }
-                    else if word1.isEmpty == true {
-                        words1 = "null"
-                    }
+//                    if word7 == "" {
+//                        words7 = "null"
+//                    }
+//                    else if word8 == "" {
+//                        words8 = "null"
+//                    }
+//                    else if word6 == "" {
+//                        words6 = "null"
+//                    }
+//                    else if word5 == "" {
+//                        words5 = "null"
+//                    }
+//                    else if word4 == "" {
+//                        words4 = "null"
+//                    }
+//                    else if word3 == "" {
+//                        words3 = "null"
+//                    }
+//                    else if word2 == "" {
+//                        words2 = "null"
+//                    }
+//                    else if word1 == "" {
+//                        words1 = "null"
+//                    }
                     words1 = word1
                     words2 = word2
                     words3 = word3
