@@ -20,6 +20,8 @@
 		40BE7B1C25BC045E00464BDB /* SortOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7B1B25BC045E00464BDB /* SortOutUITests.swift */; };
 		40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */; };
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
+		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
+		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
 		548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
@@ -76,6 +78,8 @@
 		40BE7B1D25BC045E00464BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
+		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
+		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				54FA285325E2445400D01711 /* VocablistTableViewCell.swift */,
 				54C0779325E799A20096768D /* StarsAndCoinsModel.swift */,
 				54C0779825E799C00096768D /* ShopItemModel.swift */,
+				5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				4099E4BD25E2514D0087CDA2 /* GameViewController.swift */,
 				40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */,
 				549C54DF25D66E6E0086AEA3 /* ProfileViewController.swift */,
+				5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -429,10 +435,12 @@
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
+				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
 				54FA285E25E2616A00D01711 /* VocabMeaningViewController.swift in Sources */,
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
 				54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */,
+				5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
