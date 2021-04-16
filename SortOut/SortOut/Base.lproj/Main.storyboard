@@ -126,20 +126,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fA3-1G-IPO">
                                 <rect key="frame" x="0.0" y="34" width="414" height="62"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlg-6D-QZm">
-                                        <rect key="frame" x="320" y="21" width="44" height="21"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv9-SM-Wm6">
+                                        <rect key="frame" x="341" y="16" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-cF-gzB">
-                                        <rect key="frame" x="235" y="21" width="40" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -178,9 +169,7 @@
                     <tabBarItem key="tabBarItem" title="Shop" image="shield.fill" catalog="system" id="Mr9-zG-STg"/>
                     <navigationItem key="navigationItem" id="Z2O-6t-0qr"/>
                     <connections>
-                        <outlet property="coinsLabel" destination="Xlg-6D-QZm" id="dyR-We-kTf"/>
                         <outlet property="screenNameLabel" destination="QgX-n8-h89" id="i6n-UF-fd5"/>
-                        <outlet property="starsLabel" destination="Bd5-cF-gzB" id="wfb-35-mLH"/>
                         <outlet property="tableView" destination="rZy-Lc-Pg4" id="FmB-YG-STj"/>
                     </connections>
                 </viewController>
@@ -843,15 +832,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unH-jr-Y0m">
                                 <rect key="frame" x="0.0" y="34" width="414" height="62"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="js1-Nr-7D8">
-                                        <rect key="frame" x="325" y="21" width="35" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Star" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-m1-OpL">
-                                        <rect key="frame" x="251" y="21" width="32" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As2-o9-o5C">
+                                        <rect key="frame" x="350" y="21" width="32" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -894,8 +876,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Gift" image="gift.fill" catalog="system" id="RT0-Kc-0gM"/>
                     <connections>
+                        <outlet property="coinDisplay" destination="As2-o9-o5C" id="nUY-RW-nuE"/>
                         <outlet property="screenNameLabel" destination="fHC-Ip-C9R" id="Pp3-JO-Gaq"/>
-                        <outlet property="starDisplay" destination="oMj-m1-OpL" id="8Tb-xy-WXr"/>
                         <outlet property="tableView" destination="SFn-c5-AJK" id="KMC-wo-cJm"/>
                     </connections>
                 </viewController>

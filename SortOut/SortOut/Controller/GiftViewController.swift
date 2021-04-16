@@ -6,12 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 class GiftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var starDisplay: UILabel!
+    /*
+     @IBOutlet weak var starDisplay: UILabel!
+     */
+    @IBOutlet weak var coinDisplay: UILabel!
     
+    var coin: Float = 0
+    
+    
+   /* @IBAction func textFieldDoneEditing(sender: UITextField) {
+          if sender.text == result {     // you should probably force everything to lowercase, to avoid wrong test
+            myLabel.text = "Correct"
+      } else {
+            myLabel.text = "Incorrect"
+  }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return self.tasks.count
@@ -50,7 +63,7 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let alert = UIAlertController(title: "Collect!", message: "Collect coins from \(task) Congrats! You got \(amountGift) coins", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
-            
+            coinDisplay.text = "100"
             
                   
             self.present(alert, animated: true, completion: nil)
