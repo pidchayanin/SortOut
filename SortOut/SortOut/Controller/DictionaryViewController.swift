@@ -25,6 +25,22 @@ class DictionaryViewController: UIViewController {
         
     }
     
+    @IBAction func backTapped(_ sender: Any) {
+        isReload = true
+    }
+    //    @IBAction func addToListTapped(_ sender: UIButton) {
+//        switch sender.tag {
+//                    case 0:
+//                        print("Button 1 Clicked")
+//                    case 1:
+//                        let vocabTab = (self.tabBarController?.viewControllers?[3]) as? VocabListViewController
+//                        performSegue(withIdentifier: "addToVocabList", sender: self)
+//                        
+//                        //print(vocabTab?.words)
+//                    default: break
+//              }
+//    }
+    
 
     /*
     // MARK: - Navigation
@@ -63,10 +79,50 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
 
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        //cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         cell.wordLabel.text = word[indexPath.row]
         
+        cell.addToVocabListButtonAction = { [unowned self] in
+            let alert = UIAlertController(title: "Add this word to list", message: "Are you sure?", preferredStyle: .alert)
+           
+            //YES
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"YES\" alert occured.")
+                
+                if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+                    
+                
+//                let vc = self.storyboard!.instantiateViewController(withIdentifier: "TabbarID") as! TabbarViewController
+//                if let destVC = vc.viewControllers,
+//                   let nc = destVC.first as? UINavigationController,
+//                   let vocabVC = nc.topViewController as? VocabListViewController{
+//                    vocabVC.words.append(word[indexPath.row])
+//                }
+//                let destVC = vc.viewControllers?[3] as! VocabListViewController
+//                destVC.words.append(word[indexPath.row])
+                //let vc = self.storyboard?.instantiateViewController(withIdentifier: "NCID") as! UINavigationController
+                //let destVC = vc.topViewController as! VocabListViewController
+                //destVC.words.append(word[indexPath.row])
+                //print(destVC.words)
+                //self.present(vc, animated: true, completion: nil)
+                    let addWord = AddToVocabCD(context:context)
+                    let addedWord = word[indexPath.row]
+                    addWord.addedWord = addedWord
+                    print(addedWord)
+                    
+                    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                }
+                
+            }))
+            
+            //NO
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Tap no")
+          }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
         
         
         cell.backgroundColor = UIColor.white

@@ -34,6 +34,7 @@
 		54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD589325BC14AA00BD849D /* TabbarViewController.swift */; };
 		54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779325E799A20096768D /* StarsAndCoinsModel.swift */; };
 		54C0779925E799C00096768D /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779825E799C00096768D /* ShopItemModel.swift */; };
+		54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D083582628423900F5DD37 /* AnswerViewController.swift */; };
 		54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */; };
 		54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA285325E2445400D01711 /* VocablistTableViewCell.swift */; };
 		54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA285825E245B600D01711 /* VocabListViewController.swift */; };
@@ -92,6 +93,7 @@
 		54BD589325BC14AA00BD849D /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		54C0779325E799A20096768D /* StarsAndCoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAndCoinsModel.swift; sourceTree = "<group>"; };
 		54C0779825E799C00096768D /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
+		54D083582628423900F5DD37 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		54FA285325E2445400D01711 /* VocablistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocablistTableViewCell.swift; sourceTree = "<group>"; };
 		54FA285825E245B600D01711 /* VocabListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */,
 				549C54DF25D66E6E0086AEA3 /* ProfileViewController.swift */,
 				5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */,
+				54D083582628423900F5DD37 /* AnswerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
 				54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
+				54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */,
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,

@@ -1,16 +1,20 @@
 PODS:
+  - HandySwift (3.0.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - HandySwift
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - HandySwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  HandySwift: c8304dda2d013ca6eda990b1a24ddf6ed6bf15e2
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 641da13df3b6baaf72ede6fdef45d2abdd31315a
+PODFILE CHECKSUM: e2ab1965810ba350010553a4936d61ba7e9382e0
 
 COCOAPODS: 1.10.1

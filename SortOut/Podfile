@@ -7,5 +7,6 @@ target 'SortOut' do
 
   # Pods for SortOut
   pod 'SwiftyJSON'
+  pod 'HandySwift'
 
 end
