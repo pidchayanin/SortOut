@@ -9,6 +9,10 @@ import UIKit
 
 class GiftViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var starDisplay: UILabel!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return self.tasks.count
         return 1
@@ -42,9 +46,12 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.collectButtonAction = { [unowned self] in
             let task = self.tasks[indexPath.section]
-            let alert = UIAlertController(title: "Collect!", message: "Collect coins from \(task)", preferredStyle: .alert)
+            let amountGift = self.amountGifts[indexPath.section]
+            let alert = UIAlertController(title: "Collect!", message: "Collect coins from \(task) Congrats! You got \(amountGift) coins", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
+            
+            
                   
             self.present(alert, animated: true, completion: nil)
         }
@@ -68,6 +75,9 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellReuseIdentifier = "giftCell"
     let imageName = [UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg")]
     let cellSpacingHeight: CGFloat = 20
+    
+    //amount of coins user will get from each gifts
+    let amountGifts: [String] = ["10", "20", "30", "40"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

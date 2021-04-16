@@ -842,6 +842,22 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unH-jr-Y0m">
                                 <rect key="frame" x="0.0" y="34" width="414" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="js1-Nr-7D8">
+                                        <rect key="frame" x="325" y="21" width="35" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Star" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-m1-OpL">
+                                        <rect key="frame" x="251" y="21" width="32" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chm-HB-Ffo">
@@ -879,6 +895,7 @@
                     <tabBarItem key="tabBarItem" title="Gift" image="gift.fill" catalog="system" id="RT0-Kc-0gM"/>
                     <connections>
                         <outlet property="screenNameLabel" destination="fHC-Ip-C9R" id="Pp3-JO-Gaq"/>
+                        <outlet property="starDisplay" destination="oMj-m1-OpL" id="8Tb-xy-WXr"/>
                         <outlet property="tableView" destination="SFn-c5-AJK" id="KMC-wo-cJm"/>
                     </connections>
                 </viewController>
