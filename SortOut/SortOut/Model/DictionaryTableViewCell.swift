@@ -18,6 +18,7 @@ class DictionaryTableViewCell: UITableViewCell {
     
     
     var addToVocabListButtonAction : (() -> ())?
+    var undoButtonAction : (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,4 +37,7 @@ class DictionaryTableViewCell: UITableViewCell {
         // then execute the code inside the subscribeButtonAction closure
         addToVocabListButtonAction?()
       }
+    @IBAction func undoTapped(_ sender: Any) {
+        undoButtonAction?()
+    }
 }

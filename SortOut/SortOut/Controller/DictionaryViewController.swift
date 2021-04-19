@@ -86,7 +86,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         cell.addToVocabListButtonAction = { [unowned self] in
-            let alert = UIAlertController(title: "Add this word to list", message: "Are you sure?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add \(word[indexPath.row]) to list", message: "Are you sure?", preferredStyle: .alert)
            
             //YES
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
@@ -121,6 +121,23 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.undoButton.isEnabled = true
                     
                     cell.addedTextLabel.isHidden = false
+                    
+                    if cell.undoButton.isHidden == false {
+                        cell.undoButtonAction = {
+                            [unowned self] in
+                            //self.undoManager?.undo()
+                            //cell.undoButton.isEnabled = self.undoManager?.canUndo ?? false
+                            context.delete(addWord)
+                            cell.undoButton.isHidden = true
+                            cell.undoButton.isEnabled = false
+                            cell.addedTextLabel.isHidden = true
+                            cell.addToVocabListButton.isEnabled = true
+                            cell.addToVocabListButton.backgroundColor = .systemBlue
+                            
+                            cell.addToListLabel.isHidden = false
+                            print("undo pressed")
+                        }
+                    }
                     
                     (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
                     

@@ -120,6 +120,7 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        //use Date ?
         return 1//words.count
     }
     

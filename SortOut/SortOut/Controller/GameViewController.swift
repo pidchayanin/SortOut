@@ -187,7 +187,7 @@ class GameViewController: UIViewController {
     
     func retreiveData() {
         var tempStr = ""
-        let number1 = Int.random(in: 0 ..< 30)
+        let number1 = Int.random(in: 0 ..< 20000)
         let number2 = Int.random(in: 0 ..< number1)
         var tempInt = 0
         var tempInt1 = 0
