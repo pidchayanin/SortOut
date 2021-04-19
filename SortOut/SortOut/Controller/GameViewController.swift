@@ -1057,9 +1057,20 @@ class GameViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+        if words5 == "" {
+            wordsArr = [words1, words2, words3, words4]
+        } else if words6 == "" {
+            wordsArr = [words1, words2, words3, words4, words5]
+        } else if words7 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6]
+        } else if words8 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7]
+        } else {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+        }
+        
         if segue.identifier == "toDictionary" {
-            isReload = true
+            //isReload = true
             let vc = segue.destination as? DictionaryViewController
             vc?.word = wordsArr
         }

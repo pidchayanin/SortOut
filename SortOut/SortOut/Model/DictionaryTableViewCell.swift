@@ -12,6 +12,10 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var partOfSpeechLabel: UILabel!
     @IBOutlet weak var addToVocabListButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var addedTextLabel: UILabel!
+    @IBOutlet weak var addToListLabel: UILabel!
+    
     
     var addToVocabListButtonAction : (() -> ())?
     

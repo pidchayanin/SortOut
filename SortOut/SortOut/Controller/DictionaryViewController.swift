@@ -80,19 +80,19 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
 
         //cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        if word[indexPath.row] != "" {
+            cell.wordLabel.text = word[indexPath.row]
+        }
         
-        cell.wordLabel.text = word[indexPath.row]
         
         cell.addToVocabListButtonAction = { [unowned self] in
             let alert = UIAlertController(title: "Add this word to list", message: "Are you sure?", preferredStyle: .alert)
            
             //YES
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("The \"YES\" alert occured.")
+            //NSLog("The \"YES\" alert occured.")
                 
                 if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
-                    
-                
 //                let vc = self.storyboard!.instantiateViewController(withIdentifier: "TabbarID") as! TabbarViewController
 //                if let destVC = vc.viewControllers,
 //                   let nc = destVC.first as? UINavigationController,
@@ -109,9 +109,21 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
                     let addWord = AddToVocabCD(context:context)
                     let addedWord = word[indexPath.row]
                     addWord.addedWord = addedWord
-                    print(addedWord)
+                    print("added word: ", addWord.addedWord!)
+                    
+                    
+                    cell.addToVocabListButton.isEnabled = false
+                    cell.addToVocabListButton.backgroundColor = .lightGray
+                    
+                    cell.addToListLabel.isHidden = true
+                    
+                    cell.undoButton.isHidden = false
+                    cell.undoButton.isEnabled = true
+                    
+                    cell.addedTextLabel.isHidden = false
                     
                     (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                    
                 }
                 
             }))
@@ -138,7 +150,4 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         //tableView.reloadData()
         return cell
     }
-    
-    
-    
 }
