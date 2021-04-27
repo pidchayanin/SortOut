@@ -31,6 +31,10 @@
 		549C54FA25D9222B0086AEA3 /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54F925D9222B0086AEA3 /* test1.swift */; };
 		549C550225DE590C0086AEA3 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C550125DE590C0086AEA3 /* ShopViewController.swift */; };
 		549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */; };
+		54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E5526381D6F0055D913 /* BetterShopViewController.swift */; };
+		54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */; };
+		54B36E6326381E3B0055D913 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E6226381E3B0055D913 /* DataManager.swift */; };
+		54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */; };
 		54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD589325BC14AA00BD849D /* TabbarViewController.swift */; };
 		54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779325E799A20096768D /* StarsAndCoinsModel.swift */; };
 		54C0779925E799C00096768D /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779825E799C00096768D /* ShopItemModel.swift */; };
@@ -90,6 +94,10 @@
 		549C54F925D9222B0086AEA3 /* test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1.swift; sourceTree = "<group>"; };
 		549C550125DE590C0086AEA3 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewCell.swift; sourceTree = "<group>"; };
+		54B36E5526381D6F0055D913 /* BetterShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterShopViewController.swift; sourceTree = "<group>"; };
+		54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterShopTableViewCell.swift; sourceTree = "<group>"; };
+		54B36E6226381E3B0055D913 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		54BD589325BC14AA00BD849D /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		54C0779325E799A20096768D /* StarsAndCoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAndCoinsModel.swift; sourceTree = "<group>"; };
 		54C0779825E799C00096768D /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
@@ -199,12 +207,14 @@
 			isa = PBXGroup;
 			children = (
 				549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */,
+				54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */,
 				549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */,
 				54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */,
 				54FA285325E2445400D01711 /* VocablistTableViewCell.swift */,
 				54C0779325E799A20096768D /* StarsAndCoinsModel.swift */,
 				54C0779825E799C00096768D /* ShopItemModel.swift */,
 				5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */,
+				54B36E6226381E3B0055D913 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				549C54F925D9222B0086AEA3 /* test1.swift */,
+				54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */,
 				4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */,
 				548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */,
 				548AB4002613008C00C98D94 /* PopUpWindow.swift */,
@@ -224,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				54BD589325BC14AA00BD849D /* TabbarViewController.swift */,
+				54B36E5526381D6F0055D913 /* BetterShopViewController.swift */,
 				549C550125DE590C0086AEA3 /* ShopViewController.swift */,
 				549C54EF25D7D6130086AEA3 /* GiftViewController.swift */,
 				54FA285825E245B600D01711 /* VocabListViewController.swift */,
@@ -426,11 +438,14 @@
 				40BE7B0125BC045800464BDB /* SortOut.xcdatamodeld in Sources */,
 				4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */,
 				549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */,
+				54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */,
+				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
 				549C550225DE590C0086AEA3 /* ShopViewController.swift in Sources */,
 				548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
+				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
 				54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
 				54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */,
@@ -444,6 +459,7 @@
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
 				54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */,
+				54B36E6326381E3B0055D913 /* DataManager.swift in Sources */,
 				5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

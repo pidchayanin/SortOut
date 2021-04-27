@@ -61,6 +61,11 @@ class BuyItemPopUpViewController: UIViewController, UIPopoverPresentationControl
             let retryItem = Item.init(context: self.context)
             retryItem.itemNum = Int64(self.numOfItemCount)
             print("popup", retryItem.itemNum)
+            do {
+                try self.context.save()
+            } catch {
+                fatalError("could not save")
+            }
             self.presentingViewController?.dismiss(animated: false, completion: nil)
         }))
         
@@ -74,11 +79,7 @@ class BuyItemPopUpViewController: UIViewController, UIPopoverPresentationControl
     
 
         
-        do {
-            try context.save()
-        } catch {
-            fatalError("could not save")
-        }
+        
         
     }
     

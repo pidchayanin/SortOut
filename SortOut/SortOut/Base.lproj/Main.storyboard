@@ -12,7 +12,7 @@
         <!--Shop-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ShopID" id="BYZ-38-t0r" customClass="ShopViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopID" id="BYZ-38-t0r" customClass="BetterShopViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" rowHeight="128" id="IkW-fu-t7r" customClass="ShopTableViewCell" customModule="SortOut" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" rowHeight="128" id="IkW-fu-t7r" customClass="BetterShopTableViewCell" customModule="SortOut" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="390" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IkW-fu-t7r" id="Uyl-2W-mtV">
@@ -69,8 +69,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <state key="normal" title="Buy"/>
                                                             <connections>
-                                                                <action selector="buyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n0g-8n-wM1"/>
-                                                                <action selector="buyButtonTapped:" destination="IkW-fu-t7r" eventType="touchUpInside" id="vka-T4-UqC"/>
+                                                                <action selector="buyTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXG-rv-W3o"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-PW-PXq">
@@ -97,7 +96,7 @@
                                                         <constraint firstItem="DB4-h3-yHu" firstAttribute="top" secondItem="h8E-UA-TQ6" secondAttribute="bottom" constant="16" id="UA1-aw-rFw"/>
                                                         <constraint firstItem="sYd-PW-PXq" firstAttribute="top" secondItem="1O3-FZ-hFK" secondAttribute="top" id="XKd-zY-ZO7"/>
                                                         <constraint firstItem="al8-yw-nSy" firstAttribute="leading" secondItem="1O3-FZ-hFK" secondAttribute="leading" constant="17" id="ZRm-v3-73z"/>
-                                                        <constraint firstItem="sYd-PW-PXq" firstAttribute="leading" secondItem="1O3-FZ-hFK" secondAttribute="leading" constant="348" id="cRd-j7-OoF"/>
+                                                        <constraint firstItem="sYd-PW-PXq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1O3-FZ-hFK" secondAttribute="leading" constant="20" symbolic="YES" id="cRd-j7-OoF"/>
                                                         <constraint firstItem="h8E-UA-TQ6" firstAttribute="bottom" secondItem="Q53-Gw-KcF" secondAttribute="bottom" id="fIu-dc-aRY"/>
                                                         <constraint firstItem="h8E-UA-TQ6" firstAttribute="top" secondItem="1O3-FZ-hFK" secondAttribute="top" constant="28" id="jKM-3V-bkd"/>
                                                         <constraint firstAttribute="bottom" secondItem="wsV-rF-eFD" secondAttribute="bottom" constant="22" id="tWJ-aB-LF6"/>
@@ -112,13 +111,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="buyButton" destination="wsV-rF-eFD" id="dpw-Oe-NHd"/>
-                                            <outlet property="coinImage" destination="Q53-Gw-KcF" id="9N0-D3-Qme"/>
-                                            <outlet property="itemDescriptionLabel" destination="DB4-h3-yHu" id="gvz-NA-73x"/>
-                                            <outlet property="itemImage" destination="al8-yw-nSy" id="gml-Ug-Nkz"/>
-                                            <outlet property="itemNameLabel" destination="h8E-UA-TQ6" id="d4C-LR-hqw"/>
-                                            <outlet property="numberOfItemLabel" destination="sYd-PW-PXq" id="lRJ-MR-1GR"/>
-                                            <outlet property="priceLabel" destination="mFQ-vS-R2q" id="3Al-q8-cKN"/>
+                                            <outlet property="coinImage" destination="Q53-Gw-KcF" id="Pij-Wm-9HI"/>
+                                            <outlet property="itemDescriptionLabel" destination="DB4-h3-yHu" id="RwB-Ct-lIN"/>
+                                            <outlet property="itemImage" destination="al8-yw-nSy" id="F0L-zt-sM5"/>
+                                            <outlet property="itemNameLabel" destination="h8E-UA-TQ6" id="Q81-Gp-eZQ"/>
+                                            <outlet property="itemNumLabel" destination="sYd-PW-PXq" id="xPw-hS-9MH"/>
+                                            <outlet property="itemPriceLabel" destination="mFQ-vS-R2q" id="b1w-pz-9Cm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -126,13 +124,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fA3-1G-IPO">
                                 <rect key="frame" x="0.0" y="34" width="414" height="62"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv9-SM-Wm6">
-                                        <rect key="frame" x="341" y="16" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uB-ch-G4m">
+                                        <rect key="frame" x="326" y="18" width="41" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeI-6A-WuB">
+                                        <rect key="frame" x="246" y="18" width="38" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZeI-6A-WuB" secondAttribute="trailing" constant="130" id="35u-Lh-q3I"/>
+                                    <constraint firstItem="ZeI-6A-WuB" firstAttribute="baseline" secondItem="2uB-ch-G4m" secondAttribute="baseline" id="60s-ds-cka"/>
+                                    <constraint firstItem="ZeI-6A-WuB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fA3-1G-IPO" secondAttribute="leading" constant="20" symbolic="YES" id="Pa2-FQ-y0q"/>
+                                    <constraint firstItem="ZeI-6A-WuB" firstAttribute="top" secondItem="fA3-1G-IPO" secondAttribute="topMargin" id="ivF-tp-KN2"/>
+                                    <constraint firstAttribute="trailing" secondItem="2uB-ch-G4m" secondAttribute="trailing" constant="47" id="rBJ-5E-X3a"/>
+                                    <constraint firstItem="2uB-ch-G4m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZeI-6A-WuB" secondAttribute="trailing" constant="8" symbolic="YES" id="rwv-Eh-9mp"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBL-fm-E0q">
                                 <rect key="frame" x="0.0" y="96" width="414" height="48"/>
@@ -169,7 +182,9 @@
                     <tabBarItem key="tabBarItem" title="Shop" image="shield.fill" catalog="system" id="Mr9-zG-STg"/>
                     <navigationItem key="navigationItem" id="Z2O-6t-0qr"/>
                     <connections>
-                        <outlet property="screenNameLabel" destination="QgX-n8-h89" id="i6n-UF-fd5"/>
+                        <outlet property="coinNumLabel" destination="2uB-ch-G4m" id="S9R-zS-nVT"/>
+                        <outlet property="screenNameLabel" destination="QgX-n8-h89" id="LUu-b7-2Cz"/>
+                        <outlet property="starNumLabel" destination="ZeI-6A-WuB" id="PuF-IT-Xdp"/>
                         <outlet property="tableView" destination="rZy-Lc-Pg4" id="FmB-YG-STj"/>
                     </connections>
                 </viewController>
@@ -180,7 +195,7 @@
         <!--Buy Item-->
         <scene sceneID="iTi-UY-QSy">
             <objects>
-                <viewController storyboardIdentifier="BuyItemPopUpID" title="Buy Item" id="MJz-Zq-iS7" customClass="BuyItemPopUpViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuyItemPopUpID" title="Buy Item" id="MJz-Zq-iS7" customClass="BetterBuyItemPopUpViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lsm-UU-iHN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +240,7 @@
                                             <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="increaseItemTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="hgf-QC-yxr"/>
+                                            <action selector="plusTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="wcr-a0-keH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nv9-h7-6wK">
@@ -238,7 +253,7 @@
                                             <imageReference key="image" image="minus" catalog="system" symbolScale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="decreaseItemTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="rii-4D-Rz7"/>
+                                            <action selector="minusTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="93T-1M-SCu"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTa-rR-RiZ">
@@ -246,7 +261,7 @@
                                         <color key="backgroundColor" red="0.62218242879999996" green="1" blue="0.18783140179999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="buyButtonTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="Jjf-Dh-uV2"/>
+                                            <action selector="buyTapped:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="AaJ-LP-JzS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -283,14 +298,14 @@
                                 <rect key="frame" x="0.0" y="6" width="414" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="dismissPopUp1:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="m8l-t7-c9i"/>
+                                    <action selector="dissMissPopUp1:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="vBP-C8-AL4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgq-Uo-cqb">
                                 <rect key="frame" x="0.0" y="485" width="414" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="dismissPopUp2:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="0j1-Iw-zEq"/>
+                                    <action selector="dismissPopUp2:" destination="MJz-Zq-iS7" eventType="touchUpInside" id="U3d-fa-64s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -304,10 +319,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="amountOfItemLabel" destination="0jy-DG-Bj0" id="eU4-9K-scD"/>
-                        <outlet property="coinImage" destination="JRG-dF-yfD" id="i1Q-Nh-BFV"/>
-                        <outlet property="itemNameLabel" destination="m8A-t7-92N" id="Wul-Yr-tyX"/>
-                        <outlet property="itemPriceLabel" destination="Enh-HV-ogW" id="9bf-OJ-mWP"/>
+                        <outlet property="amountOfItemLabel" destination="0jy-DG-Bj0" id="KvQ-AF-N2C"/>
+                        <outlet property="buyBtn" destination="nTa-rR-RiZ" id="xCG-SI-KX2"/>
+                        <outlet property="coinImage" destination="JRG-dF-yfD" id="LcX-Z8-gpB"/>
+                        <outlet property="itemNameLabel" destination="m8A-t7-92N" id="Waa-x9-C7z"/>
+                        <outlet property="itemPriceLabel" destination="Enh-HV-ogW" id="jKb-fe-usM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWa-OT-b7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
