@@ -10,6 +10,7 @@ import UIKit
 class DictionaryViewController: UIViewController {
     
     @IBOutlet weak var dictionaryTableView: UITableView!
+
     
     let cellReuseIdentifier = "dictCell"
     let cellSpacingHeight: CGFloat = 20
@@ -56,9 +57,6 @@ class DictionaryViewController: UIViewController {
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return word.count
@@ -74,6 +72,9 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,13 +87,13 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         cell.addToVocabListButtonAction = { [unowned self] in
-            let alert = UIAlertController(title: "Add \(word[indexPath.row]) to list", message: "Are you sure?", preferredStyle: .alert)
+            //let alert = UIAlertController(title: "Add \(word[indexPath.row]) to list", message: "Are you sure?", preferredStyle: .alert)
            
             //YES
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            //alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
             //NSLog("The \"YES\" alert occured.")
                 
-                if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 //                let vc = self.storyboard!.instantiateViewController(withIdentifier: "TabbarID") as! TabbarViewController
 //                if let destVC = vc.viewControllers,
 //                   let nc = destVC.first as? UINavigationController,
@@ -106,51 +107,59 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
                 //destVC.words.append(word[indexPath.row])
                 //print(destVC.words)
                 //self.present(vc, animated: true, completion: nil)
-                    let addWord = AddToVocabCD(context:context)
-                    let addedWord = word[indexPath.row]
-                    addWord.addedWord = addedWord
-                    print("added word: ", addWord.addedWord!)
-                    
-                    
-                    cell.addToVocabListButton.isEnabled = false
-                    cell.addToVocabListButton.backgroundColor = .lightGray
-                    
-                    cell.addToListLabel.isHidden = true
-                    
-                    cell.undoButton.isHidden = false
-                    cell.undoButton.isEnabled = true
-                    
-                    cell.addedTextLabel.isHidden = false
-                    
-                    if cell.undoButton.isHidden == false {
-                        cell.undoButtonAction = {
-                            [unowned self] in
-                            //self.undoManager?.undo()
-                            //cell.undoButton.isEnabled = self.undoManager?.canUndo ?? false
-                            context.delete(addWord)
-                            cell.undoButton.isHidden = true
-                            cell.undoButton.isEnabled = false
-                            cell.addedTextLabel.isHidden = true
-                            cell.addToVocabListButton.isEnabled = true
-                            cell.addToVocabListButton.backgroundColor = .systemBlue
-                            
-                            cell.addToListLabel.isHidden = false
-                            print("undo pressed")
-                        }
-                    }
-                    
-                    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-                    
-                }
+            let addWord = AddToVocabCD(context:context!)
+            let addedWord = word[indexPath.row]
+            addWord.addedWord = addedWord
+            //print("array addedword: ", [addedWord])
+            //print("word: ", word)
+            //print("word indexpath: ", addedWord.count)
+            //print("indPath: ", indexPath.row)
+            //print("added word: ", addWord)
+            
+            //if [addedWord][i].count == 1 {
+                //addWord.addedWord = String([addedWord][0])
+                cell.addToVocabListButton.isEnabled = false
+                cell.addToVocabListButton.backgroundColor = .lightGray
+            
+                cell.addToListLabel.isHidden = true
                 
-            }))
+                cell.undoButton.isHidden = false
+                cell.undoButton.isEnabled = true
+                
+                cell.addedTextLabel.isHidden = false
+            
+                
+                if cell.undoButton.isHidden == false {
+                    cell.undoButtonAction = {
+                        [unowned self] in
+                        //self.undoManager?.undo()
+                        //cell.undoButton.isEnabled = self.undoManager?.canUndo ?? false
+                        context!.delete(addWord)
+                        cell.undoButton.isHidden = true
+                        cell.undoButton.isEnabled = false
+                        cell.addedTextLabel.isHidden = true
+                        cell.addToVocabListButton.isEnabled = true
+                        cell.addToVocabListButton.backgroundColor = .systemBlue
+                        
+                        cell.addToListLabel.isHidden = false
+                        print(addWord)
+                        print("undo pressed")
+                    }
+                }
+            //}
+
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                    
+                
+                
+            //}))
             
             //NO
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Tap no")
-          }))
+            //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+          //      print("Tap no")
+          //}))
             
-            self.present(alert, animated: true, completion: nil)
+           // self.present(alert, animated: true, completion: nil)
         }
         
         

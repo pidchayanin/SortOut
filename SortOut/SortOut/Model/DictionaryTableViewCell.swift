@@ -24,6 +24,7 @@ class DictionaryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.addToVocabListButton.addTarget(self, action: #selector(buyButtonTapped(_:)), for: .touchUpInside)
+        self.undoButton.addTarget(self, action: #selector(undoTapped(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +38,7 @@ class DictionaryTableViewCell: UITableViewCell {
         // then execute the code inside the subscribeButtonAction closure
         addToVocabListButtonAction?()
       }
-    @IBAction func undoTapped(_ sender: Any) {
+    @IBAction func undoTapped(_ sender: UIButton) {
         undoButtonAction?()
     }
 }
