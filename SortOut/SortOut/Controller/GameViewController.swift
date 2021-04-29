@@ -21,15 +21,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var word6Button: UIButton!
     @IBOutlet weak var word7Button: UIButton!
     @IBOutlet weak var word8Button: UIButton!
+    @IBOutlet weak var word9Button: UIButton!
+    @IBOutlet weak var word10Button: UIButton!
     
-    @IBOutlet weak var wordTapped1: UIButton!
-    @IBOutlet weak var wordTapped2: UIButton!
-    @IBOutlet weak var wordTapped3: UIButton!
-    @IBOutlet weak var wordTapped4: UIButton!
-    @IBOutlet weak var wordTapped5: UIButton!
-    @IBOutlet weak var wordTapped6: UIButton!
-    @IBOutlet weak var wordTapped7: UIButton!
-    @IBOutlet weak var wordTapped8: UIButton!
+
     
     @IBOutlet weak var textfield: UITextField!
     
@@ -41,10 +36,12 @@ class GameViewController: UIViewController {
     var words6 = ""
     var words7 = ""
     var words8 = ""
+    var words9 = ""
+    var words10 = ""
     
-    var numbers = 0
-    var numbers1 = 0
-    var numbers2 = 0
+    //var numbers = 0
+    //var numbers1 = 0
+    //var numbers2 = 0
     
     var wordsArr = [""]
 
@@ -66,15 +63,9 @@ class GameViewController: UIViewController {
         word6Button.layer.borderWidth = 1
         word7Button.layer.borderWidth = 1
         word8Button.layer.borderWidth = 1
-        
-        wordTapped1.layer.borderWidth = 1
-        wordTapped2.layer.borderWidth = 1
-        wordTapped3.layer.borderWidth = 1
-        wordTapped4.layer.borderWidth = 1
-        wordTapped5.layer.borderWidth = 1
-        wordTapped6.layer.borderWidth = 1
-        wordTapped7.layer.borderWidth = 1
-        wordTapped8.layer.borderWidth = 1
+        word9Button.layer.borderWidth = 1
+        word10Button.layer.borderWidth = 1
+
 //        let number1 = numbers1
 //        let number2 = numbers2
 //        var tempInt = 0
@@ -92,6 +83,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words2 == ""{
             word2Button.isHidden = true
@@ -102,6 +95,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words3 == ""{
             word3Button.isHidden = true
@@ -112,6 +107,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words4 == ""{
             word4Button.isHidden = true
@@ -122,6 +119,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words5 == ""{
             word5Button.isHidden = true
@@ -132,6 +131,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words6 == ""{
             word6Button.isHidden = true
@@ -142,6 +143,8 @@ class GameViewController: UIViewController {
             word5Button.setTitle(words5, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words7 == "" {
             word7Button.isHidden = true
@@ -158,6 +161,8 @@ class GameViewController: UIViewController {
             word5Button.setTitle(words5, for: .normal)
             word6Button.setTitle(words6, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         if words8 == ""{
             word8Button.isHidden = true
@@ -168,6 +173,32 @@ class GameViewController: UIViewController {
             word5Button.setTitle(words5, for: .normal)
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
+        }
+        if words9 == ""{
+            word9Button.isHidden = true
+            word1Button.setTitle(words1, for: .normal)
+            word2Button.setTitle(words2, for: .normal)
+            word3Button.setTitle(words3, for: .normal)
+            word4Button.setTitle(words4, for: .normal)
+            word5Button.setTitle(words5, for: .normal)
+            word6Button.setTitle(words6, for: .normal)
+            word7Button.setTitle(words7, for: .normal)
+            word8Button.setTitle(words8, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
+        }
+        if words10 == ""{
+            word10Button.isHidden = true
+            word1Button.setTitle(words1, for: .normal)
+            word2Button.setTitle(words2, for: .normal)
+            word3Button.setTitle(words3, for: .normal)
+            word4Button.setTitle(words4, for: .normal)
+            word5Button.setTitle(words5, for: .normal)
+            word6Button.setTitle(words6, for: .normal)
+            word7Button.setTitle(words7, for: .normal)
+            word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
         }
         
         else {
@@ -179,6 +210,8 @@ class GameViewController: UIViewController {
             word6Button.setTitle(words6, for: .normal)
             word7Button.setTitle(words7, for: .normal)
             word8Button.setTitle(words8, for: .normal)
+            word9Button.setTitle(words9, for: .normal)
+            word10Button.setTitle(words10, for: .normal)
         }
         //}
         
@@ -223,6 +256,8 @@ class GameViewController: UIViewController {
                 var word6 = ""
                 var word7 = ""
                 var word8 = ""
+                var word9 = ""
+                var word10 = ""
                 
                 let number = item.1["number"]
                 
@@ -257,8 +292,8 @@ class GameViewController: UIViewController {
                 //MARK: This is the beginning of RNG generator
                 // %9 is not confirmed rng 1 and 2, too
                 if ((number1 + number2) % 9) + 1 == tempInt{
-                    numbers1 = number1
-                    numbers2 = number2
+                    //numbers1 = number1
+                    //numbers2 = number2
 //                    print("temp: ", tempStr)
 //                    print("======")
                     
@@ -271,7 +306,30 @@ class GameViewController: UIViewController {
                     
                     let sentences = item.1["sentence1"].arrayValue.shuffled()
                     //let testWord1 = sentences[0]
-                    if sentences.count <= 8 && sentences.count > 7 {
+                    if sentences.count <= 10 && sentences.count > 9 {
+                        word1 = sentences[0].stringValue.lowercased()
+                        word2 = sentences[1].stringValue.lowercased()
+                        word3 = sentences[2].stringValue.lowercased()
+                        word4 = sentences[3].stringValue.lowercased()
+                        word5 = sentences[4].stringValue.lowercased()
+                        word6 = sentences[5].stringValue.lowercased()
+                        word7 = sentences[6].stringValue.lowercased()
+                        word8 = sentences[7].stringValue.lowercased()
+                        word9 = sentences[8].stringValue.lowercased()
+                        word10 = sentences[9].stringValue.lowercased()
+                    }
+                    else if sentences.count <= 9 && sentences.count > 8 {
+                        word1 = sentences[0].stringValue.lowercased()
+                        word2 = sentences[1].stringValue.lowercased()
+                        word3 = sentences[2].stringValue.lowercased()
+                        word4 = sentences[3].stringValue.lowercased()
+                        word5 = sentences[4].stringValue.lowercased()
+                        word6 = sentences[5].stringValue.lowercased()
+                        word7 = sentences[6].stringValue.lowercased()
+                        word8 = sentences[7].stringValue.lowercased()
+                        word9 = sentences[8].stringValue.lowercased()
+                    }
+                    else if sentences.count <= 8 && sentences.count > 7 {
                         word1 = sentences[0].stringValue.lowercased()
                         word2 = sentences[1].stringValue.lowercased()
                         word3 = sentences[2].stringValue.lowercased()
@@ -323,52 +381,7 @@ class GameViewController: UIViewController {
                     else if sentences.count <= 1 && sentences.count > 0 {
                         word1 = sentences[0].stringValue.lowercased()
                     }
-//                    else {
-//                        word1 = sentences[0].stringValue
-//                        word2 = sentences[1].stringValue
-//                        word3 = sentences[2].stringValue
-//                        word4 = sentences[3].stringValue
-//                        word5 = sentences[4].stringValue
-//                        word6 = sentences[5].stringValue
-//                        word7 = sentences[6].stringValue
-//                        word8 = sentences[7].stringValue
-//                    }
-                    //let sentencesArr = sentences.arrayValue.map({$0["sentence1"].stringValue})
-                    //print(sentences)
-                    //print(testWord1)
-//                    for i in testWord1 {
-//                        let tester1 = i.stringValue.lowercased().split(separator: ",")
-//                        //print(tester1)
-//                        for j in tester1 {
-//                            let tester2 = j
-//                            print(tester2)
-//                        }
-//                    }
-                    
-//                    if word7 == "" {
-//                        words7 = "null"
-//                    }
-//                    else if word8 == "" {
-//                        words8 = "null"
-//                    }
-//                    else if word6 == "" {
-//                        words6 = "null"
-//                    }
-//                    else if word5 == "" {
-//                        words5 = "null"
-//                    }
-//                    else if word4 == "" {
-//                        words4 = "null"
-//                    }
-//                    else if word3 == "" {
-//                        words3 = "null"
-//                    }
-//                    else if word2 == "" {
-//                        words2 = "null"
-//                    }
-//                    else if word1 == "" {
-//                        words1 = "null"
-//                    }
+
                     words1 = word1
                     words2 = word2
                     words3 = word3
@@ -377,6 +390,8 @@ class GameViewController: UIViewController {
                     words6 = word6
                     words7 = word7
                     words8 = word8
+                    words9 = word9
+                    words10 = word10
                 }
                 
                 
@@ -443,48 +458,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words1)
         }
         
-//        if wordTapped1.isHidden == true {
-            //wordTapped1.isHidden = false
-            //wordTapped1.setTitle(words1.capitalized, for: .normal)
-//            word1Button.isHidden = true
-//            textfield.text = words1.capitalized
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//            textfield.text = words1
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words1, for: .normal)
-//            word1Button.isHidden = true
-//        }
     }
     
     @IBAction func word2Tapped(_ sender: Any) {
@@ -498,47 +471,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words2)
         }
         
-        
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words2.capitalized, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words2, for: .normal)
-//            word2Button.isHidden = true
-//        }
     }
     
     @IBAction func word3Tapped(_ sender: Any) {
@@ -552,46 +484,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words3)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words3.capitalized, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words3, for: .normal)
-//            word3Button.isHidden = true
-//        }
     }
     
     @IBAction func word4Tapped(_ sender: Any) {
@@ -605,46 +497,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words4)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words4.capitalized, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words4, for: .normal)
-//            word4Button.isHidden = true
-//        }
     }
     
     @IBAction func word5Tapped(_ sender: Any) {
@@ -658,46 +510,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words5)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words5.capitalized, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words5, for: .normal)
-//            word5Button.isHidden = true
-//        }
     }
     
     @IBAction func word6Tapped(_ sender: Any) {
@@ -711,46 +523,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words6)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words6.capitalized, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words6, for: .normal)
-//            word6Button.isHidden = true
-//        }
     }
     
     @IBAction func word7Tapped(_ sender: Any) {
@@ -764,46 +536,6 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words7)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words7.capitalized, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words7, for: .normal)
-//            word7Button.isHidden = true
-//        }
     }
     
     @IBAction func word8Tapped(_ sender: Any) {
@@ -817,154 +549,34 @@ class GameViewController: UIViewController {
             textfield.text?.append(" " + words8)
         }
         
-//        if wordTapped1.isHidden == true {
-//            wordTapped1.isHidden = false
-//            wordTapped1.setTitle(words8.capitalized, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped2.isHidden == true && wordTapped1.isHidden == false{
-//            wordTapped2.isHidden = false
-//            wordTapped2.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped3.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false{
-//            wordTapped3.isHidden = false
-//            wordTapped3.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped4.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false {
-//            wordTapped4.isHidden = false
-//            wordTapped4.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped5.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false {
-//            wordTapped5.isHidden = false
-//            wordTapped5.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped6.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false {
-//            wordTapped6.isHidden = false
-//            wordTapped6.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped7.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false {
-//            wordTapped7.isHidden = false
-//            wordTapped7.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
-//        else if wordTapped8.isHidden == true && wordTapped1.isHidden == false && wordTapped2.isHidden == false && wordTapped3.isHidden == false && wordTapped4.isHidden == false && wordTapped5.isHidden == false && wordTapped6.isHidden == false && wordTapped7.isHidden == false {
-//            wordTapped8.isHidden = false
-//            wordTapped8.setTitle(words8, for: .normal)
-//            word8Button.isHidden = true
-//        }
     }
     
-    //Navigation: Below is the button for words that are on textfield
-    
-    @IBAction func tapWord1(_ sender: Any) {
-//        wordTapped1.isHidden = true
+    @IBAction func word9Tapped(_ sender: Any) {
         
-        wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+        word9Button.isHidden = true
         
-//        for item in wordsArr {
-//            if item != "" {
-//                word1Button.isHidden = false
-//                word2Button.isHidden = false
-//                word3Button.isHidden = false
-//                word4Button.isHidden = false
-//                word5Button.isHidden = false
-//                word6Button.isHidden = false
-//                word7Button.isHidden = false
-//                word8Button.isHidden = false
-//            }
-//        }
+        if textfield.text?.isEmpty == true {
+            textfield.text = words9.capitalized
+        }
+        else {
+            textfield.text?.append(" " + words9)
+        }
+    }
+    
+    @IBAction func word10Tapped(_ sender: Any) {
         
-//        if words1 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word1Button.isHidden = false
-//        }
-//        if words2 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word2Button.isHidden = false
-//        }
-//        if words3 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word3Button.isHidden = false
-//        }
-//        if words4 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word4Button.isHidden = false
-//        }
-//        if words5 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word5Button.isHidden = false
-//        }
-//        if words6 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word6Button.isHidden = false
-//        }
-//        if words7 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word7Button.isHidden = false
-//        }
-//        if words8 != "" && wordTapped2.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word8Button.isHidden = false
-//        }
-    }
-    
-    @IBAction func tapWord2(_ sender: Any) {
-//        wordTapped2.isHidden = true
+        word10Button.isHidden = true
         
-//        if words1 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word1Button.isHidden = false
-//        }
-//        if words2 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word2Button.isHidden = false
-//        }
-//        if words3 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word3Button.isHidden = false
-//        }
-//        if words4 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word4Button.isHidden = false
-//        }
-//        if words5 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word5Button.isHidden = false
-//        }
-//        if words6 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word6Button.isHidden = false
-//        }
-//        if words7 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word7Button.isHidden = false
-//        }
-//        if words8 != "" && wordTapped1.isHidden == true && wordTapped3.isHidden == true && wordTapped4.isHidden == true && wordTapped5.isHidden == true && wordTapped6.isHidden == true && wordTapped7.isHidden == true && wordTapped8.isHidden == true {
-//            word8Button.isHidden = false
-//        }
+        if textfield.text?.isEmpty == true {
+            textfield.text = words10.capitalized
+        }
+        else {
+            textfield.text?.append(" " + words10)
+        }
     }
     
-    @IBAction func tapWord3(_ sender: Any) {
-//        wordTapped3.isHidden = false
-//        wordTapped3.setTitle(words3, for: .normal)
-    }
-    
-    @IBAction func tapWord4(_ sender: Any) {
-//        wordTapped4.isHidden = false
-//        wordTapped4.setTitle(words4, for: .normal)
-    }
-    
-    @IBAction func tapWord5(_ sender: Any) {
-//        wordTapped5.isHidden = false
-//        wordTapped5.setTitle(words5, for: .normal)
-    }
-    
-    @IBAction func tapWord6(_ sender: Any) {
-//        wordTapped6.isHidden = false
-//        wordTapped6.setTitle(words6, for: .normal)
-    }
-    
-    @IBAction func tapWord7(_ sender: Any) {
-//        wordTapped7.isHidden = false
-//        wordTapped7.setTitle(words7, for: .normal)
-    }
-    
-    @IBAction func tapWord8(_ sender: Any) {
-//        wordTapped8.isHidden = false
-//        wordTapped8.setTitle(words8, for: .normal)
-    }
-    
-    //Delete button tapped
+
+    //MARK: Delete button tapped
     @IBAction func deleteTapped(_ sender: Any) {
         //ToDo: Make condition that if the button is null so .isHidden = true
         if words5 == "" {
@@ -1017,6 +629,35 @@ class GameViewController: UIViewController {
             word7Button.isHidden = false
 //            print("4")
         }
+        else if words9 == "" {
+            word9Button.isHidden = true
+            
+            textfield.text = ""
+            
+            word1Button.isHidden = false
+            word2Button.isHidden = false
+            word3Button.isHidden = false
+            word4Button.isHidden = false
+            word5Button.isHidden = false
+            word6Button.isHidden = false
+            word7Button.isHidden = false
+            word8Button.isHidden = false
+        }
+        else if words10 == "" {
+            word10Button.isHidden = true
+            
+            textfield.text = ""
+            
+            word1Button.isHidden = false
+            word2Button.isHidden = false
+            word3Button.isHidden = false
+            word4Button.isHidden = false
+            word5Button.isHidden = false
+            word6Button.isHidden = false
+            word7Button.isHidden = false
+            word8Button.isHidden = false
+            word9Button.isHidden = false
+        }
         else{
         word1Button.isHidden = false
         word2Button.isHidden = false
@@ -1026,19 +667,13 @@ class GameViewController: UIViewController {
         word6Button.isHidden = false
         word7Button.isHidden = false
         word8Button.isHidden = false
+        word9Button.isHidden = false
+        word10Button.isHidden = false
             
         textfield.text = ""
 //            print("normal")
         }
         
-        wordTapped1.isHidden = true
-        wordTapped2.isHidden = true
-        wordTapped3.isHidden = true
-        wordTapped4.isHidden = true
-        wordTapped5.isHidden = true
-        wordTapped6.isHidden = true
-        wordTapped7.isHidden = true
-        wordTapped8.isHidden = true
         
     }
    
@@ -1065,8 +700,13 @@ class GameViewController: UIViewController {
             wordsArr = [words1, words2, words3, words4, words5, words6]
         } else if words8 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7]
-        } else {
+        } else if words9 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+        } else if words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+        }
+        else {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9, words10]
         }
         
         if segue.identifier == "toDictionary" {

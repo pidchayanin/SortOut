@@ -35,6 +35,7 @@ class VocabListViewController: UIViewController {
         self.tableView.dataSource = self
         //print(words)
         //retrieveData()
+        getData()
     }
     
     
@@ -49,9 +50,7 @@ class VocabListViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        getData()
-    }
+
     
     
   /*func retrieveData() {
