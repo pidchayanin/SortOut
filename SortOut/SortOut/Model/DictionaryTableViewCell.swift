@@ -15,7 +15,13 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var addedTextLabel: UILabel!
     @IBOutlet weak var addToListLabel: UILabel!
-    
+
+    @IBOutlet weak var meaningInThaiLabel: UILabel!
+    @IBOutlet weak var definitionInThaiLabel: UILabel!
+    @IBOutlet weak var synnonymLabel: UILabel!
+    @IBOutlet weak var synnonymWordLabel: UILabel!
+    @IBOutlet weak var exampleLabel: UILabel!
+    @IBOutlet weak var exampleSentenceLabel: UILabel!
     
     var addToVocabListButtonAction : (() -> ())?
     var undoButtonAction : (() -> ())?

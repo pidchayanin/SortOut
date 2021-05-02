@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct TableItem {
+    let title: String
+    let creationDate: Date
+}

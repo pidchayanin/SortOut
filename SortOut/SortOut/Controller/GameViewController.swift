@@ -220,12 +220,12 @@ class GameViewController: UIViewController {
     
     func retreiveData() {
         var tempStr = ""
-        let number1 = Int.random(in: 0 ..< 20000)
+        let number1 = Int.random(in: 0 ..< 50000)
         let number2 = Int.random(in: 0 ..< number1)
         var tempInt = 0
         var tempInt1 = 0
         
-        guard let path = Bundle.main.path(forResource: "English sentences", ofType: "json") else {return}
+        guard let path = Bundle.main.path(forResource: "English sentences(2)", ofType: "json") else {return}
                 
         let url = URL(fileURLWithPath: path)
         //print("--1--")
@@ -291,7 +291,7 @@ class GameViewController: UIViewController {
 //                print(number2)
                 //MARK: This is the beginning of RNG generator
                 // %9 is not confirmed rng 1 and 2, too
-                if ((number1 + number2) % 9) + 1 == tempInt{
+                if ((number1 + number2) % 71) + 1 == tempInt{
                     //numbers1 = number1
                     //numbers2 = number2
 //                    print("temp: ", tempStr)
@@ -692,27 +692,291 @@ class GameViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //MARK: To do - Check if human's name = no need to pass the data. Also check if the it has the same word in the sentence = no need to pass that data.
+        
         if words5 == "" {
             wordsArr = [words1, words2, words3, words4]
+            print(1)
         } else if words6 == "" {
             wordsArr = [words1, words2, words3, words4, words5]
+            print(2)
         } else if words7 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6]
+            print(3)
         } else if words8 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7]
+            print(4)
         } else if words9 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+            print(5)
         } else if words10 == "" {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(6)
         }
+        // word1
+        else if words1 == words2 {
+            wordsArr = [words1, words3, words4, words5, words6, words7, words8, words9, words10]
+            print(7)
+        } else if words1 == words2 && words5 == "" {
+            wordsArr = [words1, words3, words4]
+            print("sp7.1")
+        } else if words1 == words2 && words6 == "" {
+            wordsArr = [words1, words3, words4, words5]
+            print("sp7.2")
+        } else if words1 == words2 && words7 == "" {
+            wordsArr = [words1, words3, words4, words5, words6]
+            print("sp7.3")
+        } else if words1 == words2 && words8 == "" {
+            wordsArr = [words1, words3, words4, words5, words6, words7]
+            print("sp7.4")
+        } else if words1 == words2 && words9 == "" {
+            wordsArr = [words1, words3, words4, words5, words6, words7, words8]
+            print("sp7.5")
+        } else if words1 == words2 && words10 == "" {
+            wordsArr = [words1, words3, words4, words5, words6, words7, words8, words9]
+            print("sp7.6")
+        } else if words1 == words3 {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8, words9, words10]
+            print(8)
+        } else if words1 == words3 && words5 == "" {
+            wordsArr = [words1, words2, words4]
+            print("sp8.1")
+        } else if words1 == words3 && words6 == "" {
+            wordsArr = [words1, words2, words4, words5]
+            print("sp8.2")
+        } else if words1 == words3 && words7 == "" {
+            wordsArr = [words1, words2, words4, words5, words6]
+            print("sp8.3")
+        } else if words1 == words3 && words8 == "" {
+            wordsArr = [words1, words2, words4, words5, words6, words7]
+            print("sp8.4")
+        } else if words1 == words3 && words9 == "" {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8]
+            print("sp8.5")
+        } else if words1 == words3 && words10 == "" {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8, words9]
+            print("sp8.6")
+        }  else if words1 == words4 {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9, words10]
+            print(9)
+        } else if words1 == words4 && words5 == "" {
+            wordsArr = [words1, words2, words3]
+            print("sp9.1")
+        } else if words1 == words4 && words6 == "" {
+            wordsArr = [words1, words2, words3, words5]
+            print("sp9.2")
+        } else if words1 == words4 && words7 == "" {
+            wordsArr = [words1, words2, words3, words5, words6]
+            print("sp9.3")
+        } else if words1 == words4 && words8 == "" {
+            wordsArr = [words1, words2, words3, words5, words6, words7]
+            print("sp9.4")
+        } else if words1 == words4 && words9 == "" {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8]
+            print("sp9.5")
+        } else if words1 == words4 && words10 == "" {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9]
+            print("sp9.6")
+        } else if words1 == words5 {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+            print(10)
+        } else if words1 == words5 && words6 == "" {
+            wordsArr = [words1, words2, words3, words4]
+            print("sp10.1")
+        } else if words1 == words5 && words7 == "" {
+            wordsArr = [words1, words2, words3, words4, words6]
+            print("sp10.2")
+        } else if words1 == words5 && words8 == "" {
+            wordsArr = [words1, words2, words3, words4, words6, words7]
+            print("sp10.3")
+        } else if words1 == words5 && words9 == "" {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8]
+            print("sp10.4")
+        } else if words1 == words5 && words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9]
+            print("sp10.5")
+        } else if words1 == words6 {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+            print(11)
+        } else if words1 == words6 && words7 == "" {
+            wordsArr = [words1, words2, words3, words4, words5]
+            print("sp11.1")
+        } else if words1 == words6 && words8 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words7]
+            print("sp11.2")
+        } else if words1 == words6 && words9 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8]
+            print("sp11.3")
+        } else if words1 == words6 && words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9]
+            print("sp11.4")
+        }  else if words1 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(12)
+        } else if words1 == words7 && words8 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6]
+            print("sp12.1")
+        } else if words1 == words7 && words9 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8]
+            print("sp12.2")
+        } else if words1 == words7 && words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9]
+            print("sp12.3")
+        } else if words1 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(13)
+        } else if words1 == words8 && words9 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7]
+            print("sp13.1")
+        } else if words1 == words8 && words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9]
+            print("sp13.2")
+        }  else if words1 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(14)
+        } else if words1 == words9 && words10 == "" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8]
+            print("sp13.2")
+        } else if words1 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(15)
+        }
+        // word2
+        else if words2 == words3 {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8, words9, words10]
+            print(16)
+        } else if words2 == words4 {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9, words10]
+            print(17)
+        } else if words2 == words5 {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+            print(18)
+        } else if words2 == words6 {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+            print(19)
+        } else if words2 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(20)
+        } else if words2 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(21)
+        } else if words2 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(22)
+        } else if words2 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(23)
+        }
+        // word3
+         else if words3 == words4 {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9, words10]
+            print(24)
+        } else if words3 == words5 {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+            print(25)
+        } else if words3 == words6 {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+            print(26)
+        } else if words3 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(27)
+        } else if words3 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(28)
+        } else if words3 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(29)
+        } else if words3 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(30)
+        }
+        // word4
+        else if words4 == words5 {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+            print(31)
+        } else if words4 == words6 {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+            print(32)
+        } else if words4 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(33)
+        } else if words4 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(34)
+        } else if words4 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(35)
+        } else if words4 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(36)
+        }
+        // word5
+        else if words5 == words6 {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+            print(37)
+        } else if words5 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(38)
+        } else if words5 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(39)
+        } else if words5 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(40)
+        } else if words5 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(41)
+        }
+        // word6
+        else if words6 == words7 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+            print(42)
+        } else if words6 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(43)
+        } else if words6 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(44)
+        } else if words6 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(45)
+        }
+        // word7
+        else if words7 == words8 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+            print(46)
+        } else if words7 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(47)
+        } else if words7 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(48)
+        }
+        // word8
+        else if words8 == words9 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+            print(49)
+        } else if words8 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(50)
+        }
+        // word9
+        else if words9 == words10 {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+            print(51)
+        }
+        
         else {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9, words10]
+            print(52)
         }
         
         if segue.identifier == "toDictionary" {
             //isReload = true
             let vc = segue.destination as? DictionaryViewController
             vc?.word = wordsArr
+            print(wordsArr)
         }
         else if segue.identifier == "toCorrectAnswer" {
             //for passing data to ans screen
