@@ -29,8 +29,8 @@ class ProfileViewController: UIViewController {
         print("You tapped cell number \(indexPath.row).")
     }*/
     
-    let options: [String] = ["Notification", "Time", "Date"]
-    let cellReuseIdentifier = "notiSettingCell"
+    //let options: [String] = ["Notification", "Time", "Date"]
+    //let cellReuseIdentifier = "notiSettingCell"
     
 
     @IBOutlet weak var PlayerNameLabel: UILabel!
@@ -42,13 +42,14 @@ class ProfileViewController: UIViewController {
     
     //**START time and date picker
     let datePicker = UIDatePicker()
-    
+    let timePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.PlayerNameLabel.text = "Player" //add player name from apple game center
      
         createDatePicker()
+        createTimePicker()
         
         //  self.tableView.delegate = self
      //   self.tableView.dataSource = self
@@ -63,7 +64,7 @@ class ProfileViewController: UIViewController {
         toolbar.sizeToFit()
         
         // bar button
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateDonePressed))
         toolbar.setItems([doneBtn], animated: true)
         
         // assign toolbar to the keyboard
@@ -76,12 +77,11 @@ class ProfileViewController: UIViewController {
         datePicker.datePickerMode = .date
     }
     
-    @objc func donePressed() {
+    @objc func dateDonePressed() {
         // create a formatter
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none // do not want to display time
-        
         
         //notificationDate.text = "\(datePicker.date)"
         notificationDate.text = formatter.string(from: datePicker.date)
@@ -90,6 +90,38 @@ class ProfileViewController: UIViewController {
         print(notificationDate.text!)
     }
     
+    func createTimePicker() {
+        notificationTime.textAlignment = .center
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(timeDonePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        // assign toolbar to the keyboard
+        notificationTime.inputAccessoryView = toolbar
+        
+        // assign date picker to the textfield
+        notificationTime.inputView = timePicker
+        
+        // date picker mode: change it to just time
+        timePicker.datePickerMode = .time
+    }
+    
+    @objc func timeDonePressed() {
+        // create a formatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .medium // do not want to display date
+        
+        //notificationDate.text = "\(datePicker.date)"
+        notificationTime.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+        
+        print(notificationTime.text!)
+    }
     /*
     // MARK: - Navigation
 
