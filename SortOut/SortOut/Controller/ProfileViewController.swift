@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
     //let cellReuseIdentifier = "notiSettingCell"
     
 
-    @IBOutlet weak var PlayerNameLabel: UILabel!
+ //   @IBOutlet weak var PlayerNameLabel: UILabel!
     //@IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var notificationTime: UITextField!
@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.PlayerNameLabel.text = "Player" //add player name from apple game center
+       // self.PlayerNameLabel.text = "Player" //add player name from apple game center
      
         createDatePicker()
         createTimePicker()
