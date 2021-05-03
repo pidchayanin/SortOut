@@ -18,6 +18,10 @@ class VocabMeaningViewController: UIViewController {
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet weak var exampleSentencesLabel: UILabel!
     
+    @IBOutlet weak var pageController: UIPageControl!
+    
+    @IBOutlet weak var favBtn: UIButton!
+    
     var meaningWord = String()
     var meaningPartOfSpeech = String()
     let meaningMean = "หมายถึง"
@@ -43,8 +47,30 @@ class VocabMeaningViewController: UIViewController {
         synnonymWordsLabel.text = meaningSynnonymWords
         exampleLabel.text = meaningExample
         exampleSentencesLabel.text = meaningExampleSentences
+        favBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+        favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
     }
     
+    @IBAction func isFavoriteTapped(_ sender: Any) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            let newFavorite = FavoriteVocabCD.init(context:context)
+
+            newFavorite.favWord = meaningWord
+            newFavorite.favPoS = meaningPartOfSpeech
+            print("fav tapped")
+            
+            if favBtn.currentImage == UIImage(systemName: "heart") {
+                favBtn.setImage(UIImage(systemName: "star"), for: .normal)
+                favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
+                favBtn.tintColor = .blue
+            }
+            //favBtn.setImage(UIImage(systemName: "heart.fil"), for: .normal)
+            //favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
+            
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            //DataManager.shared.vocabVC.tableView.reloadData()
+        }
+    }
     
 
     /*

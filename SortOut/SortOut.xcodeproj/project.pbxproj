@@ -22,6 +22,7 @@
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
 		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
 		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
+		545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */; };
 		548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
@@ -35,6 +36,9 @@
 		54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */; };
 		54B36E6326381E3B0055D913 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E6226381E3B0055D913 /* DataManager.swift */; };
 		54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */; };
+		54B36E9D263BF7550055D913 /* TableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E9C263BF7550055D913 /* TableItem.swift */; };
+		54B36ECC263C5AF90055D913 /* English sentences(2).json in Resources */ = {isa = PBXBuildFile; fileRef = 54B36ECB263C5AF90055D913 /* English sentences(2).json */; };
+		54B36ED1263D91FC0055D913 /* FavoriteVocabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36ED0263D91FB0055D913 /* FavoriteVocabViewController.swift */; };
 		54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD589325BC14AA00BD849D /* TabbarViewController.swift */; };
 		54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779325E799A20096768D /* StarsAndCoinsModel.swift */; };
 		54C0779925E799C00096768D /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779825E799C00096768D /* ShopItemModel.swift */; };
@@ -85,6 +89,7 @@
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
 		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
+		545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (1).json"; sourceTree = "<group>"; };
 		548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 		54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterShopTableViewCell.swift; sourceTree = "<group>"; };
 		54B36E6226381E3B0055D913 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterBuyItemPopUpViewController.swift; sourceTree = "<group>"; };
+		54B36E9C263BF7550055D913 /* TableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItem.swift; sourceTree = "<group>"; };
+		54B36ECB263C5AF90055D913 /* English sentences(2).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences(2).json"; sourceTree = "<group>"; };
+		54B36ED0263D91FB0055D913 /* FavoriteVocabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVocabViewController.swift; sourceTree = "<group>"; };
 		54BD589325BC14AA00BD849D /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		54C0779325E799A20096768D /* StarsAndCoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAndCoinsModel.swift; sourceTree = "<group>"; };
 		54C0779825E799C00096768D /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
@@ -160,6 +168,8 @@
 		40BE7AF525BC045800464BDB /* SortOut */ = {
 			isa = PBXGroup;
 			children = (
+				545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */,
+				54B36ECB263C5AF90055D913 /* English sentences(2).json */,
 				5448EFC62620421600EB32D1 /* English sentences.json */,
 				548AB40526132EA700C98D94 /* English sentences - Sheet1.json */,
 				40BE7AF625BC045800464BDB /* AppDelegate.swift */,
@@ -215,6 +225,7 @@
 				54C0779825E799C00096768D /* ShopItemModel.swift */,
 				5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */,
 				54B36E6226381E3B0055D913 /* DataManager.swift */,
+				54B36E9C263BF7550055D913 /* TableItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +256,7 @@
 				549C54DF25D66E6E0086AEA3 /* ProfileViewController.swift */,
 				5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */,
 				54D083582628423900F5DD37 /* AnswerViewController.swift */,
+				54B36ED0263D91FB0055D913 /* FavoriteVocabViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +281,7 @@
 				40BE7AF025BC045800464BDB /* Frameworks */,
 				40BE7AF125BC045800464BDB /* Resources */,
 				D97103FDA13DA739644929B5 /* [CP] Embed Pods Frameworks */,
+				CAE3927185C2D823D3ABA12D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -362,6 +375,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */,
+				54B36ECC263C5AF90055D913 /* English sentences(2).json in Resources */,
 				548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */,
 				40BE7B0625BC045D00464BDB /* LaunchScreen.storyboard in Resources */,
 				5448EFC72620421600EB32D1 /* English sentences.json in Resources */,
@@ -409,6 +424,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CAE3927185C2D823D3ABA12D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D97103FDA13DA739644929B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,11 +479,13 @@
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
 				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
 				54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */,
+				54B36ED1263D91FC0055D913 /* FavoriteVocabViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
 				54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */,
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
+				54B36E9D263BF7550055D913 /* TableItem.swift in Sources */,
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,

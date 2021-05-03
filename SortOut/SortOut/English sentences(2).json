@@ -1,0 +1,1202 @@
+[
+ {
+   "number": 1,
+   "sentence1": ["Two","women","are","embracing","while","holding","to-go","packages"],
+   "image": "img1.jpg",
+   "count words": 8
+ },
+ {
+   "number": 2,
+   "sentence1": ["Two","men","on","bicycles","are","competing"],
+   "image": "img2.jpg",
+   "count words": 6
+ },
+ {
+   "number": 3,
+   "sentence1": ["Families","are","waiting","in","line","at","an","amusement","park"],
+   "image": "img3.jpg",
+   "count words": 9
+ },
+ {
+   "number": 4,
+   "sentence1": ["Two","women","are","having","drinks","at","the","bar"],
+   "image": "img4.jpg",
+   "count words": 8
+ },
+ {
+   "number": 5,
+   "sentence1": ["Two","doctors","perform","surgery","on","a","patient"],
+   "image": "img5.jpg",
+   "count words": 7
+ },
+ {
+   "number": 6,
+   "sentence1": ["A","dog","with","long","hair","jumps","to","catch","a","toy"],
+   "image": "img6.jpg",
+   "count words": 10
+ },
+ {
+   "number": 7,
+   "sentence1": ["Kids","are","on","an","amusement","ride"],
+   "image": "img7.jpg",
+   "count words": 6
+ },
+ {
+   "number": 8,
+   "sentence1": ["A","man","in","a","red","shirt","is","playing","golf","outside"],
+   "image": "img8.jpg",
+   "count words": 10
+ },
+ {
+   "number": 9,
+   "sentence1": ["The","woman","wearing","the","black","headscarf","is","walking"],
+   "image": "img9.jpg",
+   "count words": 8
+ },
+ {
+   "number": 10,
+   "sentence1": ["He","takes","a","picture","in","the","middle","of","the","street"],
+   "image": "img10.jpg",
+   "count words": 10
+ },
+ {
+   "number": 11,
+   "sentence1": ["A","man","is","singing","into","a","microphone"],
+   "image": "img11.jpg",
+   "count words": 7
+ },
+ {
+   "number": 12,
+   "sentence1": ["A","pregnant","lady","is","singing","on","stage"],
+   "image": "img12.jpg",
+   "count words": 7
+ },
+ {
+   "number": 13,
+   "sentence1": ["A","boy","in","a","blue","shirt","is","holding","a","toy"],
+   "image": "img13.jpg",
+   "count words": 10
+ },
+ {
+   "number": 14,
+   "sentence1": ["A","woman","is","writing","something","on","a","post-it","note"],
+   "image": "img14.jpg",
+   "count words": 9
+ },
+ {
+   "number": 15,
+   "sentence1": ["A","girl","swings","high","in","the","air"],
+   "image": "img15.jpg",
+   "count words": 7
+ },
+ {
+   "number": 16,
+   "sentence1": ["A","man","is","sitting","on","the","steps","outside"],
+   "image": "img16.jpg",
+   "count words": 8
+ },
+ {
+   "number": 17,
+   "sentence1": ["A","person","rides","his","bicycle","beside","the","ocean"],
+   "image": "img17.jpg",
+   "count words": 8
+ },
+ {
+   "number": 18,
+   "sentence1": ["A","group","of","people","prepares","hot","air","balloons","for","takeoff"],
+   "image": "img18.jpg",
+   "count words": 10
+ },
+ {
+   "number": 19,
+   "sentence1": ["A","group","of","young","people","with","instruments","are","on","stage"],
+   "image": "img19.jpg",
+   "count words": 10
+ },
+ {
+   "number": 20,
+   "sentence1": ["The","man","in","a","black","shirt","is","playing","guitar"],
+   "image": "img20.jpg",
+   "count words": 9
+ },
+ {
+   "number": 21,
+   "sentence1": ["A","woman","is","talking","on","the","phone"],
+   "image": "img21.jpg",
+   "count words": 7
+ },
+ {
+   "number": 22,
+   "sentence1": ["Two","women","are","doing","some","crafts"],
+   "image": "img22.jpg",
+   "count words": 6
+ },
+ {
+   "number": 23,
+   "sentence1": ["A","street","performer","is","performing","outside"],
+   "image": "img23.jpg",
+   "count words": 6
+ },
+ {
+   "number": 24,
+   "sentence1": ["A","young","boy","is","playing","in","the","grass"],
+   "image": "img24.jpg",
+   "count words": 8
+ },
+ {
+   "number": 25,
+   "sentence1": ["People","are","throwing","tomatoes","at","each","other"],
+   "image": "img25.jpg",
+   "count words": 7
+ },
+ {
+   "number": 26,
+   "sentence1": ["A","man","and","a","woman","are","talking","in","a","park"],
+   "image": "img26.jpg",
+   "count words": 10
+ },
+ {
+   "number": 27,
+   "sentence1": ["Alex","hopes","that","he","is","going","to","win","the","race"],
+   "image": "img27.jpg",
+   "count words": 10
+ },
+ {
+   "number": 28,
+   "sentence1": ["Two","men","are","cooking","on","the","corner","of","the","street"],
+   "image": "img28.jpg",
+   "count words": 10
+ },
+ {
+   "number": 29,
+   "sentence1": ["He","was","wandering","in","the","desert"],
+   "image": "img29.jpg",
+   "count words": 6
+ },
+ {
+   "number": 30,
+   "sentence1": ["A","lady","with","dark","hair","is","walking","in","a","crowd"],
+   "image": "img30.jpg",
+   "count words": 10
+ },
+ {
+   "number": 31,
+   "sentence1": ["A","man","is","talking","to","his","friend"],
+   "image": "img31.jpg",
+   "count words": 7
+ },
+ {
+   "number": 32,
+   "sentence1": ["A","boy","reaches","the","top","of","a","small","skateboarding","ramp"],
+   "image": "img32.jpg",
+   "count words": 10
+ },
+ {
+   "number": 33,
+   "sentence1": ["A","man","is","waterskiing","with","a","life","jacket"],
+   "image": "img33.jpg",
+   "count words": 8
+ },
+ {
+   "number": 34,
+   "sentence1": ["A","group","of","children","enjoys","their","time","in","the","park"],
+   "image": "img34.jpg",
+   "count words": 10
+ },
+ {
+   "number": 35,
+   "sentence1": ["Many","people","are","sitting","on","the","grass"],
+   "image": "img35.jpg",
+   "count words": 7
+ },
+ {
+   "number": 36,
+   "sentence1": ["A","newborn","baby","is","being","bathed"],
+   "image": "img36.jpg",
+   "count words": 6
+ },
+ {
+   "number": 37,
+   "sentence1": ["A","woman","is","sitting","outside","an","outdoor","market","stall"],
+   "image": "img37.jpg",
+   "count words": 9
+ },
+ {
+   "number": 38,
+   "sentence1": ["Number","13","kicks","a","soccer","ball","towards","the","goal"],
+   "image": "img38.jpg",
+   "count words": 9
+ },
+ {
+   "number": 39,
+   "sentence1": ["A","girl","is","taking","a","photo","of","an","interesting","site"],
+   "image": "img39.jpg",
+   "count words": 10
+ },
+ {
+   "number": 40,
+   "sentence1": ["A","man","sits","in","front","of","a","display","of","artwork"],
+   "image": "img40.jpg",
+   "count words": 10
+ },
+ {
+   "number": 41,
+   "sentence1": ["A","child","is","jumping","into","the","arms","of","a","man"],
+   "image": "img41.jpg",
+   "count words": 10
+ },
+ {
+   "number": 42,
+   "sentence1": ["A","guy","is","waxing","a","wooden","floor","with","wax"],
+   "image": "img42.jpg",
+   "count words": 9
+ },
+ {
+   "number": 43,
+   "sentence1": ["This","is","the","image","of","two","women","squatting"],
+   "image": "img43.jpg",
+   "count words": 8
+ },
+ {
+   "number": 44,
+   "sentence1": ["A","man","uses","a","projector","to","give","a","presentation"],
+   "image": "img44.jpg",
+   "count words": 9
+ },
+ {
+   "number": 45,
+   "sentence1": ["An","older","gentleman","is","speaking","at","a","podium"],
+   "image": "img45.jpg",
+   "count words": 8
+ },
+ {
+   "number": 46,
+   "sentence1": ["A","young","girl","is","jumping","outside"],
+   "image": "img46.jpg",
+   "count words": 6
+ },
+ {
+   "number": 47,
+   "sentence1": ["This","guy","is","with","a","gun","and","army","gear"],
+   "image": "img47.jpg",
+   "count words": 9
+ },
+ {
+   "number": 48,
+   "sentence1": ["A","man","with","a","safety","suit","is","walking","outside"],
+   "image": "img48.jpg",
+   "count words": 9
+ },
+ {
+   "number": 49,
+   "sentence1": ["A","man","poses","for","a","photo","by","jumping"],
+   "image": "img49.jpg",
+   "count words": 8
+ },
+ {
+   "number": 50,
+   "sentence1": ["A","boy","looks","angry"],
+   "image": "img50.jpg",
+   "count words": 4
+ },
+ {
+   "number": 51,
+   "sentence1": ["A","man","is","reading","a","newspaper","in","a","car","dealership"],
+   "image": "img51.jpg",
+   "count words": 10
+ },
+ {
+   "number": 52,
+   "sentence1": ["The","police","officer","is","on","patrol"],
+   "image": "img52.jpg",
+   "count words": 6
+ },
+ {
+   "number": 53,
+   "sentence1": ["A","man","stands","on","one","foot","near","a","beach"],
+   "image": "img53.jpg",
+   "count words": 9
+ },
+ {
+   "number": 54,
+   "sentence1": ["A","man","wearing","a","white","shirt","is","playing","the","drums"],
+   "image": "img54.jpg",
+   "count words": 10
+ },
+ {
+   "number": 55,
+   "sentence1": ["Two","women","in","suits","walk","by","a","building"],
+   "image": "img55.jpg",
+   "count words": 8
+ },
+ {
+   "number": 56,
+   "sentence1": ["Two","people","are","waiting","for","a","train","at","a","station"],
+   "image": "img56.jpg",
+   "count words": 10
+ },
+ {
+   "number": 57,
+   "sentence1": ["A","woman","is","smiling","at","a","camera"],
+   "image": "img57.jpg",
+   "count words": 7
+ },
+ {
+   "number": 58,
+   "sentence1": ["A","goalie","is","running","for","an","approaching","ball"],
+   "image": "img58.jpg",
+   "count words": 8
+ },
+ {
+   "number": 59,
+   "sentence1": ["Two","men","sitting","on","a","subway","are","reading"],
+   "image": "img59.jpg",
+   "count words": 8
+ },
+ {
+   "number": 60,
+   "sentence1": ["kids","are","drawing","something","on","paper"],
+   "image": "img60.jpg",
+   "count words": 6
+ },
+ {
+   "number": 61,
+   "sentence1": ["A","young","woman","is","singing","into","a","microphone"],
+   "image": "img61.jpg",
+   "count words": 8
+ },
+ {
+   "number": 62,
+   "sentence1": ["An","elephant","is","walking","through","the","water"],
+   "image": "img62.jpg",
+   "count words": 7
+ },
+ {
+   "number": 63,
+   "sentence1": ["A","diver","is","swimming","with","a","turtle"],
+   "image": "img63.jpg",
+   "count words": 7
+ },
+ {
+   "number": 64,
+   "sentence1": ["A","man","is","skateboarding"],
+   "image": "img64.jpg",
+   "count words": 4
+ },
+ {
+   "number": 65,
+   "sentence1": ["Two","little","girls","ride","down","a","blue","water","slide"],
+   "image": "img65.jpg",
+   "count words": 9
+ },
+ {
+   "number": 66,
+   "sentence1": ["A","woman","walks","by","a","brick","building"],
+   "image": "img66.jpg",
+   "count words": 7
+ },
+ {
+   "number": 67,
+   "sentence1": ["Two","men","are","working","on","computers"],
+   "image": "img67.jpg",
+   "count words": 6
+ },
+ {
+   "number": 68,
+   "sentence1": ["A","young","girl","with","blonde","hair","is","holding","a","jacket"],
+   "image": "img68.jpg",
+   "count words": 10
+ },
+ {
+   "number": 69,
+   "sentence1": ["A","young","girl","blows","bubbles"],
+   "image": "img69.jpg",
+   "count words": 5
+ },
+ {
+   "number": 70,
+   "sentence1": ["Two","children","are","playing","on","the","floor"],
+   "image": "img70.jpg",
+   "count words": 7
+ },
+ {
+   "number": 71,
+   "sentence1": ["Two","men","are","in","a","science","lab"],
+   "image": "img71.jpg",
+   "count words": 7
+ },
+ {
+   "number": 72,
+   "sentence1": ["A","dog","is","chasing","a","stuffed","animal"],
+   "image": "img72.jpg",
+   "count words": 7
+ },
+ {
+   "number": 73,
+   "sentence1": ["A","man","jumps","down","a","hill"],
+   "image": "img73.jpg",
+   "count words": 6
+ },
+ {
+   "number": 74,
+   "sentence1": ["Two","boys","stand","in","an","ocean","as","the","sun","sets"],
+   "image": "img74.jpg",
+   "count words": 10
+ },
+ {
+   "number": 75,
+   "sentence1": ["The","woman","is","doing","yoga","alone"],
+   "image": "img75.jpg",
+   "count words": 6
+ },
+ {
+   "number": 76,
+   "sentence1": ["Girls","are","dancing","in","matching","outfits"],
+   "image": "img76.jpg",
+   "count words": 6
+ },
+ {
+   "number": 77,
+   "sentence1": ["Children","are","standing","in","a","classroom"],
+   "image": "img77.jpg",
+   "count words": 6
+ },
+ {
+   "number": 78,
+   "sentence1": ["Children","are","having","lunch"],
+   "image": "img78.jpg",
+   "count words": 4
+ },
+ {
+   "number": 79,
+   "sentence1": ["A","child","is","looking","out","of","a","door"],
+   "image": "img79.jpg",
+   "count words": 8
+ },
+ {
+   "number": 80,
+   "sentence1": ["A","boy","jumps","over","a","flight","of","stairs"],
+   "image": "img80.jpg",
+   "count words": 8
+ },
+ {
+   "number": 81,
+   "sentence1": ["A","man","wears","a","black","jacket"],
+   "image": "img81.jpg",
+   "count words": 6
+ },
+ {
+   "number": 82,
+   "sentence1": ["People","use","clothespins","to","hang","up","laundry","outside"],
+   "image": "img82.jpg",
+   "count words": 8
+ },
+ {
+   "number": 83,
+   "sentence1": ["A","dog","reaches","to","catch","a","ball","with","its","mouth"],
+   "image": "img83.jpg",
+   "count words": 10
+ },
+ {
+   "number": 84,
+   "sentence1": ["A","young","boy","is","in","a","green","tunnel"],
+   "image": "img84.jpg",
+   "count words": 8
+ },
+ {
+   "number": 85,
+   "sentence1": ["The","little","boy","is","jumping","into","a","puddle"],
+   "image": "img85.jpg",
+   "count words": 8
+ },
+ {
+   "number": 86,
+   "sentence1": ["Kids","sit","close","to","a","television","that","is","showing","cartoons"],
+   "image": "img86.jpg",
+   "count words": 10
+ },
+ {
+   "number": 87,
+   "sentence1": ["company","workers","are","having","dinner","together"],
+   "image": "img87.jpg",
+   "count words": 6
+ },
+ {
+   "number": 88,
+   "sentence1": ["The","woman","is","talking","to","her","friends"],
+   "image": "img88.jpg",
+   "count words": 7
+ },
+ {
+   "number": 89,
+   "sentence1": ["A","girl","gazes","in","a","clothing","store","window"],
+   "image": "img89.jpg",
+   "count words": 8
+ },
+ {
+   "number": 90,
+   "sentence1": ["People","dressed","in","costumes","are","on","the","street"],
+   "image": "img90.jpg",
+   "count words": 8
+ },
+ {
+   "number": 91,
+   "sentence1": ["A","person","is","writing","on","a","chalkboard"],
+   "image": "img91.jpg",
+   "count words": 7
+ },
+ {
+   "number": 92,
+   "sentence1": ["A","group","of","people","gathers","outside"],
+   "image": "img92.jpg",
+   "count words": 6
+ },
+ {
+   "number": 93,
+   "sentence1": ["The","pianist","plays","the","supporting","melody","on","stage"],
+   "image": "img93.jpg",
+   "count words": 8
+ },
+ {
+   "number": 94,
+   "sentence1": ["A","woman","is","holding","her","child"],
+   "image": "img94.jpg",
+   "count words": 6
+ },
+ {
+   "number": 95,
+   "sentence1": ["A","boy","is","holding","red","kites"],
+   "image": "img95.jpg",
+   "count words": 6
+ },
+ {
+   "number": 96,
+   "sentence1": ["She","stands","next","to","a","garden"],
+   "image": "img96.jpg",
+   "count words": 6
+ },
+ {
+   "number": 97,
+   "sentence1": ["He","is","swimming","in","a","pool"],
+   "image": "img97.jpg",
+   "count words": 6
+ },
+ {
+   "number": 98,
+   "sentence1": ["A","Hispanic","market","has","many","fruits","and","vegetables"],
+   "image": "img98.jpg",
+   "count words": 8
+ },
+ {
+   "number": 99,
+   "sentence1": ["A","woman","with","an","umbrella","is","jumping","in","the","air"],
+   "image": "img99.jpg",
+   "count words": 10
+ },
+ {
+   "number": 100,
+   "sentence1": ["A","girl","in","winter","clothes","looks","up","in","the","sky"],
+   "image": "img100.jpg",
+   "count words": 10
+ },
+ {
+   "number": 101,
+   "sentence1": ["A","man","is","trying","to","score","a","goal","in","soccer"],
+   "image": "img101.jpg",
+   "count words": 10
+ },
+ {
+   "number": 102,
+   "sentence1": ["A","dog","leaps","into","the","air","in","a","grassy","field"],
+   "image": "img102.jpg",
+   "count words": 10
+ },
+ {
+   "number": 103,
+   "sentence1": ["A","man","is","standing","next","to","his","daughter"],
+   "image": "img103.jpg",
+   "count words": 8
+ },
+ {
+   "number": 104,
+   "sentence1": ["Three","girls","are","taking","a","selfie"],
+   "image": "img104.jpg",
+   "count words": 6
+ },
+ {
+   "number": 105,
+   "sentence1": ["Children","dressed","in","winter","clothes","are","walking","through","the","woods"],
+   "image": "img105.jpg",
+   "count words": 10
+ },
+ {
+   "number": 106,
+   "sentence1": ["A","man","is","sitting","outside","wearing","brown","pants"],
+   "image": "img106.jpg",
+   "count words": 8
+ },
+ {
+   "number": 107,
+   "sentence1": ["She","is","looking","into","a","mirror"],
+   "image": "img107.jpg",
+   "count words": 6
+ },
+ {
+   "number": 108,
+   "sentence1": ["Six","players","are","on","a","field"],
+   "image": "img108.jpg",
+   "count words": 6
+ },
+ {
+   "number": 109,
+   "sentence1": ["A","baby","looks","at","her","dirty","fingers"],
+   "image": "img109.jpg",
+   "count words": 7
+ },
+ {
+   "number": 110,
+   "sentence1": ["A","couple","is","looking","at","the","camera"],
+   "image": "img110.jpg",
+   "count words": 7
+ },
+ {
+   "number": 111,
+   "sentence1": ["Two","people","are","sitting","on","horses"],
+   "image": "img111.jpg",
+   "count words": 6
+ },
+ {
+   "number": 112,
+   "sentence1": ["Women","are","walking","on","green","grass"],
+   "image": "img112.jpg",
+   "count words": 6
+ },
+ {
+   "number": 113,
+   "sentence1": ["A","man","is","in","a","lab","looking","into","a","microscope"],
+   "image": "img113.jpg",
+   "count words": 10
+ },
+ {
+   "number": 114,
+   "sentence1": ["They","walk","past","a","temple","on","their","way","to","pray"],
+   "image": "img114.jpg",
+   "count words": 10
+ },
+ {
+   "number": 115,
+   "sentence1": ["A","man","in","a","green","shirt","is","eating"],
+   "image": "img115.jpg",
+   "count words": 8
+ },
+ {
+   "number": 116,
+   "sentence1": ["A","man","is","shaving","his","beard"],
+   "image": "img116.jpg",
+   "count words": 6
+ },
+ {
+   "number": 117,
+   "sentence1": ["A","young","man","is","walking","a","dog"],
+   "image": "img117.jpg",
+   "count words": 7
+ },
+ {
+   "number": 118,
+   "sentence1": ["A","woman","hands","a","plate","of","food","to","another","woman"],
+   "image": "img118.jpg",
+   "count words": 10
+ },
+ {
+   "number": 119,
+   "sentence1": ["They","are","cooking","dinner","at","home"],
+   "image": "img119.jpg",
+   "count words": 6
+ },
+ {
+   "number": 120,
+   "sentence1": ["Kathy","is","walking","by","herself","in","a","city"],
+   "image": "img120.jpg",
+   "count words": 8
+ },
+ {
+   "number": 121,
+   "sentence1": ["A","man","is","playing","the","violin","outside"],
+   "image": "img121.jpg",
+   "count words": 7
+ },
+ {
+   "number": 122,
+   "sentence1": ["Two","kids","are","standing","in","the","ocean","hugging","each","other"],
+   "image": "img122.jpg",
+   "count words": 10
+ },
+ {
+   "number": 123,
+   "sentence1": ["People","are","watching","hot","air","balloons"],
+   "image": "img123.jpg",
+   "count words": 6
+ },
+ {
+   "number": 124,
+   "sentence1": ["A","dog","licks","his","nose"],
+   "image": "img124.jpg",
+   "count words": 5
+ },
+ {
+   "number": 125,
+   "sentence1": ["They","are","dancing","together","on","the","street"],
+   "image": "img125.jpg",
+   "count words": 7
+ },
+ {
+   "number": 126,
+   "sentence1": ["A","girl","is","building","a","gingerbread","house"],
+   "image": "img126.jpg",
+   "count words": 7
+ },
+ {
+   "number": 127,
+   "sentence1": ["A","dog","is","in","front","of","a","waterfall"],
+   "image": "img127.jpg",
+   "count words": 8
+ },
+ {
+   "number": 128,
+   "sentence1": ["A","girl","sits","on","the","floor"],
+   "image": "img128.jpg",
+   "count words": 6
+ },
+ {
+   "number": 129,
+   "sentence1": ["A","woman","stands","on","a","beach","and","performs","yoga"],
+   "image": "img129.jpg",
+   "count words": 9
+ },
+ {
+   "number": 130,
+   "sentence1": ["People","are","shopping","at","a","grocery","store"],
+   "image": "img130.jpg",
+   "count words": 7
+ },
+ {
+   "number": 131,
+   "sentence1": ["A","child","holds","a","football","and","runs","from","other","children"],
+   "image": "img131.jpg",
+   "count words": 10
+ },
+ {
+   "number": 132,
+   "sentence1": ["A","boy","is","sitting","on","a","bus"],
+   "image": "img132.jpg",
+   "count words": 7
+ },
+ {
+   "number": 133,
+   "sentence1": ["A","happy","boy","is","jumping"],
+   "image": "img133.jpg",
+   "count words": 5
+ },
+ {
+   "number": 134,
+   "sentence1": ["A","boy","is","walking","away","from","tents","behind","him"],
+   "image": "img134.jpg",
+   "count words": 9
+ },
+ {
+   "number": 135,
+   "sentence1": ["A","kid","is","wearing","a","life","vest"],
+   "image": "img135.jpg",
+   "count words": 7
+ },
+ {
+   "number": 136,
+   "sentence1": ["Basketball","players","are","standing","on","a","basketball","court"],
+   "image": "img136.jpg",
+   "count words": 8
+ },
+ {
+   "number": 137,
+   "sentence1": ["A","young","girl","is","lying","on","the","floor"],
+   "image": "img137.jpg",
+   "count words": 8
+ },
+ {
+   "number": 138,
+   "sentence1": ["A","man","is","holding","a","sleeping","baby"],
+   "image": "img138.jpg",
+   "count words": 7
+ },
+ {
+   "number": 139,
+   "sentence1": ["People","are","taking","pictures"],
+   "image": "img139.jpg",
+   "count words": 4
+ },
+ {
+   "number": 140,
+   "sentence1": ["A","woman","rock-climbs","in","a","rural","area"],
+   "image": "img140.jpg",
+   "count words": 8
+ },
+ {
+   "number": 141,
+   "sentence1": ["A","blond","woman","stands","in","front","of","a","luxury","car"],
+   "image": "img141.jpg",
+   "count words": 10
+ },
+ {
+   "number": 142,
+   "sentence1": ["A","musical","group","performs","on","a","green","carpet"],
+   "image": "img142.jpg",
+   "count words": 8
+ },
+ {
+   "number": 143,
+   "sentence1": ["A","woman","is","working","on","papers","at","her","desk"],
+   "image": "img143.jpg",
+   "count words": 9
+ },
+ {
+   "number": 144,
+   "sentence1": ["Three","workers","are","trimming","down","trees"],
+   "image": "img144.jpg",
+   "count words": 6
+ },
+ {
+   "number": 145,
+   "sentence1": ["People","sit","around","a","circular","bar"],
+   "image": "img145.jpg",
+   "count words": 6
+ },
+ {
+   "number": 146,
+   "sentence1": ["The","riot","police","officers","stand","in","front","of","the","crowd"],
+   "image": "img146.jpg",
+   "count words": 10
+ },
+ {
+   "number": 147,
+   "sentence1": ["She","is","using","a","laptop"],
+   "image": "img147.jpg",
+   "count words": 5
+ },
+ {
+   "number": 148,
+   "sentence1": ["A","construction","worker","is","standing","on","a","crane"],
+   "image": "img148.jpg",
+   "count words": 8
+ },
+ {
+   "number": 149,
+   "sentence1": ["A","man","is","jumping","onto","his","bed"],
+   "image": "img149.jpg",
+   "count words": 7
+ },
+ {
+   "number": 150,
+   "sentence1": ["A","man","is","walking","down","the","sidewalk","with","his","dog"],
+   "image": "img150.jpg",
+   "count words": 10
+ },
+ {
+   "number": 151,
+   "sentence1": ["Young","players","are","playing","water","polo"],
+   "image": "img151.jpg",
+   "count words": 6
+ },
+ {
+   "number": 152,
+   "sentence1": ["A","sidewalk","vendor","sells","grilled","corn"],
+   "image": "img152.jpg",
+   "count words": 6
+ },
+ {
+   "number": 153,
+   "sentence1": ["Many","runners","are","running","around","the","track"],
+   "image": "img153.jpg",
+   "count words": 7
+ },
+ {
+   "number": 154,
+   "sentence1": ["A","man","is","grilling","fish","on","a","barbecue"],
+   "image": "img154.jpg",
+   "count words": 8
+ },
+ {
+   "number": 155,
+   "sentence1": ["A","girl","is","lying","on","her","back","in","the","snow"],
+   "image": "img155.jpg",
+   "count words": 10
+ },
+ {
+   "number": 156,
+   "sentence1": ["A","girl","is","running","towards","a","tennis","court"],
+   "image": "img156.jpg",
+   "count words": 8
+ },
+ {
+   "number": 157,
+   "sentence1": ["They","are","standing","in","the","snow"],
+   "image": "img157.jpg",
+   "count words": 6
+ },
+ {
+   "number": 158,
+   "sentence1": ["Many","children","are","playing","on","a","playground"],
+   "image": "img158.jpg",
+   "count words": 7
+ },
+ {
+   "number": 159,
+   "sentence1": ["A","black","dog","jumps","over","an","obstacle"],
+   "image": "img159.jpg",
+   "count words": 7
+ },
+ {
+   "number": 160,
+   "sentence1": ["A","woman","is","playing","with","her","kid","in","the","backyard"],
+   "image": "img160.jpg",
+   "count words": 10
+ },
+ {
+   "number": 161,
+   "sentence1": ["A","group","of","people","is","gathered","outside"],
+   "image": "img161.jpg",
+   "count words": 7
+ },
+ {
+   "number": 162,
+   "sentence1": ["A","woman","is","standing","near","the","water"],
+   "image": "img162.jpg",
+   "count words": 7
+ },
+ {
+   "number": 163,
+   "sentence1": ["A","man","is","playing","an","instrument","for","cash"],
+   "image": "img163.jpg",
+   "count words": 8
+ },
+ {
+   "number": 164,
+   "sentence1": ["A","woman","is","bicycle","racing","along","a","dirt","track"],
+   "image": "img164.jpg",
+   "count words": 9
+ },
+ {
+   "number": 165,
+   "sentence1": ["A","little","boy","is","playing","in","a","puddle"],
+   "image": "img165.jpg",
+   "count words": 8
+ },
+ {
+   "number": 166,
+   "sentence1": ["A","girl","and","her","boyfriend","are","sitting","on","stone","steps"],
+   "image": "img166.jpg",
+   "count words": 10
+ },
+ {
+   "number": 167,
+   "sentence1": ["The","girls","are","riding","bicycles"],
+   "image": "img167.jpg",
+   "count words": 5
+ },
+ {
+   "number": 168,
+   "sentence1": ["Many","people","stand","in","the","subway"],
+   "image": "img168.jpg",
+   "count words": 6
+ },
+ {
+   "number": 169,
+   "sentence1": ["A","woman","is","holding","a","baby","by","a","window"],
+   "image": "img169.jpg",
+   "count words": 9
+ },
+ {
+   "number": 170,
+   "sentence1": ["Two","men","wrestle","on","the","floor"],
+   "image": "img170.jpg",
+   "count words": 6
+ },
+ {
+   "number": 171,
+   "sentence1": ["A","boy","rides","on","a","camel"],
+   "image": "img171.jpg",
+   "count words": 6
+ },
+ {
+   "number": 172,
+   "sentence1": ["Two","black","dogs","are","playing","on","the","grass","together"],
+   "image": "img172.jpg",
+   "count words": 9
+ },
+ {
+   "number": 173,
+   "sentence1": ["Two","men","are","practicing","martial","arts"],
+   "image": "img173.jpg",
+   "count words": 6
+ },
+ {
+   "number": 174,
+   "sentence1": ["A","woman","is","holding","a","glass","of","wine"],
+   "image": "img174.jpg",
+   "count words": 8
+ },
+ {
+   "number": 175,
+   "sentence1": ["He","is","playing","guitar"],
+   "image": "img175.jpg",
+   "count words": 4
+ },
+ {
+   "number": 176,
+   "sentence1": ["A","woman","is","wearing","a","white","dress"],
+   "image": "img176.jpg",
+   "count words": 7
+ },
+ {
+   "number": 177,
+   "sentence1": ["They","are","doing","maintenance","on","the","road"],
+   "image": "img177.jpg",
+   "count words": 7
+ },
+ {
+   "number": 178,
+   "sentence1": ["A","man","is","climbing","a","rock","face"],
+   "image": "img178.jpg",
+   "count words": 7
+ },
+ {
+   "number": 179,
+   "sentence1": ["A","girl","runs","with","her","barefoot","on","the","grass"],
+   "image": "img179.jpg",
+   "count words": 9
+ },
+ {
+   "number": 180,
+   "sentence1": ["Two","men","are","climbing","stairs"],
+   "image": "img180.jpg",
+   "count words": 5
+ },
+ {
+   "number": 181,
+   "sentence1": ["A","woman","is","being","photographed","near","a","bicycle"],
+   "image": "img181.jpg",
+   "count words": 8
+ },
+ {
+   "number": 182,
+   "sentence1": ["He","is","playing","the","accordion"],
+   "image": "img182.jpg",
+   "count words": 5
+ },
+ {
+   "number": 183,
+   "sentence1": ["A","black","dog","is","drinking"],
+   "image": "img183.jpg",
+   "count words": 5
+ },
+ {
+   "number": 184,
+   "sentence1": ["A","toddler","dressed","only","in","a","pamper","is","standing"],
+   "image": "img184.jpg",
+   "count words": 9
+ },
+ {
+   "number": 185,
+   "sentence1": ["The","boys","are","playing","baseball"],
+   "image": "img185.jpg",
+   "count words": 5
+ },
+ {
+   "number": 186,
+   "sentence1": ["Someone","in","a","black","jacket","is","driving","a","motorcycle"],
+   "image": "img186.jpg",
+   "count words": 9
+ },
+ {
+   "number": 187,
+   "sentence1": ["Four","men","are","playing","hockey"],
+   "image": "img187.jpg",
+   "count words": 5
+ },
+ {
+   "number": 188,
+   "sentence1": ["A","man","is","doing","tricks","on","a","motorcycle"],
+   "image": "img188.jpg",
+   "count words": 8
+ },
+ {
+   "number": 189,
+   "sentence1": ["A","group","of","children","is","having","a","good","time"],
+   "image": "img189.jpg",
+   "count words": 9
+ },
+ {
+   "number": 190,
+   "sentence1": ["She","gets","ready","to","stay","overnight","inside","the","igloo"],
+   "image": "img190.jpg",
+   "count words": 9
+ },
+ {
+   "number": 191,
+   "sentence1": ["He","is","riding","an","ATV"],
+   "image": "img191.jpg",
+   "count words": 5
+ },
+ {
+   "number": 192,
+   "sentence1": ["The","girls","are","laughing"],
+   "image": "img192.jpg",
+   "count words": 4
+ },
+ {
+   "number": 193,
+   "sentence1": ["A","boy","is","doing","his","homework"],
+   "image": "img193.jpg",
+   "count words": 6
+ },
+ {
+   "number": 194,
+   "sentence1": ["The","man","is","walking","the","bride","down","the","aisle"],
+   "image": "img194.jpg",
+   "count words": 9
+ },
+ {
+   "number": 195,
+   "sentence1": ["Three","people","are","kayaking","in","dark","waters"],
+   "image": "img195.jpg",
+   "count words": 7
+ },
+ {
+   "number": 196,
+   "sentence1": ["A","man","is","flipping","in","the","air"],
+   "image": "img196.jpg",
+   "count words": 7
+ },
+ {
+   "number": 197,
+   "sentence1": ["Two","dogs","are","playing","tug-of-war"],
+   "image": "img197.jpg",
+   "count words": 5
+ },
+ {
+   "number": 198,
+   "sentence1": ["A","dog","is","jumping","into","a","pool"],
+   "image": "img198.jpg",
+   "count words": 7
+ },
+ {
+   "number": 199,
+   "sentence1": ["A","man","stands","at","a","podium"],
+   "image": "img199.jpg",
+   "count words": 6
+ },
+ {
+   "number": 200,
+   "sentence1": ["A","man","is","standing","in","front","of","a","brick","building"],
+   "image": "img200.jpg",
+   "count words": 10
+ }
+]

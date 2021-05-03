@@ -7,6 +7,8 @@
 
 import UIKit
 import HandySwift
+import MLKitTranslate
+import CoreServices
 
 class AnswerViewController: UIViewController {
 
@@ -26,6 +28,33 @@ class AnswerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         engSentenceLabel.text = receiveEnglishSentence
+        engToThaiTranslation()
+    }
+    
+
+    
+    func engToThaiTranslation() {
+        // Create an English-German translator:
+        let options = TranslatorOptions(sourceLanguage: .english, targetLanguage: .thai)
+        let englishThaiTranslator = Translator.translator(options: options)
+        
+        let conditions = ModelDownloadConditions(
+            allowsCellularAccess: false,
+            allowsBackgroundDownloading: true
+        )
+        englishThaiTranslator.downloadModelIfNeeded(with: conditions) { error in
+            guard error == nil else { return }
+
+            // Model downloaded successfully. Okay to start translating.
+            englishThaiTranslator.translate(self.receiveEnglishSentence) { translatedText, error in
+                guard error == nil, let translatedText = translatedText else { return }
+
+                // Translation succeeded.
+                print(translatedText)
+                self.thaiSentenceLabel.text = translatedText
+            }
+        }
+        
     }
     
     @IBAction func homeTapped(_ sender: Any) {

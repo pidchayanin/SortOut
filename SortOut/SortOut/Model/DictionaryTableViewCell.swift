@@ -15,7 +15,13 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var addedTextLabel: UILabel!
     @IBOutlet weak var addToListLabel: UILabel!
-    
+
+    @IBOutlet weak var meaningInThaiLabel: UILabel!
+    @IBOutlet weak var definitionInThaiLabel: UILabel!
+    @IBOutlet weak var synnonymLabel: UILabel!
+    @IBOutlet weak var synnonymWordLabel: UILabel!
+    @IBOutlet weak var exampleLabel: UILabel!
+    @IBOutlet weak var exampleSentenceLabel: UILabel!
     
     var addToVocabListButtonAction : (() -> ())?
     var undoButtonAction : (() -> ())?
@@ -24,6 +30,7 @@ class DictionaryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.addToVocabListButton.addTarget(self, action: #selector(buyButtonTapped(_:)), for: .touchUpInside)
+        self.undoButton.addTarget(self, action: #selector(undoTapped(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,7 +44,7 @@ class DictionaryTableViewCell: UITableViewCell {
         // then execute the code inside the subscribeButtonAction closure
         addToVocabListButtonAction?()
       }
-    @IBAction func undoTapped(_ sender: Any) {
+    @IBAction func undoTapped(_ sender: UIButton) {
         undoButtonAction?()
     }
 }

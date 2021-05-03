@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AddToVocabCD" representedClassName="AddToVocabCD" syncable="YES" codeGenerationType="class">
+        <attribute name="addedPoS" optional="YES" attributeType="String"/>
         <attribute name="addedWord" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Coin" representedClassName="Coin" syncable="YES" codeGenerationType="class">
         <attribute name="coinNum" optional="YES" attributeType="Integer 64" defaultValueString="1000" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="DateCD" representedClassName="DateCD" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="FavoriteVocabCD" representedClassName="FavoriteVocabCD" syncable="YES" codeGenerationType="class">
+        <attribute name="favPoS" optional="YES" attributeType="String"/>
+        <attribute name="favWord" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="itemDescriptions" optional="YES" attributeType="String"/>
@@ -13,8 +21,10 @@
         <attribute name="items" optional="YES" attributeType="String"/>
     </entity>
     <elements>
+        <element name="AddToVocabCD" positionX="2169" positionY="1368" width="128" height="59"/>
         <element name="Coin" positionX="2169" positionY="1377" width="128" height="44"/>
+        <element name="DateCD" positionX="2178" positionY="1377" width="128" height="44"/>
         <element name="Item" positionX="2163.308532714844" positionY="1331.659851074219" width="128" height="103"/>
-        <element name="AddToVocabCD" positionX="2169" positionY="1368" width="128" height="44"/>
+        <element name="FavoriteVocabCD" positionX="2187" positionY="1386" width="128" height="59"/>
     </elements>
 </model>
