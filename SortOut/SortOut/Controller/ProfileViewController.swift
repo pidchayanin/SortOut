@@ -67,11 +67,13 @@ class ProfileViewController: UIViewController {
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateDonePressed))
         toolbar.setItems([doneBtn], animated: true)
         
+        
         // assign toolbar to the keyboard
         notificationDate.inputAccessoryView = toolbar
         
         // assign date picker to the textfield
         notificationDate.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
         
         // date picker mode: change it to just date
         datePicker.datePickerMode = .date
@@ -90,6 +92,7 @@ class ProfileViewController: UIViewController {
         print(notificationDate.text!)
     }
     
+
     func createTimePicker() {
         notificationTime.textAlignment = .center
         //toolbar
@@ -105,6 +108,7 @@ class ProfileViewController: UIViewController {
         
         // assign date picker to the textfield
         notificationTime.inputView = timePicker
+        timePicker.preferredDatePickerStyle = .wheels
         
         // date picker mode: change it to just time
         timePicker.datePickerMode = .time
