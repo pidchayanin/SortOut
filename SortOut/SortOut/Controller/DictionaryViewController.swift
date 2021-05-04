@@ -7,6 +7,7 @@
 
 import UIKit
 import NaturalLanguage
+import SwiftyJSON
 
 class DictionaryViewController: UIViewController {
     
@@ -21,9 +22,18 @@ class DictionaryViewController: UIViewController {
     let cellReuseIdentifier = "dictCell"
     let cellSpacingHeight: CGFloat = 20
     var word = [""]
-    let words = ["i", "too", "i", "here"]
     var word1 = [String]()
+    var word2 = String()
     var pos = [String]()
+    
+    var vocabs = String()
+    var definitions = String()
+    var synnonyms = String()
+    var sentenceExamples = String()
+    var vocabArr = [String]()
+    var defArr = [String]()
+    var synArr = [String]()
+    var exampleArr = [String]()
     
     let currentDate = Date()
     
@@ -39,28 +49,35 @@ class DictionaryViewController: UIViewController {
         dictionaryTableView.dataSource = self
         
         getData()
-
-        //print(word)
-        //for i in word {
-            //print(i)
+        
         let temp = word.joined(separator: ", ")
 
-        //print("temp: ", temp)
         tagger.string = temp
         // Loop over all the tokens and print their lemma
         tagger.enumerateTags(in: temp.startIndex..<temp.endIndex, unit: .word, scheme: .lemma) { tag, tokenRange in
           if let tag = tag {
-            //print("\(temp[tokenRange]): \(tag.rawValue)")
-            for j in [tag.rawValue] {
-                word1.append(j)
+            //MARK: British English Only
+
+            if [tag.rawValue] == ["be"] {
+                for i in word {
+                    if [i] == ["is"] {
+                        word1.append(i)
+                    } else if [i] == ["am"] {
+                        word1.append(i)
+                    } else if [i] == ["are"] {
+                        word1.append(i)
+                    }
+                }
+            } else {
+                word1.append(tag.rawValue)
             }
           }
           return true
         }
+        
         posTagger.string = temp
         posTagger.enumerateTags(in: temp.startIndex..<temp.endIndex, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange in
             if let tag = tag{
-                //print("\(temp[tokenRange]): \(tag.rawValue)")
                 for k in [tag.rawValue] {
                     pos.append(k)
                 }
@@ -68,9 +85,65 @@ class DictionaryViewController: UIViewController {
             return true
         }
 
+        retrieveDictionary()
 
-        //}
     }
+    
+    
+    func retrieveDictionary() {
+        
+        var def = ""
+        var synn = ""
+        var ex = ""
+        var vocab = ""
+        var temp = ""
+        guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (2)", ofType: "json") else {return}
+                
+        let url = URL(fileURLWithPath: path)
+        
+        do{
+            let data = try Data(contentsOf: url)
+            let json = try JSON(data: data)
+            
+            for k in word1 {
+                temp = ""
+                for i in json {
+                    vocab = i.1["vocabulary"].stringValue.lowercased()
+                    
+                    let tempVocab = vocab
+                    
+                    tagger.string = tempVocab
+                    // Loop over all the tokens and print their lemma
+                    tagger.enumerateTags(in: tempVocab.startIndex..<tempVocab.endIndex, unit: .word, scheme: .lemma) { tag, tokenRange in
+                      if let tag = tag {
+                        vocab = tag.rawValue
+                      }
+                      return true
+                    }
+                    if vocab == k {
+                        def = i.1["definition"].stringValue
+                        synn = i.1["synonym"].stringValue
+                        ex = i.1["sentence_example"].stringValue
+                        defArr.append(def)
+                        synArr.append(synn)
+                        exampleArr.append(ex)
+                        temp = "complete"
+                        break
+                    }
+                }
+                if temp == "" {
+                    defArr.append("-")
+                    synArr.append("-")
+                    exampleArr.append("-")
+                }
+                self.dictionaryTableView.reloadData()
+            }
+        }
+        catch {
+            
+        }
+    }
+    
     
     func getData() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
@@ -135,13 +208,15 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //sleep(10)
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
-
-        //cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
         if word1[indexPath.row] != "" {
             cell.wordLabel.text = word1[indexPath.row]
             cell.partOfSpeechLabel.text = "(" + pos[indexPath.row] + ")"
-            //print("pos: ", pos)
+            cell.definitionInThaiLabel.text = defArr[indexPath.row]
+            cell.synnonymWordLabel.text = synArr[indexPath.row]
+            cell.exampleSentenceLabel.text = exampleArr[indexPath.row]
         }
         
         /*if addVocab.isEmpty == false {
@@ -259,7 +334,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }*/
         cell.meaningInThaiLabel.text = "หมายถึง"
-        cell.synnonymLabel.text = "Synnonym(s)"
+        cell.synnonymLabel.text = "Synonym(s)"
         cell.exampleLabel.text = "Example"
         
         
@@ -286,7 +361,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
                 
             
             
-            let dateFormatter = DateFormatter()
+            /*let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
             
             let date:String = dateFormatter.string(from: currentDate)
@@ -301,7 +376,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
 
                 //we are storing our sections in dictionary, so we need to sort it
             self.sortedSections = self.sections.keys.sorted { $0 > $1}
-                self.dictionaryTableView.reloadData()
+                self.dictionaryTableView.reloadData()*/
             
             //let addedDate = currentDate
             //addDate.day = addedDate
@@ -450,10 +525,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.clipsToBounds = true
         
-        
-        
-        //fetchItem()
-        //tableView.reloadData()
+
         return cell
     }
     

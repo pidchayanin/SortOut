@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import HandySwift
 
 var isReload = false
 
@@ -39,6 +40,16 @@ class GameViewController: UIViewController {
     var words9 = ""
     var words10 = ""
     
+    var definitions = String()
+    var synnonyms = String()
+    var sentenceExamples = String()
+    /*print("def: ", definitions)
+    print("synn: ", synnonyms)
+    print("example: ", sentenceExamples)*/
+    var defArr = [String]()
+    var synArr = [String]()
+    var exampleArr = [String]()
+    
     //var numbers = 0
     //var numbers1 = 0
     //var numbers2 = 0
@@ -52,6 +63,7 @@ class GameViewController: UIViewController {
 
         retreiveData()
         addDataToButtons()
+        //retrieveDictionary()
     }
     
     func addDataToButtons() {
@@ -305,6 +317,7 @@ class GameViewController: UIViewController {
 //                    print("Int: ", tempInt1)
                     
                     let sentences = item.1["sentence1"].arrayValue.shuffled()
+
                     //let testWord1 = sentences[0]
                     if sentences.count <= 10 && sentences.count > 9 {
                         word1 = sentences[0].stringValue.lowercased()
@@ -442,6 +455,132 @@ class GameViewController: UIViewController {
             
         } catch {
             print("--------\n", error)
+        }
+    }
+    
+    func retrieveDictionary() {
+        
+        var def = ""
+        var synn = ""
+        var ex = ""
+        var vocab = ""
+        guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (1)", ofType: "json") else {return}
+                
+        let url = URL(fileURLWithPath: path)
+        
+        do{
+            let data = try Data(contentsOf: url)
+            let json = try JSON(data: data)
+            
+            for i in json {
+                vocab = i.1["vocabulary"].stringValue
+                //print("vocab in loop:", vocab)
+                
+                    //print("i:", i)
+                for k in wordsArr {
+                    if vocab == k {
+                        //print("word:", word)
+                        //print("k:", k)
+                        def = i.1["definition"].stringValue
+                        synn = i.1["synonym"].stringValue
+                        ex = i.1["sentence_example"].stringValue
+                        
+                        definitions = def
+                        synnonyms = synn
+                        sentenceExamples = ex
+                        /*print("def: ", definitions)
+                        print("synn: ", synnonyms)
+                        print("example: ", sentenceExamples)*/
+                        defArr.append(definitions)
+                        synArr.append(synnonyms)
+                        exampleArr.append(sentenceExamples)
+                        print("defArr:", defArr)
+                        print("synArr:", synArr)
+                        print("exampleArr", exampleArr)
+                    }
+                }
+               /*if vocab == k {
+                    print("word2:", word2)
+                    def = i.1["definition"].stringValue
+                    synn = i.1["synonym"].stringValue
+                    ex = i.1["sentence_example"].stringValue
+                    
+                    definitions = def
+                    synnonyms = synn
+                    sentenceExamples = ex
+                    print("def: ", definitions)
+                    print("synn: ", synnonyms)
+                    print("example: ", sentenceExamples)
+                }*/
+                        
+                //self.dictionaryTableView.reloadData()
+            }
+        
+        
+
+            //vocab = json["vocabulary"].stringValue//.rawString()!
+            //print("vocab:", vocab)
+            //print("word1:", word1)
+            
+            
+            /*for item in json {
+                
+                
+                
+                let vocab = item.1["vocabulary"]
+                //let definition = item.1["definition"]
+                //let synonym = item.1["synonym"]
+                //let sentenceExample = item.1["sentence_example"]
+                /*definitions = definition.rawString()!
+                synnonyms = synonym.rawString()!
+                sentenceExamples = sentenceExample.rawString()!*/
+                
+                vocabs = vocab.rawString()!.lowercased()
+                //def = definition.stringValue
+                //synn = synonym.stringValue
+                //ex = sentenceExample.stringValue
+                /*print("vocab: ", vocabs)
+                print("def: ", definitions)
+                print("synn: ", synnonyms)
+                print("example: ", sentenceExamples)*/
+                
+                //print("word1", word1)
+                
+                vocabArr.append(vocabs)
+                /*defArr.append(definitions)
+                synArr.append(synnonyms)
+                exampleArr.append(sentenceExamples)*/
+                //print("word1:", word1)
+                print("item.1:", item.1[])
+                
+                
+                
+            }
+            for i in word1 {
+                
+                for j in vocabArr {
+                    if i == j {
+                        print("i:", i)
+                        print("j:", j)
+                        //def = definition[0].stringValue
+                        //synn = synonym[0].stringValue
+                        //ex = sentenceExample[0].stringValue
+                        //print("def:", def)
+                        //print("synn:", synn)
+                        //print("ex:", ex)
+                        
+                        definitions = def
+                        synnonyms = synn
+                        sentenceExamples = ex
+                        print("definitions:", definitions)
+                        print("synnonyms:", synnonyms)
+                        print("sentenceExamples", sentenceExamples)
+                    }
+                }
+            }*/
+        }
+        catch {
+            
         }
     }
     
@@ -693,7 +832,7 @@ class GameViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //MARK: To do - Check if human's name = no need to pass the data. Also check if the it has the same word in the sentence = no need to pass that data.
+        //MARK: To do - Check if human's name = no need to pass the data. Also check if it has the same word in the sentence = no need to pass that data.
         
         if words5 == "" {
             wordsArr = [words1, words2, words3, words4]
@@ -715,7 +854,7 @@ class GameViewController: UIViewController {
             print(6)
         }
         // word1
-        else if words1 == words2 {
+        /*else if words1 == words2 {
             wordsArr = [words1, words3, words4, words5, words6, words7, words8, words9, words10]
             print(7)
         } else if words1 == words2 && words5 == "" {
@@ -965,6 +1104,52 @@ class GameViewController: UIViewController {
         else if words9 == words10 {
             wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
             print(51)
+        }*/
+        
+        //Alex
+        else if words1 == "Alex" {
+            wordsArr = [words2, words3, words4, words5, words6, words7, words8, words9, words10]
+        } else if words2 == "Alex" {
+            wordsArr = [words1, words3, words4, words5, words6, words7, words8, words9, words10]
+        } else if words3 == "Alex" {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8, words9, words10]
+        } else if words4 == "Alex" {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9, words10]
+        } else if words5 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+        } else if words6 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+        } else if words7 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+        } else if words8 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+        } else if words9 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+        } else if words10 == "Alex" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
+        }
+        
+        //Kathy
+        else if words1 == "Kathy" {
+            wordsArr = [words2, words3, words4, words5, words6, words7, words8, words9, words10]
+        } else if words2 == "Kathy" {
+            wordsArr = [words1, words3, words4, words5, words6, words7, words8, words9, words10]
+        } else if words3 == "Kathy" {
+            wordsArr = [words1, words2, words4, words5, words6, words7, words8, words9, words10]
+        } else if words4 == "Kathy" {
+            wordsArr = [words1, words2, words3, words5, words6, words7, words8, words9, words10]
+        } else if words5 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words6, words7, words8, words9, words10]
+        } else if words6 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words5, words7, words8, words9, words10]
+        } else if words7 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words8, words9, words10]
+        } else if words8 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words9, words10]
+        } else if words9 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words10]
+        } else if words10 == "Kathy" {
+            wordsArr = [words1, words2, words3, words4, words5, words6, words7, words8, words9]
         }
         
         else {
@@ -976,6 +1161,9 @@ class GameViewController: UIViewController {
             //isReload = true
             let vc = segue.destination as? DictionaryViewController
             vc?.word = wordsArr
+            //vc?.defArr = defArr
+            //vc?.synArr = synArr
+            //vc?.exampleArr = exampleArr
             print(wordsArr)
         }
         else if segue.identifier == "toCorrectAnswer" {
