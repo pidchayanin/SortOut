@@ -25,6 +25,9 @@ class VocabListViewController: UIViewController {
     var dateCD: [DateCD] = []
     var wordAdded = [String]()
     var posAdded = [String]()
+    var defAdded = [String]()
+    var synAdded = [String]()
+    var exAdded = [String]()
     
     var favExample = ["i", "tu", "i", "here"]
     
@@ -58,11 +61,11 @@ class VocabListViewController: UIViewController {
     
     @objc func switchIsChanged(switchButton: UISwitch) {
         if switchButton.isOn {
-            print("on")
+            //print("on")
             self.tableView.reloadData()
             //switchState.text = "UISwitch is ON"
         } else {
-            print("off")
+            //print("off")
             self.tableView.reloadData()
             //switchState.text = "UISwitch is OFF"
         }
@@ -107,12 +110,12 @@ class VocabListViewController: UIViewController {
         switch(segmentedController.selectedSegmentIndex)
             {
             case 0:
-                print("vocab")
+                //print("vocab")
                 tableView.reloadData()
                 break
 
             case 1:
-                print("fav vocab")
+                //print("fav vocab")
                 tableView.reloadData()
                 break
             default:
@@ -217,45 +220,52 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         
 
         switch (segmentedController.selectedSegmentIndex) {
-        case 0:
-            let selectedWord = addToVocabCD[indexPath.row]
-            wordAdded.append(selectedWord.addedWord!)
-            cell.wordLabel.text = wordAdded[indexPath.row]
-            print("vocab word added: ", wordAdded[indexPath.row])
-            posAdded.append(selectedWord.addedPoS!)
-            cell.partOfSpeechLabel.text = "(" + posAdded[indexPath.row] + ")"
-            
-            if switchButton.isOn == true {
-                switchButton.setOn(true, animated: true)
-                cell.dashLabel.isHidden = false
-                cell.partOfSpeechLabel.isHidden = false
-                cell.meaningLabel.isHidden = false
-                print("switch on")
-            } else if switchButton.isOn == false {
-                switchButton.setOn(false, animated: true)
-                cell.dashLabel.isHidden = true
-                cell.partOfSpeechLabel.isHidden = true
-                cell.meaningLabel.isHidden = true
-                print("switch off")
-            }
-            
-            break
-        case 1:
-            if favoriteCD.isEmpty == false {
-                let favWord = favoriteCD[indexPath.row]
-                cell.wordLabel.text = favWord.favWord
-                cell.partOfSpeechLabel.text = "(" + favWord.favPoS! + ")"
-            } else {
-                tableView.allowsSelection = false
-                cell.wordLabel.isHidden = true
-                cell.dashLabel.isHidden = true
-                cell.meaningLabel.isHidden = true
-                cell.partOfSpeechLabel.isHidden = true
-                //return cell2
-            }
-            break
-        default:
-            break
+            case 0:
+                let selectedWord = addToVocabCD[indexPath.row]
+                wordAdded.append(selectedWord.addedWord!)
+                cell.wordLabel.text = wordAdded[indexPath.row]
+                print("vocab word added: ", wordAdded[indexPath.row])
+                posAdded.append(selectedWord.addedPoS!)
+                cell.partOfSpeechLabel.text = "(" + posAdded[indexPath.row] + ")"
+                defAdded.append(selectedWord.addedDefinition!)
+                cell.dashLabel.text = "-"
+                cell.meaningLabel.text = defAdded[indexPath.row]
+                synAdded.append(selectedWord.addedSynonym!)
+                exAdded.append(selectedWord.addedExample!)
+                
+                /*if switchButton.isOn == true {
+                    switchButton.setOn(true, animated: true)
+                    cell.dashLabel.isHidden = false
+                    cell.partOfSpeechLabel.isHidden = false
+                    cell.meaningLabel.isHidden = false
+                    print("switch on")
+                } else if switchButton.isOn == false {
+                    switchButton.setOn(false, animated: true)
+                    cell.dashLabel.isHidden = true
+                    cell.partOfSpeechLabel.isHidden = true
+                    cell.meaningLabel.isHidden = true
+                    print("switch off")
+                }*/
+                
+                break
+            case 1:
+                if favoriteCD.isEmpty == false {
+                    let favWord = favoriteCD[indexPath.row]
+                    cell.wordLabel.text = favWord.favWord
+                    cell.partOfSpeechLabel.text = "(" + favWord.favPoS! + ")"
+                    cell.dashLabel.text = "-"
+                    cell.meaningLabel.text = favWord.favDef
+                } else {
+                    tableView.allowsSelection = false
+                    cell.wordLabel.isHidden = true
+                    cell.dashLabel.isHidden = true
+                    cell.meaningLabel.isHidden = true
+                    cell.partOfSpeechLabel.isHidden = true
+                    //return cell2
+                }
+                break
+            default:
+                break
         }
         
         if switchButton.isOn == true {
@@ -317,7 +327,7 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         i = indexPath.row
-        print("i: ", i)
+        //print("i: ", i)
         performSegue(withIdentifier: "toVocabMeaning", sender: self)
     }
     
@@ -325,18 +335,18 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
-        if addToVocabCD.isEmpty == false {
-            let saveWord = addToVocabCD[indexPath.row]
-            if editingStyle == .delete {
-                managedContext?.delete(saveWord)
-                self.addToVocabCD.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                //self.tableView.reloadData()
-                //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-            }
+        
+        let saveWord = addToVocabCD[indexPath.row]
+        if editingStyle == .delete {
+            managedContext?.delete(saveWord)
+            self.addToVocabCD.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         }
         
-        if favoriteCD.isEmpty == false {
+        
+        /*if favoriteCD.isEmpty == false {
             let favWord = favoriteCD[indexPath.row]
             
             if editingStyle == .delete {
@@ -347,13 +357,13 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.favoriteCD.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                //self.tableView.reloadData()
-                //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                self.tableView.reloadData()
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         }
-            self.tableView.reloadData()
-            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            //self.tableView.reloadData()
+            //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
-        }
+        }*/
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -379,6 +389,9 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             let destination = segue.destination as? VocabMeaningViewController
             destination?.meaningWord = wordAdded[i]
             destination?.meaningPartOfSpeech = posAdded[i]
+            destination?.meaningMeaning = defAdded[i]
+            destination?.meaningSynnonymWords = synAdded[i]
+            destination?.meaningExampleSentences = exAdded[i]
             //print("meaning of: ", wordAdded)
 //            destination.meaningPartOfSpeech = partOfSpeeches[wordSection][wordRow]
 //            destination.meaningMeaning = meanings[wordSection][wordRow]

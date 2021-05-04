@@ -66,6 +66,8 @@ class DictionaryViewController: UIViewController {
                         word1.append(i)
                     } else if [i] == ["are"] {
                         word1.append(i)
+                    } else if [i] == ["being"] {
+                        word1.append(i)
                     }
                 }
             } else {
@@ -345,13 +347,16 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             let addWord = AddToVocabCD(context:context!)
             //let addDate = DateCD(context:context!)
             let addedWord = word[indexPath.row]
-            
-            
             let addedPOS = pos[indexPath.row]
+            let addedDefinition = defArr[indexPath.row]
+            let addedSynonym = synArr[indexPath.row]
+            let addedExample = exampleArr[indexPath.row]
             
             addWord.addedWord = addedWord
             addWord.addedPoS = addedPOS
-            
+            addWord.addedDefinition = addedDefinition
+            addWord.addedSynonym = addedSynonym
+            addWord.addedExample = addedExample
             
             //let alert = UIAlertController(title: "Add \(word[indexPath.row]) to list", message: "Are you sure?", preferredStyle: .alert)
            
@@ -391,11 +396,10 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             
             //if [addedWord][i].count == 1 {
                 //addWord.addedWord = String([addedWord][0])
-            
-            
+            print("ip:", indexPath.row)
             
             cell.addToVocabListButton.isEnabled = false
-            cell.addToVocabListButton.backgroundColor = .lightGray
+            cell.addToVocabListButton.backgroundColor = .darkGray
         
             cell.addToListLabel.isHidden = true
             
@@ -420,6 +424,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.addToListLabel.isHidden = false
                     print(addWord)
                     print("undo pressed")
+                    print("ip2", indexPath.row)
                 }
             }
         //}
