@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DictCellDelegate : class {
+    func  didPressButton(_ tag: Int)
+}
+
 class DictionaryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var wordLabel: UILabel!
@@ -23,8 +27,12 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var exampleLabel: UILabel!
     @IBOutlet weak var exampleSentenceLabel: UILabel!
     
+    var cellDelegate: DictCellDelegate?
+    
     var addToVocabListButtonAction : (() -> ())?
     var undoButtonAction : (() -> ())?
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,11 +47,19 @@ class DictionaryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    /*override func prepareForReuse() {
+        self.addToVocabListButton.isHidden = true
+    }*/
+    
     @IBAction func buyButtonTapped(_ sender: UIButton){
         // if the closure is defined (not nil)
         // then execute the code inside the subscribeButtonAction closure
         addToVocabListButtonAction?()
+        cellDelegate?.didPressButton(sender.tag)
       }
+    
+    
+    
     @IBAction func undoTapped(_ sender: UIButton) {
         undoButtonAction?()
     }

@@ -11,4 +11,5 @@ class DataManager {
     static let shared = DataManager()
     var firstVC = BetterShopViewController()
     var vocabVC = VocabListViewController()
+    var dictVC = DictionaryViewController()
 }

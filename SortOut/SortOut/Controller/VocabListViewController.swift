@@ -191,6 +191,7 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         var returnValue = 0
         
         switch(segmentedController.selectedSegmentIndex)
@@ -203,9 +204,7 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
                break
            default:
                break
-
            }
-
            return returnValue
     }
     
@@ -273,14 +272,14 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.dashLabel.isHidden = false
             cell.partOfSpeechLabel.isHidden = false
             cell.meaningLabel.isHidden = false
-            print("switch on")
+            //print("switch on")
             //return cell2
         } else if switchButton.isOn == false {
             switchButton.setOn(false, animated: true)
             cell.dashLabel.isHidden = true
             cell.partOfSpeechLabel.isHidden = true
             cell.meaningLabel.isHidden = true
-            print("switch off")
+            //print("switch off")
             //return cell2
         }
         

@@ -54,16 +54,25 @@ class VocabMeaningViewController: UIViewController {
     @IBAction func isFavoriteTapped(_ sender: Any) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
             let newFavorite = FavoriteVocabCD.init(context:context)
-
-            newFavorite.favWord = meaningWord
-            newFavorite.favPoS = meaningPartOfSpeech
-            print("fav tapped")
-            
             if favBtn.currentImage == UIImage(systemName: "heart") {
-                favBtn.setImage(UIImage(systemName: "star"), for: .normal)
+                newFavorite.favWord = meaningWord
+                newFavorite.favPoS = meaningPartOfSpeech
+                newFavorite.favDef = meaningMeaning
+                //print("fav tapped")
+                //print("new fav:", newFavorite)
+                favBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
                 favBtn.tintColor = .blue
+            } else {
+                favBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+                favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
+                favBtn.tintColor = .blue
+                context.delete(newFavorite)
+                DataManager.shared.vocabVC.viewWillAppear(true)
+                //print("remove from fav")
+                //print("remove new fav:", newFavorite)
             }
+            //print(newFavorite)
             //favBtn.setImage(UIImage(systemName: "heart.fil"), for: .normal)
             //favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
             
