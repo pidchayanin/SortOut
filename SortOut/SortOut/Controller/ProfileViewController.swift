@@ -10,31 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    //func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //    let cell:ProfileTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! ProfileTableViewCell
-        
-    //    cell.settingLabel.text = options[indexPath.row]
-    //    return cell
-   // }
-    
-    
-    //func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // your number of cells here
-   //     return self.options.count
-   // }
-
-    /*
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // cell selected code here
-        print("You tapped cell number \(indexPath.row).")
-    }*/
-    
-    //let options: [String] = ["Notification", "Time", "Date"]
-    //let cellReuseIdentifier = "notiSettingCell"
-    
-
- //   @IBOutlet weak var PlayerNameLabel: UILabel!
-    //@IBOutlet weak var tableView: UITableView!
+   
     
     @IBOutlet weak var notificationTime: UITextField!
     
@@ -46,13 +22,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.PlayerNameLabel.text = "Player" //add player name from apple game center
-     
+        //old date and time picker in UItextfield
         createDatePicker()
         createTimePicker()
         
-        //  self.tableView.delegate = self
-     //   self.tableView.dataSource = self
+        //new
+        
+        
         // Do any additional setup after loading the view.
     }
     

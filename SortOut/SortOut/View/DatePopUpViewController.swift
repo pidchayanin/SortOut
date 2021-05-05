@@ -9,12 +9,21 @@ import UIKit
 
 class DatePopUpViewController: UIViewController {
 
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var doneBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 

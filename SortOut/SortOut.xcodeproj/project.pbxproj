@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		026DCB576A2B315DD970757A /* Pods_SortOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013147F6289F7B3B25835C49 /* Pods_SortOut.framework */; };
+		4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */; };
 		4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */; };
 		4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4BD25E2514D0087CDA2 /* GameViewController.swift */; };
 		40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7AF625BC045800464BDB /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		013147F6289F7B3B25835C49 /* Pods_SortOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392E5A7D0EA4668723D2D1A4 /* Pods-SortOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortOut.debug.xcconfig"; path = "Target Support Files/Pods-SortOut/Pods-SortOut.debug.xcconfig"; sourceTree = "<group>"; };
+		4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeExtension.swift; sourceTree = "<group>"; };
 		4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingPopUpViewController.swift; sourceTree = "<group>"; };
 		4099E4BD25E2514D0087CDA2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		40BE7AF325BC045800464BDB /* SortOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +188,7 @@
 				40BE7B0425BC045D00464BDB /* LaunchScreen.storyboard */,
 				40BE7B0725BC045D00464BDB /* Info.plist */,
 				40BE7AFF25BC045800464BDB /* SortOut.xcdatamodeld */,
+				4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */,
 			);
 			path = SortOut;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
+				4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */,
 				54B36E9D263BF7550055D913 /* TableItem.swift in Sources */,
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,

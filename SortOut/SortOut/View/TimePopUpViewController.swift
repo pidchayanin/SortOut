@@ -14,6 +14,15 @@ class TimePopUpViewController: UIViewController {
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
+    var formattedDate: String {
+        get {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            return formatter.string(from: timePicker.date)
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -22,7 +31,10 @@ class TimePopUpViewController: UIViewController {
     }
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
+        NotificationCenter.default.post(name: .saveDateTime , object: self)
         dismiss(animated: true)
+        
+        
     }
     
 

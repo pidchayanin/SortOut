@@ -777,12 +777,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-7x-P9r">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-7x-P9r">
                                 <rect key="frame" x="20" y="291" width="374" height="315"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nal-IN-GLb">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.22809216639999999" blue="0.66998771109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -798,10 +797,6 @@
                                             <action selector="doneBtn_TouchUpinside:" destination="Qzm-0l-q2Z" eventType="touchUpInside" id="UKI-d9-JNx"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gbF-Hq-aOL">
-                                        <rect key="frame" x="0.0" y="45" width="374" height="223"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="166-Il-bLr">
                                         <rect key="frame" x="0.0" y="266" width="190" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -811,9 +806,22 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="gbF-Hq-aOL">
+                                <rect key="frame" x="20" y="365" width="374" height="166"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0gf-Ro-Efm"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="gbF-Hq-aOL" firstAttribute="trailing" secondItem="1Mp-7x-P9r" secondAttribute="trailing" id="1ag-1D-8ug"/>
+                            <constraint firstItem="gbF-Hq-aOL" firstAttribute="top" secondItem="0gf-Ro-Efm" secondAttribute="top" constant="321" id="Af6-kq-ra5"/>
+                            <constraint firstItem="1Mp-7x-P9r" firstAttribute="trailing" secondItem="HGt-A4-8SK" secondAttribute="trailingMargin" id="SYd-a6-sVg"/>
+                            <constraint firstItem="1Mp-7x-P9r" firstAttribute="top" secondItem="0gf-Ro-Efm" secondAttribute="top" constant="247" id="TVn-Zw-ud9"/>
+                            <constraint firstItem="1Mp-7x-P9r" firstAttribute="centerY" secondItem="HGt-A4-8SK" secondAttribute="centerY" id="Tux-2Z-1Fx"/>
+                            <constraint firstItem="gbF-Hq-aOL" firstAttribute="leading" secondItem="1Mp-7x-P9r" secondAttribute="leading" id="k4H-eE-Zg7"/>
+                            <constraint firstItem="gbF-Hq-aOL" firstAttribute="centerY" secondItem="1Mp-7x-P9r" secondAttribute="centerY" id="nMS-M9-XOi"/>
+                            <constraint firstItem="1Mp-7x-P9r" firstAttribute="leading" secondItem="HGt-A4-8SK" secondAttribute="leadingMargin" id="wne-Qz-xQd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelBtn" destination="166-Il-bLr" id="qPG-T7-dQA"/>
@@ -857,6 +865,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneBtn_TouchUpinside:" destination="F9n-9w-WtX" eventType="touchUpInside" id="hG9-uD-2XR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -865,6 +876,11 @@
                         <viewLayoutGuide key="safeArea" id="oxU-me-BAH"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="SvE-73-QiO" id="dBs-Xb-u5O"/>
+                        <outlet property="dateLabel" destination="FPo-7g-LFW" id="EeK-w0-PDF"/>
+                        <outlet property="doneBtn" destination="cnB-9l-Cai" id="729-Rq-PtX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Su0-hf-8Dt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
