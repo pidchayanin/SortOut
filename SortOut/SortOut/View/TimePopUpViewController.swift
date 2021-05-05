@@ -34,7 +34,10 @@ class TimePopUpViewController: UIViewController {
         NotificationCenter.default.post(name: .saveDateTime , object: self)
         dismiss(animated: true)
         
-        
+    }
+    
+    @IBAction func cancelBtn_TouchUpinside(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 

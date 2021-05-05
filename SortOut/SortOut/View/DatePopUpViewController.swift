@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DatePopUpViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,6 +27,9 @@ class DatePopUpViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func cancelBtn_TouchUpInside(_ sender: Any) {
+        dismiss(animated: true)
+    }
 
     /*
     // MARK: - Navigation

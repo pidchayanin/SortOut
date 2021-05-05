@@ -11,10 +11,15 @@ import UIKit
 class ProfileViewController: UIViewController {
     
    
-    
+    //old
     @IBOutlet weak var notificationTime: UITextField!
     
     @IBOutlet weak var notificationDate: UITextField!
+    
+    //new
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
     
     //**START time and date picker
     let datePicker = UIDatePicker()
@@ -27,9 +32,15 @@ class ProfileViewController: UIViewController {
         createTimePicker()
         
         //new
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func handlePopupClosing(notification: Notification) {
+        let dateVc = notification.object as! TimePopUpViewController
+        timeLabel.text = dateVc.formattedDate
     }
     
     func createDatePicker() {
