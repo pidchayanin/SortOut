@@ -6,7 +6,7 @@
    "sentence_example": "I have two cats."
  },
  {
-   "vocabulary": "Families",
+   "vocabulary": "Family",
    "definition": "ครอบครัว",
    "synonym": "clan, folk, group",
    "sentence_example": "My family has a big black cat."
@@ -18,7 +18,7 @@
    "sentence_example": "A girl is dancing."
  },
  {
-   "vocabulary": "Kids",
+   "vocabulary": "Kid",
    "definition": "เด็ก",
    "synonym": "baby, boy, child",
    "sentence_example": "Kids are playing."
@@ -64,12 +64,6 @@
    "definition": "คำนำหน้าคำที่ขึ้นต้นด้วยสระ a, e, i, o,u หรือออกเสียงสระ",
    "synonym": "-",
    "sentence_example": "An elephant is walking."
- },
- {
-   "vocabulary": "Girls",
-   "definition": "สาว",
-   "synonym": "adolescent, daughter, lady",
-   "sentence_example": "Girls are awesome."
  },
  {
    "vocabulary": "Children",
@@ -150,7 +144,7 @@
    "sentence_example": "They are crying."
  },
  {
-   "vocabulary": "doctors",
+   "vocabulary": "doctor",
    "definition": "แพทย์",
    "synonym": "expert, physician",
    "sentence_example": "Not everyone wants to be a doctor."
@@ -174,7 +168,7 @@
    "sentence_example": "A woman is laughing."
  },
  {
-   "vocabulary": "takes",
+   "vocabulary": "take",
    "definition": "ใช้เวลา",
    "synonym": "booty, catch, catching",
    "sentence_example": "I take a bus to school every day."
@@ -216,7 +210,7 @@
    "sentence_example": "I am waking on the street."
  },
  {
-   "vocabulary": "hopes",
+   "vocabulary": "hope",
    "definition": "ความหวัง",
    "synonym": "achievement, ambition, anticipation",
    "sentence_example": "She hopes to fly to Korea soon."
@@ -240,8 +234,8 @@
    "sentence_example": "I want to adopt a newborn baby."
  },
  {
-   "vocabulary": "13",
-   "definition": "13",
+   "vocabulary": "thirteen",
+   "definition": "สิบสาม",
    "synonym": "a dozen plus one, long dozen",
    "sentence_example": "She is thirteen years old."
  },
@@ -300,7 +294,7 @@
    "sentence_example": "You're going to have a little brother or sister."
  },
  {
-   "vocabulary": "boys",
+   "vocabulary": "boy",
    "definition": "เด็กชาย",
    "synonym": "child, fellow, guy",
    "sentence_example": "One of your boys called me."
@@ -318,12 +312,6 @@
    "sentence_example": "I am sitting on a chair."
  },
  {
-   "vocabulary": "workers",
-   "definition": "คนงาน",
-   "synonym": "employee, laborer",
-   "sentence_example": "We need more workers on the team."
- },
- {
    "vocabulary": "dressed",
    "definition": "แต่งตัว",
    "synonym": "adorn, attire, clothe",
@@ -336,19 +324,13 @@
    "sentence_example": "A pianist is performing on stage."
  },
  {
-   "vocabulary": "stands",
-   "definition": "ยืน",
-   "synonym": "attitude, belief, determination",
-   "sentence_example": "She stands for fairness."
- },
- {
    "vocabulary": "Hispanic",
    "definition": "สเปนและโปรตุเกส",
    "synonym": "-",
    "sentence_example": "My mother is Hispanic."
  },
  {
-   "vocabulary": "players",
+   "vocabulary": "player",
    "definition": "ผู้เล่น",
    "synonym": "athlete, competitor, member",
    "sentence_example": "They are e-sport players."
@@ -376,12 +358,6 @@
    "definition": "มีความสุข",
    "synonym": "cheerful, contented, delighted",
    "sentence_example": "I am happy to see you again."
- },
- {
-   "vocabulary": "kid",
-   "definition": "เด็ก",
-   "synonym": "baby, boy, child",
-   "sentence_example": "A kid is asleep."
  },
  {
    "vocabulary": "blond",
@@ -414,7 +390,7 @@
    "sentence_example": "The sidewalk is very uneven - be careful when you walk."
  },
  {
-   "vocabulary": "runners",
+   "vocabulary": "runner",
    "definition": "นักวิ่ง",
    "synonym": "contestant, entrant, hurdler",
    "sentence_example": "He has got an excellent vision as a runner."
@@ -438,16 +414,10 @@
    "sentence_example": "It is in the kitchen."
  },
  {
-   "vocabulary": "gets",
+   "vocabulary": "get",
    "definition": "ได้รับ",
    "synonym": "bring, draw, earn",
    "sentence_example": "He gets angry easily."
- },
- {
-   "vocabulary": "dogs",
-   "definition": "สุนัข",
-   "synonym": "pup, puppy",
-   "sentence_example": "Dogs are friendly."
  },
  {
    "vocabulary": "on",
@@ -456,7 +426,7 @@
    "sentence_example": "The house is on fire."
  },
  {
-   "vocabulary": "waiting",
+   "vocabulary": "wait",
    "definition": "ที่รอ",
    "synonym": "await, delay, expect",
    "sentence_example": "I am waiting for a bus."
@@ -474,22 +444,10 @@
    "sentence_example": "I went to the airport with my mother."
  },
  {
-   "vocabulary": "wearing",
-   "definition": "การสวมใส่",
-   "synonym": "draining, exhausting, carking",
-   "sentence_example": "I am wearing a necklace."
- },
- {
-   "vocabulary": "swings",
+   "vocabulary": "swing",
    "definition": "ชิงช้า, แกว่ง",
    "synonym": "fluctuation, rhythm, stroke",
    "sentence_example": "Swing your arm back and forth."
- },
- {
-   "vocabulary": "rides",
-   "definition": "ขี่",
-   "synonym": "drive",
-   "sentence_example": "He rides a camel."
  },
  {
    "vocabulary": "of",
@@ -504,7 +462,7 @@
    "sentence_example": "She is a concert performer."
  },
  {
-   "vocabulary": "throwing",
+   "vocabulary": "throw",
    "definition": "การขว้างปา",
    "synonym": "bunt, deliver, drive",
    "sentence_example": "She is throwing a ball."
@@ -522,34 +480,22 @@
    "sentence_example": "That was crazy."
  },
  {
-   "vocabulary": "wandering",
+   "vocabulary": "wander",
    "definition": "หลง",
    "synonym": "roving, winding, jaunting",
    "sentence_example": "The kid was found wandering the street alone."
  },
  {
-   "vocabulary": "reaches",
+   "vocabulary": "reach",
    "definition": "เอื้อม, บรรลุ",
    "synonym": "ability, capacity, distance",
    "sentence_example": "I can not reach it. It is too far."
  },
  {
-   "vocabulary": "kicks",
+   "vocabulary": "kick",
    "definition": "เตะ",
    "synonym": "fun, bang, buzz",
    "sentence_example": "I want to kick him."
- },
- {
-   "vocabulary": "sits",
-   "definition": "นั่งอยู่",
-   "synonym": "cover, install, lie",
-   "sentence_example": "Come in and sit down."
- },
- {
-   "vocabulary": "uses",
-   "definition": "การใช้งาน",
-   "synonym": "adoption, benefit, handling",
-   "sentence_example": "She uses her laptop to do her homework."
  },
  {
    "vocabulary": "gentleman",
@@ -558,13 +504,13 @@
    "sentence_example": "He is such a gentleman."
  },
  {
-   "vocabulary": "poses",
+   "vocabulary": "pose",
    "definition": "โพสท่า",
    "synonym": "mannerism, mien, posture",
    "sentence_example": "She posed for a swarm of TV cameramen."
  },
  {
-   "vocabulary": "looks",
+   "vocabulary": "look",
    "definition": "รูปลักษณ์",
    "synonym": "attention, eye, glance",
    "sentence_example": "He looks nervous."
@@ -576,25 +522,13 @@
    "sentence_example": "The police officers are coming to my house."
  },
  {
-   "vocabulary": "sitting",
-   "definition": "นั่ง",
-   "synonym": "lie, remain, seat",
-   "sentence_example": "She is sitting on the ground."
- },
- {
-   "vocabulary": "drawing",
+   "vocabulary": "draw",
    "definition": "การวาดภาพ",
    "synonym": "cartoon, depiction, design",
    "sentence_example": "He is drawing a picture."
  },
  {
-   "vocabulary": "walks",
-   "definition": "เดิน",
-   "synonym": "hike, jaunt, parade",
-   "sentence_example": "She walks across the lawn."
- },
- {
-   "vocabulary": "jumps",
+   "vocabulary": "jump",
    "definition": "กระโดด",
    "synonym": "bounce, dive, drop",
    "sentence_example": "The cat jumped off his lap."
@@ -606,31 +540,25 @@
    "sentence_example": "She is standing in front of her classmates."
  },
  {
-   "vocabulary": "dancing",
-   "definition": "การเต้นรำ",
+   "vocabulary": "dance",
+   "definition": "เต้นรำ",
    "synonym": "deferential, inferior, submissive",
    "sentence_example": "They are dancing at a party."
  },
  {
-   "vocabulary": "standing",
-   "definition": "จุดยืน",
-   "synonym": "existing, continuing, fixed",
-   "sentence_example": "She is standing among men."
- },
- {
-   "vocabulary": "having",
+   "vocabulary": "have",
    "definition": "มี",
    "synonym": "accept, acquire, admit",
    "sentence_example": "She is having a good time."
  },
  {
-   "vocabulary": "wears",
+   "vocabulary": "wear",
    "definition": "สวม",
    "synonym": "wear and tear, abrasion, attrition",
    "sentence_example": "He wears a jacket."
  },
  {
-   "vocabulary": "clothespins",
+   "vocabulary": "clothespin",
    "definition": "ไม้หนีบผ้า",
    "synonym": "-",
    "sentence_example": "She hung her clothes with clothespins."
@@ -642,13 +570,13 @@
    "sentence_example": "The store closes at 9."
  },
  {
-   "vocabulary": "gazes",
+   "vocabulary": "gaze",
    "definition": "อาศัยการมองตา",
    "synonym": "glaring, gun, look",
    "sentence_example": "She met his gaze and smiled."
  },
  {
-   "vocabulary": "plays",
+   "vocabulary": "play",
    "definition": "การเล่น",
    "synonym": "comedy, drama, hit",
    "sentence_example": "He plays piano."
@@ -660,7 +588,7 @@
    "sentence_example": "I am going to the UK next week."
  },
  {
-   "vocabulary": "swimming",
+   "vocabulary": "swim",
    "definition": "ว่ายน้ำ",
    "synonym": "floating, natant, natatorial",
    "sentence_example": "She is swimming in the pool."
@@ -672,22 +600,10 @@
    "sentence_example": "I am going to the market."
  },
  {
-   "vocabulary": "leaps",
+   "vocabulary": "leap",
    "definition": "กระโดด",
    "synonym": "surge, upsurge, upswing",
    "sentence_example": "I leaped across the threshold."
- },
- {
-   "vocabulary": "looking",
-   "definition": "มอง",
-   "synonym": "consider, glance, notice",
-   "sentence_example": "He is looking at me."
- },
- {
-   "vocabulary": "walking",
-   "definition": "ที่เดิน",
-   "synonym": "ambulatory, hiking, marching",
-   "sentence_example": "He is walking his dog."
  },
  {
    "vocabulary": "past",
@@ -696,49 +612,43 @@
    "sentence_example": "He was sad in the past."
  },
  {
-   "vocabulary": "hands",
+   "vocabulary": "hand",
    "definition": "มือ, ยื่น",
    "synonym": "fist, grip, palm",
    "sentence_example": "He hands me a book."
  },
  {
-   "vocabulary": "cooking",
+   "vocabulary": "cook",
    "definition": "การปรุงอาหาร",
    "synonym": "baking, boiling, brewing",
    "sentence_example": "They are cooking for dinner."
  },
  {
-   "vocabulary": "watching",
+   "vocabulary": "watch",
    "definition": "การเฝ้าดู",
    "synonym": "alert, cautious, observant",
    "sentence_example": "They are watching you."
  },
  {
-   "vocabulary": "licks",
+   "vocabulary": "lick",
    "definition": "เลีย",
    "synonym": "bit, brush, cast",
    "sentence_example": "A cat is licking its owner."
  },
  {
-   "vocabulary": "shopping",
+   "vocabulary": "shop",
    "definition": "ช้อปปิ้ง",
    "synonym": "browsing, e-commerce, spending",
    "sentence_example": "I love going shopping."
  },
  {
-   "vocabulary": "holds",
+   "vocabulary": "hold",
    "definition": "ถือ",
    "synonym": "dominance, grip, influence",
    "sentence_example": "He holds a heavy bag in his arms."
  },
  {
-   "vocabulary": "taking",
-   "definition": "ใช้เวลา, กิน, จับ, เอา",
-   "synonym": "catching, pandemic, communicative",
-   "sentence_example": "He is taking the trash away."
- },
- {
-   "vocabulary": "rock-climbs",
+   "vocabulary": "rock-climb",
    "definition": "ปีนหน้าผา",
    "synonym": "-",
    "sentence_example": "While Adam was rock-climbing, he fell and broke his leg."
@@ -748,12 +658,6 @@
    "definition": "รอบ",
    "synonym": "about, everywhere, over",
    "sentence_example": "She is running around a farm."
- },
- {
-   "vocabulary": "using",
-   "definition": "การใช้",
-   "synonym": "accepting, applying, adopting",
-   "sentence_example": "He is using his phone."
  },
  {
    "vocabulary": "worker",
@@ -774,19 +678,13 @@
    "sentence_example": "Don't wrestle or play tug-of-war or chasing games with your puppy because this encourages biting behavior."
  },
  {
-   "vocabulary": "playing",
-   "definition": "เล่น",
-   "synonym": "dance, caper, carouse",
-   "sentence_example": "She is playing with her dogs."
- },
- {
-   "vocabulary": "doing",
+   "vocabulary": "do",
    "definition": "การทำ",
    "synonym": "accomplishment, act, action",
    "sentence_example": "I am doing homework."
  },
  {
-   "vocabulary": "runs",
+   "vocabulary": "run",
    "definition": "วิ่ง",
    "synonym": "break, race, rush",
    "sentence_example": "She runs fast."
@@ -798,19 +696,13 @@
    "sentence_example": "I am ready for a test."
  },
  {
-   "vocabulary": "riding",
-   "definition": "การขี่",
-   "synonym": "cruise, drift, drive",
-   "sentence_example": "He is riding a horse."
- },
- {
    "vocabulary": "embracing",
    "definition": "กอด",
    "synonym": "grasp, clasp, clinch",
    "sentence_example": "She was embracing me with arms that never tire."
  },
  {
-   "vocabulary": "bicycles",
+   "vocabulary": "bicycle",
    "definition": "จักรยาน",
    "synonym": "bike, cycle, tandem",
    "sentence_example": "They are riding bicycles."
@@ -834,13 +726,13 @@
    "sentence_example": "The picture is hanging on the wall."
  },
  {
-   "vocabulary": "singing",
+   "vocabulary": "sing",
    "definition": "การร้องเพลง",
    "synonym": "chanting, carol, crooning",
    "sentence_example": "He is singing his favorite song."
  },
  {
-   "vocabulary": "writing",
+   "vocabulary": "write",
    "definition": "การเขียน",
    "synonym": "calligraphy, handwriting, print",
    "sentence_example": "I am writing to my teacher via email."
@@ -864,7 +756,7 @@
    "sentence_example": "They are talking to the judge."
  },
  {
-   "vocabulary": "tomatoes",
+   "vocabulary": "tomato",
    "definition": "มะเขือเทศ",
    "synonym": "orange, pea pod, true fruit",
    "sentence_example": "She hates eating tomatoes."
@@ -880,12 +772,6 @@
    "definition": "สกีน้ำ",
    "synonym": "-",
    "sentence_example": "Waterskiing is a surface water sport."
- },
- {
-   "vocabulary": "jumping",
-   "definition": "ที่กระโดด",
-   "synonym": "active, animated, beating",
-   "sentence_example": "He is jumping off the window."
  },
  {
    "vocabulary": "waxing",
@@ -912,28 +798,16 @@
    "sentence_example": "She is angry with her kids."
  },
  {
-   "vocabulary": "reading",
+   "vocabulary": "read",
    "definition": "การอ่าน",
    "synonym": "account, education, examination",
    "sentence_example": "I am reading a book."
  },
  {
-   "vocabulary": "suits",
-   "definition": "ชุดสูท",
-   "synonym": "costume, dress, ensemble",
-   "sentence_example": "He is wearing a suit."
- },
- {
-   "vocabulary": "smiling",
+   "vocabulary": "smile",
    "definition": "ที่ยิ้ม",
    "synonym": "beam, grin, laugh",
    "sentence_example": "They are smiling at the camera."
- },
- {
-   "vocabulary": "running",
-   "definition": "วิ่ง",
-   "synonym": "constant, functioning, working",
-   "sentence_example": "He is running away from the crowd."
  },
  {
    "vocabulary": "something",
@@ -960,19 +834,19 @@
    "sentence_example": "I go to school by bus."
  },
  {
-   "vocabulary": "working",
-   "definition": "การทำงาน",
+   "vocabulary": "work",
+   "definition": "ทำงาน",
    "synonym": "alive, busy, employed",
    "sentence_example": "He is working at his desk."
  },
  {
-   "vocabulary": "blows",
+   "vocabulary": "blow",
    "definition": "พัด",
    "synonym": "hurricane, draft, flurry",
    "sentence_example": "A cold wind began to blow."
  },
  {
-   "vocabulary": "chasing",
+   "vocabulary": "chase",
    "definition": "ไล่",
    "synonym": "drive, drive away, expel",
    "sentence_example": "A girl is chasing after her cat."
@@ -1008,12 +882,6 @@
    "sentence_example": "The children were wearing traditional national costumes."
  },
  {
-   "vocabulary": "holding",
-   "definition": "ถือ, ครอบครอง, จับไว้",
-   "synonym": "equity, goods, ownership",
-   "sentence_example": "She is holding my bag while I am tying my shoes."
- },
- {
    "vocabulary": "has",
    "definition": "มี",
    "synonym": "accept, acquire, admit",
@@ -1026,7 +894,7 @@
    "sentence_example": "It snows in winter."
  },
  {
-   "vocabulary": "trying",
+   "vocabulary": "try",
    "definition": "พยายาม",
    "synonym": "arduous, demanding, irritating",
    "sentence_example": "I am trying to get a scholarship to Korea."
@@ -1044,9 +912,9 @@
    "sentence_example": "He is at the mall."
  },
  {
-   "vocabulary": "shaving",
-   "definition": "การโกน",
-   "synonym": "brush, cut down, kiss",
+   "vocabulary": "shave",
+   "definition": "โกน",
+   "synonym": "cut down",
    "sentence_example": "He is shaving his beard."
  },
  {
@@ -1074,52 +942,28 @@
    "sentence_example": "The building is big."
  },
  {
-   "vocabulary": "pictures",
-   "definition": "ภาพ",
-   "synonym": "account, art, cartoon",
-   "sentence_example": "I love taking pictures."
- },
- {
-   "vocabulary": "performs",
-   "definition": "ดำเนินการ",
-   "synonym": "achieve, act, behave",
-   "sentence_example": "The doctor will perform the surgery."
- },
- {
-   "vocabulary": "trimming",
+   "vocabulary": "trim",
    "definition": "ตัดแต่ง",
    "synonym": "decoration, frill, accessories",
    "sentence_example": "My hair needs trimming."
  },
  {
-   "vocabulary": "officers",
-   "definition": "เจ้าหน้าที่",
-   "synonym": "agent, chief, civil servant",
-   "sentence_example": "The police officers are coming to my house."
- },
- {
-   "vocabulary": "sells",
+   "vocabulary": "sell",
    "definition": "ขาย",
    "synonym": "beguile, break faith, bunk",
    "sentence_example": "She sells drugs."
  },
  {
-   "vocabulary": "grilling",
-   "definition": "การย่าง",
+   "vocabulary": "grill",
+   "definition": "ย่าง",
    "synonym": "barbecue, roast, sear",
    "sentence_example": "He is grilling salmon."
  },
  {
-   "vocabulary": "lying",
+   "vocabulary": "lie",
    "definition": "โกหก",
    "synonym": "misleading, dissembling, dissimulating",
    "sentence_example": "They are lying to you."
- },
- {
-   "vocabulary": "bicycle",
-   "definition": "รถจักรยาน",
-   "synonym": "bike, cycle, tandem",
-   "sentence_example": "I am riding a bicycle."
  },
  {
    "vocabulary": "her",
@@ -1128,7 +972,7 @@
    "sentence_example": "Her hair is messy."
  },
  {
-   "vocabulary": "practicing",
+   "vocabulary": "practice",
    "definition": "การฝึกซ้อม",
    "synonym": "exercise, hone, prepare",
    "sentence_example": "I am practicing for my show tomorrow."
@@ -1146,7 +990,7 @@
    "sentence_example": "He took a course to learn about car maintenance."
  },
  {
-   "vocabulary": "climbing",
+   "vocabulary": "climb",
    "definition": "ปีนเขา",
    "synonym": "ascend, clamber, go up",
    "sentence_example": "A cat is climbing a tree."
@@ -1155,7 +999,7 @@
    "vocabulary": "being",
    "definition": "ความเป็นอยู่",
    "synonym": "actuality, animation, journey",
-   "sentence_example": "He was positively rude."
+   "sentence_example": "He was caught being drunk in the back of a taxi."
  },
  {
    "vocabulary": "only",
@@ -1164,19 +1008,19 @@
    "sentence_example": "I only care about money."
  },
  {
-   "vocabulary": "laughing",
+   "vocabulary": "laugh",
    "definition": "ที่หัวเราะ",
    "synonym": "humorous, amusing, camp",
    "sentence_example": "She laughs so hard."
  },
  {
-   "vocabulary": "kayaking",
+   "vocabulary": "kayak",
    "definition": "เรือคายัค",
    "synonym": "-",
    "sentence_example": "He went kayaking last week."
  },
  {
-   "vocabulary": "flipping",
+   "vocabulary": "flip",
    "definition": "พลิก",
    "synonym": "cast, chuck, flick",
    "sentence_example": "Sofia tried to focus on flipping through a magazine."
@@ -1194,7 +1038,7 @@
    "sentence_example": "I am waiting in line for COVID-19 vaccinations."
  },
  {
-   "vocabulary": "drinks",
+   "vocabulary": "drink",
    "definition": "เครื่องดื่ม",
    "synonym": "alcohol, booze, brew",
    "sentence_example": "He drinks a cup of coffee every day."
@@ -1224,7 +1068,7 @@
    "sentence_example": "The sky is blue."
  },
  {
-   "vocabulary": "prepares",
+   "vocabulary": "prepare",
    "definition": "เตรียมความพร้อม",
    "synonym": "arrange, assemble, brace",
    "sentence_example": "My mom prepares breakfast at seven."
@@ -1236,19 +1080,13 @@
    "sentence_example": "They have some very nice animals."
  },
  {
-   "vocabulary": "performing",
-   "definition": "การดำเนินการ",
-   "synonym": "operating, achieving, acting",
-   "sentence_example": "A pianist is performing on stage."
- },
- {
    "vocabulary": "top",
    "definition": "ด้านบน, สูงสุด, หัวกะทิ",
    "synonym": "dominant, elite, excellent",
    "sentence_example": "I apply to a top university in Korea."
  },
  {
-   "vocabulary": "enjoys",
+   "vocabulary": "enjoy",
    "definition": "สนุกกับการ",
    "synonym": "appreciate, like, love",
    "sentence_example": "He enjoys eating."
@@ -1278,7 +1116,7 @@
    "sentence_example": "The projector is a device that projects an image."
  },
  {
-   "vocabulary": "speaking",
+   "vocabulary": "speak",
    "definition": "การพูด",
    "synonym": "oral, vocal, verbal",
    "sentence_example": "I am speaking to your boss."
@@ -1308,13 +1146,7 @@
    "sentence_example": "She looked through the binoculars."
  },
  {
-   "vocabulary": "blonde",
-   "definition": "สีบลอนด์",
-   "synonym": "blond, albino, champagne",
-   "sentence_example": "She has blonde hair."
- },
- {
-   "vocabulary": "bubbles",
+   "vocabulary": "bubble",
    "definition": "ฟองฟอด",
    "synonym": "balloon, blob, droplet",
    "sentence_example": "The warm bubble bath was relaxing."
@@ -1326,7 +1158,7 @@
    "sentence_example": "She is doing yoga."
  },
  {
-   "vocabulary": "matching",
+   "vocabulary": "match",
    "definition": "การจับคู่",
    "synonym": "identical, coordinating, double",
    "sentence_example": "She is looking for a matching couple gift for her boyfriend."
@@ -1350,13 +1182,13 @@
    "sentence_example": "We hurried to catch the bus."
  },
  {
-   "vocabulary": "gathers",
+   "vocabulary": "gather",
    "definition": "รวบรวม",
    "synonym": "assemble, choose, cluster",
    "sentence_example": "I need to gather the eggs."
  },
  {
-   "vocabulary": "supporting",
+   "vocabulary": "support",
    "definition": "ที่สนับสนุน",
    "synonym": "aiding, approving, encouraging",
    "sentence_example": "We are supporting you."
@@ -1441,15 +1273,9 @@
  },
  {
    "vocabulary": "water",
-   "definition": "น้ำ",
+   "definition": "น้ำ, น่านน้ำ",
    "synonym": "drink, rain, H2O",
    "sentence_example": "A glass of water is on the table."
- },
- {
-   "vocabulary": "grilled",
-   "definition": "ย่าง",
-   "synonym": "barbecue, roast, sear",
-   "sentence_example": "A grilled chicken smells good."
  },
  {
    "vocabulary": "fish",
@@ -1458,7 +1284,7 @@
    "sentence_example": "I would like some fish."
  },
  {
-   "vocabulary": "towards",
+   "vocabulary": "toward",
    "definition": "ไปทาง",
    "synonym": "against, almost, approaching",
    "sentence_example": "The dog ran towards me."
@@ -1470,15 +1296,15 @@
    "sentence_example": "I live near the airport."
  },
  {
-   "vocabulary": "racing",
-   "definition": "การแข่งรถ",
-   "synonym": "darting, dashing, fast",
-   "sentence_example": "Car racings are costly."
+   "vocabulary": "race",
+   "definition": "แข่ง",
+   "synonym": "compete, run, dash",
+   "sentence_example": "The turtle wins the race while the rabbit is sleeping."
  },
  {
    "vocabulary": "boyfriend",
    "definition": "แฟน",
-   "synonym": "beau, companion, friend",
+   "synonym": "beau, companion",
    "sentence_example": "Her boyfriend is American."
  },
  {
@@ -1488,13 +1314,13 @@
    "sentence_example": "Chinese martial arts have a long history."
  },
  {
-   "vocabulary": "stairs",
+   "vocabulary": "stair",
    "definition": "บันได",
    "synonym": "companionway, escalator, stair",
    "sentence_example": "I hate walking stairs."
  },
  {
-   "vocabulary": "photographed",
+   "vocabulary": "photograph",
    "definition": "ถ่ายภาพ",
    "synonym": "capture, illustrate, print",
    "sentence_example": "She has photographed all of the castles in Thailand."
@@ -1504,12 +1330,6 @@
    "definition": "หีบเพลง",
    "synonym": "concertina, groanbox, melodeon",
    "sentence_example": "He plays accordion."
- },
- {
-   "vocabulary": "drinking",
-   "definition": "การดื่ม",
-   "synonym": "consume, drain, gulp",
-   "sentence_example": "He is drinking wine."
  },
  {
    "vocabulary": "baseball",
@@ -1530,7 +1350,7 @@
    "sentence_example": "Hockey is famous in Canada."
  },
  {
-   "vocabulary": "tricks",
+   "vocabulary": "trick",
    "definition": "เล่นกล",
    "synonym": "conspiracy, deception, device",
    "sentence_example": "He tricked me into believing that he was rich."
@@ -1554,9 +1374,9 @@
    "sentence_example": "Tug-of-war is a good way to bond with your dog."
  },
  {
-   "vocabulary": "competing",
-   "definition": "การแข่งขัน",
-   "synonym": "battle, challenge, clash",
+   "vocabulary": "compete",
+   "definition": "แข่งขัน",
+   "synonym": "fight, challenge, face",
    "sentence_example": "He likes competing against himself."
  },
  {
@@ -1578,10 +1398,10 @@
    "sentence_example": "I know ten Chinese words besides Chinese numbers."
  },
  {
-   "vocabulary": "crafts",
+   "vocabulary": "craft",
    "definition": "งานฝีมือ",
    "synonym": "art, technique, ability",
-   "sentence_example": "I do crafts in my free time."
+   "sentence_example": "I do craft in my free time."
  },
  {
    "vocabulary": "each",
@@ -1590,9 +1410,9 @@
    "sentence_example": "Each of those new cells has a new copy of your DNA."
  },
  {
-   "vocabulary": "going",
+   "vocabulary": "go",
    "definition": "ไป",
-   "synonym": "bustling, flowing, functioning",
+   "synonym": "continue, move, run",
    "sentence_example": "I am going to the bathroom."
  },
  {
@@ -1608,7 +1428,7 @@
    "sentence_example": "Their ambitions inspired me."
  },
  {
-   "vocabulary": "bathed",
+   "vocabulary": "bathe",
    "definition": "อาบน้ำ",
    "synonym": "clean, dip, douse",
    "sentence_example": "She bathed in the midmorning sun."
@@ -1680,10 +1500,10 @@
    "sentence_example": "The outer walls of the house were made of brick."
  },
  {
-   "vocabulary": "computers",
+   "vocabulary": "computer",
    "definition": "คอมพิวเตอร์",
    "synonym": "CPU, PC, abacus",
-   "sentence_example": "I sold my old computers to the museum."
+   "sentence_example": "I sold an old computer to my friend."
  },
  {
    "vocabulary": "science",
@@ -1718,7 +1538,7 @@
  {
    "vocabulary": "outfits",
    "definition": "ชุด",
-   "synonym": "accoutrements, apparatus, appliances",
+   "synonym": "set of clothes, equipment",
    "sentence_example": "These outfits look good on you."
  },
  {
@@ -1748,7 +1568,7 @@
  {
    "vocabulary": "clothing",
    "definition": "เสื้อผ้า",
-   "synonym": "accouterment, apparel, array",
+   "synonym": "accouterment, apparel",
    "sentence_example": "Their clothing was old-fashioned."
  },
  {
@@ -1758,9 +1578,9 @@
    "sentence_example": "The melody grew and passed from one instrument to another."
  },
  {
-   "vocabulary": "kites",
+   "vocabulary": "kite",
    "definition": "ว่าว",
-   "synonym": "answer, memo, memorandum",
+   "synonym": "-",
    "sentence_example": "Her kite flies high in the sky."
  },
  {
@@ -1776,7 +1596,7 @@
    "sentence_example": "She is in the swimming pool."
  },
  {
-   "vocabulary": "fruits",
+   "vocabulary": "fruit",
    "definition": "ผลไม้",
    "synonym": "berry, crop, grain",
    "sentence_example": "My favorite fruits are apple and mango."
@@ -1812,7 +1632,7 @@
    "sentence_example": "The floor is dirty."
  },
  {
-   "vocabulary": "horses",
+   "vocabulary": "horse",
    "definition": "ม้า",
    "synonym": "colt, filly, mare",
    "sentence_example": "The horses are running."
@@ -1848,7 +1668,7 @@
    "sentence_example": "She is good at playing a violin."
  },
  {
-   "vocabulary": "balloons",
+   "vocabulary": "balloon",
    "definition": "ลูกโป่ง",
    "synonym": "blimp, airship, bladder",
    "sentence_example": "The balloons get bigger as we pumped air into them."
@@ -1905,10 +1725,10 @@
    "vocabulary": "papers",
    "definition": "เอกสาร",
    "synonym": "ID, affidavit, archive",
-   "sentence_example": "I put aside the paper and tried to nap."
+   "sentence_example": "A puff of wind blew the papers off the table."
  },
  {
-   "vocabulary": "trees",
+   "vocabulary": "tree",
    "definition": "ต้นไม้",
    "synonym": "forest, sapling, seedling",
    "sentence_example": "A cat is climbing a tree."
@@ -1938,12 +1758,6 @@
    "sentence_example": "It is snowing in Kansas."
  },
  {
-   "vocabulary": "gathered",
-   "definition": "รวมตัวกัน",
-   "synonym": "accumulated, collected, concentrated",
-   "sentence_example": "We gathered our things together and left quickly."
- },
- {
    "vocabulary": "instrument",
    "definition": "เครื่องดนตรี, อุปกรณ์",
    "synonym": "apparatus, appliance, device",
@@ -1965,7 +1779,7 @@
    "vocabulary": "arts",
    "definition": "ศิลปะ",
    "synonym": "craft, profession, adroitness",
-   "sentence_example": "She is studying arts."
+   "sentence_example": "She is studying martial arts. "
  },
  {
    "vocabulary": "glass",
@@ -2040,13 +1854,13 @@
    "sentence_example": "She loves to be on stage."
  },
  {
-   "vocabulary": "steps",
+   "vocabulary": "step",
    "definition": "ขั้นตอน",
    "synonym": "stride, footfall, footprint",
    "sentence_example": "She backed up a few steps."
  },
  {
-   "vocabulary": "instruments",
+   "vocabulary": "instrument",
    "definition": "เครื่องมือ",
    "synonym": "apparatus, appliance, device",
    "sentence_example": "Please handle this precision instrument carefully."
@@ -2088,10 +1902,10 @@
    "sentence_example": "I love outdoor activities."
  },
  {
-   "vocabulary": "arms",
-   "definition": "อาวุธ, แขน",
-   "synonym": "accoutrements, armaments, artillery",
-   "sentence_example": "She touched his arm, and he glanced up."
+   "vocabulary": "arm",
+   "definition": "แขน",
+   "synonym": "-",
+   "sentence_example": "He has really strong arms."
  },
  {
    "vocabulary": "give",
@@ -2112,7 +1926,7 @@
    "sentence_example": "I want to buy a camera."
  },
  {
-   "vocabulary": "approaching",
+   "vocabulary": "approach",
    "definition": "ใกล้เข้ามา",
    "synonym": "coming, imminent, impending",
    "sentence_example": "The train is approaching."
@@ -2142,12 +1956,6 @@
    "sentence_example": "She hates doing laundry."
  },
  {
-   "vocabulary": "friends",
-   "definition": "เพื่อน",
-   "synonym": "acquaintance, ally, associate",
-   "sentence_example": "My friends are cool."
- },
- {
    "vocabulary": "store",
    "definition": "เก็บ",
    "synonym": "stock, abundance, accumulation",
@@ -2166,9 +1974,9 @@
    "sentence_example": "She has brown eyes."
  },
  {
-   "vocabulary": "fingers",
+   "vocabulary": "finger",
    "definition": "นิ้วมือ",
-   "synonym": "claw, hook, ring finger",
+   "synonym": "claw, hook",
    "sentence_example": "She pointed the finger at him."
  },
  {
@@ -2190,7 +1998,7 @@
    "sentence_example": "The bus never waits for anyone."
  },
  {
-   "vocabulary": "tents",
+   "vocabulary": "tent",
    "definition": "เต็นท์",
    "synonym": "canvas, pavilion, hogan",
    "sentence_example": "We are sleeping in a tent outside."
@@ -2268,9 +2076,9 @@
    "sentence_example": "She pampered herself with a day at the spa."
  },
  {
-   "vocabulary": "driving",
-   "definition": "การขับรถ",
-   "synonym": "propulsive, active, compelling",
+   "vocabulary": "drive",
+   "definition": "ขับรถ",
+   "synonym": "ride, run, trip",
    "sentence_example": "He is driving to school."
  },
  {
@@ -2280,13 +2088,7 @@
    "sentence_example": "Please stay inside the gate."
  },
  {
-   "vocabulary": "waters",
-   "definition": "น่านน้ำ",
-   "synonym": "drink, rain, H2O",
-   "sentence_example": "On the way across the open water, they saw several dolphins."
- },
- {
-   "vocabulary": "packages",
+   "vocabulary": "package",
    "definition": "แพคเกจ",
    "synonym": "bag, bottle, box",
    "sentence_example": "My packages arrived via mail."
@@ -2316,9 +2118,9 @@
    "sentence_example": "He displayed his trophy on a shelf over his desk."
  },
  {
-   "vocabulary": "squatting",
+   "vocabulary": "squat",
    "definition": "นั่งยอง",
-   "synonym": "cower, crouch, hunch",
+   "synonym": "-",
    "sentence_example": "She was squatting near a bed."
  },
  {
@@ -2352,7 +2154,7 @@
    "sentence_example": "He jumps out of the window."
  },
  {
-   "vocabulary": "vegetables",
+   "vocabulary": "vegetable",
    "definition": "ผัก",
    "synonym": "herb, legume, produce",
    "sentence_example": "Some kids do not like eating vegetables."
@@ -2382,9 +2184,9 @@
    "sentence_example": "I am on my way to the library."
  },
  {
-   "vocabulary": "eating",
-   "definition": "การรับประทานอาหาร",
-   "synonym": "chewing, consumption, dining",
+   "vocabulary": "eat",
+   "definition": "รับประทานอาหาร",
+   "synonym": "chew, consume, munch",
    "sentence_example": "They are eating fish."
  },
  {
@@ -2394,7 +2196,7 @@
    "sentence_example": "Bangkok is a small city."
  },
  {
-   "vocabulary": "hugging",
+   "vocabulary": "hug",
    "definition": "กอด",
    "synonym": "cherish, clasp, clinch",
    "sentence_example": "She is hugging her cat."
@@ -2652,7 +2454,7 @@
    "sentence_example": "I arrived at the bus station late."
  },
  {
-   "vocabulary": "sets",
+   "vocabulary": "set",
    "definition": "ตกดิน",
    "synonym": "agreed, appointed, arranged",
    "sentence_example": "The sun sets at 6 PM today."
@@ -2664,7 +2466,7 @@
    "sentence_example": "Please keep your mouth shut."
  },
  {
-   "vocabulary": "cartoons",
+   "vocabulary": "cartoon",
    "definition": "การ์ตูน",
    "synonym": "animation, caricature, comic strip",
    "sentence_example": "I love watching Japanese cartoons."

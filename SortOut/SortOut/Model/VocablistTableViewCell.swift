@@ -27,3 +27,7 @@ class VocablistTableViewCell: UITableViewCell {
     }
 
 }
+
+protocol DeleteRowInTableviewDelegate: NSObjectProtocol {
+    func deleteRow(inTableview rowToDelete: Int)
+}

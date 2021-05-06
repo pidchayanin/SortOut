@@ -27,6 +27,7 @@
 		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
 		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
 		545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */; };
+		547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */ = {isa = PBXBuildFile; fileRef = 547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */; };
 		548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
@@ -98,6 +99,7 @@
 		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
 		545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (1).json"; sourceTree = "<group>"; };
+		547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (2).json"; sourceTree = "<group>"; };
 		548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		40BE7AF525BC045800464BDB /* SortOut */ = {
 			isa = PBXGroup;
 			children = (
+				547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */,
 				545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */,
 				54B36ECB263C5AF90055D913 /* English sentences(2).json */,
 				5448EFC62620421600EB32D1 /* English sentences.json */,
@@ -393,6 +396,7 @@
 				40BE7B0625BC045D00464BDB /* LaunchScreen.storyboard in Resources */,
 				5448EFC72620421600EB32D1 /* English sentences.json in Resources */,
 				40BE7B0325BC045D00464BDB /* Assets.xcassets in Resources */,
+				547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */,
 				40BE7AFE25BC045800464BDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
