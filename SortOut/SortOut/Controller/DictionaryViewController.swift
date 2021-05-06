@@ -8,6 +8,7 @@
 import UIKit
 import NaturalLanguage
 import SwiftyJSON
+import CoreData
 
 class DictionaryViewController: UIViewController {
     
@@ -18,6 +19,13 @@ class DictionaryViewController: UIViewController {
     
     @IBOutlet weak var dictionaryTableView: UITableView!
 
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+//    let addWord = AddToVocabCD(context:context!)
+    
+    var add_button = false
+    var undo_button = false
+    
+    var load = true
     
     let cellReuseIdentifier = "dictCell"
     let cellSpacingHeight: CGFloat = 20
@@ -53,6 +61,7 @@ class DictionaryViewController: UIViewController {
         dictionaryTableView.dataSource = self
         
         getData()
+        //print("add vocab", addVocab)
         
         let temp = word.joined(separator: ", ")
 
@@ -142,7 +151,7 @@ class DictionaryViewController: UIViewController {
                     synArr.append("-")
                     exampleArr.append("-")
                 }
-                self.dictionaryTableView.reloadData()
+                //self.dictionaryTableView.reloadData()
             }
         }
         catch {
@@ -150,16 +159,26 @@ class DictionaryViewController: UIViewController {
         }
     }
     
+    /*func getData() {
+        guard let appDelegate = <#expression#> else { return <#return value#> }
+    }*/
+    
     
     func getData() {
+        print("getData")
+        addVocab.removeAll()
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let wordFromCoreData = try? context.fetch(AddToVocabCD.fetchRequest()){
                 if let words = wordFromCoreData as? [AddToVocabCD]{
                     addVocab = words
-                    dictionaryTableView.reloadData()
+                    //self.dictionaryTableView.reloadData()
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     @IBAction func backTapped(_ sender: Any) {
@@ -216,11 +235,40 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //sleep(10)
+        
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
         cell.cellDelegate = self
         cell.addToVocabListButton.tag = indexPath.row
         
+        //let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        var av = [String]()
+        
+        // Make word added in addVocab to be an array
+        if addVocab.count != 0 {
+            for v in 0...addVocab.count - 1 {
+                let av_temp = addVocab[v]
+                let av_temp2 = av_temp.addedWord!
+                av.append(av_temp2)
+            }
+        }
+        
+        print("dict av:", av)
+
+        // Check if word already added
+        var i = 0
+        for word_1 in word1 {
+            for word_2 in av {
+                if word_1 == word_2 {
+                    if !addListIndexPath.contains(i) {
+                        addListIndexPath.append(i)
+                    } 
+                }
+            }
+            i += 1
+        }
+        
+        print("alip: ", addListIndexPath)
         
         
         if word1[indexPath.row] != "" {
@@ -236,21 +284,8 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
         cell.synnonymLabel.text = "Synonym(s)"
         cell.exampleLabel.text = "Example"
         
-        /*for index in addListIndexPath {
-            if indexPath.row != index {
-                cell.addToVocabListButton.isEnabled = true
-                cell.addToVocabListButton.backgroundColor = .systemBlue
-            
-                cell.addToListLabel.isHidden = false
-                
-                cell.undoButton.isHidden = true
-                cell.undoButton.isEnabled = false
-                
-                cell.addedTextLabel.isHidden = true
-            }
-        }*/
-        
-        print("al:", addListIndexPath)
+        // Check if words did not contained in addListIndexPath array to prevent reuseable cell looping when scroll the tableview
+        //print("al:", addListIndexPath)
         if !addListIndexPath.contains(indexPath.row) {
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
@@ -274,211 +309,95 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
             cell.addedTextLabel.isHidden = false
         }
         
-        
-        print("ip:", indexPath.row)
-        if cell.addToVocabListButton.tag == indexPath.row {
-            cell.addToVocabListButtonAction = { [unowned self] in
-                
-                addListIndexPath.append(indexPath.row)
-                
-                let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-     
-                let addWord = AddToVocabCD(context:context!)
-                //let addDate = DateCD(context:context!)
-                print("tag", cell.addToVocabListButton.tag)
-                print("wip:", word[indexPath.row])
-                let addedWord = word[indexPath.row]
-                let addedPOS = pos[indexPath.row]
-                let addedDefinition = defArr[indexPath.row]
-                let addedSynonym = synArr[indexPath.row]
-                let addedExample = exampleArr[indexPath.row]
-                
-                addWord.addedWord = addedWord
-                addWord.addedPoS = addedPOS
-                addWord.addedDefinition = addedDefinition
-                addWord.addedSynonym = addedSynonym
-                addWord.addedExample = addedExample
-                
-                //let alert = UIAlertController(title: "Add \(word[indexPath.row]) to list", message: "Are you sure?", preferredStyle: .alert)
-               
-                //YES
-                //alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
-                //NSLog("The \"YES\" alert occured.")
-                    
-                
-                
-                /*let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy"
-                
-                let date:String = dateFormatter.string(from: currentDate)
+        cell.undoButtonAction = { [unowned self] in
+            undo_button = true
+            addListIndexPath = addListIndexPath.filter { $0 != indexPath.row }
 
-                    //if we don't have section for particular date, create new one, otherwise we'll just add item to existing section
-                if self.sections.index(forKey: date) == nil {
-                        self.sections[date] = [TableItem(title: date, creationDate: currentDate)]
-                    }
-                    else {
-                        self.sections[date]!.append(TableItem(title: date, creationDate: currentDate))
-                    }
-
-                    //we are storing our sections in dictionary, so we need to sort it
-                self.sortedSections = self.sections.keys.sorted { $0 > $1}
-                    self.dictionaryTableView.reloadData()*/
-                
-                //let addedDate = currentDate
-                //addDate.day = addedDate
-                //print(addDate.day!)
-                
-                //print("word1: ", word1)
-                //print("array addedword: ", [addedWord])
-                //print("word: ", word)
-                //print("word indexpath: ", addedWord.count)
-                //print("indPath: ", indexPath.row)
-                //print("added word: ", addWord)
-                
-                //if [addedWord][i].count == 1 {
-                    //addWord.addedWord = String([addedWord][0])
-                //print("ip:", indexPath.row)
-                
-                cell.addToVocabListButton.isEnabled = false
-                cell.addToVocabListButton.backgroundColor = .darkGray
-            
-                cell.addToListLabel.isHidden = true
-                
-                cell.undoButton.isHidden = false
-                cell.undoButton.isEnabled = true
-                
-                cell.addedTextLabel.isHidden = false
-            
-                
-                if cell.undoButton.isHidden == false {
-                    cell.undoButtonAction = {
-                        [unowned self] in
-                        //self.undoManager?.undo()
-                        //cell.undoButton.isEnabled = self.undoManager?.canUndo ?? false
-                        
-                        addListIndexPath = addListIndexPath.filter { $0 != indexPath.row }
-                        
-                        context!.delete(addWord)
-                        cell.undoButton.isHidden = true
-                        cell.undoButton.isEnabled = false
-                        cell.addedTextLabel.isHidden = true
-                        cell.addToVocabListButton.isEnabled = true
-                        cell.addToVocabListButton.backgroundColor = .systemBlue
-                        
-                        cell.addToListLabel.isHidden = false
-                        //print(addWord)
-                        //print("undo pressed")
-                        //print("ip2", indexPath.row)
-                    }
+            var idx = 0
+            for w in av {
+                if w == word1[indexPath.row] {
+                    break
                 }
-            //}
-
-                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-                return
+                idx += 1
             }
+            
+            let wordFromCoreData = try? context!.fetch(AddToVocabCD.fetchRequest())
+            context!.delete(wordFromCoreData![idx] as! NSManagedObject)
+
+            cell.undoButton.isHidden = true
+            cell.undoButton.isEnabled = false
+            cell.addedTextLabel.isHidden = true
+            cell.addToVocabListButton.isEnabled = true
+            cell.addToVocabListButton.backgroundColor = .systemBlue
+            
+            cell.addToListLabel.isHidden = false
+            //print(addWord)
+            print("undo pressed")
+            
+
+            //print("ip2", indexPath.row)
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+ 
+
+            getData()
+            //self.dictionaryTableView.reloadData()
+            // Still cannot find how to reload tableView
+            
+            
         }
         
-        
-        
-        
-        
-            
-            /*for item in word1 {
-                if word1[indexPath.row] == item {
-                    print("item: ", item)
-                    let addedWord = item
-                    addWord.addedWord = addedWord
-                    
-                    let addedPOS = pos[indexPath.row]
-                    addWord.addedPoS = addedPOS
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd/MM/yyyy"
-                    
-                    let date:String = dateFormatter.string(from: currentDate)
+        cell.addToVocabListButtonAction = { [unowned self] in
+            add_button = true
+            let addWord = AddToVocabCD(context:context!)
+            print("AW:", addWord)
+            addListIndexPath.append(indexPath.row)
 
-                        //if we don't have section for particular date, create new one, otherwise we'll just add item to existing section
-                    if self.sections.index(forKey: date) == nil {
-                            self.sections[date] = [TableItem(title: date, creationDate: currentDate)]
-                        }
-                        else {
-                            self.sections[date]!.append(TableItem(title: date, creationDate: currentDate))
-                        }
+            //let addDate = DateCD(context:context!)
 
-                        //we are storing our sections in dictionary, so we need to sort it
-                    self.sortedSections = self.sections.keys.sorted { $0 > $1}
-                        self.dictionaryTableView.reloadData()
-                    
-                    //let addedDate = currentDate
-                    //addDate.day = addedDate
-                    //print(addDate.day!)
-                    
-                    //print("word1: ", word1)
-                    //print("array addedword: ", [addedWord])
-                    //print("word: ", word)
-                    //print("word indexpath: ", addedWord.count)
-                    //print("indPath: ", indexPath.row)
-                    //print("added word: ", addWord)
-                    
-                    //if [addedWord][i].count == 1 {
-                        //addWord.addedWord = String([addedWord][0])
-                    cell.addToVocabListButton.isEnabled = false
-                    cell.addToVocabListButton.backgroundColor = .lightGray
-                
-                    cell.addToListLabel.isHidden = true
-                    
-                    cell.undoButton.isHidden = false
-                    cell.undoButton.isEnabled = true
-                    
-                    cell.addedTextLabel.isHidden = false
-                
-                    
-                    if cell.undoButton.isHidden == false {
-                        cell.undoButtonAction = {
-                            [unowned self] in
-                            //self.undoManager?.undo()
-                            //cell.undoButton.isEnabled = self.undoManager?.canUndo ?? false
-                            context!.delete(addWord)
-                            cell.undoButton.isHidden = true
-                            cell.undoButton.isEnabled = false
-                            cell.addedTextLabel.isHidden = true
-                            cell.addToVocabListButton.isEnabled = true
-                            cell.addToVocabListButton.backgroundColor = .systemBlue
-                            
-                            cell.addToListLabel.isHidden = false
-                            print(addWord)
-                            print("undo pressed")
-                        }
-                    }
-                //}
-
-                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-                }
-            }*/
+            let addedWord = word1[indexPath.row]
+            let addedPOS = pos[indexPath.row]
+            let addedDefinition = defArr[indexPath.row]
+            let addedSynonym = synArr[indexPath.row]
+            let addedExample = exampleArr[indexPath.row]
             
-                    
-                
-                
-            //}))
+            addWord.addedWord = addedWord
+            addWord.addedPoS = addedPOS
+            addWord.addedDefinition = addedDefinition
+            addWord.addedSynonym = addedSynonym
+            addWord.addedExample = addedExample
             
-            //NO
-            //alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-          //      print("Tap no")
-          //}))
+            cell.addToVocabListButton.isEnabled = false
+            cell.addToVocabListButton.backgroundColor = .darkGray
+        
+            cell.addToListLabel.isHidden = true
             
-           // self.present(alert, animated: true, completion: nil)
+            cell.undoButton.isHidden = false
+            cell.undoButton.isEnabled = true
+            
+            cell.addedTextLabel.isHidden = false
+            
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            
+            getData()
+            
+            tableView.reloadData()
+        }
         
+        //Undo แล้วยังไม่ลบ
         
-        
+           
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         
         cell.clipsToBounds = true
-        
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -486,8 +405,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
         // Pass the selected object to the new view controller.
         if  segue.destination is VocabListViewController {
             let destination = segue.destination as? VocabListViewController
-            destination?.sections = sections
-            destination?.sortedSections = sortedSections
+            destination?.addList = addListIndexPath
             }
     }
 }

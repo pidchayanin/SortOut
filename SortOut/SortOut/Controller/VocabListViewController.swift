@@ -29,6 +29,9 @@ class VocabListViewController: UIViewController {
     var synAdded = [String]()
     var exAdded = [String]()
     
+    var addList = [Int]()
+    var av = [String]()
+    
     var favExample = ["i", "tu", "i", "here"]
     
     var sections = Dictionary<String, Array<TableItem>>()
@@ -221,16 +224,18 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         switch (segmentedController.selectedSegmentIndex) {
             case 0:
                 let selectedWord = addToVocabCD[indexPath.row]
-                wordAdded.append(selectedWord.addedWord!)
+                //print("sw", selectedWord.addedWord!)
+                wordAdded.append(selectedWord.addedWord ?? "")
+                //print("wa", wordAdded)
                 cell.wordLabel.text = wordAdded[indexPath.row]
                 print("vocab word added: ", wordAdded[indexPath.row])
-                posAdded.append(selectedWord.addedPoS!)
+                posAdded.append(selectedWord.addedPoS ?? "")
                 cell.partOfSpeechLabel.text = "(" + posAdded[indexPath.row] + ")"
-                defAdded.append(selectedWord.addedDefinition!)
+                defAdded.append(selectedWord.addedDefinition ?? "")
                 cell.dashLabel.text = "-"
                 cell.meaningLabel.text = defAdded[indexPath.row]
-                synAdded.append(selectedWord.addedSynonym!)
-                exAdded.append(selectedWord.addedExample!)
+                synAdded.append(selectedWord.addedSynonym ?? "")
+                exAdded.append(selectedWord.addedExample ?? "")
                 
                 /*if switchButton.isOn == true {
                     switchButton.setOn(true, animated: true)
@@ -365,22 +370,6 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         }*/
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        if  segue.identifier == "toVocabMeaning",
-//                let destination = segue.destination as? VocabMeaningViewController,
-//                let wordSection = self.tableView.indexPathForSelectedRow?.section,
-//                let wordRow = self.tableView.indexPathForSelectedRow?.row
-//            {
-//            destination.meaningWord = wordAdded
-//            print("meaning of: ", wordAdded)
-////            destination.meaningPartOfSpeech = partOfSpeeches[wordSection][wordRow]
-////            destination.meaningMeaning = meanings[wordSection][wordRow]
-////            destination.meaningSynnonymWords = synnonyms[wordSection][wordRow]
-////            destination.meaningExampleSentences = examples[wordSection][wordRow]
-//            }
-//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -398,4 +387,16 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
 //            destination.meaningExampleSentences = examples[wordSection][wordRow]
         }
     }
+}
+
+extension VocabListViewController: DeleteRowInTableviewDelegate {
+  func deleteRow(inTableview rowToDelete: Int) {
+    if av.count > rowToDelete {
+        self.addToVocabCD.remove(at: rowToDelete)
+        self.tableView.deleteRows(at: [IndexPath(row: rowToDelete, section: 0)], with: .automatic)
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    } else {
+        print("index not present")
+      }
+  }
 }
