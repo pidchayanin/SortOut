@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		026DCB576A2B315DD970757A /* Pods_SortOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013147F6289F7B3B25835C49 /* Pods_SortOut.framework */; };
+		4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */; };
 		4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */; };
 		4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4BD25E2514D0087CDA2 /* GameViewController.swift */; };
 		40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7AF625BC045800464BDB /* AppDelegate.swift */; };
@@ -19,6 +20,8 @@
 		40BE7B1125BC045E00464BDB /* SortOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7B1025BC045E00464BDB /* SortOutTests.swift */; };
 		40BE7B1C25BC045E00464BDB /* SortOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7B1B25BC045E00464BDB /* SortOutUITests.swift */; };
 		40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */; };
+		40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */; };
+		40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E4226405933009E9E9F /* DatePopUpViewController.swift */; };
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
 		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
 		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
@@ -70,6 +73,7 @@
 /* Begin PBXFileReference section */
 		013147F6289F7B3B25835C49 /* Pods_SortOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392E5A7D0EA4668723D2D1A4 /* Pods-SortOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortOut.debug.xcconfig"; path = "Target Support Files/Pods-SortOut/Pods-SortOut.debug.xcconfig"; sourceTree = "<group>"; };
+		4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeExtension.swift; sourceTree = "<group>"; };
 		4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingPopUpViewController.swift; sourceTree = "<group>"; };
 		4099E4BD25E2514D0087CDA2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		40BE7AF325BC045800464BDB /* SortOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +91,8 @@
 		40BE7B1B25BC045E00464BDB /* SortOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOutUITests.swift; sourceTree = "<group>"; };
 		40BE7B1D25BC045E00464BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopUpViewController.swift; sourceTree = "<group>"; };
+		40F28E4226405933009E9E9F /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
 		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				40BE7B0425BC045D00464BDB /* LaunchScreen.storyboard */,
 				40BE7B0725BC045D00464BDB /* Info.plist */,
 				40BE7AFF25BC045800464BDB /* SortOut.xcdatamodeld */,
+				4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */,
 			);
 			path = SortOut;
 			sourceTree = "<group>";
@@ -241,6 +248,8 @@
 				4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */,
 				548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */,
 				548AB4002613008C00C98D94 /* PopUpWindow.swift */,
+				40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */,
+				40F28E4226405933009E9E9F /* DatePopUpViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -475,8 +484,10 @@
 				4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */,
 				549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */,
 				54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */,
+				40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */,
 				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
+				40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */,
 				549C550225DE590C0086AEA3 /* ShopViewController.swift in Sources */,
 				548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
@@ -489,6 +500,7 @@
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
+				4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */,
 				54B36E9D263BF7550055D913 /* TableItem.swift in Sources */,
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,

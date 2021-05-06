@@ -1,3 +1,4 @@
+
 //
 //  ProfileViewController.swift
 //  SortOut
@@ -7,42 +8,111 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:ProfileTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! ProfileTableViewCell
-        
-        cell.settingLabel.text = options[indexPath.row]
-        return cell
-    }
+class ProfileViewController: UIViewController {
+    
+   
+    //old
+    @IBOutlet weak var notificationTime: UITextField!
+    
+    @IBOutlet weak var notificationDate: UITextField!
+    
+    //new
+    @IBOutlet weak var timeLabel: UILabel!
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // your number of cells here
-        return self.options.count
-    }
-
-    /*
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // cell selected code here
-        print("You tapped cell number \(indexPath.row).")
-    }*/
     
-    let options: [String] = ["Notification", "Time", "Date"]
-    let cellReuseIdentifier = "notiSettingCell"
-    
-
-    @IBOutlet weak var PlayerNameLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    //**START time and date picker
+    let datePicker = UIDatePicker()
+    let timePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.PlayerNameLabel.text = "Player" //add player name from apple game center
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        //old date and time picker in UItextfield
+        createDatePicker()
+        createTimePicker()
+        
+        //new
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
+        
+        
         // Do any additional setup after loading the view.
     }
     
+    @objc func handlePopupClosing(notification: Notification) {
+        let dateVc = notification.object as! TimePopUpViewController
+        timeLabel.text = dateVc.formattedDate
+    }
     
+    func createDatePicker() {
+        
+        notificationDate.textAlignment = .center
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateDonePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        
+        // assign toolbar to the keyboard
+        notificationDate.inputAccessoryView = toolbar
+        
+        // assign date picker to the textfield
+        notificationDate.inputView = datePicker
+        datePicker.preferredDatePickerStyle = .wheels
+        
+        // date picker mode: change it to just date
+        datePicker.datePickerMode = .date
+    }
+    
+    @objc func dateDonePressed() {
+        // create a formatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none // do not want to display time
+        
+        //notificationDate.text = "\(datePicker.date)"
+        notificationDate.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+        
+        print(notificationDate.text!)
+    }
+    
+
+    func createTimePicker() {
+        notificationTime.textAlignment = .center
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(timeDonePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        // assign toolbar to the keyboard
+        notificationTime.inputAccessoryView = toolbar
+        
+        // assign date picker to the textfield
+        notificationTime.inputView = timePicker
+        timePicker.preferredDatePickerStyle = .wheels
+        
+        // date picker mode: change it to just time
+        timePicker.datePickerMode = .time
+    }
+    
+    @objc func timeDonePressed() {
+        // create a formatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = .medium // do not want to display date
+        
+        //notificationDate.text = "\(datePicker.date)"
+        notificationTime.text = formatter.string(from: timePicker.date)
+        self.view.endEditing(true)
+        
+        print(notificationTime.text!)
+    }
     /*
     // MARK: - Navigation
 
