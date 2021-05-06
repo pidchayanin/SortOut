@@ -9,5 +9,8 @@ target 'SortOut' do
   pod 'SwiftyJSON'
   pod 'HandySwift'
   pod 'GoogleMLKit/Translate'
+  pod 'SwiftCheckboxDialog'
+
+
 
 end
