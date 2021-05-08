@@ -13,6 +13,8 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     @IBOutlet weak var starNumLabel: UILabel!
     @IBOutlet weak var coinNumLabel: UILabel!
     @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var topStarImg: UIImageView!
+    @IBOutlet weak var topCoinImg: UIImageView!
     
 //    var itemList: ItemProp!
     
@@ -29,8 +31,8 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     var numFromPopUp = Int()
     var coinFromPopUp = Int()
     
-    let itemImageName = [UIImage(named: "insta.jpeg")]
-    let coinImageName = [UIImage(named: "insta.jpeg")]
+    let itemImageName = [UIImage(named: "retry-item.png")]
+    let coinImageName = [UIImage(named: "coin.png")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +45,25 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
 
         DataManager.shared.firstVC = self
         
+        topStarImg.image = UIImage(named: "star.png")
+        topCoinImg.image = UIImage(named: "coin.png")
+        
+        starNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
+        starNumLabel.layer.cornerRadius = 5
+        starNumLabel.textColor = UIColor.white
+        starNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        
+        coinNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
+        coinNumLabel.layer.cornerRadius = 5
+        coinNumLabel.textColor = UIColor.white
+        coinNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        
         
         let jsonInItObject: [Any]  = [
             [
                 "star": 0,
                 "coin": 1000,
-                "itemName": "Retry",
+                "itemName": "RETRY",
                 "itemDescription": "Use this to try again when your answer is incorrect.",
                 "itemPrice": 100,
                 "itemNum": 0
@@ -60,7 +75,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
             print("checkInit: ", checkInit) //return false if file already exists
             if checkInit == true {
                 
-                itemNames = "Retry"
+                itemNames = "RETRY"
                 itemDescriptions = "Use this to try again when your answer is incorrect."
                 itemPrices = 100
                 //itemNums = n
@@ -110,7 +125,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
                 [
                     "star": 0,
                     "coin": c,
-                    "itemName": "Retry",
+                    "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
                     "itemPrice": 100,
                     "itemNum": n
@@ -302,7 +317,6 @@ extension BetterShopViewController: UITableViewDelegate, UITableViewDataSource {
 //        print(cell.itemNumLabel.text!)
 //        print("count", itemCD.count)
         
-        cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20

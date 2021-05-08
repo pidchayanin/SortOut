@@ -12,7 +12,7 @@ class BuyItemPopUpViewController: UIViewController, UIPopoverPresentationControl
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var itemCount:[Item]?
-    let itemName = "Retry"
+    let itemName = "RETRY"
     var numOfItemCount = 0
     //let shopView = ShopViewController()
     
@@ -30,7 +30,7 @@ class BuyItemPopUpViewController: UIViewController, UIPopoverPresentationControl
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         itemNameLabel.text = itemName
         itemPriceLabel.text = "100"
-        coinImage.image = UIImage(named: "insta.jpg")
+        coinImage.image = UIImage(named: "coin.png")
         amountOfItemLabel.text = "1"
     }
     

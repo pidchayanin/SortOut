@@ -1,5 +1,5 @@
 
-#import <MLKitCommon/MLKModelManager.h>
+#import <MLKitCommon/MLKitCommon.h>
 
 
 @class MLKTranslateRemoteModel;

@@ -13,8 +13,7 @@ class VocabListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var switchButton: UISwitch!
-    @IBOutlet weak var segmentedController: UISegmentedControl!
-    
+ 
     var favoriteCD: [FavoriteVocabCD] = []
     
     let cellReuseIdentifier = "vocabListCell"
@@ -57,7 +56,6 @@ class VocabListViewController: UIViewController {
         //retrieveData()
         getData()
         getDate()
-        
         switchButton.addTarget(self, action: #selector(switchIsChanged(switchButton:)), for: .valueChanged)
 //        print("Date: ", currentDate)
     }
@@ -109,7 +107,7 @@ class VocabListViewController: UIViewController {
     }
     
 
-    @IBAction func segmentChange(_ sender: Any) {
+    /*@IBAction func segmentChange(_ sender: Any) {
         switch(segmentedController.selectedSegmentIndex)
             {
             case 0:
@@ -125,10 +123,11 @@ class VocabListViewController: UIViewController {
                 break
 
             }
-    }
+    }*/
     
     override func viewWillAppear(_ animated: Bool) {
         getFavorites()
+        switchIsChanged(switchButton: switchButton)
     }
     
   /*func retrieveData() {
@@ -194,21 +193,7 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        var returnValue = 0
-        
-        switch(segmentedController.selectedSegmentIndex)
-           {
-           case 0:
-               returnValue = addToVocabCD.count
-               break
-           case 1:
-               returnValue = favoriteCD.count
-               break
-           default:
-               break
-           }
-           return returnValue
+        return addToVocabCD.count
     }
     
     
@@ -221,8 +206,8 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell:VocablistTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! VocablistTableViewCell
         
 
-        switch (segmentedController.selectedSegmentIndex) {
-            case 0:
+//        switch (segmentedController.selectedSegmentIndex) {
+//            case 0:
                 let selectedWord = addToVocabCD[indexPath.row]
                 //print("sw", selectedWord.addedWord!)
                 wordAdded.append(selectedWord.addedWord ?? "")
@@ -251,26 +236,26 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
                     print("switch off")
                 }*/
                 
-                break
-            case 1:
-                if favoriteCD.isEmpty == false {
-                    let favWord = favoriteCD[indexPath.row]
-                    cell.wordLabel.text = favWord.favWord
-                    cell.partOfSpeechLabel.text = "(" + favWord.favPoS! + ")"
-                    cell.dashLabel.text = "-"
-                    cell.meaningLabel.text = favWord.favDef
-                } else {
-                    tableView.allowsSelection = false
-                    cell.wordLabel.isHidden = true
-                    cell.dashLabel.isHidden = true
-                    cell.meaningLabel.isHidden = true
-                    cell.partOfSpeechLabel.isHidden = true
-                    //return cell2
-                }
-                break
-            default:
-                break
-        }
+//                break
+//            case 1:
+//                if favoriteCD.isEmpty == false {
+//                    let favWord = favoriteCD[indexPath.row]
+//                    cell.wordLabel.text = favWord.favWord
+//                    cell.partOfSpeechLabel.text = "(" + favWord.favPoS! + ")"
+//                    cell.dashLabel.text = "-"
+//                    cell.meaningLabel.text = favWord.favDef
+//                } else {
+//                    tableView.allowsSelection = false
+//                    cell.wordLabel.isHidden = true
+//                    cell.dashLabel.isHidden = true
+//                    cell.meaningLabel.isHidden = true
+//                    cell.partOfSpeechLabel.isHidden = true
+//                    //return cell2
+//                }
+//                break
+//            default:
+//                break
+//        }
         
         if switchButton.isOn == true {
             switchButton.setOn(true, animated: true)

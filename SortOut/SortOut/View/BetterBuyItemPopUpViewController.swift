@@ -14,12 +14,16 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
     @IBOutlet weak var coinImage: UIImageView!
     @IBOutlet weak var amountOfItemLabel: UILabel!
     @IBOutlet weak var buyBtn: UIButton!
+    @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var minusBtn: UIButton!
+    @IBOutlet weak var popUpView: UIView!
     
     
     var amount = 1
     var item = 0
     var price = 100
     var coin = Int()
+    let itemName = "RETRY"
     
     
     override func viewDidLoad() {
@@ -27,8 +31,22 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        itemNameLabel.text = itemName
+        itemNameLabel.font = UIFont.boldSystemFont(ofSize: 28.0)
+
+        itemPriceLabel.text = "100"
+        itemPriceLabel.font = UIFont.boldSystemFont(ofSize: 21.0)
+        
+        coinImage.image = UIImage(named: "coin.png")
         amountOfItemLabel.text = String(amount)//"\(amount + 1)"
-       getCoin()
+        
+        popUpView.layer.cornerRadius = 10
+        
+        buyBtn.layer.borderWidth = 1
+        buyBtn.layer.cornerRadius = 10
+        buyBtn.setTitle("BUY - 100 coins", for: .normal)
+        
+        getCoin()
     }
     
     func getCoin() {
@@ -95,6 +113,7 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
         }
         print("plus", self.item)
         print("plus price: ", price)
+        buyBtn.setTitle("BUY - \(price) coins", for: .normal)
     }
     
     @IBAction func minusTapped(_ sender: Any) {
@@ -106,12 +125,17 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
             buyBtn.isEnabled = true
             print("minus", self.item)
             print("minus price", price)
+            buyBtn.setTitle("BUY - \(price) coins", for: .normal)
         }
     }
     
     @IBAction func buyTapped(_ sender: Any) {
         print("buy tapped")
-        let alert = UIAlertController(title: "Buy " + "Retry" + "?", message: "Are you sure?", preferredStyle: .alert)
+        if self.item == 0 {
+            self.item = 1
+            self.price = 100
+        }
+        let alert = UIAlertController(title: "Buy " + "\(item) " + "RETRY Item" + "?", message: "Are you sure?", preferredStyle: .alert)
         
         //Yes
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
@@ -127,27 +151,6 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
             print("popUpItem: ", self.item)
             print("coin decreased: ", self.price)
             
-//            do {
-//                try DataManager.shared.firstVC.context.save()
-//            }
-//            catch {
-//
-//            }
-            //self.performSegue(withIdentifier: "toViewCon", sender: self)
-//            let newItem = ItemCD.init(context: self.context)
-//                if self.item == 0 {
-//                    self.item = 1
-//                }
-//                newItem.itemNum += Int64(self.item)
-//                print(self.item)
-//                print("newItem", newItem.itemNum)
-//            self.viewCon?.fetchData()
-            //try! self.context.save()
-//                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-                //self.viewCon.tableview.reloadData()
-            
-            
-            
             self.presentingViewController?.dismiss(animated: false, completion: nil)
             
         }))
@@ -155,7 +158,7 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
         //NO
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Tap no")
-            self.presentingViewController?.dismiss(animated: false, completion: nil)
+            alert.dismiss(animated: false, completion: nil)
       }))
         
         self.present(alert, animated: true, completion: nil)

@@ -86,7 +86,7 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let tasks: [String] = ["First Game of the day", "Royalty user: log in two days in a row", "Diligent leaner: study 5 vocabulary", "Starter kit: first-time user"]
     let cellReuseIdentifier = "giftCell"
-    let imageName = [UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg"), UIImage(named: "insta.jpeg")]
+    let imageName = [UIImage(named: "coin-reward.png"), UIImage(named: "coin-reward.png"), UIImage(named: "coin-reward.png"), UIImage(named: "coin-reward.png")]
     let cellSpacingHeight: CGFloat = 20
     
     //amount of coins user will get from each gifts

@@ -8,8 +8,6 @@
 import UIKit
 import HandySwift
 import MLKitTranslate
-import SwiftyJSON
-//import CoreServices
 
 class AnswerViewController: UIViewController {
 
@@ -27,11 +25,15 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        coinImage.image = UIImage(named: "coin.png")
+        coinReceiveLabel.text = "+ 100"
+        complimentLabel.text = "Awesome!"
+        
         let jsonInItObject: [Any]  = [
             [
                 "star": 0,
                 "coin": 1000,
-                "itemName": "Retry",
+                "itemName": "RETRY",
                 "itemDescription": "Use this to try again when your answer is incorrect.",
                 "itemPrice": 100,
                 "itemNum": 0
@@ -95,7 +97,7 @@ class AnswerViewController: UIViewController {
                 [
                     "star": 0,
                     "coin": coin,
-                    "itemName": "Retry",
+                    "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
                     "itemPrice": 100,
                     "itemNum": 0
