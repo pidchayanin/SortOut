@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AddToVocabCD" representedClassName="AddToVocabCD" syncable="YES" codeGenerationType="class">
+        <attribute name="addedDate" optional="YES" attributeType="Date" defaultDateTimeInterval="642177300" usesScalarValueType="NO"/>
         <attribute name="addedDefinition" optional="YES" attributeType="String"/>
         <attribute name="addedExample" optional="YES" attributeType="String"/>
         <attribute name="addedPoS" optional="YES" attributeType="String"/>
@@ -11,7 +12,7 @@
         <attribute name="coinNum" optional="YES" attributeType="Integer 64" defaultValueString="1000" usesScalarValueType="YES"/>
     </entity>
     <entity name="DateCD" representedClassName="DateCD" syncable="YES" codeGenerationType="class">
-        <attribute name="day" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="FavoriteVocabCD" representedClassName="FavoriteVocabCD" syncable="YES" codeGenerationType="class">
         <attribute name="favDef" optional="YES" attributeType="String"/>
@@ -25,7 +26,7 @@
         <attribute name="items" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="AddToVocabCD" positionX="2169" positionY="1368" width="128" height="104"/>
+        <element name="AddToVocabCD" positionX="2169" positionY="1368" width="128" height="119"/>
         <element name="Coin" positionX="2169" positionY="1377" width="128" height="44"/>
         <element name="DateCD" positionX="2178" positionY="1377" width="128" height="44"/>
         <element name="FavoriteVocabCD" positionX="2187" positionY="1386" width="128" height="74"/>

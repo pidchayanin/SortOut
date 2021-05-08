@@ -30,6 +30,7 @@
 		548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
+		5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498B3202646D24C00A1219E /* VocabListSection.swift */; };
 		549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54DF25D66E6E0086AEA3 /* ProfileViewController.swift */; };
 		549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54EF25D7D6130086AEA3 /* GiftViewController.swift */; };
 		549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */; };
@@ -101,6 +102,7 @@
 		548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
+		5498B3202646D24C00A1219E /* VocabListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListSection.swift; sourceTree = "<group>"; };
 		549C54DF25D66E6E0086AEA3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		549C54EF25D7D6130086AEA3 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCustomCell.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */,
 				54B36E6226381E3B0055D913 /* DataManager.swift */,
 				54B36E9C263BF7550055D913 /* TableItem.swift */,
+				5498B3202646D24C00A1219E /* VocabListSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
+				5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */,
 				54FA285E25E2616A00D01711 /* VocabMeaningViewController.swift in Sources */,
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
