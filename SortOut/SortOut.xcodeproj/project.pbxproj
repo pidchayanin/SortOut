@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		026DCB576A2B315DD970757A /* Pods_SortOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013147F6289F7B3B25835C49 /* Pods_SortOut.framework */; };
 		4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */; };
+		4023DB582642F156002851F8 /* testPopUpViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023DB572642F156002851F8 /* testPopUpViewcontroller.swift */; };
 		4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */; };
 		4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4BD25E2514D0087CDA2 /* GameViewController.swift */; };
 		40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE7AF625BC045800464BDB /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		013147F6289F7B3B25835C49 /* Pods_SortOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392E5A7D0EA4668723D2D1A4 /* Pods-SortOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortOut.debug.xcconfig"; path = "Target Support Files/Pods-SortOut/Pods-SortOut.debug.xcconfig"; sourceTree = "<group>"; };
 		4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeExtension.swift; sourceTree = "<group>"; };
+		4023DB572642F156002851F8 /* testPopUpViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testPopUpViewcontroller.swift; sourceTree = "<group>"; };
 		4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingPopUpViewController.swift; sourceTree = "<group>"; };
 		4099E4BD25E2514D0087CDA2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		40BE7AF325BC045800464BDB /* SortOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +252,7 @@
 				548AB4002613008C00C98D94 /* PopUpWindow.swift */,
 				40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */,
 				40F28E4226405933009E9E9F /* DatePopUpViewController.swift */,
+				4023DB572642F156002851F8 /* testPopUpViewcontroller.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				40BE7AF125BC045800464BDB /* Resources */,
 				D97103FDA13DA739644929B5 /* [CP] Embed Pods Frameworks */,
 				04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */,
+				62225BA34770F7243A7C9420 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -416,6 +420,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */ = {
+		62225BA34770F7243A7C9420 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -483,6 +488,7 @@
 				40BE7B0125BC045800464BDB /* SortOut.xcdatamodeld in Sources */,
 				4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */,
 				549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */,
+				4023DB582642F156002851F8 /* testPopUpViewcontroller.swift in Sources */,
 				54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */,
 				40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */,
 				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
