@@ -1221,14 +1221,6 @@
                                     <segue destination="X9o-nw-61M" kind="show" identifier="toDictionary" id="LGV-Rm-9xD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87Y-SL-zqA">
-                                <rect key="frame" x="249" y="809" width="102" height="37"/>
-                                <state key="normal" image="submit"/>
-                                <connections>
-                                    <action selector="submitTapped:" destination="wLP-Qa-OPL" eventType="touchUpInside" id="B0t-7B-QGt"/>
-                                    <segue destination="iGi-0r-2qd" kind="show" identifier="toCorrectAnswer" id="bKJ-DU-AJo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFr-4Q-2Oh">
                                 <rect key="frame" x="185" y="237" width="45" height="30"/>
                                 <state key="normal" title="Delete"/>
@@ -1391,6 +1383,18 @@
                                     <action selector="showGameSettingPopUp:" destination="oaf-YQ-oST" eventType="touchUpInside" id="l7G-Xw-Van"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87Y-SL-zqA">
+                                <rect key="frame" x="245" y="809" width="110" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="R28-rD-Qjb"/>
+                                    <constraint firstAttribute="width" constant="110" id="Se5-Dq-WtK"/>
+                                </constraints>
+                                <state key="normal" image="submit"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="wLP-Qa-OPL" eventType="touchUpInside" id="B0t-7B-QGt"/>
+                                    <segue destination="iGi-0r-2qd" kind="show" identifier="toCorrectAnswer" id="bKJ-DU-AJo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mQg-5f-2gY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1403,7 +1407,7 @@
                             <constraint firstItem="cG4-PW-vfy" firstAttribute="leading" secondItem="mQg-5f-2gY" secondAttribute="leading" constant="5" id="9cG-Gb-drY"/>
                             <constraint firstItem="mQg-5f-2gY" firstAttribute="trailing" secondItem="cNk-vw-ZJ6" secondAttribute="trailing" constant="25" id="9m3-ln-7F4"/>
                             <constraint firstItem="mQg-5f-2gY" firstAttribute="bottom" secondItem="YEM-uq-Qqe" secondAttribute="bottom" constant="636" id="A0P-lQ-ttN"/>
-                            <constraint firstItem="mQg-5f-2gY" firstAttribute="trailing" secondItem="87Y-SL-zqA" secondAttribute="trailing" constant="63" id="B4y-EH-t5v"/>
+                            <constraint firstItem="mQg-5f-2gY" firstAttribute="trailing" secondItem="87Y-SL-zqA" secondAttribute="trailing" constant="59" id="B4y-EH-t5v"/>
                             <constraint firstItem="ByD-9p-UCQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vtw-n3-xXx" secondAttribute="trailing" constant="7" id="CxI-BV-eh8"/>
                             <constraint firstItem="cNk-vw-ZJ6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uEQ-lv-kzp" secondAttribute="trailing" constant="7" id="E0j-xX-Ndd"/>
                             <constraint firstItem="uKd-Dl-Klp" firstAttribute="top" secondItem="ByD-9p-UCQ" secondAttribute="bottom" constant="14" id="Edg-yB-ov0"/>
@@ -1423,7 +1427,6 @@
                             <constraint firstItem="24K-Fs-kDU" firstAttribute="leading" secondItem="mQg-5f-2gY" secondAttribute="leading" constant="26" id="YXj-Dd-bh8"/>
                             <constraint firstItem="87Y-SL-zqA" firstAttribute="top" secondItem="jp9-Z6-vLY" secondAttribute="bottom" constant="34" id="axx-Sc-1WB"/>
                             <constraint firstItem="dcc-Is-nMg" firstAttribute="top" secondItem="cNk-vw-ZJ6" secondAttribute="bottom" constant="8" symbolic="YES" id="bZb-ad-Ne9"/>
-                            <constraint firstItem="X0y-Rd-YVT" firstAttribute="bottom" secondItem="87Y-SL-zqA" secondAttribute="bottom" id="bfk-sw-bV3"/>
                             <constraint firstItem="6Gt-TF-zsV" firstAttribute="leading" secondItem="mQg-5f-2gY" secondAttribute="leading" constant="26" id="eBN-tv-IlH"/>
                             <constraint firstItem="TIL-Qa-MKd" firstAttribute="centerX" secondItem="gfx-yS-NBg" secondAttribute="centerX" id="eYZ-W6-JEf"/>
                             <constraint firstItem="YEM-uq-Qqe" firstAttribute="top" secondItem="mQg-5f-2gY" secondAttribute="top" constant="152" id="eaA-1j-8CY"/>
