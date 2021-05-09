@@ -39,7 +39,7 @@ class GameSettingPopUpViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Tap no")
       }))
-    
+        
         self.present(alert, animated: true, completion: nil)
     }
     
