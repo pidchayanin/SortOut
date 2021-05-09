@@ -20,14 +20,34 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var starImage: UIImageView!
     @IBOutlet weak var ansImage: UIImageView!
     
+    @IBOutlet weak var retryLabel: UILabel!
+    @IBOutlet weak var playNextLabel: UILabel!
+    @IBOutlet weak var homeLabel: UILabel!
+    
+    
     var receiveEnglishSentence = ""
+    var receiveImage = ""
+    var receiveNum = 0
+    var receiveSentence = [Any]()
+    var receiveStar = ""
+    
+    var starCollect = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ansrs: ", receiveSentence)
+        
+        starImage.image = UIImage(named: "3-star.png")
         
         coinImage.image = UIImage(named: "coin.png")
         coinReceiveLabel.text = "+ 100"
         complimentLabel.text = "Awesome!"
+        
+        retryLabel.text = "Try again"
+        playNextLabel.text = "Play next"
+        homeLabel.text = "Home"
+        ansImage.image = UIImage(named: receiveImage)
+        //print("ri", receiveImage)
         
         let jsonInItObject: [Any]  = [
             [
@@ -93,9 +113,13 @@ class AnswerViewController: UIViewController {
             }
             coin += 100
             
+            if starImage.image == UIImage(named: "3-star.png") {
+                starCollect += 3
+            }
+            
             let jsonObject: [Any]  = [
                 [
-                    "star": 0,
+                    "star": starCollect,
                     "coin": coin,
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
@@ -183,6 +207,55 @@ class AnswerViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
+    @IBAction func playNextTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Play next round", message: "Are you sure?", preferredStyle: .alert)
+        
+        //YES
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            
+            UserDefaults.standard.removeObject(forKey: "randomNum")
+            UserDefaults.standard.removeObject(forKey: "randomSentence")
+            UserDefaults.standard.removeObject(forKey: "randomImg")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "gameViewID")
+            self.present(vc, animated: true)
+            
+        }))
+        
+        //NO
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Tap no")
+      }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func retryTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Try again", message: "Are you sure?", preferredStyle: .alert)
+        
+        //YES
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            
+            let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
+            UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
+            UserDefaults.standard.setValue(newReceiveSentence, forKey: "randomSentence")
+            UserDefaults.standard.setValue(self.receiveImage, forKey: "randomImg")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "gameViewID")
+            self.present(vc, animated: true)
+            
+        }))
+        
+        //NO
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Tap no")
+      }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

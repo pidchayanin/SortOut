@@ -41,16 +41,6 @@ class VocabListViewController: UIViewController {
     
     var favExample = ["i", "tu", "i", "here"]
     
-    //var sections = Dictionary<String, Array<TableItem>>()
-    //var sortedSections = [String]()
-//    let words = [["collegeeeeeeee", "affair", "amaze", "house"], ["word1", "word2", "word3"]]
-//    let partOfSpeeches = [["(Noun)", "(Verb)", "(Adjective)", "(Noun)"], ["(PoS1)", "(PoS2)", "(PoS3)"]]
-//    let dashes = [["-", "-", "-", "-"], ["-", "-", "-"]]
-//    let meanings = [["วิทยาลัย, โรงเรียน", "กิจ, ธุระ", "ตะลึง, แปลกใจ", "บ้าน"], ["ความหมาย1", "ความหมาย2", "ความหมาย3"]]
-//    let synnonyms = [["synnonym word1", "synnonym word2", "synnonym word3", "synnonym word4"], ["synnonym word5", "synnonym word6", "synnonym word7"]]
-//    let examples = [["example sentence1", "example sentence2", "example sentence3", "example sentence4"], ["example sentence5", "example sentence6", "example sentence7"]]
-//
-//    let headerTitles = ["14 September 2020", "15 September 2020"]
     var headerTitles = [String]()
     
     override func viewDidLoad() {

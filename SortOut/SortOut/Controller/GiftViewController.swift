@@ -51,6 +51,8 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.myCellLabel.text = self.tasks[indexPath.section]
         cell.myImage.image = self.imageName[indexPath.section]
         
+        //let indexPaths = tableView.indexPath(for: cell)
+        
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
@@ -64,7 +66,9 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             coinDisplay.text = "100"
-            
+            cell.collectButton.isEnabled = false
+            //cell.layer.backgroundColor = UIColor.darkGray.cgColor
+            //tableView.moveRow(at: indexPath, to: indexPaths?.last)
                   
             self.present(alert, animated: true, completion: nil)
         }
@@ -90,7 +94,7 @@ class GiftViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellSpacingHeight: CGFloat = 20
     
     //amount of coins user will get from each gifts
-    let amountGifts: [String] = ["10", "20", "30", "40"]
+    let amountGifts: [String] = ["100", "100", "100", "100"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

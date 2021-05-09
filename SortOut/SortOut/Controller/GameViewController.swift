@@ -25,7 +25,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var word9Button: UIButton!
     @IBOutlet weak var word10Button: UIButton!
     
-
+    @IBOutlet weak var submitBtn: UIButton!
+    
     
     @IBOutlet weak var textfield: UITextField!
     
@@ -43,6 +44,11 @@ class GameViewController: UIViewController {
     var definitions = String()
     var synnonyms = String()
     var sentenceExamples = String()
+    var image = String()
+    var randomNum = Int()
+    var randomSentence = [Any]()
+    
+    var getStar = ""
     /*print("def: ", definitions)
     print("synn: ", synnonyms)
     print("example: ", sentenceExamples)*/
@@ -60,7 +66,12 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        
+        if textfield.text == "" {
+            submitBtn.backgroundColor = UIColor.gray
+            submitBtn.isEnabled = false
+        }
+        
         retreiveData()
         addDataToButtons()
         //retrieveDictionary()
@@ -236,7 +247,10 @@ class GameViewController: UIViewController {
         let number2 = Int.random(in: 0 ..< number1)
         var tempInt = 0
         var tempInt1 = 0
-        var tempInt2 = 0
+        var retryNum = 0
+        var randomSentences = [String]()
+        var randomImg = ""
+        //var tempImg = ""
         
         
         guard let path = Bundle.main.path(forResource: "English sentences(2)", ofType: "json") else {return}
@@ -249,17 +263,7 @@ class GameViewController: UIViewController {
             let json = try JSON(data: data)
             
             let array = json
-            
-//            for (index,subJson):(String, JSON) in json {
-//                // Do something you want
-//                //print(index.count,  subJson["sentence1"])
-//                for key in subJson["sentence1"] {
-//                    let result = key.1.arrayValue.map({$0["sentence1"].stringValue})
-//                    print("key", key.1)
-//                    //print("result: ", result)
-//                }
-//            }
-            
+                
             for item in array {
                 
                 var word1 = ""
@@ -278,99 +282,91 @@ class GameViewController: UIViewController {
                 tempStr = number.rawString()!
                 tempInt += 1
 
-                //MARK: This is the beginning of RNG generator
-                // %9 is not confirmed rng 1 and 2, too
-                if ((number1 + number2) % 71) + 1 == tempInt{
-                    print("tempInt:", tempInt)
-                    tempArr.append(tempInt)
-                    UserDefaults.standard.setValue(tempArr, forKey: "tempArr")
-                    print(tempArr)
-                    
-                    tempInt1 = Int(tempStr)!
-
+                retryNum = UserDefaults.standard.integer(forKey: "randomNum")
+                randomSentences = UserDefaults.standard.stringArray(forKey: "randomSentence") ?? [""]
+                randomImg = UserDefaults.standard.string(forKey: "randomImg") ?? ""
+                
+                if retryNum != 0 {
+                    tempInt1 = retryNum
+                    randomNum = tempInt1
                     print("num: ", tempInt1)
-                    
-                    
-                    
-                    
-                    
-                    let sentences = item.1["sentence1"].arrayValue.shuffled()
-
-                    //let testWord1 = sentences[0]
-                    if sentences.count <= 10 && sentences.count > 9 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
-                        word6 = sentences[5].stringValue.lowercased()
-                        word7 = sentences[6].stringValue.lowercased()
-                        word8 = sentences[7].stringValue.lowercased()
-                        word9 = sentences[8].stringValue.lowercased()
-                        word10 = sentences[9].stringValue.lowercased()
+                    randomSentence = randomSentences
+                    image = randomImg
+                    print("sentence: ", randomSentences)
+                    if randomSentences.count <= 10 && randomSentences.count > 9 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
+                        word6 = randomSentences[5].lowercased()
+                        word7 = randomSentences[6].lowercased()
+                        word8 = randomSentences[7].lowercased()
+                        word9 = randomSentences[8].lowercased()
+                        word10 = randomSentences[9].lowercased()
                     }
-                    else if sentences.count <= 9 && sentences.count > 8 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
-                        word6 = sentences[5].stringValue.lowercased()
-                        word7 = sentences[6].stringValue.lowercased()
-                        word8 = sentences[7].stringValue.lowercased()
-                        word9 = sentences[8].stringValue.lowercased()
+                    else if randomSentences.count <= 9 && randomSentences.count > 8 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
+                        word6 = randomSentences[5].lowercased()
+                        word7 = randomSentences[6].lowercased()
+                        word8 = randomSentences[7].lowercased()
+                        word9 = randomSentences[8].lowercased()
                     }
-                    else if sentences.count <= 8 && sentences.count > 7 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
-                        word6 = sentences[5].stringValue.lowercased()
-                        word7 = sentences[6].stringValue.lowercased()
-                        word8 = sentences[7].stringValue.lowercased()
+                    else if randomSentences.count <= 8 && randomSentences.count > 7 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
+                        word6 = randomSentences[5].lowercased()
+                        word7 = randomSentences[6].lowercased()
+                        word8 = randomSentences[7].lowercased()
                     }
-                    else if sentences.count <= 7 && sentences.count > 6 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
-                        word6 = sentences[5].stringValue.lowercased()
-                        word7 = sentences[6].stringValue.lowercased()
+                    else if randomSentences.count <= 7 && randomSentences.count > 6 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
+                        word6 = randomSentences[5].lowercased()
+                        word7 = randomSentences[6].lowercased()
                     }
-                    else if sentences.count <= 6 && sentences.count > 5 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
-                        word6 = sentences[5].stringValue.lowercased()
+                    else if randomSentences.count <= 6 && randomSentences.count > 5 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
+                        word6 = randomSentences[5].lowercased()
                     }
-                    else if sentences.count <= 5 && sentences.count > 4 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
-                        word5 = sentences[4].stringValue.lowercased()
+                    else if randomSentences.count <= 5 && randomSentences.count > 4 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
+                        word5 = randomSentences[4].lowercased()
                     }
-                    else if sentences.count <= 4 && sentences.count > 3 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
-                        word4 = sentences[3].stringValue.lowercased()
+                    else if randomSentences.count <= 4 && randomSentences.count > 3 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
+                        word4 = randomSentences[3].lowercased()
                     }
-                    else if sentences.count <= 3 && sentences.count > 2 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
-                        word3 = sentences[2].stringValue.lowercased()
+                    else if randomSentences.count <= 3 && randomSentences.count > 2 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
+                        word3 = randomSentences[2].lowercased()
                     }
-                    else if sentences.count <= 2 && sentences.count > 1 {
-                        word1 = sentences[0].stringValue.lowercased()
-                        word2 = sentences[1].stringValue.lowercased()
+                    else if randomSentences.count <= 2 && randomSentences.count > 1 {
+                        word1 = randomSentences[0].lowercased()
+                        word2 = randomSentences[1].lowercased()
                     }
-                    else if sentences.count <= 1 && sentences.count > 0 {
-                        word1 = sentences[0].stringValue.lowercased()
+                    else if randomSentences.count <= 1 && randomSentences.count > 0 {
+                        word1 = randomSentences[0].lowercased()
                     }
 
                     words1 = word1
@@ -383,12 +379,120 @@ class GameViewController: UIViewController {
                     words8 = word8
                     words9 = word9
                     words10 = word10
+                    
+                    UserDefaults.standard.removeObject(forKey: "randomNum")
+                    UserDefaults.standard.removeObject(forKey: "randomSentence")
+                    UserDefaults.standard.removeObject(forKey: "randomImg")
+                    break
+                    
+                } else {
+                    //MARK: This is the beginning of RNG generator
+                    // %9 is not confirmed rng 1 and 2, too
+                    if ((number1 + number2) % 71) + 1 == tempInt{
+                        print("tempInt:", tempInt)
+
+                        tempInt1 = Int(tempStr)!
+                        randomNum = tempInt1
+                        print("num: ", tempInt1)
+                        
+                        let sentences = item.1["sentence1"].arrayValue.shuffled()
+                        print("ss: ", sentences as Array<Any>)
+                        
+                        randomSentence = sentences as Array<Any>
+                        print("rs: ", randomSentence)
+                        
+                        let img = item.1["image"].stringValue
+                        image = img
+                        //let testWord1 = sentences[0]
+                        if sentences.count <= 10 && sentences.count > 9 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                            word6 = sentences[5].stringValue.lowercased()
+                            word7 = sentences[6].stringValue.lowercased()
+                            word8 = sentences[7].stringValue.lowercased()
+                            word9 = sentences[8].stringValue.lowercased()
+                            word10 = sentences[9].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 9 && sentences.count > 8 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                            word6 = sentences[5].stringValue.lowercased()
+                            word7 = sentences[6].stringValue.lowercased()
+                            word8 = sentences[7].stringValue.lowercased()
+                            word9 = sentences[8].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 8 && sentences.count > 7 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                            word6 = sentences[5].stringValue.lowercased()
+                            word7 = sentences[6].stringValue.lowercased()
+                            word8 = sentences[7].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 7 && sentences.count > 6 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                            word6 = sentences[5].stringValue.lowercased()
+                            word7 = sentences[6].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 6 && sentences.count > 5 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                            word6 = sentences[5].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 5 && sentences.count > 4 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                            word5 = sentences[4].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 4 && sentences.count > 3 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                            word4 = sentences[3].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 3 && sentences.count > 2 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                            word3 = sentences[2].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 2 && sentences.count > 1 {
+                            word1 = sentences[0].stringValue.lowercased()
+                            word2 = sentences[1].stringValue.lowercased()
+                        }
+                        else if sentences.count <= 1 && sentences.count > 0 {
+                            word1 = sentences[0].stringValue.lowercased()
+                        }
+
+                        words1 = word1
+                        words2 = word2
+                        words3 = word3
+                        words4 = word4
+                        words5 = word5
+                        words6 = word6
+                        words7 = word7
+                        words8 = word8
+                        words9 = word9
+                        words10 = word10
+                    }
                 }
-                
             }
-            
-            
-            
         } catch {
             print("--------\n", error)
         }
@@ -400,7 +504,7 @@ class GameViewController: UIViewController {
         var synn = ""
         var ex = ""
         var vocab = ""
-        guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (1)", ofType: "json") else {return}
+        guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (2)", ofType: "json") else {return}
                 
         let url = URL(fileURLWithPath: path)
         
@@ -447,6 +551,7 @@ class GameViewController: UIViewController {
     @IBAction func word1Tapped(_ sender: Any) {
         
         word1Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words1.capitalized
@@ -460,6 +565,7 @@ class GameViewController: UIViewController {
     @IBAction func word2Tapped(_ sender: Any) {
         
         word2Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words2.capitalized
@@ -473,6 +579,7 @@ class GameViewController: UIViewController {
     @IBAction func word3Tapped(_ sender: Any) {
         
         word3Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words3.capitalized
@@ -486,6 +593,7 @@ class GameViewController: UIViewController {
     @IBAction func word4Tapped(_ sender: Any) {
         
         word4Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words4.capitalized
@@ -499,6 +607,7 @@ class GameViewController: UIViewController {
     @IBAction func word5Tapped(_ sender: Any) {
         
         word5Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words5.capitalized
@@ -512,6 +621,7 @@ class GameViewController: UIViewController {
     @IBAction func word6Tapped(_ sender: Any) {
         
         word6Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words6.capitalized
@@ -525,6 +635,7 @@ class GameViewController: UIViewController {
     @IBAction func word7Tapped(_ sender: Any) {
         
         word7Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words7.capitalized
@@ -538,6 +649,7 @@ class GameViewController: UIViewController {
     @IBAction func word8Tapped(_ sender: Any) {
         
         word8Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words8.capitalized
@@ -551,6 +663,7 @@ class GameViewController: UIViewController {
     @IBAction func word9Tapped(_ sender: Any) {
         
         word9Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words9.capitalized
@@ -563,6 +676,7 @@ class GameViewController: UIViewController {
     @IBAction func word10Tapped(_ sender: Any) {
         
         word10Button.isHidden = true
+        submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words10.capitalized
@@ -684,6 +798,35 @@ class GameViewController: UIViewController {
         
     }
     
+    @IBAction func submitTapped(_ sender: Any) {
+        print("submit tapped")
+        if word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true && word4Button.isHidden == true && word5Button.isHidden == true && word6Button.isHidden == true && word7Button.isHidden == true && word8Button.isHidden == true && word9Button.isHidden == true && word10Button.isHidden == true {
+            getStar = "3-star.png"
+            print("3 star", getStar)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
+            }
+        }
+        else if word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true && word4Button.isHidden == true && word5Button.isHidden == true {
+            getStar = "2-star.png"
+            print("2 star", getStar)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
+            }
+        }
+        else if  word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true {
+            getStar = "1-star.png"
+            print("1 star", getStar)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
+            }
+        }
+        /*else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "wrongAnswerID")
+            self.present(vc, animated: true)
+        }*/
+    }
     
     // MARK: - Navigation
 
@@ -806,9 +949,15 @@ class GameViewController: UIViewController {
         }
         else if segue.identifier == "toCorrectAnswer" {
             //for passing data to ans screen
+            //sleep(4)
             let vc = segue.destination as? AnswerViewController
             vc?.receiveEnglishSentence = textfield.text! + "."
-            
+            vc?.receiveImage = image
+            vc?.receiveNum = randomNum
+            vc?.receiveSentence = randomSentence
+            vc?.receiveStar = getStar
+            print("getStar: ", getStar)
+            print("rstar: ", vc!.receiveStar)
         }
     }
     
