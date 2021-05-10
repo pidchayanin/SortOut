@@ -68,7 +68,7 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         if textfield.text == "" {
-            submitBtn.backgroundColor = UIColor.gray
+//            submitBtn.backgroundColor = UIColor.gray
             submitBtn.isEnabled = false
         }
         

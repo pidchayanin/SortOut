@@ -537,7 +537,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PiC-Ur-TkM"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NnL-a8-5fs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PiC-Ur-TkM" secondAttribute="leading" id="1e5-Ts-Hdh"/>
                             <constraint firstItem="L7K-SD-xI4" firstAttribute="leading" secondItem="PiC-Ur-TkM" secondAttribute="leading" id="1lI-gZ-jWD"/>
@@ -1377,7 +1377,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r2w-Ny-WV3"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eTj-ZH-4rz" firstAttribute="top" secondItem="9NM-DH-ozr" secondAttribute="topMargin" constant="-11" id="CUn-2j-unR"/>
                             <constraint firstItem="CcK-us-lwv" firstAttribute="leading" secondItem="9NM-DH-ozr" secondAttribute="leadingMargin" id="Ghj-go-Yct"/>
@@ -2116,7 +2116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buy" width="244" height="116"/>
+        <image name="buy" width="272" height="139"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="claim" width="340" height="140"/>
         <image name="coin" width="322" height="322"/>
@@ -2124,14 +2124,14 @@
         <image name="dictionary" width="372" height="463"/>
         <image name="doc.fill" catalog="system" width="115" height="128"/>
         <image name="gift.fill" catalog="system" width="128" height="124"/>
-        <image name="home" width="348" height="363"/>
+        <image name="home" width="348" height="328"/>
         <image name="minus" width="66" height="18"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="play" width="937" height="194"/>
+        <image name="play" width="960" height="170"/>
         <image name="play-next" width="316" height="364"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="plus" width="52" height="52"/>
-        <image name="retry" width="336" height="370"/>
+        <image name="retry" width="336" height="402"/>
         <image name="setting" width="505" height="463"/>
         <image name="shield.fill" catalog="system" width="128" height="121"/>
         <image name="sound-on" width="321" height="248"/>
