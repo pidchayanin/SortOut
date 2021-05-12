@@ -9,7 +9,6 @@ import UIKit
 
 
 class DatePopUpViewController: UIViewController {
-
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doneBtn: UIButton!
@@ -23,6 +22,7 @@ class DatePopUpViewController: UIViewController {
     @IBOutlet weak var cbDate6: UIButton!
     @IBOutlet weak var cbDate7: UIButton!
     
+    
     var flag1 = false
     var flag2 = false
     var flag3 = false
@@ -30,6 +30,9 @@ class DatePopUpViewController: UIViewController {
     var flag5 = false
     var flag6 = false
     var flag7 = false
+    
+    
+    var text:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +43,50 @@ class DatePopUpViewController: UIViewController {
     }
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
+
+        var dateText:String = ""
+        let date1:String = "Sun."
+        let date2:String = "Mon."
+        let date3:String = "Tue."
+        let date4:String = "Wed."
+        let date5:String = "Thu."
+        let date6:String = "Fri."
+        let date7:String = "Sat."
+        //check if checkbox is ticked
+        if flag1 == true {
+            dateText += date1
+        }
+        if flag2 == true {
+            dateText += date2
+        }
+        if flag3 == true {
+            dateText += date3
+        }
+        if flag4 == true {
+            dateText += date4
+        }
+        if flag5 == true {
+            dateText += date5
+        }
+        if flag6 == true {
+            dateText += date6
+        }
+        if flag7 == true {
+            dateText += date7
+        }
+        let final = dateText.inserting(separator: ", ", every: 4)
+        print(final)
         dismiss(animated: true)
         
+        //passing data to profile viewcontroller
+       let vc = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
+        vc.text = "hi"
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
+    
+    
     
     @IBAction func cancelBtn_TouchUpInside(_ sender: Any) {
         dismiss(animated: true)
@@ -145,4 +189,18 @@ class DatePopUpViewController: UIViewController {
     }
     */
 
+}
+
+extension String {
+    func inserting(separator: String, every n: Int) -> String {
+        var result: String = ""
+        let characters = Array(self)
+        stride(from: 0, to: characters.count, by: n).forEach {
+            result += String(characters[$0..<min($0+n, characters.count)])
+            if $0+n < characters.count {
+                result += separator
+            }
+        }
+        return result
+    }
 }

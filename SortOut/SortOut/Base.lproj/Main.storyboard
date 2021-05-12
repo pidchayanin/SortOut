@@ -779,6 +779,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="qz0-4F-ljn"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pD3-WF-ihU" id="0ON-Oi-hyE"/>
                         <outlet property="timeLabel" destination="SO0-IY-114" id="JZT-Z8-6qM"/>
                     </connections>
                 </viewController>
