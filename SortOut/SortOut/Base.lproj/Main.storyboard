@@ -690,11 +690,11 @@
             <objects>
                 <viewController id="jWj-8o-dlc" customClass="ProfileViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bk5-Bo-qhs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lsT-uH-MkD">
-                                <rect key="frame" x="10" y="54" width="394" height="542"/>
+                                <rect key="frame" x="10" y="10" width="394" height="581"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XE3-YJ-igf">
                                         <rect key="frame" x="279.5" y="155" width="49" height="31"/>
@@ -737,7 +737,7 @@
                                         </constraints>
                                         <state key="normal" title="Date"/>
                                         <connections>
-                                            <segue destination="F9n-9w-WtX" kind="presentation" modalPresentationStyle="overCurrentContext" id="Zna-Lw-Qng"/>
+                                            <segue destination="F9n-9w-WtX" kind="presentation" identifier="" modalPresentationStyle="overCurrentContext" id="Zna-Lw-Qng"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.33 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-IY-114">
@@ -788,7 +788,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="qz0-4F-ljn"/>
+                    <navigationItem key="navigationItem" id="Q0u-YU-S8T"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pD3-WF-ihU" id="0ON-Oi-hyE"/>
                         <outlet property="timeLabel" destination="SO0-IY-114" id="JZT-Z8-6qM"/>
                     </connections>
                 </viewController>
@@ -801,7 +803,7 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="Qzm-0l-q2Z" customClass="TimePopUpViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HGt-A4-8SK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-7x-P9r">
@@ -866,11 +868,11 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="F9n-9w-WtX" customClass="DatePopUpViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gwb-GF-gt0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SvE-73-QiO">
-                                <rect key="frame" x="87" y="293" width="240" height="310"/>
+                                <rect key="frame" x="87" y="266" width="240" height="310"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPo-7g-LFW">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="45"/>
@@ -899,6 +901,7 @@
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="doneBtn_TouchUpinside:" destination="F9n-9w-WtX" eventType="touchUpInside" id="hG9-uD-2XR"/>
+                                            <segue destination="jWj-8o-dlc" kind="show" identifier="DatePickerSegue" id="ril-hS-bUw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oT-sj-6eL">
@@ -2134,6 +2137,9 @@
             <point key="canvasLocation" x="1382.608695652174" y="780.80357142857144"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ril-hS-bUw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="buy" width="272" height="139"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>

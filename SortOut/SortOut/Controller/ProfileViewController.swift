@@ -10,20 +10,29 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     //**START time and date picker
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     
+    var text:String = "Day of the week"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .yellow
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         
+        dateLabel?.text = text
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
     @objc func handlePopupClosing(notification: Notification) {
         let dateVc = notification.object as! TimePopUpViewController
