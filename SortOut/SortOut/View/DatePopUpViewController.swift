@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class DatePopUpViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -31,8 +30,7 @@ class DatePopUpViewController: UIViewController {
     var flag6 = false
     var flag7 = false
     
-    
-    var text:String = ""
+    var showDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +39,7 @@ class DatePopUpViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
 
@@ -75,17 +74,13 @@ class DatePopUpViewController: UIViewController {
             dateText += date7
         }
         let final = dateText.inserting(separator: ", ", every: 4)
+        showDate = final
         print(final)
-        dismiss(animated: true)
+        //dismiss(animated: true)
         
-        //passing data to profile viewcontroller
-       let vc = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        vc.text = "hi"
-        
-        navigationController?.pushViewController(vc, animated: true)
+        self.performSegue(withIdentifier: "DatePickerSegue", sender: self)
         
     }
-    
     
     
     @IBAction func cancelBtn_TouchUpInside(_ sender: Any) {
@@ -176,6 +171,14 @@ class DatePopUpViewController: UIViewController {
         {
             sender.setBackgroundImage(UIImage(named: "uncheckbox"), for: UIControl.State.normal)
             flag7 = false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ProfileViewController {
+            let vc = segue.destination as? ProfileViewController
+            vc?.text = showDate
         }
     }
     

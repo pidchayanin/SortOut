@@ -18,8 +18,9 @@ class ProfileViewController: UIViewController {
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
     
-    var text:String = ""
-   
+    var text:String = "Day of the week"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
@@ -30,6 +31,8 @@ class ProfileViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
     @objc func handlePopupClosing(notification: Notification) {
         let dateVc = notification.object as! TimePopUpViewController
