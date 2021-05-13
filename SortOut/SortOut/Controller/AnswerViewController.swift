@@ -8,6 +8,8 @@
 import UIKit
 import HandySwift
 import MLKitTranslate
+import CoreData
+import NaturalLanguage
 
 class AnswerViewController: UIViewController {
 
@@ -24,19 +26,25 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var playNextLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
     
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     var receiveEnglishSentence = ""
     var receiveImage = ""
     var receiveNum = 0
     var receiveSentence = [Any]()
     var receiveStar = ""
+    var thaiSentence = ""
+
+    let currentDate = Date()
     
     var starCollect = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ansrs: ", receiveSentence)
+        //print("ansrs: ", receiveSentence)
+
         
+        receiveStar = "3-star.png"
         starImage.image = UIImage(named: "3-star.png")
         
         coinImage.image = UIImage(named: "coin.png")
@@ -73,6 +81,7 @@ class AnswerViewController: UIViewController {
         engSentenceLabel.text = receiveEnglishSentence
         engToThaiTranslation()
         updateDataToJSON()
+        //saveToCoreData()
     }
     
 
@@ -92,13 +101,37 @@ class AnswerViewController: UIViewController {
             // Model downloaded successfully. Okay to start translating.
             englishThaiTranslator.translate(self.receiveEnglishSentence) { translatedText, error in
                 guard error == nil, let translatedText = translatedText else { return }
-
+                let historyData = HistoryCD.init(context: self.context!)
                 // Translation succeeded.
                 print(translatedText)
+                
                 self.thaiSentenceLabel.text = translatedText
+                historyData.thaiSentence = translatedText
+                historyData.englishSentence = self.receiveEnglishSentence
+                historyData.receivedStar = self.receiveStar
+                historyData.date = self.currentDate
+                do {
+                    try self.context?.save()
+                }
+                catch {
+                    print("error: ", error)
+                }
             }
         }
         
+    }
+    
+    func saveToCoreData() {
+        let historyData = HistoryCD.init(context: context!)
+        historyData.englishSentence = receiveEnglishSentence
+        historyData.receivedStar = receiveStar
+        historyData.date = currentDate
+        do {
+            try context?.save()
+        }
+        catch {
+            print("error: ", error)
+        }
     }
     
     func updateDataToJSON() {

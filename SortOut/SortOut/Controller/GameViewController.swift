@@ -548,9 +548,10 @@ class GameViewController: UIViewController {
     
     //ToDO: Fix UI of upper button for long words
     
-    @IBAction func word1Tapped(_ sender: Any) {
+    @IBAction func word1Tapped(_ sender: UIButton) {
         
-        word1Button.isHidden = true
+        word1Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -800,32 +801,6 @@ class GameViewController: UIViewController {
     
     @IBAction func submitTapped(_ sender: Any) {
         print("submit tapped")
-        if word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true && word4Button.isHidden == true && word5Button.isHidden == true && word6Button.isHidden == true && word7Button.isHidden == true && word8Button.isHidden == true && word9Button.isHidden == true && word10Button.isHidden == true {
-            getStar = "3-star.png"
-            print("3 star", getStar)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
-            }
-        }
-        else if word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true && word4Button.isHidden == true && word5Button.isHidden == true {
-            getStar = "2-star.png"
-            print("2 star", getStar)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
-            }
-        }
-        else if  word1Button.isHidden == true && word2Button.isHidden == true && word3Button.isHidden == true {
-            getStar = "1-star.png"
-            print("1 star", getStar)
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "toCorrectAnswer", sender: self)
-            }
-        }
-        /*else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "wrongAnswerID")
-            self.present(vc, animated: true)
-        }*/
     }
     
     // MARK: - Navigation

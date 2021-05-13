@@ -24,10 +24,11 @@ class VocabListViewController: UIViewController {
     
     let cellReuseIdentifier = "vocabListCell"
     
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
     var currentDate = Date()
     //var words:[String] = []
     var addToVocabCD: [AddToVocabCD] = []
-    var dateCD: [DateCD] = []
     var wordAdded = [String]()
     var posAdded = [String]()
     var defAdded = [String]()
@@ -56,13 +57,14 @@ class VocabListViewController: UIViewController {
         //print(words)
         //retrieveData()
         getData()
-        getDate()
+        //getDate()
         
         self.sections = VocabListSection.group(rows: self.addToVocabCD, by: { firstDayOfMonth(date: $0.addedDate!) })
-        self.sections.sort { lhs, rhs in lhs.sectionItem < rhs.sectionItem }
+        self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
         
         switchButton.addTarget(self, action: #selector(switchIsChanged(switchButton:)), for: .valueChanged)
 //        print("Date: ", currentDate)
+        
     }
     
     @objc func switchIsChanged(switchButton: UISwitch) {
@@ -76,7 +78,7 @@ class VocabListViewController: UIViewController {
         }
     }
     
-    func getFavorites() {
+    /*func getFavorites() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
             if let favoritesFromCoreData = try? context.fetch(FavoriteVocabCD.fetchRequest()){
                 if let favorites = favoritesFromCoreData as? [FavoriteVocabCD]{
@@ -86,20 +88,20 @@ class VocabListViewController: UIViewController {
                 }
             }
         }
-    }
+    }*/
     
     func getData() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let wordFromCoreData = try? context.fetch(AddToVocabCD.fetchRequest()){
                 if let words = wordFromCoreData as? [AddToVocabCD]{
                     addToVocabCD = words
-                    tableView.reloadData()
+                    //tableView.reloadData()
                 }
             }
         }
     }
     
-    func getDate() {
+    /*func getDate() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             if let dateFromCoreData = try? context.fetch(DateCD.fetchRequest()) {
                 if let dates = dateFromCoreData as? [DateCD] {
@@ -108,7 +110,7 @@ class VocabListViewController: UIViewController {
                 }
             }
         }
-    }
+    }*/
     
 
     /*@IBAction func segmentChange(_ sender: Any) {
@@ -130,29 +132,28 @@ class VocabListViewController: UIViewController {
     }*/
     
     override func viewWillAppear(_ animated: Bool) {
-        getFavorites()
-        switchIsChanged(switchButton: switchButton)
+        //getFavorites()
+        //switchIsChanged(switchButton: switchButton)
+        getData()
     }
 }
 
 extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
-
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return addToVocabCD.count
-        let section = self.sections[section]
-        return section.rows.count
-    }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //use Date ?
         return self.sections.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return addToVocabCD.count
+        let sectionn = self.sections[section]
+        print("section rows count: ", sectionn.rows.count)
+        return sectionn.rows.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let section = self.sections[section]
-        let date = section.sectionItem
+        let sectionn = self.sections[section]
+        let date = sectionn.sectionItem
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
         return dateFormatter.string(from: date)
@@ -161,21 +162,34 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:VocablistTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! VocablistTableViewCell
         
+        let sectionn = self.sections[indexPath.section]
+        let selectedWord = sectionn.rows[indexPath.row]
+        //print("selectedWord: ", sectionn.rows.count)
 
 
-        let selectedWord = addToVocabCD[indexPath.row]
+        //let selectedWord = addToVocabCD[indexPath.row]
         //print("sw", selectedWord.addedWord!)
         wordAdded.append(selectedWord.addedWord ?? "")
         //print("wa", wordAdded)
-        cell.wordLabel.text = wordAdded[indexPath.row]
+        cell.wordLabel.text = selectedWord.addedWord ?? ""
+        //print("vocab word added: ", selectedWord.addedWord ?? "")
+        
         print("vocab word added: ", wordAdded[indexPath.row])
+        
         posAdded.append(selectedWord.addedPoS ?? "")
-        cell.partOfSpeechLabel.text = "(" + posAdded[indexPath.row] + ")"
+        
+        cell.partOfSpeechLabel.text = "(" + (selectedWord.addedPoS ?? "") + ")"
+        
         defAdded.append(selectedWord.addedDefinition ?? "")
+        
         cell.dashLabel.text = "-"
-        cell.meaningLabel.text = defAdded[indexPath.row]
+        
+        cell.meaningLabel.text = selectedWord.addedDefinition ?? ""
+        
         synAdded.append(selectedWord.addedSynonym ?? "")
+        
         exAdded.append(selectedWord.addedExample ?? "")
+        
         
         //selectedWord.addedDate = currentDate
         
@@ -185,45 +199,13 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.partOfSpeechLabel.isHidden = false
             cell.meaningLabel.isHidden = false
             //print("switch on")
-            //return cell2
         } else if switchButton.isOn == false {
             switchButton.setOn(false, animated: true)
             cell.dashLabel.isHidden = true
             cell.partOfSpeechLabel.isHidden = true
             cell.meaningLabel.isHidden = true
             //print("switch off")
-            //return cell2
         }
-        
-        /*let addedDate = dateCD[indexPath.row]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        let firstAddDateString = dateFormatter.string(from: addedDate.day! as Date)
-        let anotherAddDateString = dateFormatter.string(from: currentDate as Date)
-        if addedDate.day != currentDate {
-            headerTitles = [firstAddDateString, anotherAddDateString]
-        }*/
-//        if let wordAdded = selectedWord.addedWord {
-//            cell.wordLabel.text = wordAdded
-//        }
-        //wordAdded = selectedWord.addedWord!
-        
-        
-        
-        
-//        }
-        
-
-        //print(words.count)
-    
-        
-//        cell.wordLabel.text = words[indexPath.section]
-//        cell.partOfSpeechLabel.text = self.partOfSpeeches[indexPath.section][indexPath.row]
-//        cell.dashLabel.text = self.dashes[indexPath.section][indexPath.row]
-//        cell.meaningLabel.text = self.meanings[indexPath.section][indexPath.row]
-        
-
-        
         return cell
     }
     
@@ -233,17 +215,24 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "toVocabMeaning", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
-        
-        let saveWord = addToVocabCD[indexPath.row]
         if editingStyle == .delete {
-            managedContext?.delete(saveWord)
-            self.addToVocabCD.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+            self.sections[indexPath.section].rows.remove(at: indexPath.row)
+            let removeRow = self.sections[indexPath.section].rows[indexPath.row]
+            managedContext?.delete(removeRow)
+
+            self.tableView.beginUpdates()
+            DispatchQueue.main.async {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.endUpdates()
+            }
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         }
     }
@@ -258,11 +247,6 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             destination?.meaningMeaning = defAdded[i]
             destination?.meaningSynnonymWords = synAdded[i]
             destination?.meaningExampleSentences = exAdded[i]
-            //print("meaning of: ", wordAdded)
-//            destination.meaningPartOfSpeech = partOfSpeeches[wordSection][wordRow]
-//            destination.meaningMeaning = meanings[wordSection][wordRow]
-//            destination.meaningSynnonymWords = synnonyms[wordSection][wordRow]
-//            destination.meaningExampleSentences = examples[wordSection][wordRow]
         }
     }
 }

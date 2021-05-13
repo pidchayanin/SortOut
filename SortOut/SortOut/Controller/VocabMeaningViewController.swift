@@ -22,6 +22,8 @@ class VocabMeaningViewController: UIViewController {
     
     @IBOutlet weak var favBtn: UIButton!
     
+    @IBOutlet weak var deleteBtn: UIBarButtonItem!
+    
     var meaningWord = String()
     var meaningPartOfSpeech = String()
     let meaningMean = "หมายถึง"
@@ -51,7 +53,23 @@ class VocabMeaningViewController: UIViewController {
 //        favBtn.frame = CGRect(x: 333.5, y: 161, width: 44.5, height: 52)
     }
     
-//    @IBAction func isFavoriteTapped(_ sender: Any) {
+    @IBAction func deleteTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete \(wordLabel.text ?? "")", message: "Are you sure?", preferredStyle: .alert)
+       
+        //YES
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        
+        //NO
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Tap no")
+      }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    //    @IBAction func isFavoriteTapped(_ sender: Any) {
 //        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
 //            let newFavorite = FavoriteVocabCD.init(context:context)
 //            if favBtn.currentImage == UIImage(systemName: "heart") {

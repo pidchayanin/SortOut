@@ -25,9 +25,10 @@
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
 		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
 		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
+		544979C1264BCEE70004735D /* PlayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544979C0264BCEE70004735D /* PlayTableViewCell.swift */; };
+		544979C6264BD0970004735D /* HistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544979C5264BD0970004735D /* HistorySection.swift */; };
 		545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */; };
 		547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */ = {isa = PBXBuildFile; fileRef = 547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */; };
-		548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
 		5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498B3202646D24C00A1219E /* VocabListSection.swift */; };
@@ -35,7 +36,6 @@
 		549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54EF25D7D6130086AEA3 /* GiftViewController.swift */; };
 		549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */; };
 		549C54FA25D9222B0086AEA3 /* test1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C54F925D9222B0086AEA3 /* test1.swift */; };
-		549C550225DE590C0086AEA3 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C550125DE590C0086AEA3 /* ShopViewController.swift */; };
 		549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */; };
 		54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E5526381D6F0055D913 /* BetterShopViewController.swift */; };
 		54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */; };
@@ -97,9 +97,10 @@
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
 		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
+		544979C0264BCEE70004735D /* PlayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewCell.swift; sourceTree = "<group>"; };
+		544979C5264BD0970004735D /* HistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySection.swift; sourceTree = "<group>"; };
 		545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (1).json"; sourceTree = "<group>"; };
 		547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (2).json"; sourceTree = "<group>"; };
-		548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemPopUpViewController.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
 		5498B3202646D24C00A1219E /* VocabListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListSection.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		549C54EF25D7D6130086AEA3 /* GiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewController.swift; sourceTree = "<group>"; };
 		549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCustomCell.swift; sourceTree = "<group>"; };
 		549C54F925D9222B0086AEA3 /* test1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1.swift; sourceTree = "<group>"; };
-		549C550125DE590C0086AEA3 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTableViewCell.swift; sourceTree = "<group>"; };
 		54B36E5526381D6F0055D913 /* BetterShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterShopViewController.swift; sourceTree = "<group>"; };
 		54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterShopTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,7 +193,6 @@
 				40BE7B0425BC045D00464BDB /* LaunchScreen.storyboard */,
 				40BE7B0725BC045D00464BDB /* Info.plist */,
 				40BE7AFF25BC045800464BDB /* SortOut.xcdatamodeld */,
-				4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */,
 			);
 			path = SortOut;
 			sourceTree = "<group>";
@@ -228,6 +227,7 @@
 		5493950B25C54AF400F0B754 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */,
 				549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */,
 				54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */,
 				549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */,
@@ -239,6 +239,8 @@
 				54B36E6226381E3B0055D913 /* DataManager.swift */,
 				54B36E9C263BF7550055D913 /* TableItem.swift */,
 				5498B3202646D24C00A1219E /* VocabListSection.swift */,
+				544979C0264BCEE70004735D /* PlayTableViewCell.swift */,
+				544979C5264BD0970004735D /* HistorySection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,7 +251,6 @@
 				549C54F925D9222B0086AEA3 /* test1.swift */,
 				54B36E6A263820A90055D913 /* BetterBuyItemPopUpViewController.swift */,
 				4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */,
-				548AB3EB26105D1300C98D94 /* BuyItemPopUpViewController.swift */,
 				548AB4002613008C00C98D94 /* PopUpWindow.swift */,
 				40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */,
 				40F28E4226405933009E9E9F /* DatePopUpViewController.swift */,
@@ -262,7 +263,6 @@
 			children = (
 				54BD589325BC14AA00BD849D /* TabbarViewController.swift */,
 				54B36E5526381D6F0055D913 /* BetterShopViewController.swift */,
-				549C550125DE590C0086AEA3 /* ShopViewController.swift */,
 				549C54EF25D7D6130086AEA3 /* GiftViewController.swift */,
 				54FA285825E245B600D01711 /* VocabListViewController.swift */,
 				54FA285D25E2616A00D01711 /* VocabMeaningViewController.swift */,
@@ -303,6 +303,8 @@
 			dependencies = (
 			);
 			name = SortOut;
+			packageProductDependencies = (
+			);
 			productName = SortOut;
 			productReference = 40BE7AF325BC045800464BDB /* SortOut.app */;
 			productType = "com.apple.product-type.application";
@@ -374,6 +376,8 @@
 				Base,
 			);
 			mainGroup = 40BE7AEA25BC045800464BDB;
+			packageReferences = (
+			);
 			productRefGroup = 40BE7AF425BC045800464BDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -491,11 +495,11 @@
 				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
 				40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */,
-				549C550225DE590C0086AEA3 /* ShopViewController.swift in Sources */,
-				548AB3EC26105D1300C98D94 /* BuyItemPopUpViewController.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
+				544979C6264BD0970004735D /* HistorySection.swift in Sources */,
 				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
+				544979C1264BCEE70004735D /* PlayTableViewCell.swift in Sources */,
 				54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */,
 				54B36ED1263D91FC0055D913 /* FavoriteVocabViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
@@ -692,7 +696,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XULSS2SBZ7;
+				DEVELOPMENT_TEAM = WPX2B235ZL;
 				INFOPLIST_FILE = SortOut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -712,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XULSS2SBZ7;
+				DEVELOPMENT_TEAM = WPX2B235ZL;
 				INFOPLIST_FILE = SortOut/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

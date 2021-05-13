@@ -365,6 +365,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
             addWord.addedDefinition = addedDefinition
             addWord.addedSynonym = addedSynonym
             addWord.addedExample = addedExample
+            addWord.addedDate = currentDate
             
             cell.addToVocabListButton.isEnabled = false
             cell.addToVocabListButton.backgroundColor = .darkGray
