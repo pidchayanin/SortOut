@@ -33,7 +33,15 @@ class AnswerViewController: UIViewController {
     var receiveNum = 0
     var receiveSentence = [Any]()
     var receiveStar = ""
+    var threeStar = "3-star.png"
+    var twoStar = "2-star.png"
+    var oneStar = "1-star.png"
+    var zeroStar = "0-star.png"
     var thaiSentence = ""
+    
+    var sentenceAns = [SentenceAnswers]()
+    
+    var coins = 0
 
     let currentDate = Date()
     
@@ -43,12 +51,10 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         //print("ansrs: ", receiveSentence)
 
-        
-        receiveStar = "3-star.png"
-        starImage.image = UIImage(named: "3-star.png")
+        //starImage.image = UIImage(named: "3-star.png")
         
         coinImage.image = UIImage(named: "coin.png")
-        coinReceiveLabel.text = "+ 100"
+        //coinReceiveLabel.text = "+ 100"
         complimentLabel.text = "Awesome!"
         
         retryLabel.text = "Try again"
@@ -76,7 +82,8 @@ class AnswerViewController: UIViewController {
             
         }
 
-        coinReceiveLabel.text = "+ 100"
+        checkSentences()
+        //coinReceiveLabel.text = "+ 100"
         // Do any additional setup after loading the view.
         engSentenceLabel.text = receiveEnglishSentence
         engToThaiTranslation()
@@ -84,7 +91,95 @@ class AnswerViewController: UIViewController {
         //saveToCoreData()
     }
     
-
+    func checkSentences() {
+        guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
+            return
+        }
+        var data = ""
+        do {
+            data = try String(contentsOfFile: filepath)
+            var rows = data.components(separatedBy: "\n")
+            rows.removeFirst()
+            for row in rows {
+                let columns = row.components(separatedBy: ",")
+                print("columns: ", columns)
+                let sentences = columns[0]
+                let scoring = Int(String(columns[1].filter {!"\r".contains($0)})) ?? 0
+                print("scoring: ", scoring)
+                let ans = SentenceAnswers(sentences: sentences, score: scoring)
+                sentenceAns.append(ans)
+            }
+            //print("sentenceAns: ", sentenceAns)
+            for sentence in sentenceAns {
+                let sentences = sentence.sentences
+                print("senScore", sentence.score)
+                if receiveEnglishSentence == sentences {
+                    let score = sentence.score
+                    print("score: ", score)
+                    if score == 3 {
+                        receiveStar = threeStar
+                        starImage.image = UIImage(named: receiveStar)
+                        coins = 100
+                        coinReceiveLabel.text = "+ \(coins)"
+                    }
+                    else if score == 2 {
+                        receiveStar = twoStar
+                        starImage.image = UIImage(named: receiveStar)
+                        coins = 50
+                        coinReceiveLabel.text = "+ \(coins)"
+                    }
+                    else if score == 1 {
+                        receiveStar = oneStar
+                        starImage.image = UIImage(named: receiveStar)
+                        coins = 25
+                        coinReceiveLabel.text = "+ \(coins)"
+                    }
+                }
+                else {
+                    receiveStar = zeroStar
+                    starImage.image = UIImage(named: receiveStar)
+                    coins = 10
+                    coinReceiveLabel.text = "+ \(coins)"
+                }
+            }
+//            //import file
+//            // for i in sentenceFromCSV
+//            // if receiveEnglishSentece == i { receiveStar = csv.star  }
+//            let model = try ApprenticeGrammarCheckerNew(configuration: .init())
+//            let checkSentenceOutput = try model.prediction(sentence: receiveEnglishSentence)
+//            let score = checkSentenceOutput.scoring
+//            print("score: ", score)
+//            if score == 3 {
+//                receiveStar = threeStar
+//                starImage.image = UIImage(named: receiveStar)
+//                coins = 100
+//                coinReceiveLabel.text = "+ \(coins)"
+//            }
+//            else if score == 2 {
+//                receiveStar = twoStar
+//                starImage.image = UIImage(named: receiveStar)
+//                coins = 50
+//                coinReceiveLabel.text = "+ \(coins)"
+//            }
+//            else if score == 1 {
+//                receiveStar = oneStar
+//                starImage.image = UIImage(named: receiveStar)
+//                coins = 25
+//                coinReceiveLabel.text = "+ \(coins)"
+//            }
+//            else if score == 0 {
+//                receiveStar = zeroStar
+//                starImage.image = UIImage(named: receiveStar)
+//                coins = 10
+//                coinReceiveLabel.text = "+ \(coins)"
+//            }
+        }
+        catch {
+            fatalError("cannot use model")
+            //return
+        }
+        
+    }
     
     func engToThaiTranslation() {
         // Create an English-Thai translator:
@@ -144,10 +239,16 @@ class AnswerViewController: UIViewController {
                 guard let num = i as? [String: Any] else { return }
                 coin = num["coin"] as! Int
             }
-            coin += 100
+            coin += coins
             
             if starImage.image == UIImage(named: "3-star.png") {
                 starCollect += 3
+            } else if starImage.image == UIImage(named: "2-star.png") {
+                starCollect += 2
+            } else if starImage.image == UIImage(named: "1-star.png") {
+                starCollect += 1
+            } else if starImage.image == UIImage(named: "0-star.png") {
+                starCollect += 0
             }
             
             let jsonObject: [Any]  = [

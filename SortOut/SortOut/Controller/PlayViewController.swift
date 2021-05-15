@@ -91,8 +91,11 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PlayTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PlayTableViewCell
         
-        let historySection = self.sections[indexPath.section]
+        var historySection = self.sections[indexPath.section]
         let displayItems = historySection.rows[indexPath.row]
+        let date = displayItems.date
+        let calendar = Calendar.current
+        let minutes = calendar.component(.minute, from: date!)
         
         print("eng sen: ", displayItems.englishSentence ?? "")
         print("=======")
@@ -107,6 +110,7 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.starImage.image = UIImage(named: (displayItems.receivedStar ?? ""))
         
+        historySection.rows.sort { _,_ in minutes > minutes }
         
         return cell
     }

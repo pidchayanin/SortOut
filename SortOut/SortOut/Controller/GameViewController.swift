@@ -550,22 +550,32 @@ class GameViewController: UIViewController {
     
     @IBAction func word1Tapped(_ sender: UIButton) {
         
-        word1Button.isEnabled = false
+        //word1Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words1.capitalized
         }
-        else {
-            textfield.text?.append(" " + words1)
+        else if textfield.text?.isEmpty == false {
+            sender.alpha = 1
+            print("alpha: change")
+            let text = textfield.text
+            if !text!.hasPrefix(words1) {
+                print("no prefix")
+                textfield.text?.append(" " + words1)
+            }
+            if text!.hasPrefix(words1.capitalized) || text!.hasPrefix(words1.lowercased()) {
+                textfield.text = String((text!.dropFirst(words1.count)))
+                print("has prefix")
+            }
         }
-        
     }
     
-    @IBAction func word2Tapped(_ sender: Any) {
+    @IBAction func word2Tapped(_ sender: UIButton) {
         
-        word2Button.isHidden = true
+        word2Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -577,9 +587,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word3Tapped(_ sender: Any) {
+    @IBAction func word3Tapped(_ sender: UIButton) {
         
-        word3Button.isHidden = true
+        word3Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -591,9 +602,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word4Tapped(_ sender: Any) {
+    @IBAction func word4Tapped(_ sender: UIButton) {
         
-        word4Button.isHidden = true
+        word4Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -605,9 +617,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word5Tapped(_ sender: Any) {
+    @IBAction func word5Tapped(_ sender: UIButton) {
         
-        word5Button.isHidden = true
+        word5Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -619,9 +632,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word6Tapped(_ sender: Any) {
+    @IBAction func word6Tapped(_ sender: UIButton) {
         
-        word6Button.isHidden = true
+        word6Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -633,9 +647,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word7Tapped(_ sender: Any) {
+    @IBAction func word7Tapped(_ sender: UIButton) {
         
-        word7Button.isHidden = true
+        word7Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -647,9 +662,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word8Tapped(_ sender: Any) {
+    @IBAction func word8Tapped(_ sender: UIButton) {
         
-        word8Button.isHidden = true
+        word8Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -661,9 +677,10 @@ class GameViewController: UIViewController {
         
     }
     
-    @IBAction func word9Tapped(_ sender: Any) {
+    @IBAction func word9Tapped(_ sender: UIButton) {
         
-        word9Button.isHidden = true
+        word9Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -674,9 +691,10 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func word10Tapped(_ sender: Any) {
+    @IBAction func word10Tapped(_ sender: UIButton) {
         
-        word10Button.isHidden = true
+        word10Button.isEnabled = false
+        sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
@@ -689,100 +707,154 @@ class GameViewController: UIViewController {
     
 
     //MARK: Delete button tapped
-    @IBAction func deleteTapped(_ sender: Any) {
-        //ToDo: Make condition that if the button is null so .isHidden = true
+    @IBAction func deleteTapped(_ sender: UIButton) {
+        //ToDo: Make condition that if the button is null so .isEnabled = false
         if words5 == "" {
-            word5Button.isHidden = true
+            word5Button.isEnabled = false
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
+            word1Button.isEnabled = true
+            word1Button.alpha = 1
+            word2Button.isEnabled = true
+            word2Button.alpha = 1
+            word3Button.isEnabled = true
+            word3Button.alpha = 1
+            word4Button.isEnabled = true
+            word4Button.alpha = 1
 //            print("1")
         }
         else if words6 == "" {
-            word6Button.isHidden = true
+            word6Button.isEnabled = false
 //            print("2")
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
-            word5Button.isHidden = false
+            word1Button.isEnabled = true
+            word1Button.alpha = 1
+            word2Button.isEnabled = true
+            word2Button.alpha = 1
+            word3Button.isEnabled = true
+            word3Button.alpha = 1
+            word4Button.isEnabled = true
+            word4Button.alpha = 1
+            word5Button.isEnabled = true
+            word5Button.alpha = 1
         }
         else if words7 == "" {
-            word7Button.isHidden = true
+            word7Button.isEnabled = false
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
-            word5Button.isHidden = false
-            word6Button.isHidden = false
+            word1Button.isEnabled = false
+            word1Button.alpha = 1
+            word2Button.isEnabled = false
+            word2Button.alpha = 1
+            word3Button.isEnabled = false
+            word3Button.alpha = 1
+            word4Button.isEnabled = false
+            word4Button.alpha = 1
+            word5Button.isEnabled = false
+            word5Button.alpha = 1
+            word6Button.isEnabled = false
+            word6Button.alpha = 1
 //            print("3")
         }
         else if words8 == "" {
-            word8Button.isHidden = true
+            word8Button.isEnabled = true
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
-            word5Button.isHidden = false
-            word6Button.isHidden = false
-            word7Button.isHidden = false
+            word1Button.isEnabled = true
+            word2Button.isEnabled = true
+            word3Button.isEnabled = true
+            word4Button.isEnabled = true
+            word5Button.isEnabled = true
+            word6Button.isEnabled = true
+            word7Button.isEnabled = true
+            
+            word1Button.alpha = 1
+            word2Button.alpha = 1
+            word3Button.alpha = 1
+            word4Button.alpha = 1
+            word5Button.alpha = 1
+            word6Button.alpha = 1
+            word7Button.alpha = 1
 //            print("4")
         }
         else if words9 == "" {
-            word9Button.isHidden = true
+            word9Button.isEnabled = false
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
-            word5Button.isHidden = false
-            word6Button.isHidden = false
-            word7Button.isHidden = false
-            word8Button.isHidden = false
+            word1Button.isEnabled = true
+            word2Button.isEnabled = true
+            word3Button.isEnabled = true
+            word4Button.isEnabled = true
+            word5Button.isEnabled = true
+            word6Button.isEnabled = true
+            word7Button.isEnabled = true
+            word8Button.isEnabled = true
+            
+            word1Button.alpha = 1
+            word2Button.alpha = 1
+            word3Button.alpha = 1
+            word4Button.alpha = 1
+            word5Button.alpha = 1
+            word6Button.alpha = 1
+            word7Button.alpha = 1
+            word8Button.alpha = 1
         }
         else if words10 == "" {
-            word10Button.isHidden = true
+            word10Button.isEnabled = false
             
             textfield.text = ""
             
-            word1Button.isHidden = false
-            word2Button.isHidden = false
-            word3Button.isHidden = false
-            word4Button.isHidden = false
-            word5Button.isHidden = false
-            word6Button.isHidden = false
-            word7Button.isHidden = false
-            word8Button.isHidden = false
-            word9Button.isHidden = false
+            word1Button.isEnabled = true
+            word2Button.isEnabled = true
+            word3Button.isEnabled = true
+            word4Button.isEnabled = true
+            word5Button.isEnabled = true
+            word6Button.isEnabled = true
+            word7Button.isEnabled = true
+            word8Button.isEnabled = true
+            word9Button.isEnabled = true
+            
+            word1Button.alpha = 1
+            word2Button.alpha = 1
+            word3Button.alpha = 1
+            word4Button.alpha = 1
+            word5Button.alpha = 1
+            word6Button.alpha = 1
+            word7Button.alpha = 1
+            word8Button.alpha = 1
+            word9Button.alpha = 1
         }
         else{
-        word1Button.isHidden = false
-        word2Button.isHidden = false
-        word3Button.isHidden = false
-        word4Button.isHidden = false
-        word5Button.isHidden = false
-        word6Button.isHidden = false
-        word7Button.isHidden = false
-        word8Button.isHidden = false
-        word9Button.isHidden = false
-        word10Button.isHidden = false
+            word1Button.isEnabled = true
+            word2Button.isEnabled = true
+            word3Button.isEnabled = true
+            word4Button.isEnabled = true
+            word5Button.isEnabled = true
+            word6Button.isEnabled = true
+            word7Button.isEnabled = true
+            word8Button.isEnabled = true
+            word9Button.isEnabled = true
+            word10Button.isEnabled = true
             
-        textfield.text = ""
+            word1Button.alpha = 1
+            word2Button.alpha = 1
+            word3Button.alpha = 1
+            word4Button.alpha = 1
+            word5Button.alpha = 1
+            word6Button.alpha = 1
+            word7Button.alpha = 1
+            word8Button.alpha = 1
+            word9Button.alpha = 1
+            word10Button.alpha = 1
+            
+                
+            textfield.text = ""
 //            print("normal")
         }
         

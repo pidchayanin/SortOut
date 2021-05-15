@@ -26,6 +26,8 @@ class VocabListViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
+    let toggleEditSelector = #selector(toggleEdit)
+    
     var currentDate = Date()
     //var words:[String] = []
     var addToVocabCD: [AddToVocabCD] = []
@@ -52,8 +54,6 @@ class VocabListViewController: UIViewController {
         self.tableView.dataSource = self
         DataManager.shared.vocabVC = self
         
-        
-        
         //print(words)
         //retrieveData()
         getData()
@@ -77,6 +77,22 @@ class VocabListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @objc func toggleEdit(sender: UIBarButtonItem)
+    {
+       if(self.tableView.isEditing == true)
+       {
+           self.tableView.isEditing = false
+           //self.navigationItem.leftBarButtonItem?.title = "Done"
+       }
+       else
+       {
+           self.tableView.isEditing = true
+           //self.navigationItem.leftBarButtonItem?.title = "Edit"
+       }
+   }
+    
+
     
     /*func getFavorites() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
@@ -130,6 +146,25 @@ class VocabListViewController: UIViewController {
 
             }
     }*/
+    @IBAction func editTapped(_ sender: UIBarButtonItem) {
+        guard let systemItem = sender.value(forKey: "systemItem") as? Int else {
+              return
+          }
+
+          switch systemItem {
+          case UIBarButtonItem.SystemItem.edit.rawValue:
+                  let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: toggleEditSelector)
+                  doneBarButtonItem.style = .plain
+                  navigationItem.leftBarButtonItem = doneBarButtonItem
+                  setEditing(true, animated: true)
+          case UIBarButtonItem.SystemItem.done.rawValue:
+                  let editBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: toggleEditSelector)
+                  navigationItem.leftBarButtonItem = editBarButtonItem
+                  setEditing(false, animated: true)
+              default:
+                  break
+          }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         //getFavorites()

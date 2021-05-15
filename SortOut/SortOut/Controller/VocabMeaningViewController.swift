@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class VocabMeaningViewController: UIViewController {
 
@@ -23,6 +24,9 @@ class VocabMeaningViewController: UIViewController {
     @IBOutlet weak var favBtn: UIButton!
     
     @IBOutlet weak var deleteBtn: UIBarButtonItem!
+    
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    var vocabCD: [AddToVocabCD] = []
     
     var meaningWord = String()
     var meaningPartOfSpeech = String()
@@ -58,6 +62,20 @@ class VocabMeaningViewController: UIViewController {
        
         //YES
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+            
+            
+            let vocabs = AddToVocabCD.init(context: self.context!)
+            self.context?.delete(vocabs)
+            
+            do {
+                try self.context?.save()
+            }
+            catch {
+                fatalError("CoreData cannot save")
+            }
+            
+                
+            
             
             _ = self.navigationController?.popViewController(animated: true)
         }))

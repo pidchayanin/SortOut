@@ -48,6 +48,10 @@
 		54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779325E799A20096768D /* StarsAndCoinsModel.swift */; };
 		54C0779925E799C00096768D /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779825E799C00096768D /* ShopItemModel.swift */; };
 		54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D083582628423900F5DD37 /* AnswerViewController.swift */; };
+		54E73335264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54E73334264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel */; };
+		54E7333A264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54E73339264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel */; };
+		54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */; };
+		54E73344264EED8900D6C20E /* Englishsentences - answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 54E73343264EED8900D6C20E /* Englishsentences - answers.csv */; };
 		54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */; };
 		54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA285325E2445400D01711 /* VocablistTableViewCell.swift */; };
 		54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA285825E245B600D01711 /* VocabListViewController.swift */; };
@@ -120,6 +124,10 @@
 		54C0779325E799A20096768D /* StarsAndCoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAndCoinsModel.swift; sourceTree = "<group>"; };
 		54C0779825E799C00096768D /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
 		54D083582628423900F5DD37 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		54E73334264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ApprenticeGrammarChecker.mlmodel; sourceTree = "<group>"; };
+		54E73339264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ApprenticeGrammarCheckerNew.mlmodel; sourceTree = "<group>"; };
+		54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceAnswers.swift; sourceTree = "<group>"; };
+		54E73343264EED8900D6C20E /* Englishsentences - answers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Englishsentences - answers.csv"; sourceTree = "<group>"; };
 		54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		54FA285325E2445400D01711 /* VocablistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocablistTableViewCell.swift; sourceTree = "<group>"; };
 		54FA285825E245B600D01711 /* VocabListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,9 @@
 		40BE7AF525BC045800464BDB /* SortOut */ = {
 			isa = PBXGroup;
 			children = (
+				54E73343264EED8900D6C20E /* Englishsentences - answers.csv */,
+				54E73339264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel */,
+				54E73334264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel */,
 				547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */,
 				545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */,
 				54B36ECB263C5AF90055D913 /* English sentences(2).json */,
@@ -241,6 +252,7 @@
 				5498B3202646D24C00A1219E /* VocabListSection.swift */,
 				544979C0264BCEE70004735D /* PlayTableViewCell.swift */,
 				544979C5264BD0970004735D /* HistorySection.swift */,
+				54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +412,7 @@
 				40BE7B0625BC045D00464BDB /* LaunchScreen.storyboard in Resources */,
 				5448EFC72620421600EB32D1 /* English sentences.json in Resources */,
 				40BE7B0325BC045D00464BDB /* Assets.xcassets in Resources */,
+				54E73344264EED8900D6C20E /* Englishsentences - answers.csv in Resources */,
 				547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */,
 				40BE7AFE25BC045800464BDB /* Main.storyboard in Resources */,
 			);
@@ -485,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E73335264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel in Sources */,
 				54C0779925E799C00096768D /* ShopItemModel.swift in Sources */,
 				4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */,
 				40BE7B0125BC045800464BDB /* SortOut.xcdatamodeld in Sources */,
@@ -500,6 +514,7 @@
 				544979C6264BD0970004735D /* HistorySection.swift in Sources */,
 				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
 				544979C1264BCEE70004735D /* PlayTableViewCell.swift in Sources */,
+				54E7333A264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel in Sources */,
 				54BD589425BC14AA00BD849D /* TabbarViewController.swift in Sources */,
 				54B36ED1263D91FC0055D913 /* FavoriteVocabViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
@@ -512,6 +527,7 @@
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
+				54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */,
 				5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */,
 				54FA285E25E2616A00D01711 /* VocabMeaningViewController.swift in Sources */,
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
