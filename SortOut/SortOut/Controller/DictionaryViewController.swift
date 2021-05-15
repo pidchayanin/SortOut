@@ -54,6 +54,8 @@ class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
+        
         DataManager.shared.dictVC = self
 
         // Do any additional setup after loading the view.

@@ -38,6 +38,8 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .white
+        
         // step 1: Ask for permission
         let center = UNUserNotificationCenter.current()
         
