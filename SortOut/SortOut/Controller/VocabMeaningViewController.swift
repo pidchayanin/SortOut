@@ -38,7 +38,14 @@ class VocabMeaningViewController: UIViewController {
     var meaningExampleSentences = String()
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        wordLabel.text = meaningWord
+        partOfSpeechLabel.text = meaningPartOfSpeech
+        meanLabel.text = meaningMean
+        meaningLabel.text = meaningMeaning
+        synnonymsLabel.text = meaningSynnonyms
+        synnonymWordsLabel.text = meaningSynnonymWords
+        exampleLabel.text = meaningExample
+        exampleSentencesLabel.text = meaningExampleSentences
     }
     
     override func viewDidLoad() {

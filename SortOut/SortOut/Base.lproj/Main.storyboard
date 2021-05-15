@@ -1213,6 +1213,13 @@
                                                                 <constraint firstAttribute="width" constant="90" id="nn0-c2-5hk"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-KK-vo4">
+                                                            <rect key="frame" x="270" y="48" width="92.5" height="53"/>
+                                                            <color key="backgroundColor" red="0.93724346160000005" green="0.93724900479999995" blue="0.93726325040000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93716263771057129" green="0.93731957674026489" blue="0.93714195489883423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="0.9697532057762146" green="0.69846254587173462" blue="0.43709069490432739" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1222,15 +1229,18 @@
                                                         <constraint firstItem="Cdn-wa-XXg" firstAttribute="centerX" secondItem="G7g-fR-blw" secondAttribute="centerX" id="6wY-rW-9ls"/>
                                                         <constraint firstItem="Cdn-wa-XXg" firstAttribute="top" secondItem="oTa-ct-wDv" secondAttribute="top" constant="92" id="9Vm-GG-KKJ"/>
                                                         <constraint firstItem="ZFy-D2-61b" firstAttribute="leading" secondItem="Cdn-wa-XXg" secondAttribute="trailing" constant="48" id="CcJ-jH-JVK"/>
+                                                        <constraint firstItem="yqh-KK-vo4" firstAttribute="leading" secondItem="wAX-zI-nkE" secondAttribute="leading" id="EoD-9c-8GP"/>
                                                         <constraint firstItem="wAX-zI-nkE" firstAttribute="top" secondItem="oTa-ct-wDv" secondAttribute="top" constant="62" id="FNB-TH-i3A"/>
                                                         <constraint firstItem="aVZ-Hb-0tz" firstAttribute="top" secondItem="oTa-ct-wDv" secondAttribute="top" constant="17" id="FxK-In-z8A"/>
                                                         <constraint firstAttribute="bottom" secondItem="wAX-zI-nkE" secondAttribute="bottom" constant="33" id="J9a-gm-UD7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yqh-KK-vo4" secondAttribute="bottom" constant="27" id="Lvc-Tm-Bdc"/>
                                                         <constraint firstItem="G1E-IO-JKK" firstAttribute="top" secondItem="aVZ-Hb-0tz" secondAttribute="bottom" constant="38" id="NJf-rc-ZzC"/>
                                                         <constraint firstItem="i3Z-IE-5kw" firstAttribute="leading" secondItem="G1E-IO-JKK" secondAttribute="trailing" constant="3" id="OXI-kj-jru"/>
                                                         <constraint firstItem="ZFy-D2-61b" firstAttribute="trailing" secondItem="wAX-zI-nkE" secondAttribute="trailing" id="PbH-8Y-ONC"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZFy-D2-61b" secondAttribute="trailing" constant="30" id="S7q-hX-ag2"/>
                                                         <constraint firstItem="ZFy-D2-61b" firstAttribute="top" secondItem="oTa-ct-wDv" secondAttribute="top" constant="52" id="TAP-4Y-E6o"/>
                                                         <constraint firstAttribute="bottom" secondItem="Cdn-wa-XXg" secondAttribute="bottom" constant="18" id="Tks-p3-ycB"/>
+                                                        <constraint firstItem="yqh-KK-vo4" firstAttribute="top" secondItem="oTa-ct-wDv" secondAttribute="top" constant="48" id="VaS-Zr-3bz"/>
                                                         <constraint firstItem="i3Z-IE-5kw" firstAttribute="baseline" secondItem="rFz-Jr-4Kh" secondAttribute="baseline" id="glH-0N-JH9"/>
                                                         <constraint firstItem="ZFy-D2-61b" firstAttribute="centerY" secondItem="wAX-zI-nkE" secondAttribute="centerY" id="i1Z-Mz-ReB"/>
                                                         <constraint firstItem="G1E-IO-JKK" firstAttribute="baseline" secondItem="i3Z-IE-5kw" secondAttribute="baseline" id="kyb-Cm-8TB"/>
@@ -1254,6 +1264,7 @@
                                             <outlet property="checkImg" destination="ZFy-D2-61b" id="Ye8-AZ-ZJ7"/>
                                             <outlet property="coinImg" destination="G7g-fR-blw" id="z4K-Xw-Ylm"/>
                                             <outlet property="collectButton" destination="wAX-zI-nkE" id="VsM-kC-8K9"/>
+                                            <outlet property="inProgressLabel" destination="yqh-KK-vo4" id="3aE-nC-rZQ"/>
                                             <outlet property="numberOfTaskLabel" destination="rFz-Jr-4Kh" id="kgO-or-dAd"/>
                                             <outlet property="numberOfgiftLabel" destination="Cdn-wa-XXg" id="lxP-u4-2EQ"/>
                                             <outlet property="taskDoneLabel" destination="G1E-IO-JKK" id="8Og-0t-CwB"/>
@@ -1702,6 +1713,7 @@
                                         </constraints>
                                         <state key="normal" image="submit"/>
                                         <connections>
+                                            <action selector="submitTapped:" destination="wLP-Qa-OPL" eventType="touchUpInside" id="hoy-Yg-Wql"/>
                                             <segue destination="iGi-0r-2qd" kind="show" identifier="toCorrectAnswer" id="bKJ-DU-AJo"/>
                                         </connections>
                                     </button>
@@ -1815,10 +1827,10 @@
             </objects>
             <point key="canvasLocation" x="721.73913043478262" y="1462.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Wrong Answer View Controller-->
         <scene sceneID="Aah-9t-JhP">
             <objects>
-                <viewController storyboardIdentifier="wrongAnswerID" id="FGv-pF-pC7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wrongAnswerID" id="FGv-pF-pC7" customClass="WrongAnswerViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbu-0S-HFm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1970,6 +1982,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jum-mK-clz">
+                                <rect key="frame" x="46" y="732" width="57" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="INa-kT-c1d"/>
+                                    <constraint firstAttribute="height" constant="57" id="hFh-da-Jld"/>
+                                </constraints>
+                                <state key="normal" image="retry-item"/>
+                                <connections>
+                                    <action selector="retryItemTapped:" destination="iGi-0r-2qd" eventType="touchUpInside" id="wb6-dk-bP8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ghX-4A-h1N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1993,6 +2016,7 @@
                             <constraint firstItem="m20-f1-eeB" firstAttribute="leading" secondItem="ghX-4A-h1N" secondAttribute="leading" constant="87" id="QBS-l9-eIP"/>
                             <constraint firstItem="EiN-I7-VMO" firstAttribute="leading" secondItem="8PQ-x7-4Wf" secondAttribute="leading" id="Ucf-BV-4pH"/>
                             <constraint firstItem="W0d-bA-UmE" firstAttribute="top" secondItem="oAe-OU-mJ6" secondAttribute="bottom" constant="20" id="UnM-fb-uY7"/>
+                            <constraint firstItem="Jum-mK-clz" firstAttribute="leading" secondItem="ghX-4A-h1N" secondAttribute="leading" constant="46" id="WTP-Uo-xLi"/>
                             <constraint firstItem="0Fz-JX-5j5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WKh-f7-NSi" secondAttribute="trailing" symbolic="YES" id="WfK-tS-zF0"/>
                             <constraint firstItem="W0d-bA-UmE" firstAttribute="leading" secondItem="oAe-OU-mJ6" secondAttribute="leading" id="dU1-zS-sf1"/>
                             <constraint firstItem="Y1F-2A-lLQ" firstAttribute="leading" secondItem="8PQ-x7-4Wf" secondAttribute="trailing" constant="91" id="dgV-Vj-nwl"/>
@@ -2002,6 +2026,7 @@
                             <constraint firstItem="WKh-f7-NSi" firstAttribute="baseline" secondItem="YCD-lG-QxT" secondAttribute="baseline" id="iv8-Tw-IFo"/>
                             <constraint firstItem="YCD-lG-QxT" firstAttribute="centerX" secondItem="8PQ-x7-4Wf" secondAttribute="centerX" id="k6T-Za-62I"/>
                             <constraint firstItem="ghX-4A-h1N" firstAttribute="trailing" secondItem="EiN-I7-VMO" secondAttribute="trailing" constant="55" id="ky2-Ft-3mf"/>
+                            <constraint firstItem="Jum-mK-clz" firstAttribute="top" secondItem="2I8-vF-5ZT" secondAttribute="top" constant="-7" id="qUu-Nd-3kE"/>
                             <constraint firstItem="EiN-I7-VMO" firstAttribute="centerX" secondItem="DTQ-fv-ESM" secondAttribute="centerX" id="qam-au-e6b"/>
                             <constraint firstItem="EiN-I7-VMO" firstAttribute="trailing" secondItem="2I8-vF-5ZT" secondAttribute="trailing" id="rF1-p9-f3V"/>
                             <constraint firstItem="EiN-I7-VMO" firstAttribute="leading" secondItem="ghX-4A-h1N" secondAttribute="leading" constant="52" id="uIa-Jo-YND"/>
@@ -2019,6 +2044,8 @@
                         <outlet property="engSentenceLabel" destination="fGG-R6-5yo" id="410-Ey-WGw"/>
                         <outlet property="homeLabel" destination="0Fz-JX-5j5" id="cIg-zc-n4Z"/>
                         <outlet property="playNextLabel" destination="WKh-f7-NSi" id="X1F-nr-jtl"/>
+                        <outlet property="retryBtn" destination="8PQ-x7-4Wf" id="wsq-d8-lnX"/>
+                        <outlet property="retryItemBtn" destination="Jum-mK-clz" id="zyl-zz-BlV"/>
                         <outlet property="retryLabel" destination="YCD-lG-QxT" id="Rp8-Ue-njM"/>
                         <outlet property="starImage" destination="m20-f1-eeB" id="j3H-Uf-0gz"/>
                         <outlet property="thaiSentenceLabel" destination="DTQ-fv-ESM" id="wWB-xm-Il0"/>
@@ -2274,6 +2301,7 @@
         <image name="plus" width="52" height="52"/>
         <image name="received" width="960" height="170"/>
         <image name="retry" width="336" height="402"/>
+        <image name="retry-item" width="373" height="372"/>
         <image name="setting" width="505" height="463"/>
         <image name="shield.fill" catalog="system" width="128" height="121"/>
         <image name="sound-on" width="321" height="248"/>

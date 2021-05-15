@@ -210,14 +210,14 @@ class DictionaryViewController: UIViewController {
 
 }
 
-extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, DictCellDelegate {
-    func didPressButton(_ tag: Int) {
-        print("I have pressed a button with a tag: \(tag)")
-        
-    }
+extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return word.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -237,8 +237,6 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
-        cell.cellDelegate = self
-        cell.addToVocabListButton.tag = indexPath.row
         
         //let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
@@ -272,11 +270,11 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
         
         
         if word1[indexPath.row] != "" {
-            cell.wordLabel.text = word1[indexPath.row]
-            cell.partOfSpeechLabel.text = "(" + pos[indexPath.row] + ")"
-            cell.definitionInThaiLabel.text = defArr[indexPath.row]
-            cell.synnonymWordLabel.text = synArr[indexPath.row]
-            cell.exampleSentenceLabel.text = exampleArr[indexPath.row]
+            cell.wordLabel.text = word1[indexPath.section]
+            cell.partOfSpeechLabel.text = "(" + pos[indexPath.section] + ")"
+            cell.definitionInThaiLabel.text = defArr[indexPath.section]
+            cell.synnonymWordLabel.text = synArr[indexPath.section]
+            cell.exampleSentenceLabel.text = exampleArr[indexPath.section]
             
         }
         
@@ -286,7 +284,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
         
         // Check if words did not contained in addListIndexPath array to prevent reuseable cell looping when scroll the tableview
         //print("al:", addListIndexPath)
-        if !addListIndexPath.contains(indexPath.row) {
+        if !addListIndexPath.contains(indexPath.section) {
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
 
@@ -311,11 +309,11 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
         
         cell.undoButtonAction = { [unowned self] in
             undo_button = true
-            addListIndexPath = addListIndexPath.filter { $0 != indexPath.row }
+            addListIndexPath = addListIndexPath.filter { $0 != indexPath.section }
 
             var idx = 0
             for w in av {
-                if w == word1[indexPath.row] {
+                if w == word1[indexPath.section] {
                     break
                 }
                 idx += 1
@@ -350,15 +348,15 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource, 
             add_button = true
             let addWord = AddToVocabCD(context:context!)
             print("AW:", addWord)
-            addListIndexPath.append(indexPath.row)
+            addListIndexPath.append(indexPath.section)
 
             //let addDate = DateCD(context:context!)
 
-            let addedWord = word1[indexPath.row]
-            let addedPOS = pos[indexPath.row]
-            let addedDefinition = defArr[indexPath.row]
-            let addedSynonym = synArr[indexPath.row]
-            let addedExample = exampleArr[indexPath.row]
+            let addedWord = word1[indexPath.section]
+            let addedPOS = pos[indexPath.section]
+            let addedDefinition = defArr[indexPath.section]
+            let addedSynonym = synArr[indexPath.section]
+            let addedExample = exampleArr[indexPath.section]
             
             addWord.addedWord = addedWord
             addWord.addedPoS = addedPOS

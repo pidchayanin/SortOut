@@ -17,6 +17,7 @@ class GiftTableViewCell: UITableViewCell {
     @IBOutlet weak var taskDoneLabel: UILabel!
     @IBOutlet weak var backSlashLabel: UILabel!
     @IBOutlet weak var numberOfgiftLabel: UILabel!
+    @IBOutlet weak var inProgressLabel: UILabel!
     
     var collectButtonAction : (() -> ())?
 

@@ -33,8 +33,20 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     var coins = Int()
     var star = Int()
     
+    let currentDate = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dateToday = Date()
+        /*let calendar1 = Calendar.current
+        let compo = calendar1.dateComponents([.day], from: dateToday)*/
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        let str = df.string(from: dateToday)
+        
+        UserDefaults.standard.setValue(1, forKey: "logIn")
+        UserDefaults.standard.setValue(str, forKey: "currentDate")
 
         // Do any additional setup after loading the view.
         starImg.image = UIImage(named: "star.png")

@@ -25,6 +25,8 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var retryLabel: UILabel!
     @IBOutlet weak var playNextLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
+    @IBOutlet weak var retryBtn: UIButton!
+    @IBOutlet weak var retryItemBtn: UIButton!
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -38,6 +40,7 @@ class AnswerViewController: UIViewController {
     var oneStar = "1-star.png"
     var zeroStar = "0-star.png"
     var thaiSentence = ""
+    var compliments = ""
     
     var sentenceAns = [SentenceAnswers]()
     
@@ -51,11 +54,12 @@ class AnswerViewController: UIViewController {
         super.viewDidLoad()
         //print("ansrs: ", receiveSentence)
 
-        //starImage.image = UIImage(named: "3-star.png")
+        starImage.image = UIImage(named: receiveStar)
         
         coinImage.image = UIImage(named: "coin.png")
+        coinReceiveLabel.text = "+ \(coins)"
         //coinReceiveLabel.text = "+ 100"
-        complimentLabel.text = "Awesome!"
+        //complimentLabel.text = compliments
         
         retryLabel.text = "Try again"
         playNextLabel.text = "Play next"
@@ -89,6 +93,7 @@ class AnswerViewController: UIViewController {
         engToThaiTranslation()
         updateDataToJSON()
         //saveToCoreData()
+        UserDefaults.standard.setValue(1, forKey: "firstGame")
     }
     
     func checkSentences() {
@@ -112,29 +117,51 @@ class AnswerViewController: UIViewController {
             //print("sentenceAns: ", sentenceAns)
             for sentence in sentenceAns {
                 let sentences = sentence.sentences
-                print("senScore", sentence.score)
+                //print("senScore", sentence.score)
                 if receiveEnglishSentence == sentences {
+                    print("reEng: ", receiveEnglishSentence)
+                    print("sent: ", sentences)
                     let score = sentence.score
                     print("score: ", score)
+                    print("====score:====")
                     if score == 3 {
                         receiveStar = threeStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 100
                         coinReceiveLabel.text = "+ \(coins)"
+                        complimentLabel.text = "You are an expert at this!"
                     }
                     else if score == 2 {
                         receiveStar = twoStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 50
                         coinReceiveLabel.text = "+ \(coins)"
+                        complimentLabel.text = "Great job!"
                     }
                     else if score == 1 {
                         receiveStar = oneStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 25
                         coinReceiveLabel.text = "+ \(coins)"
+                        complimentLabel.text = "You have unique potential!"
                     }
+                } else {
+                    receiveStar = zeroStar
+                    starImage.image = UIImage(named: receiveStar)
+                    coinImage.isHidden = true
+                    coinReceiveLabel.isHidden = true
+                    ansImage.isHidden = true
+                    retryBtn.isHidden = true
+                    retryItemBtn.isHidden = false
+                    retryLabel.text = "Retry (item)"
+                    complimentLabel.text = "Don't give up!"
                 }
+                /*if receiveEnglishSentence != sentences {
+                    print("ไม่เท่าไง")
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID")
+                    self.present(vc, animated: true)
+                }*/
 //                else if receiveEnglishSentence != sentences {
 //                    receiveStar = zeroStar
 //                    starImage.image = UIImage(named: receiveStar)
@@ -393,6 +420,11 @@ class AnswerViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func retryItemTapped(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -35,6 +35,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     
     var stars = 0
     private var coins = 0
+    var vocabSeen = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,14 +81,31 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     }
     
     func addTask() {
-        let task = ["First Game of the day", "Royalty user: log in two days in a row", "Diligent leaner: study 5 vocabulary", "Starter kit: first-time user"]
+        let task = ["First Game of the day", "Royalty user: log in to the game", "Diligent leaner: study 5 vocabulary", "Starter kit: first-time user"]
         let imageName = ["coin-reward.png", "coin-reward.png", "coin-reward.png", "coin-reward.png"]
         let amountGifts = [100, 100, 100, 100]
-        let numOfTasks = [1, 2, 5, 1]
+        let numOfTasks = [1, 1, 5, 1]
         let taskDone = [0, 0, 0, 0]
+        
+        /*if isAppAlreadyLaunchedOnce() == true {
+            taskDone = [0, 0, vocabSeen, 1]
+        }*/
         
         let addTask = Task(task: task, img: imageName, amountOfGift: amountGifts, numberOfTask: numOfTasks, taskDone: taskDone)
         tasks.append(addTask)
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
     
     func retrieveData() {
@@ -247,12 +265,50 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:GiftTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! GiftTableViewCell
+        
+        vocabSeen = UserDefaults.standard.integer(forKey: "seeVocab")
+        print("vocabSeen: ", vocabSeen)
+        let firstGame = UserDefaults.standard.integer(forKey: "firstGame")
+        let logIn = UserDefaults.standard.integer(forKey: "logIn")
+        let dateToday = UserDefaults.standard.string(forKey: "currentDate")
+        let currentDate = Date()
+        /*let calendar = Calendar.current
+        let day = calendar.dateComponents([.day], from: currentDate)*/
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        let strDate = df.string(from: currentDate)
+        
+        
         var taskName = ""
         var imgName = ""
         var giftAmount = 0
         var taskNum = 0
         var taskDone = 0
-        for t in tasks {
+        for var t in tasks {
+            
+            if firstGame == t.numberOfTask[0] {
+                t.taskDone[0] = firstGame
+                //UserDefaults.standard.removeObject(forKey: "firstGame")
+            }
+            if logIn == t.numberOfTask[1] {
+                t.taskDone[1] = logIn
+                //UserDefaults.standard.removeObject(forKey: "logIn")
+            }
+            if vocabSeen == t.numberOfTask[2] {
+                t.taskDone[2] = vocabSeen
+                //UserDefaults.standard.removeObject(forKey: "seeVocab")
+            }
+            if isAppAlreadyLaunchedOnce() == false {
+                t.taskDone[3] = 1
+            } /*else if isAppAlreadyLaunchedOnce() == true {
+                cell.contentView.alpha = 0.3
+                cell.collectButton.isHidden = true
+                cell.collectButton.isEnabled = false
+                cell.inProgressLabel.isHidden = true
+                cell.checkImg.isHidden = false
+                t.taskDone[3] = 1
+            }*/
+            
             taskName = t.task[indexPath.section]
             imgName = t.img[indexPath.section]
             giftAmount = t.amountOfGift[indexPath.section]
@@ -265,24 +321,27 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
         cell.numberOfTaskLabel.text = String(taskNum)
         cell.taskDoneLabel.text = String(taskDone)
         cell.numberOfgiftLabel.text = String(giftAmount)
+        cell.backSlashLabel.text = "/"
+        
+        
+        cell.collectButton.isHidden = true
+        cell.collectButton.isEnabled = false
+        
+        if taskDone == taskNum {
+            cell.inProgressLabel.isHidden = true
+            
+            cell.collectButton.isHidden = false
+            cell.collectButton.isEnabled = true
+        }
         
         cell.collectButtonAction = { [unowned self] in
-            
-            
-//            let task = taskName
-//            let amountGift = giftAmount
-//            let alert = UIAlertController(title: "Collect!", message: "Collect coins from \(task) Congrats! You got \(amountGift) coins", preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//            alert.addAction(okAction)
-            
+            cell.contentView.alpha = 0.3
             cell.collectButton.isEnabled = false
             cell.collectButton.isHidden = true
             cell.checkImg.isHidden = false
             
             coins = giftAmount
-            print("coins1: ", coins)
-                  
-//            self.present(alert, animated: true, completion: nil)
+
             retrieveData()
             receivedImg.isHidden = false
             UIView.animate(withDuration: 2, animations: {
@@ -295,19 +354,22 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
                (value: Bool) in
                    self.receivedImg.isHidden = true
             })
-            
-//            delay(by: .seconds(2)) {
-//                receivedImg.isHidden = true
-//            }
-            //sleep(2)
-            //receivedImg.isHidden = true
         }
+        
+        
         
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
+        
+        if strDate != dateToday {
+            let userDefault = UserDefaults.standard
+            userDefault.removeObject(forKey: "seeVocab")
+            userDefault.removeObject(forKey: "firstGame")
+            userDefault.removeObject(forKey: "logIn")
+        }
         
         return cell
     }

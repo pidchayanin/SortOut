@@ -7,7 +7,6 @@
 
 import UIKit
 
-var i = Int()
 
 private func firstDayOfMonth(date: Date) -> Date {
     let calendar = Calendar.current
@@ -19,14 +18,14 @@ class VocabListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var switchButton: UISwitch!
+    
+    var i = Int()
  
     var favoriteCD: [FavoriteVocabCD] = []
     
     let cellReuseIdentifier = "vocabListCell"
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
-    let toggleEditSelector = #selector(toggleEdit)
     
     var currentDate = Date()
     //var words:[String] = []
@@ -36,6 +35,7 @@ class VocabListViewController: UIViewController {
     var defAdded = [String]()
     var synAdded = [String]()
     var exAdded = [String]()
+    var seeVocab = 0
     
     var sections = [VocabListSection<Date, AddToVocabCD>]()
     
@@ -62,6 +62,8 @@ class VocabListViewController: UIViewController {
         self.sections = VocabListSection.group(rows: self.addToVocabCD, by: { firstDayOfMonth(date: $0.addedDate!) })
         self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
         
+        //sortByDate()
+        
         switchButton.addTarget(self, action: #selector(switchIsChanged(switchButton:)), for: .valueChanged)
 //        print("Date: ", currentDate)
         
@@ -78,21 +80,17 @@ class VocabListViewController: UIViewController {
         }
     }
     
-    @objc func toggleEdit(sender: UIBarButtonItem)
-    {
-       if(self.tableView.isEditing == true)
-       {
-           self.tableView.isEditing = false
-           //self.navigationItem.leftBarButtonItem?.title = "Done"
-       }
-       else
-       {
-           self.tableView.isEditing = true
-           //self.navigationItem.leftBarButtonItem?.title = "Edit"
-       }
-   }
-    
-
+    //Not working
+    func sortByDate() {
+        /*var vosec = VocabListSection.init(sectionItem: currentDate, rows: self.addToVocabCD)
+        for d in vosec.rows {
+            let date = d.addedDate
+            let calendar = Calendar.current
+            let seconds = calendar.component(.second, from: date!)
+            vosec.rows.sort { _,_ in seconds > seconds }
+        }*/
+        addToVocabCD.sort { $0.addedDate! < $1.addedDate! }
+    }
     
     /*func getFavorites() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
@@ -117,37 +115,17 @@ class VocabListViewController: UIViewController {
         }
     }
     
-    /*func getDate() {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let dateFromCoreData = try? context.fetch(DateCD.fetchRequest()) {
-                if let dates = dateFromCoreData as? [DateCD] {
-                    dateCD = dates
-                    tableView.reloadData()
-                }
-            }
-        }
-    }*/
-    
-
-    /*@IBAction func segmentChange(_ sender: Any) {
-        switch(segmentedController.selectedSegmentIndex)
-            {
-            case 0:
-                //print("vocab")
-                tableView.reloadData()
-                break
-
-            case 1:
-                //print("fav vocab")
-                tableView.reloadData()
-                break
-            default:
-                break
-
-            }
-    }*/
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
-        guard let systemItem = sender.value(forKey: "systemItem") as? Int else {
+        
+        tableView.isEditing = !tableView.isEditing
+        switch tableView.isEditing {
+        case true:
+            editButtonItem.title = "Done"
+        case false:
+            editButtonItem.title = "Edit"
+        }
+        
+        /*guard let systemItem = sender.value(forKey: "systemItem") as? Int else {
               return
           }
 
@@ -163,7 +141,7 @@ class VocabListViewController: UIViewController {
                   setEditing(false, animated: true)
               default:
                   break
-          }
+          }*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -246,8 +224,12 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         i = indexPath.row
-        //print("i: ", i)
+
         performSegue(withIdentifier: "toVocabMeaning", sender: self)
+        
+        seeVocab += 1
+        print("vocabList seeVocab: ", seeVocab)
+        UserDefaults.standard.setValue(seeVocab, forKey: "seeVocab")
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -259,17 +241,43 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
         if editingStyle == .delete {
-            self.sections[indexPath.section].rows.remove(at: indexPath.row)
+            self.tableView.beginUpdates()
+            
             let removeRow = self.sections[indexPath.section].rows[indexPath.row]
             managedContext?.delete(removeRow)
-
-            self.tableView.beginUpdates()
-            DispatchQueue.main.async {
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.tableView.endUpdates()
-            }
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            self.sections[indexPath.section].rows.remove(at: i)
+            
+            //DispatchQueue.main.async {
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
+            //}
+            
+            if self.sections[indexPath.section].rows.count == 0 {
+                sections.remove(at: indexPath.section)
+            }
         }
+        
+        /*if editingStyle == .delete {
+            tableView.beginUpdates()
+            switch indexPath.section {
+            case 0:
+                self.sections[indexPath.section].rows.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                let removeRow = self.sections[indexPath.section].rows[indexPath.row]
+                managedContext?.delete(removeRow)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            case 1:
+                self.sections[indexPath.section].rows.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                let removeRow = self.sections[indexPath.section].rows[indexPath.row]
+                managedContext?.delete(removeRow)
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            default:
+                break
+            }
+            tableView.endUpdates()
+        }*/
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
