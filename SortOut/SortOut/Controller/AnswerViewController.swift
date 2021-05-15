@@ -133,24 +133,47 @@ class AnswerViewController: UIViewController {
                         receiveStar = threeStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 100
+                        coinImage.isHidden = false
+                        coinReceiveLabel.isHidden = false
+                        ansImage.isHidden = false
+                        retryBtn.isHidden = false
+                        retryItemBtn.isHidden = true
+                        retryLabel.text = "Retry"
                         coinReceiveLabel.text = "+ \(coins)"
                         complimentLabel.text = "You are an expert at this!"
+                        playNextLabel.text = "Play next"
                     }
                     else if score == 2 {
                         receiveStar = twoStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 50
+                        coinImage.isHidden = false
+                        coinReceiveLabel.isHidden = false
+                        ansImage.isHidden = false
+                        retryBtn.isHidden = false
+                        retryItemBtn.isHidden = true
+                        retryLabel.text = "Retry"
                         coinReceiveLabel.text = "+ \(coins)"
                         complimentLabel.text = "Great job!"
+                        playNextLabel.text = "Play next"
                     }
                     else if score == 1 {
                         receiveStar = oneStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 25
+                        coinImage.isHidden = false
+                        coinReceiveLabel.isHidden = false
+                        ansImage.isHidden = false
+                        retryBtn.isHidden = false
+                        retryItemBtn.isHidden = true
                         coinReceiveLabel.text = "+ \(coins)"
+                        retryLabel.text = "Retry"
                         complimentLabel.text = "You have unique potential!"
+                        playNextLabel.text = "Play next"
                     }
-                } else {
+                }
+                if starImage.image == nil {
+                    print("score 0")
                     let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
                     receiveStar = zeroStar
                     starImage.image = UIImage(named: receiveStar)
@@ -163,6 +186,20 @@ class AnswerViewController: UIViewController {
                     complimentLabel.text = "Don't give up!"
                     playNextLabel.text = "Skip"
                 }
+//                else {
+//                    print("score 0")
+//                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
+//                    receiveStar = zeroStar
+//                    starImage.image = UIImage(named: receiveStar)
+//                    coinImage.isHidden = true
+//                    coinReceiveLabel.isHidden = true
+//                    ansImage.isHidden = true
+//                    retryBtn.isHidden = true
+//                    retryItemBtn.isHidden = false
+//                    retryLabel.text = "Retry (item \(usedItem) left)"
+//                    complimentLabel.text = "Don't give up!"
+//                    playNextLabel.text = "Skip"
+//                }
             }
         }
         catch {

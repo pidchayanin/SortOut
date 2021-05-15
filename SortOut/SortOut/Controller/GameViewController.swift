@@ -560,26 +560,29 @@ class GameViewController: UIViewController {
     
     @IBAction func word1Tapped(_ sender: UIButton) {
         
-        //word1Button.isEnabled = false
+        word1Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
         
         if textfield.text?.isEmpty == true {
             textfield.text = words1.capitalized
         }
-        else if textfield.text?.isEmpty == false {
-            sender.alpha = 1
-            print("alpha: change")
-            let text = textfield.text
-            if !text!.hasPrefix(words1) {
-                print("no prefix")
-                textfield.text?.append(" " + words1)
-            }
-            if text!.hasPrefix(words1.capitalized) || text!.hasPrefix(words1.lowercased()) {
-                textfield.text = String((text!.dropFirst(words1.count)))
-                print("has prefix")
-            }
+        else {
+            textfield.text?.append(" " + words1)
         }
+//        else if textfield.text?.isEmpty == false {
+//            sender.alpha = 1
+//            print("alpha: change")
+//            let text = textfield.text
+//            if !text!.hasPrefix(words1) {
+//                print("no prefix")
+//                textfield.text?.append(" " + words1)
+//            }
+//            if text!.hasPrefix(words1.capitalized) || text!.hasPrefix(words1.lowercased()) {
+//                textfield.text = String((text!.dropFirst(words1.count)))
+//                print("has prefix")
+//            }
+//        }
     }
     
     @IBAction func word2Tapped(_ sender: UIButton) {

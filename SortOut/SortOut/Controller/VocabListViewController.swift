@@ -221,6 +221,8 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.meaningLabel.isHidden = true
             //print("switch off")
         }
+        
+        cell.contentView.backgroundColor = .white
         return cell
     }
     

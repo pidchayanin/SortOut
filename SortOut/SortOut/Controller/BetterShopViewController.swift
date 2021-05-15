@@ -327,7 +327,7 @@ extension BetterShopViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
-        
+        cell.contentView.backgroundColor = .white
 //        try! context.save()
 //        DispatchQueue.main.async {
         //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
