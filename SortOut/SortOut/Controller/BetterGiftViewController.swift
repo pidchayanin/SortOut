@@ -1,47 +1,50 @@
 //
-//  PlayViewController.swift
+//  BetterGiftViewController.swift
 //  SortOut
 //
-//  Created by Pidchayanin Chutipattana on 25/2/2564 BE.
+//  Created by Pathompong Subtechitmanee on 15/5/2564 BE.
 //
 
 import UIKit
+import HandySwift
 
-private func firstDayOfMonth(date: Date) -> Date {
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day], from: date)
-    return calendar.date(from: components)!
+struct Task {
+    var task: [String]
+    var img: [String]
+    var amountOfGift: [Int]
+    var numberOfTask: [Int]
+    var taskDone: [Int]
 }
 
-class PlayViewController: UIViewController, UITabBarControllerDelegate {
+class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var historyView: UIView!
+    @IBOutlet weak var receivedImg: UIImageView!
     @IBOutlet weak var starImg: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var coinImg: UIImageView!
-    @IBOutlet weak var starNumLabel: UILabel!
     @IBOutlet weak var coinNumLabel: UILabel!
+    @IBOutlet weak var starNumLabel: UILabel!
+    @IBOutlet weak var screenNameLabel: UILabel!
     
-    let cellReuseIdentifier = "historyCell"
     
-    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    let cellReuseIdentifier = "giftCell"
     
-    var historyCD: [HistoryCD] = []
+    var tasks = [Task]()
     
-    var sections = [HistorySection<Date, HistoryCD>]()
+    let cellSpacingHeight: CGFloat = 20
     
-    var coins = Int()
-    var star = Int()
+    var stars = 0
+    private var coins = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        starImg.image = UIImage(named: "star.png")
-        coinImg.image = UIImage(named: "coin.png")
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        starImg.image = UIImage(named: "star.png")
+        coinImg.image = UIImage(named: "coin.png")
         
         starNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
         starNumLabel.layer.cornerRadius = 5
@@ -72,36 +75,26 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
             
         }
         
-        historyView.layer.cornerRadius = 10
-        
-        fetchData()
-        
-        self.sections = HistorySection.group(rows: self.historyCD, by: { firstDayOfMonth(date: $0.date!) })
-        self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
-        
         retrieveData()
-        
+        addTask()
     }
     
-    func fetchData() {
-        do {
-            self.historyCD = try context?.fetch(HistoryCD.fetchRequest()) as! [HistoryCD]
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            print("context fetch")
-            print("=============")
-        }
-        catch {
-            print("fetch error: ", error)
-        }
+    func addTask() {
+        let task = ["First Game of the day", "Royalty user: log in two days in a row", "Diligent leaner: study 5 vocabulary", "Starter kit: first-time user"]
+        let imageName = ["coin-reward.png", "coin-reward.png", "coin-reward.png", "coin-reward.png"]
+        let amountGifts = [100, 100, 100, 100]
+        let numOfTasks = [1, 2, 5, 1]
+        let taskDone = [0, 0, 0, 0]
+        
+        let addTask = Task(task: task, img: imageName, amountOfGift: amountGifts, numberOfTask: numOfTasks, taskDone: taskDone)
+        tasks.append(addTask)
     }
     
     func retrieveData() {
+
         var coin = 0
         var star = 0
-
+        
         do {
             let jsons = try loadJSON(withFilename: "ItemProp")
 //            print(jsons!)
@@ -118,7 +111,8 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
                 starNumLabel.text = String(star)
                 coinNumLabel.text = String(coin)
             }
-            
+            print("coins: ", coins)
+            coin += coins
 //            numFromPopUp = UserDefaults.standard.integer(forKey: "Key")
 //            coinFromPopUp = UserDefaults.standard.integer(forKey: "coin")
 //            print("coinFromPopUp: ", coinFromPopUp)
@@ -127,6 +121,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
 //            print("i", itemNums)
 //            itemNums += numFromPopUp
 //            coins -= coinFromPopUp
+
 //            let n = itemNums //+ numFromPopUp
             let jsonObject: [Any]  = [
                 [
@@ -151,6 +146,8 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
             
 //            print("n1", numFromPopUp)
 //            print("i1", itemNums)
+//
+//            itemNums = n
 
 //            print("top2: ", itemNums)
 //            print("coins: ", coins)
@@ -222,51 +219,89 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
 //        self.tabBarController?.delegate = self
 //    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
+extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
+        var task = 0
+        for t in tasks {
+            task = t.task.count
+        }
+        return task
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let historySection = sections[section]
-        return historySection.rows.count
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionn = self.sections[section]
-        let date = sectionn.sectionItem
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: date)
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:PlayTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PlayTableViewCell
+        let cell:GiftTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! GiftTableViewCell
+        var taskName = ""
+        var imgName = ""
+        var giftAmount = 0
+        var taskNum = 0
+        var taskDone = 0
+        for t in tasks {
+            taskName = t.task[indexPath.section]
+            imgName = t.img[indexPath.section]
+            giftAmount = t.amountOfGift[indexPath.section]
+            taskNum = t.numberOfTask[indexPath.section]
+            taskDone = t.taskDone[indexPath.section]
+        }
         
-        var historySection = self.sections[indexPath.section]
-        let displayItems = historySection.rows[indexPath.row]
-        let date = displayItems.date
-        let calendar = Calendar.current
-        let minutes = calendar.component(.minute, from: date!)
+        cell.taskLabel.text = taskName
+        cell.coinImg.image = UIImage(named: imgName)
+        cell.numberOfTaskLabel.text = String(taskNum)
+        cell.taskDoneLabel.text = String(taskDone)
+        cell.numberOfgiftLabel.text = String(giftAmount)
         
-        cell.engSentenceLabel.text = displayItems.englishSentence ?? ""
-        
-        cell.thSentenceLabel.text = displayItems.thaiSentence ?? ""
-        
-        cell.starImage.image = UIImage(named: (displayItems.receivedStar ?? ""))
+        cell.collectButtonAction = { [unowned self] in
+            
+            
+//            let task = taskName
+//            let amountGift = giftAmount
+//            let alert = UIAlertController(title: "Collect!", message: "Collect coins from \(task) Congrats! You got \(amountGift) coins", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            alert.addAction(okAction)
+            
+            cell.collectButton.isEnabled = false
+            cell.collectButton.isHidden = true
+            cell.checkImg.isHidden = false
+            
+            coins = giftAmount
+            print("coins1: ", coins)
+                  
+//            self.present(alert, animated: true, completion: nil)
+            retrieveData()
+            receivedImg.isHidden = false
+            UIView.animate(withDuration: 2, animations: {
+                self.receivedImg.alpha = 1
+            }, completion:  nil)
+            
+            UIView.animate(withDuration: 2, animations: {
+                 self.receivedImg.alpha = 0
+            }, completion:  {
+               (value: Bool) in
+                   self.receivedImg.isHidden = true
+            })
+            
+//            delay(by: .seconds(2)) {
+//                receivedImg.isHidden = true
+//            }
+            //sleep(2)
+            //receivedImg.isHidden = true
+        }
         
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
@@ -274,11 +309,7 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
         
-        // Does not work! SO TIRED
-        historySection.rows.sort { _,_ in minutes > minutes }
-        
         return cell
     }
-    
     
 }

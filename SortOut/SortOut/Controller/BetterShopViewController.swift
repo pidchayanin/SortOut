@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var starNumLabel: UILabel!
@@ -257,9 +257,12 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
         return true
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//
+//        self.tabBarController?.delegate = self
+//    }
 
 }
 

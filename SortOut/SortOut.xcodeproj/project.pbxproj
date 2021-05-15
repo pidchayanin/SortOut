@@ -22,6 +22,8 @@
 		40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */; };
 		40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */; };
 		40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E4226405933009E9E9F /* DatePopUpViewController.swift */; };
+		543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */; };
+		543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */; };
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
 		5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */; };
 		5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */; };
@@ -98,6 +100,8 @@
 		40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopUpViewController.swift; sourceTree = "<group>"; };
 		40F28E4226405933009E9E9F /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterGiftViewController.swift; sourceTree = "<group>"; };
+		543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
 		5448EFD02625999700EB32D1 /* DictionaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFD82625A2B200EB32D1 /* DictionaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */,
+				543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */,
 				549C54F425D7D7F80086AEA3 /* GiftCustomCell.swift */,
 				54B36E5A26381E0F0055D913 /* BetterShopTableViewCell.swift */,
 				549C550625DE5A020086AEA3 /* ShopTableViewCell.swift */,
@@ -275,6 +280,7 @@
 			children = (
 				54BD589325BC14AA00BD849D /* TabbarViewController.swift */,
 				54B36E5526381D6F0055D913 /* BetterShopViewController.swift */,
+				543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */,
 				549C54EF25D7D6130086AEA3 /* GiftViewController.swift */,
 				54FA285825E245B600D01711 /* VocabListViewController.swift */,
 				54FA285D25E2616A00D01711 /* VocabMeaningViewController.swift */,
@@ -510,6 +516,7 @@
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
 				40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
+				543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */,
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
 				544979C6264BD0970004735D /* HistorySection.swift in Sources */,
 				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
@@ -521,6 +528,7 @@
 				54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */,
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
+				543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
 				4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */,
 				54B36E9D263BF7550055D913 /* TableItem.swift in Sources */,

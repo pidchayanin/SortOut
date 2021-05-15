@@ -135,12 +135,12 @@ class AnswerViewController: UIViewController {
                         coinReceiveLabel.text = "+ \(coins)"
                     }
                 }
-                else {
-                    receiveStar = zeroStar
-                    starImage.image = UIImage(named: receiveStar)
-                    coins = 10
-                    coinReceiveLabel.text = "+ \(coins)"
-                }
+//                else if receiveEnglishSentence != sentences {
+//                    receiveStar = zeroStar
+//                    starImage.image = UIImage(named: receiveStar)
+//                    coins = 10
+//                    coinReceiveLabel.text = "+ \(coins)"
+//                }
             }
 //            //import file
 //            // for i in sentenceFromCSV
@@ -232,28 +232,31 @@ class AnswerViewController: UIViewController {
     func updateDataToJSON() {
         do {
             var coin = 0
+            var star = 0
             let jsons = try loadJSON(withFilename: "ItemProp")
 //            print(jsons!)
             guard let array = jsons as? [Any] else {return}
             for i in array {
                 guard let num = i as? [String: Any] else { return }
                 coin = num["coin"] as! Int
+                star = num["star"] as! Int
             }
             coin += coins
             
-            if starImage.image == UIImage(named: "3-star.png") {
-                starCollect += 3
-            } else if starImage.image == UIImage(named: "2-star.png") {
-                starCollect += 2
-            } else if starImage.image == UIImage(named: "1-star.png") {
-                starCollect += 1
-            } else if starImage.image == UIImage(named: "0-star.png") {
-                starCollect += 0
-            }
             
+            if starImage.image == UIImage(named: "3-star.png") {
+                starCollect = 3
+            } else if starImage.image == UIImage(named: "2-star.png") {
+                starCollect = 2
+            } else if starImage.image == UIImage(named: "1-star.png") {
+                starCollect = 1
+            } else if starImage.image == UIImage(named: "0-star.png") {
+                starCollect = 0
+            }
+            star += starCollect
             let jsonObject: [Any]  = [
                 [
-                    "star": starCollect,
+                    "star": star,
                     "coin": coin,
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
