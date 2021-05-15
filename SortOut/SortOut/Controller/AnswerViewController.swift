@@ -54,6 +54,9 @@ class AnswerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        
         //print("ansrs: ", receiveSentence)
 
         starImage.image = UIImage(named: receiveStar)

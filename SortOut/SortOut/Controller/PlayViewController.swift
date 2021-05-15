@@ -49,6 +49,8 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         
         UserDefaults.standard.setValue(1, forKey: "logIn")
         UserDefaults.standard.setValue(str, forKey: "currentDate")
+        self.view.backgroundColor = .white
+        
         // step 1: Ask for permission
         let center = UNUserNotificationCenter.current()
         
