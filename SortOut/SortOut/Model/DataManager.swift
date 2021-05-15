@@ -12,4 +12,5 @@ class DataManager {
     var firstVC = BetterShopViewController()
     var vocabVC = VocabListViewController()
     var dictVC = DictionaryViewController()
+    var profileVC = ProfileViewController()
 }

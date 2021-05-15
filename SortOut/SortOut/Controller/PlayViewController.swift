@@ -68,11 +68,24 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         
         // step 3: trigger
         
+        let getTime = UserDefaults.standard.string(forKey: "time")
+        print("getTime: ", getTime ?? "")
+        let dateAsString = getTime ?? ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        guard let date = dateFormatter.date(from: dateAsString) else { return }
+        
+        dateFormatter.dateFormat = "HH:mm"
+        let date24 = dateFormatter.string(from: date)
+        print("date24: ", date24)
+        
         var dateComponents = DateComponents()
+        
+        let hour = date24.components(separatedBy: ":")
         //10 o'clock
-        dateComponents.hour = 23
+        dateComponents.hour = Int(hour[0])
         //30 minutes
-        dateComponents.minute = 11
+        dateComponents.minute = Int(hour[1])
         //everyday
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
@@ -202,6 +215,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     func retrieveData() {
         var coin = 0
         var star = 0
+        var itemNums = 0
 
         do {
             let jsons = try loadJSON(withFilename: "ItemProp")
@@ -216,19 +230,11 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
 //                itemPrices = num["itemPrice"] as! Int
                 star = num["star"] as! Int
                 coin = num["coin"] as! Int
+                itemNums = num["itemNum"] as! Int
                 starNumLabel.text = String(star)
                 coinNumLabel.text = String(coin)
             }
             
-//            numFromPopUp = UserDefaults.standard.integer(forKey: "Key")
-//            coinFromPopUp = UserDefaults.standard.integer(forKey: "coin")
-//            print("coinFromPopUp: ", coinFromPopUp)
-            
-//            print("n", numFromPopUp)
-//            print("i", itemNums)
-//            itemNums += numFromPopUp
-//            coins -= coinFromPopUp
-//            let n = itemNums //+ numFromPopUp
             let jsonObject: [Any]  = [
                 [
                     "star": star,
@@ -236,25 +242,12 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
                     "itemPrice": 100,
-                    "itemNum": 0
+                    "itemNum": itemNums
                 ]
             ]
             
-            
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
-            
-//            if check == true {
-//                //reset numFromPopUp to 0
-////                UserDefaults.standard.removeObject(forKey: "Key")
-////                UserDefaults.standard.removeObject(forKey: "coin")
-//            }
-            
-//            print("n1", numFromPopUp)
-//            print("i1", itemNums)
-
-//            print("top2: ", itemNums)
-//            print("coins: ", coins)
 
         }
         catch {

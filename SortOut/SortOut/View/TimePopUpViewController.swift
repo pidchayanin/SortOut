@@ -34,10 +34,11 @@ class TimePopUpViewController: UIViewController {
     }
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
-        NotificationCenter.default.post(name: .saveDateTime , object: self)
-        dismiss(animated: true)
-        
-        
+        /*NotificationCenter.default.post(name: .saveDateTime , object: self)
+        dismiss(animated: true)*/
+        UserDefaults.standard.setValue(formattedDate, forKey: "dateTime")
+        dismiss(animated: true, completion: nil)
+        DataManager.shared.profileVC.viewDidLoad()
     }
     
     @IBAction func cancelBtn_TouchUpinside(_ sender: Any) {

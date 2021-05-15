@@ -112,6 +112,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
 
         var coin = 0
         var star = 0
+        var itemNums = 0
         
         do {
             let jsons = try loadJSON(withFilename: "ItemProp")
@@ -126,6 +127,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
 //                itemPrices = num["itemPrice"] as! Int
                 star = num["star"] as! Int
                 coin = num["coin"] as! Int
+                itemNums = num["itemNum"] as! Int
                 starNumLabel.text = String(star)
                 coinNumLabel.text = String(coin)
             }
@@ -148,7 +150,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
                     "itemPrice": 100,
-                    "itemNum": 0
+                    "itemNum": itemNums
                 ]
             ]
             

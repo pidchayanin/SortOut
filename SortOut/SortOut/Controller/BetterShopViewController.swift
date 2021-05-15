@@ -92,7 +92,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     }
         
     func retrieveData() {
-
+        var stars = 0
         do {
             let jsons = try loadJSON(withFilename: "ItemProp")
 //            print(jsons!)
@@ -104,7 +104,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
                 itemNames = num["itemName"] as! String
                 itemDescriptions = num["itemDescription"] as! String
                 itemPrices = num["itemPrice"] as! Int
-                let stars = num["star"] as! Int
+                stars = num["star"] as! Int
                 coins = num["coin"] as! Int
                 starNumLabel.text = String(stars)
                 coinNumLabel.text = String(coins)
@@ -123,7 +123,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
             let n = itemNums //+ numFromPopUp
             let jsonObject: [Any]  = [
                 [
-                    "star": 0,
+                    "star": stars,
                     "coin": c,
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",

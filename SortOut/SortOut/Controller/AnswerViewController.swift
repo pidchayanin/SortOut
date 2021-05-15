@@ -41,6 +41,8 @@ class AnswerViewController: UIViewController {
     var zeroStar = "0-star.png"
     var thaiSentence = ""
     var compliments = ""
+    var itemNumber = 0
+    var useItem = 0
     
     var sentenceAns = [SentenceAnswers]()
     
@@ -146,6 +148,7 @@ class AnswerViewController: UIViewController {
                         complimentLabel.text = "You have unique potential!"
                     }
                 } else {
+                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
                     receiveStar = zeroStar
                     starImage.image = UIImage(named: receiveStar)
                     coinImage.isHidden = true
@@ -153,53 +156,11 @@ class AnswerViewController: UIViewController {
                     ansImage.isHidden = true
                     retryBtn.isHidden = true
                     retryItemBtn.isHidden = false
-                    retryLabel.text = "Retry (item)"
+                    retryLabel.text = "Retry (item \(usedItem) left)"
                     complimentLabel.text = "Don't give up!"
+                    playNextLabel.text = "Skip"
                 }
-                /*if receiveEnglishSentence != sentences {
-                    print("ไม่เท่าไง")
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID")
-                    self.present(vc, animated: true)
-                }*/
-//                else if receiveEnglishSentence != sentences {
-//                    receiveStar = zeroStar
-//                    starImage.image = UIImage(named: receiveStar)
-//                    coins = 10
-//                    coinReceiveLabel.text = "+ \(coins)"
-//                }
             }
-//            //import file
-//            // for i in sentenceFromCSV
-//            // if receiveEnglishSentece == i { receiveStar = csv.star  }
-//            let model = try ApprenticeGrammarCheckerNew(configuration: .init())
-//            let checkSentenceOutput = try model.prediction(sentence: receiveEnglishSentence)
-//            let score = checkSentenceOutput.scoring
-//            print("score: ", score)
-//            if score == 3 {
-//                receiveStar = threeStar
-//                starImage.image = UIImage(named: receiveStar)
-//                coins = 100
-//                coinReceiveLabel.text = "+ \(coins)"
-//            }
-//            else if score == 2 {
-//                receiveStar = twoStar
-//                starImage.image = UIImage(named: receiveStar)
-//                coins = 50
-//                coinReceiveLabel.text = "+ \(coins)"
-//            }
-//            else if score == 1 {
-//                receiveStar = oneStar
-//                starImage.image = UIImage(named: receiveStar)
-//                coins = 25
-//                coinReceiveLabel.text = "+ \(coins)"
-//            }
-//            else if score == 0 {
-//                receiveStar = zeroStar
-//                starImage.image = UIImage(named: receiveStar)
-//                coins = 10
-//                coinReceiveLabel.text = "+ \(coins)"
-//            }
         }
         catch {
             fatalError("cannot use model")
@@ -256,10 +217,50 @@ class AnswerViewController: UIViewController {
         }
     }
     
+    func useRetryItem() {
+        if itemNumber != 0 {
+            useItem = itemNumber
+            print("useItem1: ", useItem)
+            let alert = UIAlertController(title: "Try again (Use Item)", message: "Are you sure?", preferredStyle: .alert)
+            
+            //YES
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+                var items = UserDefaults.standard.integer(forKey: "itemNums")
+                items -= 1
+                
+                //self.useItem -= 1
+                UserDefaults.standard.setValue(items, forKey: "usedItem")
+                print("useItem2: ", items)
+                let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
+                UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
+                UserDefaults.standard.setValue(newReceiveSentence, forKey: "randomSentence")
+                UserDefaults.standard.setValue(self.receiveImage, forKey: "randomImg")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "gameViewID")
+                self.present(vc, animated: true)
+                
+            }))
+            
+            //NO
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Tap no")
+          }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "You do not have enough item!", message: "Please buy item at the shop", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func updateDataToJSON() {
         do {
             var coin = 0
             var star = 0
+            var itemNums = 0
             let jsons = try loadJSON(withFilename: "ItemProp")
 //            print(jsons!)
             guard let array = jsons as? [Any] else {return}
@@ -267,9 +268,12 @@ class AnswerViewController: UIViewController {
                 guard let num = i as? [String: Any] else { return }
                 coin = num["coin"] as! Int
                 star = num["star"] as! Int
+                itemNums = num["itemNum"] as! Int
             }
             coin += coins
-            
+            itemNumber = itemNums
+            print("itemNumber: ", itemNums)
+            UserDefaults.standard.setValue(itemNums, forKey: "itemNums")
             
             if starImage.image == UIImage(named: "3-star.png") {
                 starCollect = 3
@@ -281,6 +285,13 @@ class AnswerViewController: UIViewController {
                 starCollect = 0
             }
             star += starCollect
+            //useRetryItem()
+            let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
+            if usedItem != 0 {
+                itemNums = usedItem
+            }
+            //print("useItem3: ", useItem)
+            print("itemNums - useItem: ", itemNums)
             let jsonObject: [Any]  = [
                 [
                     "star": star,
@@ -288,11 +299,11 @@ class AnswerViewController: UIViewController {
                     "itemName": "RETRY",
                     "itemDescription": "Use this to try again when your answer is incorrect.",
                     "itemPrice": 100,
-                    "itemNum": 0
+                    "itemNum": itemNums
                 ]
             ]
             
-            print("coin:", coin)
+            //print("coin:", coin)
             
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
@@ -422,7 +433,7 @@ class AnswerViewController: UIViewController {
     }
     
     @IBAction func retryItemTapped(_ sender: Any) {
-        
+        useRetryItem()
     }
     
     /*
