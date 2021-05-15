@@ -1,34 +1,47 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Flinesoft/HandySwift/stable/Logo.png"
+    <img src="https://raw.githubusercontent.com/Flinesoft/HandySwift/main/Logo.png"
       width=600>
 </p>
 
 <p align="center">
-    <a href="https://app.bitrise.io/app/cbc4cab821708298">
-        <img src="https://app.bitrise.io/app/cbc4cab821708298/status.svg?token=1fWFE7UCuTBoYTGf4StnFQ&branch=stable"
-             alt="Build Status">
+    <a href="https://github.com/Flinesoft/HandySwift/actions?query=branch%3Amain">
+        <img src="https://github.com/Flinesoft/HandySwift/workflows/CI/badge.svg"
+             alt="CI">
     </a>
-    <a href="https://codebeat.co/projects/github-com-flinesoft-handyswift">
-        <img src="https://codebeat.co/badges/283e545d-02e9-4fcf-aabc-40cacfbfe26c"
-             alt="Codebeat Status">
+    <a href="https://codecov.io/gh/Flinesoft/HandySwift">
+        <img src="https://codecov.io/gh/Flinesoft/HandySwift/branch/main/graph/badge.svg"
+             alt="Coverage"/>
     </a>
     <a href="https://github.com/Flinesoft/HandySwift/releases">
-        <img src="https://img.shields.io/badge/Version-3.0.0-blue.svg"
-             alt="Version: 3.0.0">
+        <img src="https://img.shields.io/badge/Version-3.2.1-blue.svg"
+             alt="Version: 3.2.1">
     </a>
-    <img src="https://img.shields.io/badge/Swift-5.0-FFAC45.svg"
-         alt="Swift: 5.0">
+    <img src="https://img.shields.io/badge/Swift-5.1-FFAC45.svg" alt="Swift: 5.1">
     <img src="https://img.shields.io/badge/Platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20Linux-FF69B4.svg"
         alt="Platforms: iOS | tvOS | macOS | Linux">
-    <a href="https://github.com/Flinesoft/HandySwift/blob/stable/LICENSE.md">
+    <a href="https://github.com/Flinesoft/HandySwift/blob/main/LICENSE.md">
         <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg"
               alt="License: MIT">
+    </a>
+    <br />
+    <a href="https://paypal.me/Dschee/5EUR">
+        <img src="https://img.shields.io/badge/PayPal-Donate-orange.svg"
+             alt="PayPal: Donate">
+    </a>
+    <a href="https://github.com/sponsors/Jeehut">
+        <img src="https://img.shields.io/badge/GitHub-Become a sponsor-orange.svg"
+             alt="GitHub: Become a sponsor">
+    </a>
+    <a href="https://patreon.com/Jeehut">
+        <img src="https://img.shields.io/badge/Patreon-Become a patron-orange.svg"
+             alt="Patreon: Become a patron">
     </a>
 </p>
 
 <p align="center">
     <a href="#installation">Installation</a>
   • <a href="#usage">Usage</a>
+  • <a href="#donation">Donation</a>
   • <a href="https://github.com/Flinesoft/HandySwift/issues">Issues</a>
   • <a href="#contributing">Contributing</a>
   • <a href="#license">License</a>
@@ -45,7 +58,7 @@ If you like this, please also checkout [HandyUIKit](https://github.com/Flinesoft
 
 ## Installation
 
-Currently the recommended way of installing this library is via [Carthage](https://github.com/Carthage/Carthage) on macOS or [Swift Package Manager](https://github.com/apple/swift-package-manager) on Linux. [Cocoapods](https://github.com/CocoaPods/CocoaPods) might work, too, but is not tested.
+Currently the recommended way of installing this library is via [Swift Package Manager](https://github.com/apple/swift-package-manager). [Carthage](https://github.com/Carthage/Carthage) & [Cocoapods](https://github.com/CocoaPods/CocoaPods) are supported, too.
 
 You can of course also just include this framework manually into your project by downloading it or by using git submodules.
 
@@ -118,6 +131,39 @@ Makes array by adding closure's return value n times.
 ``` Swift
 let intArray = 5.timesMake { Int(randomBelow: 1_000)! }
 // => [481, 16, 680, 87, 912]
+```
+
+### ComparableExtension
+
+#### clamped(to:)
+
+Apply a limiting range as the bounds of a `Comparable`.
+Supports `ClosedRange` (`a ... b`), `PartialRangeFrom` (`a...`) and `PartialRangeThrough` (`...b`) as the `limits`.
+
+``` Swift
+let myNum = 3
+myNum.clamped(to: 0 ... 6) // => 3
+myNum.clamped(to: 0 ... 2) // => 2
+myNum.clamped(to: 4 ... 6) // => 4
+myNum.clamped(to: 5...) // => 4
+myNum.clamped(to: ...2) // => 2
+
+let myString = "d"
+myString.clamped(to: "a" ... "g") // => "d"
+myString.clamped(to: "a" ... "c") // => "c"
+myString.clamped(to: "e" ... "g") // => "e"
+myString.clamped(to: "f"...) // => "f"
+myString.clamped(to: ..."c") // => "c"
+```
+
+#### clamp(to:)
+
+In-place `mutating` variant of `clamped(to:)`
+
+``` Swift
+var myNum = 3
+myNum.clamp(to: 0...2)
+myNum // => 2
 ```
 
 ### StringExtension
@@ -519,28 +565,32 @@ NOTE: Only available for `Int` and `Double` collections.
 ```
 
 ### Withable
-Simple protocol to make constructing and modifying objects with multiple properties more pleasant (functional, chainable, point-free).
+Simple protocol to make constructing and modifying objects with multiple properties more pleasant (functional, chainable, point-free). Supported by all `NSObject` subclasses by default.
 
 ``` swift
 struct Foo: Withable {
-    var bar: Int = 0
-    var baz: Bool = false
+    var bar: Int
+    var isEasy: Bool = false
 }
 
-// Construct a foo, setting an arbitrary subset of properties
-let foo = Foo { $0.bar = 5 }
+let defaultFoo = Foo(bar: 5)
+let customFoo = Foo(bar: 5).with { $0.isEasy = true }
 
-// Make a copy of foo, overriding an arbitrary subset of properties
-let foo2 = foo.with { $0.bar = 7; $0.baz = true }
-
-foo.bar // => 5
-foo2.bar // => 7
+foo.isEasy // => false
+foo2.isEasy // => true
 ```
+
+
+## Donation
+
+BartyCrouch was brought to you by [Cihat Gündüz](https://github.com/Jeehut) in his free time. If you want to thank me and support the development of this project, please **make a small donation on [PayPal](https://paypal.me/Dschee/5EUR)**. In case you also like my other [open source contributions](https://github.com/Flinesoft) and [articles](https://medium.com/@Jeehut), please consider motivating me by **becoming a sponsor on [GitHub](https://github.com/sponsors/Jeehut)** or a **patron on [Patreon](https://www.patreon.com/Jeehut)**.
+
+Thank you very much for any donation, it really helps out a lot! 💯
 
 
 ## Contributing
 
-See the file [CONTRIBUTING.md](https://github.com/Flinesoft/HandySwift/blob/stable/CONTRIBUTING.md).
+Contributions are welcome. Feel free to open an issue on GitHub with your ideas or implement an idea yourself and post a pull request. If you want to contribute code, please try to follow the same syntax and semantic in your **commit messages** (see rationale [here](http://chris.beams.io/posts/git-commit/)). Also, please make sure to add an entry to the `CHANGELOG.md` file which explains your change.
 
 
 ## License

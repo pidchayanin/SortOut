@@ -20,14 +20,20 @@ class ProfileViewController: UIViewController {
     
     var text:String = "Day of the week"
     
+    let userDefaults = UserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
         
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         
         dateLabel?.text = text
+        
+        //save time
+        userDefaults.setValue(timeLabel.text , forKey: "time")
+        
+        userDefaults.value(forKey: "time")
+        
         
         // Do any additional setup after loading the view.
     }
