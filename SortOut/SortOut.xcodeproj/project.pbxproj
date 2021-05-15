@@ -22,6 +22,7 @@
 		40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */; };
 		40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */; };
 		40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E4226405933009E9E9F /* DatePopUpViewController.swift */; };
+		4DF948112650496F00E4DCA4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF948102650496F00E4DCA4 /* GameKit.framework */; };
 		543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */; };
 		543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */; };
 		5448EFC72620421600EB32D1 /* English sentences.json in Resources */ = {isa = PBXBuildFile; fileRef = 5448EFC62620421600EB32D1 /* English sentences.json */; };
@@ -100,6 +101,7 @@
 		40CA207025E7ADCA0049B7A0 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopUpViewController.swift; sourceTree = "<group>"; };
 		40F28E4226405933009E9E9F /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		4DF948102650496F00E4DCA4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterGiftViewController.swift; sourceTree = "<group>"; };
 		543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTableViewCell.swift; sourceTree = "<group>"; };
 		5448EFC62620421600EB32D1 /* English sentences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences.json"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				026DCB576A2B315DD970757A /* Pods_SortOut.framework in Frameworks */,
+				4DF948112650496F00E4DCA4 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +300,7 @@
 		B34E3E77BFCAE5B08882394A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DF948102650496F00E4DCA4 /* GameKit.framework */,
 				013147F6289F7B3B25835C49 /* Pods_SortOut.framework */,
 			);
 			name = Frameworks;
@@ -726,10 +730,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "IT-KMITL.SortOut";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-KMITL.SortOut16052021";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -746,10 +751,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "IT-KMITL.SortOut";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "IT-KMITL.SortOut16052021";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
