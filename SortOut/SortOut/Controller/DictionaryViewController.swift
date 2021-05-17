@@ -14,13 +14,13 @@ class DictionaryViewController: UIViewController {
     
     var sections = Dictionary<String, Array<TableItem>>()
     var sortedSections = [String]()
-
+    
     var addVocab: [AddToVocabCD] = []
     
     @IBOutlet weak var dictionaryTableView: UITableView!
-
+    
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-//    let addWord = AddToVocabCD(context:context!)
+    //    let addWord = AddToVocabCD(context:context!)
     
     var add_button = false
     var undo_button = false
@@ -50,14 +50,14 @@ class DictionaryViewController: UIViewController {
     let tagger = NLTagger(tagSchemes: [.lemma])
     let posTagger = NLTagger(tagSchemes: [.lexicalClass])
     let options : NLTagger.Options = [.omitWhitespace, .omitPunctuation]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
         
         DataManager.shared.dictVC = self
-
+        
         // Do any additional setup after loading the view.
         dictionaryTableView.delegate = self
         dictionaryTableView.dataSource = self
@@ -66,30 +66,30 @@ class DictionaryViewController: UIViewController {
         //print("add vocab", addVocab)
         
         let temp = word.joined(separator: ", ")
-
+        
         tagger.string = temp
         // Loop over all the tokens and print their lemma
         tagger.enumerateTags(in: temp.startIndex..<temp.endIndex, unit: .word, scheme: .lemma) { tag, tokenRange in
-          if let tag = tag {
-            //MARK: British English Only
-
-            if [tag.rawValue] == ["be"] {
-                for i in word {
-                    if [i] == ["is"] {
-                        word1.append(i)
-                    } else if [i] == ["am"] {
-                        word1.append(i)
-                    } else if [i] == ["are"] {
-                        word1.append(i)
-                    } else if [i] == ["being"] {
-                        word1.append(i)
+            if let tag = tag {
+                //MARK: British English Only
+                
+                if [tag.rawValue] == ["be"] {
+                    for i in word {
+                        if [i] == ["is"] {
+                            word1.append(i)
+                        } else if [i] == ["am"] {
+                            word1.append(i)
+                        } else if [i] == ["are"] {
+                            word1.append(i)
+                        } else if [i] == ["being"] {
+                            word1.append(i)
+                        }
                     }
+                } else {
+                    word1.append(tag.rawValue)
                 }
-            } else {
-                word1.append(tag.rawValue)
             }
-          }
-          return true
+            return true
         }
         
         posTagger.string = temp
@@ -101,9 +101,9 @@ class DictionaryViewController: UIViewController {
             }
             return true
         }
-
+        
         retrieveDictionary()
-
+        
     }
     
     
@@ -115,7 +115,7 @@ class DictionaryViewController: UIViewController {
         var vocab = ""
         var temp = ""
         guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (2)", ofType: "json") else {return}
-                
+        
         let url = URL(fileURLWithPath: path)
         
         do{
@@ -132,10 +132,10 @@ class DictionaryViewController: UIViewController {
                     tagger.string = tempVocab
                     // Loop over all the tokens and print their lemma
                     tagger.enumerateTags(in: tempVocab.startIndex..<tempVocab.endIndex, unit: .word, scheme: .lemma) { tag, tokenRange in
-                      if let tag = tag {
-                        vocab = tag.rawValue
-                      }
-                      return true
+                        if let tag = tag {
+                            vocab = tag.rawValue
+                        }
+                        return true
                     }
                     if vocab == k {
                         def = i.1["definition"].stringValue
@@ -162,8 +162,8 @@ class DictionaryViewController: UIViewController {
     }
     
     /*func getData() {
-        guard let appDelegate = <#expression#> else { return <#return value#> }
-    }*/
+     guard let appDelegate = <#expression#> else { return <#return value#> }
+     }*/
     
     
     func getData() {
@@ -187,29 +187,29 @@ class DictionaryViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     //    @IBAction func addToListTapped(_ sender: UIButton) {
-//        switch sender.tag {
-//                    case 0:
-//                        print("Button 1 Clicked")
-//                    case 1:
-//                        let vocabTab = (self.tabBarController?.viewControllers?[3]) as? VocabListViewController
-//                        performSegue(withIdentifier: "addToVocabList", sender: self)
-//                        
-//                        //print(vocabTab?.words)
-//                    default: break
-//              }
-//    }
+    //        switch sender.tag {
+    //                    case 0:
+    //                        print("Button 1 Clicked")
+    //                    case 1:
+    //                        let vocabTab = (self.tabBarController?.viewControllers?[3]) as? VocabListViewController
+    //                        performSegue(withIdentifier: "addToVocabList", sender: self)
+    //
+    //                        //print(vocabTab?.words)
+    //                    default: break
+    //              }
+    //    }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -217,7 +217,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return word.count
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -254,7 +254,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         print("dict av:", av)
-
+        
         // Check if word already added
         var i = 0
         for word_1 in word1 {
@@ -289,30 +289,25 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         if !addListIndexPath.contains(indexPath.section) {
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
-
-            cell.addToListLabel.isHidden = false
-
+            
             cell.undoButton.isHidden = true
             cell.undoButton.isEnabled = false
-
-            cell.addedTextLabel.isHidden = true
+            cell.addToVocabListButton.setTitle("Add to List", for: .normal)
         }
         else {
             cell.addToVocabListButton.isEnabled = false
             cell.addToVocabListButton.backgroundColor = .darkGray
-        
-            cell.addToListLabel.isHidden = true
             
             cell.undoButton.isHidden = false
             cell.undoButton.isEnabled = true
             
-            cell.addedTextLabel.isHidden = false
+            cell.addToVocabListButton.setTitle("Added to List", for: .normal)
         }
         
         cell.undoButtonAction = { [unowned self] in
             undo_button = true
             addListIndexPath = addListIndexPath.filter { $0 != indexPath.section }
-
+            
             var idx = 0
             for w in av {
                 if w == word1[indexPath.section] {
@@ -323,22 +318,21 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             
             let wordFromCoreData = try? context!.fetch(AddToVocabCD.fetchRequest())
             context!.delete(wordFromCoreData![idx] as! NSManagedObject)
-
+            
             cell.undoButton.isHidden = true
             cell.undoButton.isEnabled = false
-            cell.addedTextLabel.isHidden = true
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
             
-            cell.addToListLabel.isHidden = false
+            cell.addToVocabListButton.setTitle("Add to List", for: .normal)
             //print(addWord)
             print("undo pressed")
             
-
+            
             //print("ip2", indexPath.row)
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
- 
-
+            
+            
             getData()
             //self.dictionaryTableView.reloadData()
             // Still cannot find how to reload tableView
@@ -351,9 +345,9 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             let addWord = AddToVocabCD(context:context!)
             print("AW:", addWord)
             addListIndexPath.append(indexPath.section)
-
+            
             //let addDate = DateCD(context:context!)
-
+            
             let addedWord = word1[indexPath.section]
             let addedPOS = pos[indexPath.section]
             let addedDefinition = defArr[indexPath.section]
@@ -369,13 +363,11 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.addToVocabListButton.isEnabled = false
             cell.addToVocabListButton.backgroundColor = .darkGray
-        
-            cell.addToListLabel.isHidden = true
             
             cell.undoButton.isHidden = false
             cell.undoButton.isEnabled = true
             
-            cell.addedTextLabel.isHidden = false
+            cell.addToVocabListButton.setTitle("Added to List", for: .normal)
             
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             
@@ -386,14 +378,14 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         
         //Undo แล้วยังไม่ลบ
         
-           
+        
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         
         cell.clipsToBounds = true
-
+        
         return cell
     }
     
@@ -407,6 +399,6 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         if  segue.destination is VocabListViewController {
             let destination = segue.destination as? VocabListViewController
             destination?.addList = addListIndexPath
-            }
+        }
     }
 }

@@ -197,8 +197,6 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         
         defAdded.append(selectedWord.addedDefinition ?? "")
         
-        cell.dashLabel.text = "-"
-        
         cell.meaningLabel.text = selectedWord.addedDefinition ?? ""
         
         synAdded.append(selectedWord.addedSynonym ?? "")
@@ -210,13 +208,11 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if switchButton.isOn == true {
             switchButton.setOn(true, animated: true)
-            cell.dashLabel.isHidden = false
             cell.partOfSpeechLabel.isHidden = false
             cell.meaningLabel.isHidden = false
             //print("switch on")
         } else if switchButton.isOn == false {
             switchButton.setOn(false, animated: true)
-            cell.dashLabel.isHidden = true
             cell.partOfSpeechLabel.isHidden = true
             cell.meaningLabel.isHidden = true
             //print("switch off")

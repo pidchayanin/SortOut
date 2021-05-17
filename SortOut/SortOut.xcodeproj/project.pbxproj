@@ -321,15 +321,12 @@
 				40BE7AF025BC045800464BDB /* Frameworks */,
 				40BE7AF125BC045800464BDB /* Resources */,
 				D97103FDA13DA739644929B5 /* [CP] Embed Pods Frameworks */,
-				04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SortOut;
-			packageProductDependencies = (
-			);
 			productName = SortOut;
 			productReference = 40BE7AF325BC045800464BDB /* SortOut.app */;
 			productType = "com.apple.product-type.application";
@@ -401,8 +398,6 @@
 				Base,
 			);
 			mainGroup = 40BE7AEA25BC045800464BDB;
-			packageReferences = (
-			);
 			productRefGroup = 40BE7AF425BC045800464BDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -448,23 +443,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9134384B4B13BC96E6B35B56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

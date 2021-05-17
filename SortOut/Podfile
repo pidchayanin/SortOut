@@ -8,6 +8,6 @@ target 'SortOut' do
   # Pods for SortOut
   pod 'SwiftyJSON'
   pod 'HandySwift'
-  pod 'GoogleMLKit/Translate'
+  #pod 'GoogleMLKit/Translate'
 
 end

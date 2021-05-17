@@ -48,17 +48,8 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
 
         DataManager.shared.firstVC = self
         
-        topStarImg.image = UIImage(named: "star.png")
-        topCoinImg.image = UIImage(named: "coin.png")
-        
-        starNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        starNumLabel.layer.cornerRadius = 5
-        starNumLabel.textColor = UIColor.white
         starNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
-        coinNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        coinNumLabel.layer.cornerRadius = 5
-        coinNumLabel.textColor = UIColor.white
         coinNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
         

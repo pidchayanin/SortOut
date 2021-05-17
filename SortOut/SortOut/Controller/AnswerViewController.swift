@@ -12,7 +12,7 @@ import CoreData
 import NaturalLanguage
 
 class AnswerViewController: UIViewController {
-
+    
     @IBOutlet weak var complimentLabel: UILabel!
     @IBOutlet weak var engSentenceLabel: UILabel!
     @IBOutlet weak var thaiSentenceLabel: UILabel!
@@ -47,7 +47,7 @@ class AnswerViewController: UIViewController {
     var sentenceAns = [SentenceAnswers]()
     
     var coins = 0
-
+    
     let currentDate = Date()
     
     var starCollect = 0
@@ -58,7 +58,7 @@ class AnswerViewController: UIViewController {
         self.view.backgroundColor = .white
         
         //print("ansrs: ", receiveSentence)
-
+        
         starImage.image = UIImage(named: receiveStar)
         
         coinImage.image = UIImage(named: "coin.png")
@@ -82,7 +82,7 @@ class AnswerViewController: UIViewController {
                 "itemNum": 0
             ]
         ]
-
+        
         do{
             let checkInit = try initFile(jsonObject: jsonInItObject, toFilename: "ItemProp")
             print("checkInit: ", checkInit) //return false if file already exists
@@ -90,7 +90,7 @@ class AnswerViewController: UIViewController {
         catch {
             
         }
-
+        
         checkSentences()
         //coinReceiveLabel.text = "+ 100"
         // Do any additional setup after loading the view.
@@ -182,24 +182,24 @@ class AnswerViewController: UIViewController {
                     ansImage.isHidden = true
                     retryBtn.isHidden = true
                     retryItemBtn.isHidden = false
-                    retryLabel.text = "Retry (item \(usedItem) left)"
+                    retryLabel.text = "Retry \n(item \(usedItem) left)"
                     complimentLabel.text = "Don't give up!"
                     playNextLabel.text = "Skip"
                 }
-//                else {
-//                    print("score 0")
-//                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
-//                    receiveStar = zeroStar
-//                    starImage.image = UIImage(named: receiveStar)
-//                    coinImage.isHidden = true
-//                    coinReceiveLabel.isHidden = true
-//                    ansImage.isHidden = true
-//                    retryBtn.isHidden = true
-//                    retryItemBtn.isHidden = false
-//                    retryLabel.text = "Retry (item \(usedItem) left)"
-//                    complimentLabel.text = "Don't give up!"
-//                    playNextLabel.text = "Skip"
-//                }
+                //                else {
+                //                    print("score 0")
+                //                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
+                //                    receiveStar = zeroStar
+                //                    starImage.image = UIImage(named: receiveStar)
+                //                    coinImage.isHidden = true
+                //                    coinReceiveLabel.isHidden = true
+                //                    ansImage.isHidden = true
+                //                    retryBtn.isHidden = true
+                //                    retryItemBtn.isHidden = false
+                //                    retryLabel.text = "Retry (item \(usedItem) left)"
+                //                    complimentLabel.text = "Don't give up!"
+                //                    playNextLabel.text = "Skip"
+                //                }
             }
         }
         catch {
@@ -220,7 +220,7 @@ class AnswerViewController: UIViewController {
         )
         englishThaiTranslator.downloadModelIfNeeded(with: conditions) { error in
             guard error == nil else { return }
-
+            
             // Model downloaded successfully. Okay to start translating.
             englishThaiTranslator.translate(self.receiveEnglishSentence) { translatedText, error in
                 guard error == nil, let translatedText = translatedText else { return }
@@ -284,7 +284,7 @@ class AnswerViewController: UIViewController {
             //NO
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
                 print("Tap no")
-          }))
+            }))
             
             self.present(alert, animated: true, completion: nil)
         }
@@ -302,7 +302,7 @@ class AnswerViewController: UIViewController {
             var star = 0
             var itemNums = 0
             let jsons = try loadJSON(withFilename: "ItemProp")
-//            print(jsons!)
+            //            print(jsons!)
             guard let array = jsons as? [Any] else {return}
             for i in array {
                 guard let num = i as? [String: Any] else { return }
@@ -355,17 +355,17 @@ class AnswerViewController: UIViewController {
     }
     
     func loadJSON(withFilename filename: String) throws -> Any? {
-            let fm = FileManager.default
+        let fm = FileManager.default
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
-            if let url = urls.first {
-                var fileURL = url.appendingPathComponent(filename)
-                fileURL = fileURL.appendingPathExtension("json")
-//                print(fileURL)
-                let data = try Data(contentsOf: fileURL)
-                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
-                return jsonObject
-            }
-            return nil
+        if let url = urls.first {
+            var fileURL = url.appendingPathComponent(filename)
+            fileURL = fileURL.appendingPathExtension("json")
+            //                print(fileURL)
+            let data = try Data(contentsOf: fileURL)
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
+            return jsonObject
+        }
+        return nil
     }
     
     func save(jsonObject: Any, toFilename filename: String) throws -> Bool{
@@ -397,27 +397,25 @@ class AnswerViewController: UIViewController {
             try data.write(to: fileURL, options: [.atomicWrite])
             return true
         }
-            
+        
         return false
     }
     
     @IBAction func homeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Back to Home", message: "Are you sure?", preferredStyle: .alert)
-       
+        
         //YES
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
         NSLog("The \"YES\" alert occured.")
             
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "TabbarID") as! TabbarViewController
-            self.present(vc, animated: true, completion: nil)
-            
-            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabbarID") as? TabbarViewController
+            self.present(vc ?? UIViewController(), animated: true, completion: nil)
         }))
         
         //NO
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Tap no")
-      }))
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -442,7 +440,7 @@ class AnswerViewController: UIViewController {
         //NO
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Tap no")
-      }))
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -452,7 +450,8 @@ class AnswerViewController: UIViewController {
         let alert = UIAlertController(title: "Try again", message: "Are you sure?", preferredStyle: .alert)
         
         //YES
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
             
             let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
             UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
@@ -467,7 +466,7 @@ class AnswerViewController: UIViewController {
         //NO
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Tap no")
-      }))
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -475,15 +474,4 @@ class AnswerViewController: UIViewController {
     @IBAction func retryItemTapped(_ sender: Any) {
         useRetryItem()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

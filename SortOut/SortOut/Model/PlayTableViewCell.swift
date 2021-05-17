@@ -12,16 +12,20 @@ class PlayTableViewCell: UITableViewCell {
     @IBOutlet weak var engSentenceLabel: UILabel!
     @IBOutlet weak var thSentenceLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
-    
+    @IBOutlet weak var containerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupCell()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func setupCell() {
+        containerView.backgroundColor = UIColor.white
+        containerView.layer.borderColor = UIColor.lightGray.cgColor
+        containerView.layer.borderWidth = 1
+        containerView.layer.cornerRadius = 20
+        containerView.clipsToBounds = true
+        containerView.backgroundColor = .white
     }
 
 }

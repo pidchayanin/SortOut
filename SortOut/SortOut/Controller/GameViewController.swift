@@ -58,8 +58,8 @@ class GameViewController: UIViewController {
     
     var getStar = ""
     /*print("def: ", definitions)
-    print("synn: ", synnonyms)
-    print("example: ", sentenceExamples)*/
+     print("synn: ", synnonyms)
+     print("example: ", sentenceExamples)*/
     var defArr = [String]()
     var synArr = [String]()
     var exampleArr = [String]()
@@ -69,16 +69,16 @@ class GameViewController: UIViewController {
     //var numbers2 = 0
     
     var wordsArr = [""]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-
+        
         // Do any additional setup after loading the view.
         
         if textfield.text == "" {
-//            submitBtn.backgroundColor = UIColor.gray
+            //            submitBtn.backgroundColor = UIColor.gray
             submitBtn.isEnabled = false
         }
         
@@ -98,15 +98,15 @@ class GameViewController: UIViewController {
         word8Button.layer.borderWidth = 1
         word9Button.layer.borderWidth = 1
         word10Button.layer.borderWidth = 1
-
-//        let number1 = numbers1
-//        let number2 = numbers2
-//        var tempInt = 0
-//
-//        tempInt += numbers
-//
-//        if ((number1 + number2) % 9) + 1 == tempInt{
-//            print("tempInt: ", tempInt)
+        
+        //        let number1 = numbers1
+        //        let number2 = numbers2
+        //        var tempInt = 0
+        //
+        //        tempInt += numbers
+        //
+        //        if ((number1 + number2) % 9) + 1 == tempInt{
+        //            print("tempInt: ", tempInt)
         if words1 == ""{
             word1Button.isHidden = true
             word2Button.setTitle(words2, for: .normal)
@@ -181,12 +181,12 @@ class GameViewController: UIViewController {
         }
         if words7 == "" {
             word7Button.isHidden = true
-//                word8Button.isHidden = true
-//                word6Button.isHidden = true
-//                word5Button.isHidden = true
-//                word4Button.isHidden = true
-//                word3Button.isHidden = true
-//            print(words7)
+            //                word8Button.isHidden = true
+            //                word6Button.isHidden = true
+            //                word5Button.isHidden = true
+            //                word4Button.isHidden = true
+            //                word3Button.isHidden = true
+            //            print(words7)
             word1Button.setTitle(words1, for: .normal)
             word2Button.setTitle(words2, for: .normal)
             word3Button.setTitle(words3, for: .normal)
@@ -264,7 +264,7 @@ class GameViewController: UIViewController {
         
         
         guard let path = Bundle.main.path(forResource: "English sentences(2)", ofType: "json") else {return}
-                
+        
         let url = URL(fileURLWithPath: path)
         //print("--1--")
         do {
@@ -273,7 +273,7 @@ class GameViewController: UIViewController {
             let json = try JSON(data: data)
             
             let array = json
-                
+            
             for item in array {
                 
                 var word1 = ""
@@ -291,7 +291,7 @@ class GameViewController: UIViewController {
                 
                 tempStr = number.rawString()!
                 tempInt += 1
-
+                
                 retryNum = UserDefaults.standard.integer(forKey: "randomNum")
                 randomSentences = UserDefaults.standard.stringArray(forKey: "randomSentence") ?? [""]
                 randomImg = UserDefaults.standard.string(forKey: "randomImg") ?? ""
@@ -378,7 +378,7 @@ class GameViewController: UIViewController {
                     else if randomSentences.count <= 1 && randomSentences.count > 0 {
                         word1 = randomSentences[0].lowercased()
                     }
-
+                    
                     words1 = word1
                     words2 = word2
                     words3 = word3
@@ -400,7 +400,7 @@ class GameViewController: UIViewController {
                     // %9 is not confirmed rng 1 and 2, too
                     if ((number1 + number2) % 71) + 1 == tempInt{
                         print("tempInt:", tempInt)
-
+                        
                         tempInt1 = Int(tempStr)!
                         randomNum = tempInt1
                         print("num: ", tempInt1)
@@ -489,7 +489,7 @@ class GameViewController: UIViewController {
                         else if sentences.count <= 1 && sentences.count > 0 {
                             word1 = sentences[0].stringValue.lowercased()
                         }
-
+                        
                         words1 = word1
                         words2 = word2
                         words3 = word3
@@ -515,7 +515,7 @@ class GameViewController: UIViewController {
         var ex = ""
         var vocab = ""
         guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (2)", ofType: "json") else {return}
-                
+        
         let url = URL(fileURLWithPath: path)
         
         do{
@@ -526,7 +526,7 @@ class GameViewController: UIViewController {
                 vocab = i.1["vocabulary"].stringValue
                 //print("vocab in loop:", vocab)
                 
-                    //print("i:", i)
+                //print("i:", i)
                 for k in wordsArr {
                     if vocab == k {
                         //print("word:", word)
@@ -539,8 +539,8 @@ class GameViewController: UIViewController {
                         synnonyms = synn
                         sentenceExamples = ex
                         /*print("def: ", definitions)
-                        print("synn: ", synnonyms)
-                        print("example: ", sentenceExamples)*/
+                         print("synn: ", synnonyms)
+                         print("example: ", sentenceExamples)*/
                         defArr.append(definitions)
                         synArr.append(synnonyms)
                         exampleArr.append(sentenceExamples)
@@ -570,19 +570,19 @@ class GameViewController: UIViewController {
         else {
             textfield.text?.append(" " + words1)
         }
-//        else if textfield.text?.isEmpty == false {
-//            sender.alpha = 1
-//            print("alpha: change")
-//            let text = textfield.text
-//            if !text!.hasPrefix(words1) {
-//                print("no prefix")
-//                textfield.text?.append(" " + words1)
-//            }
-//            if text!.hasPrefix(words1.capitalized) || text!.hasPrefix(words1.lowercased()) {
-//                textfield.text = String((text!.dropFirst(words1.count)))
-//                print("has prefix")
-//            }
-//        }
+        //        else if textfield.text?.isEmpty == false {
+        //            sender.alpha = 1
+        //            print("alpha: change")
+        //            let text = textfield.text
+        //            if !text!.hasPrefix(words1) {
+        //                print("no prefix")
+        //                textfield.text?.append(" " + words1)
+        //            }
+        //            if text!.hasPrefix(words1.capitalized) || text!.hasPrefix(words1.lowercased()) {
+        //                textfield.text = String((text!.dropFirst(words1.count)))
+        //                print("has prefix")
+        //            }
+        //        }
     }
     
     @IBAction func word2Tapped(_ sender: UIButton) {
@@ -718,7 +718,7 @@ class GameViewController: UIViewController {
         }
     }
     
-
+    
     //MARK: Delete button tapped
     @IBAction func deleteTapped(_ sender: UIButton) {
         //ToDo: Make condition that if the button is null so .isEnabled = false
@@ -735,11 +735,11 @@ class GameViewController: UIViewController {
             word3Button.alpha = 1
             word4Button.isEnabled = true
             word4Button.alpha = 1
-//            print("1")
+            //            print("1")
         }
         else if words6 == "" {
             word6Button.isEnabled = false
-//            print("2")
+            //            print("2")
             
             textfield.text = ""
             
@@ -771,7 +771,7 @@ class GameViewController: UIViewController {
             word5Button.alpha = 1
             word6Button.isEnabled = false
             word6Button.alpha = 1
-//            print("3")
+            //            print("3")
         }
         else if words8 == "" {
             word8Button.isEnabled = true
@@ -793,7 +793,7 @@ class GameViewController: UIViewController {
             word5Button.alpha = 1
             word6Button.alpha = 1
             word7Button.alpha = 1
-//            print("4")
+            //            print("4")
         }
         else if words9 == "" {
             word9Button.isEnabled = false
@@ -866,14 +866,14 @@ class GameViewController: UIViewController {
             word9Button.alpha = 1
             word10Button.alpha = 1
             
-                
+            
             textfield.text = ""
-//            print("normal")
+            //            print("normal")
         }
         
         
     }
-   
+    
     @IBAction func showGameSettingPopUp(_ sender: Any) {
         //noted: Main as in Main.storyboard
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameSettingPopUpID") as! GameSettingPopUpViewController
@@ -885,119 +885,119 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: Any) {
-       /* let engSentence = textfield.text! + "."
-        
-        guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
-            return
-        }
-        var data = ""
-        do {
-            data = try String(contentsOfFile: filepath)
-            var rows = data.components(separatedBy: "\n")
-            rows.removeFirst()
-            for row in rows {
-                let columns = row.components(separatedBy: ",")
-                print("columns: ", columns)
-                let sentences = columns[0]
-                let scoring = Int(String(columns[1].filter {!"\r".contains($0)})) ?? 0
-                print("scoring: ", scoring)
-                let ans = SentenceAnswers(sentences: sentences, score: scoring)
-                sentenceAns.append(ans)
-            }
-            //print("sentenceAns: ", sentenceAns)
-            for sentence in sentenceAns {
-                let sentences = sentence.sentences
-                //print("senScore", sentence.score)
-                print("engSen1: ", engSentence)
-                if engSentence == sentences {
-                    //performSegue(withIdentifier: "toCorrectAnswer", sender: self)
-                    print("reEng: ", engSentence)
-                    print("sent: ", sentences)
-                    let score = sentence.score
-                    print("score: ", score)
-                    print("====score:====")
-                    if score == 3 {
-                        getStar = threeStar
-                        coins = 100
-                        compliments = "You are an expert at this!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    else if score == 2 {
-                        getStar = twoStar
-                        coins = 50
-                        compliments = "Great job!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    else if score == 1 {
-                        getStar = oneStar
-                        coins = 25
-                        compliments = "You have unique potential!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    
-                }else {
-                    print("ไม่เท่าไง")
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
-                    
-                    getStar = zeroStar
-                    compliments = "Don't give up!"
-                    
-                    vc.compliments = compliments
-                    vc.receiveStar = getStar
-                    vc.receiveEngSentence = engSentence
-                    
-                    self.present(vc, animated: true, completion: nil)
-                }
-                /*else if engSentence != sentences {
-                    print("ไม่เท่าไง")
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
-                    self.present(vc, animated: true, completion: nil)
-                }*/
-            }
-        }
-        catch {
-            fatalError("cannot use model")
-            //return
-        }*/
+        /* let engSentence = textfield.text! + "."
+         
+         guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
+         return
+         }
+         var data = ""
+         do {
+         data = try String(contentsOfFile: filepath)
+         var rows = data.components(separatedBy: "\n")
+         rows.removeFirst()
+         for row in rows {
+         let columns = row.components(separatedBy: ",")
+         print("columns: ", columns)
+         let sentences = columns[0]
+         let scoring = Int(String(columns[1].filter {!"\r".contains($0)})) ?? 0
+         print("scoring: ", scoring)
+         let ans = SentenceAnswers(sentences: sentences, score: scoring)
+         sentenceAns.append(ans)
+         }
+         //print("sentenceAns: ", sentenceAns)
+         for sentence in sentenceAns {
+         let sentences = sentence.sentences
+         //print("senScore", sentence.score)
+         print("engSen1: ", engSentence)
+         if engSentence == sentences {
+         //performSegue(withIdentifier: "toCorrectAnswer", sender: self)
+         print("reEng: ", engSentence)
+         print("sent: ", sentences)
+         let score = sentence.score
+         print("score: ", score)
+         print("====score:====")
+         if score == 3 {
+         getStar = threeStar
+         coins = 100
+         compliments = "You are an expert at this!"
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
+         
+         vc.receiveEnglishSentence = engSentence
+         vc.receiveImage = image
+         vc.receiveNum = randomNum
+         vc.receiveSentence = randomSentence
+         vc.receiveStar = getStar
+         vc.coins = coins
+         vc.compliments = compliments
+         
+         self.present(vc, animated: true, completion: nil)
+         }
+         else if score == 2 {
+         getStar = twoStar
+         coins = 50
+         compliments = "Great job!"
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
+         
+         vc.receiveEnglishSentence = engSentence
+         vc.receiveImage = image
+         vc.receiveNum = randomNum
+         vc.receiveSentence = randomSentence
+         vc.receiveStar = getStar
+         vc.coins = coins
+         vc.compliments = compliments
+         
+         self.present(vc, animated: true, completion: nil)
+         }
+         else if score == 1 {
+         getStar = oneStar
+         coins = 25
+         compliments = "You have unique potential!"
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
+         
+         vc.receiveEnglishSentence = engSentence
+         vc.receiveImage = image
+         vc.receiveNum = randomNum
+         vc.receiveSentence = randomSentence
+         vc.receiveStar = getStar
+         vc.coins = coins
+         vc.compliments = compliments
+         
+         self.present(vc, animated: true, completion: nil)
+         }
+         
+         }else {
+         print("ไม่เท่าไง")
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
+         
+         getStar = zeroStar
+         compliments = "Don't give up!"
+         
+         vc.compliments = compliments
+         vc.receiveStar = getStar
+         vc.receiveEngSentence = engSentence
+         
+         self.present(vc, animated: true, completion: nil)
+         }
+         /*else if engSentence != sentences {
+         print("ไม่เท่าไง")
+         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+         let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
+         self.present(vc, animated: true, completion: nil)
+         }*/
+         }
+         }
+         catch {
+         fatalError("cannot use model")
+         //return
+         }*/
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -1116,7 +1116,7 @@ class GameViewController: UIViewController {
             //print(wordsArr)
         }
         else if segue.identifier == "toCorrectAnswer" {
-        //else if segue.destination == AnswerViewController() {
+            //else if segue.destination == AnswerViewController() {
             //for passing data to ans screen
             //sleep(4)
             let vc = segue.destination as? AnswerViewController
@@ -1129,7 +1129,7 @@ class GameViewController: UIViewController {
         }
     }
     
-
+    
 }
 
 extension Array where Element: Equatable {

@@ -49,14 +49,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
         starImg.image = UIImage(named: "star.png")
         coinImg.image = UIImage(named: "coin.png")
         
-        starNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        starNumLabel.layer.cornerRadius = 5
-        starNumLabel.textColor = UIColor.white
         starNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
-        
-        coinNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        coinNumLabel.layer.cornerRadius = 5
-        coinNumLabel.textColor = UIColor.white
         coinNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
         let jsonInItObject: [Any]  = [

@@ -40,19 +40,12 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        starImg.image = UIImage(named: "star.png")
-        coinImg.image = UIImage(named: "coin.png")
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        starNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        starNumLabel.layer.cornerRadius = 5
         starNumLabel.textColor = UIColor.white
         starNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
-        coinNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
-        coinNumLabel.layer.cornerRadius = 5
         coinNumLabel.textColor = UIColor.white
         coinNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         
@@ -66,7 +59,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
                 "itemNum": 0
             ]
         ]
-
+        
         do{
             let checkInit = try initFile(jsonObject: jsonInItObject, toFilename: "ItemProp")
             print("checkInit: ", checkInit) //return false if file already exists
@@ -74,8 +67,6 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         catch {
             
         }
-        
-        historyView.layer.cornerRadius = 10
         
         fetchData()
         
@@ -86,7 +77,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         
         let dateToday = Date()
         /*let calendar1 = Calendar.current
-        let compo = calendar1.dateComponents([.day], from: dateToday)*/
+         let compo = calendar1.dateComponents([.day], from: dateToday)*/
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yyyy"
         let str = df.string(from: dateToday)
@@ -152,54 +143,54 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         center.add(request) { (error) in
             //Check the error parameter and handle any error
         }
-//        local notification
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
-
+        //        local notification
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
+        //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+        
         // Do any additional setup after loading the view.
         
         
     }
     
-//
-//    //Local notification- request permission from the user
-//    @objc func registerLocal() {
-//        let center = UNUserNotificationCenter.current()
-//        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-//            if granted {
-//                print("Yay!")
-//            } else {
-//                print("O' oh!")
-//            }
-//        }
-//    }
-//
-//    @objc func scheduleLocal() {
-//        let center = UNUserNotificationCenter.current()
-//
-//        center.removeAllPendingNotificationRequests()
-//
-//        let content = UNMutableNotificationContent()
-//        content.title = "Late wake up call"
-//        content.body = "The early bird catches the worm, but the second mouse get the cheese"
-//        content.categoryIdentifier = "alarm"
-//        content.userInfo = ["customer": "fizzbuzz"]
-//        content.sound = .default
-//
-//        //trigger notification
-//        var dateComponents = DateComponents()
-//        //10 o'clock
-//        dateComponents.hour = 10
-//        //30 minutes
-//        dateComponents.minute = 30
-//        //everyday
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//        center.add(request)
-//
-//    }
+    //
+    //    //Local notification- request permission from the user
+    //    @objc func registerLocal() {
+    //        let center = UNUserNotificationCenter.current()
+    //        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+    //            if granted {
+    //                print("Yay!")
+    //            } else {
+    //                print("O' oh!")
+    //            }
+    //        }
+    //    }
+    //
+    //    @objc func scheduleLocal() {
+    //        let center = UNUserNotificationCenter.current()
+    //
+    //        center.removeAllPendingNotificationRequests()
+    //
+    //        let content = UNMutableNotificationContent()
+    //        content.title = "Late wake up call"
+    //        content.body = "The early bird catches the worm, but the second mouse get the cheese"
+    //        content.categoryIdentifier = "alarm"
+    //        content.userInfo = ["customer": "fizzbuzz"]
+    //        content.sound = .default
+    //
+    //        //trigger notification
+    //        var dateComponents = DateComponents()
+    //        //10 o'clock
+    //        dateComponents.hour = 10
+    //        //30 minutes
+    //        dateComponents.minute = 30
+    //        //everyday
+    //        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+    //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+    //
+    //        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+    //        center.add(request)
+    //
+    //    }
     
     func fetchData() {
         do {
@@ -220,18 +211,18 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         var coin = 0
         var star = 0
         var itemNums = 0
-
+        
         do {
             let jsons = try loadJSON(withFilename: "ItemProp")
-//            print(jsons!)
+            //            print(jsons!)
             guard let array = jsons as? [Any] else {return}
             for i in array {
                 guard let num = i as? [String: Any] else { return }
-//                print(num["itemNum"]!)
-//                itemNums = num["itemNum"] as! Int
-//                itemNames = num["itemName"] as! String
-//                itemDescriptions = num["itemDescription"] as! String
-//                itemPrices = num["itemPrice"] as! Int
+                //                print(num["itemNum"]!)
+                //                itemNums = num["itemNum"] as! Int
+                //                itemNames = num["itemName"] as! String
+                //                itemDescriptions = num["itemDescription"] as! String
+                //                itemPrices = num["itemPrice"] as! Int
                 star = num["star"] as! Int
                 coin = num["coin"] as! Int
                 itemNums = num["itemNum"] as! Int
@@ -252,29 +243,29 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
             
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
-
+            
         }
         catch {
             
         }
     }
     
-
+    
     
     func loadJSON(withFilename filename: String) throws -> Any? {
-            let fm = FileManager.default
+        let fm = FileManager.default
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
-            if let url = urls.first {
-                var fileURL = url.appendingPathComponent(filename)
-                fileURL = fileURL.appendingPathExtension("json")
-//                print(fileURL)
-                let data = try Data(contentsOf: fileURL)
-                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
-                return jsonObject
-            }
-            return nil
+        if let url = urls.first {
+            var fileURL = url.appendingPathComponent(filename)
+            fileURL = fileURL.appendingPathExtension("json")
+            //                print(fileURL)
+            let data = try Data(contentsOf: fileURL)
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.mutableContainers, .mutableLeaves])
+            return jsonObject
         }
-        
+        return nil
+    }
+    
     func save(jsonObject: Any, toFilename filename: String) throws -> Bool{
         let fm = FileManager.default
         let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
@@ -285,7 +276,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
             try data.write(to: fileURL, options: [.atomicWrite])
             return true
         }
-            
+        
         return false
     }
     
@@ -305,7 +296,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
             try data.write(to: fileURL, options: [.atomicWrite])
             return true
         }
-            
+        
         return false
     }
     
@@ -314,22 +305,22 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         retrieveData()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//        self.tabBarController?.delegate = self
-//    }
-
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //
+    //        self.tabBarController?.delegate = self
+    //    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
@@ -366,16 +357,6 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.starImage.image = UIImage(named: (displayItems.receivedStar ?? ""))
         
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 20
-        cell.clipsToBounds = true
-        
-        // Does not work! SO TIRED
-        historySection.rows.sort { _,_ in minutes > minutes }
-        
-        cell.contentView.backgroundColor = .white
         return cell
     }
     

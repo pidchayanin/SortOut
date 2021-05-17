@@ -17,9 +17,6 @@ class DictionaryTableViewCell: UITableViewCell {
     @IBOutlet weak var partOfSpeechLabel: UILabel!
     @IBOutlet weak var addToVocabListButton: UIButton!
     @IBOutlet weak var undoButton: UIButton!
-    @IBOutlet weak var addedTextLabel: UILabel!
-    @IBOutlet weak var addToListLabel: UILabel!
-
     @IBOutlet weak var meaningInThaiLabel: UILabel!
     @IBOutlet weak var definitionInThaiLabel: UILabel!
     @IBOutlet weak var synnonymLabel: UILabel!

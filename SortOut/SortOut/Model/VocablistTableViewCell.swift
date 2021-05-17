@@ -11,7 +11,6 @@ class VocablistTableViewCell: UITableViewCell {
 
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var partOfSpeechLabel: UILabel!
-    @IBOutlet weak var dashLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
     
     
