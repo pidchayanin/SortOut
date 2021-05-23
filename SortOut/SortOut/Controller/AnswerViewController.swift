@@ -43,6 +43,8 @@ class AnswerViewController: UIViewController {
     var compliments = ""
     var itemNumber = 0
     var useItem = 0
+    var usedItemPrev = 0
+    var useItemPrev = 0
     
     var sentenceAns = [SentenceAnswers]()
     
@@ -55,7 +57,8 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        //ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+        DataManager.shared.ansVC = self
         
         //print("ansrs: ", receiveSentence)
 
@@ -102,6 +105,9 @@ class AnswerViewController: UIViewController {
     }
     
     func checkSentences() {
+        //updateDataToJSON()
+        
+        
         guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
             return
         }
@@ -172,9 +178,11 @@ class AnswerViewController: UIViewController {
                         playNextLabel.text = "Play next"
                     }
                 }
-                if starImage.image == nil {
+                
+                if coinImage.isHidden == true {
                     print("score 0")
                     let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
+                    print("init useditem", usedItem)
                     receiveStar = zeroStar
                     starImage.image = UIImage(named: receiveStar)
                     coinImage.isHidden = true
@@ -182,9 +190,20 @@ class AnswerViewController: UIViewController {
                     ansImage.isHidden = true
                     retryBtn.isHidden = true
                     retryItemBtn.isHidden = false
+//                    if usedItem != useItemPrev {
                     retryLabel.text = "Retry (item \(usedItem) left)"
+                    print("usedItem != 0: ", usedItem)
+                    print("useditemPrev1: ", useItemPrev)
+//                    }
+//                    else {
+//                        retryLabel.text = "Retry (item \(usedItem) left)"
+//                        //retryLabel.text = "Retry (item 0 left)"
+//                        print("usedItem == 0: ", usedItem)
+//                        print("useditemPrev2: ", useItemPrev)
+//                    }
                     complimentLabel.text = "Don't give up!"
                     playNextLabel.text = "Skip"
+                    useItemPrev = usedItem
                 }
 //                else {
 //                    print("score 0")
@@ -200,7 +219,9 @@ class AnswerViewController: UIViewController {
 //                    complimentLabel.text = "Don't give up!"
 //                    playNextLabel.text = "Skip"
 //                }
+                
             }
+            
         }
         catch {
             fatalError("cannot use model")
@@ -258,19 +279,22 @@ class AnswerViewController: UIViewController {
     }
     
     func useRetryItem() {
-        if itemNumber != 0 {
-            useItem = itemNumber
+        let items = UserDefaults.standard.integer(forKey: "itemNums")
+        if items != 0 {
+            useItem = items
             print("useItem1: ", useItem)
+            UserDefaults.standard.setValue(items, forKey: "usedItem")
             let alert = UIAlertController(title: "Try again (Use Item)", message: "Are you sure?", preferredStyle: .alert)
             
             //YES
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
-                var items = UserDefaults.standard.integer(forKey: "itemNums")
-                items -= 1
+                //var items = UserDefaults.standard.integer(forKey: "itemNums")
                 
+                self.useItem -= 1
+                //self.updateDataToJSON()
                 //self.useItem -= 1
-                UserDefaults.standard.setValue(items, forKey: "usedItem")
-                print("useItem2: ", items)
+                UserDefaults.standard.setValue(self.useItem, forKey: "usedItem")
+                print("useItem2: ", self.useItem)
                 let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
                 UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
                 UserDefaults.standard.setValue(newReceiveSentence, forKey: "randomSentence")
@@ -289,9 +313,29 @@ class AnswerViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else {
-            let alert = UIAlertController(title: "You do not have enough item!", message: "Please buy item at the shop", preferredStyle: .alert)
+//            useItem = items
+            /*let alert = UIAlertController(title: "You do not have enough item!", message: "Please buy item at the shop", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)*/
+            
+            let alert = UIAlertController(title: "You do not have enough coins", message: "Want to visit the shop?", preferredStyle: .alert)
+            
+            //YES
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ShopID") as! BetterShopViewController
+                
+                self.present(vc, animated: true)
+                vc.closeBtn.isHidden = false
+            }))
+            
+            //NO
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Tap no")
+          }))
+            
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -327,10 +371,10 @@ class AnswerViewController: UIViewController {
             star += starCollect
             //useRetryItem()
             let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
-            if usedItem != 0 {
-                itemNums = usedItem
-            }
-            //print("useItem3: ", useItem)
+            
+            itemNums = usedItem
+            
+            print("usedItem3: ", usedItem)
             print("itemNums - useItem: ", itemNums)
             let jsonObject: [Any]  = [
                 [
@@ -347,6 +391,11 @@ class AnswerViewController: UIViewController {
             
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
+            
+//            if usedItem != usedItemPrev {
+//                self.viewDidLoad()
+//            }
+//            usedItemPrev = usedItem
         }
         catch {
             let error = error
@@ -400,6 +449,12 @@ class AnswerViewController: UIViewController {
             
         return false
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+//        checkSentences()
+//    }
     
     @IBAction func homeTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Back to Home", message: "Are you sure?", preferredStyle: .alert)

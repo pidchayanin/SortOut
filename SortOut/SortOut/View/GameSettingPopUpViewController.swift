@@ -9,17 +9,22 @@ import UIKit
 
 class GameSettingPopUpViewController: UIViewController {
 
+    @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var quitView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
+        self.settingView.layer.cornerRadius = 20
+        self.quitView.layer.cornerRadius = 20
         // Do any additional setup after loading the view.
     }
     
     @IBAction func CloseGamePopUp(_ sender: Any) {
-        self.view.removeFromSuperview()
-        
+        //self.view.removeFromSuperview()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func HomeGamePopUp(_ sender: Any) {

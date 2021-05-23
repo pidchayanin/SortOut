@@ -36,6 +36,7 @@ class GiftTableViewCell: UITableViewCell {
     @IBAction func collectButtonTapped(_ sender: UIButton){
         // if the closure is defined (not nil)
         // then execute the code inside the subscribeButtonAction closure
+        let collectButtonSection = sender.tag
         collectButtonAction?()
       }
 

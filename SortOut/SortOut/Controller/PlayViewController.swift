@@ -25,6 +25,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var coinNumLabel: UILabel!
     
     let cellReuseIdentifier = "historyCell"
+    let cellSpacingHeight: CGFloat = 20
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -77,7 +78,12 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         
         historyView.layer.cornerRadius = 10
         
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(true, forKey: "true")
+        userDefaults.setValue(false, forKey: "false")
+        
         fetchData()
+        sort()
         
         self.sections = HistorySection.group(rows: self.historyCD, by: { firstDayOfMonth(date: $0.date!) })
         self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
@@ -92,7 +98,7 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         let str = df.string(from: dateToday)
         
         UserDefaults.standard.setValue(1, forKey: "logIn")
-        UserDefaults.standard.setValue(str, forKey: "currentDate")
+        UserDefaults.standard.setValue(dateToday, forKey: "currentDate")
         self.view.backgroundColor = .white
         
         // step 1: Ask for permission
@@ -309,6 +315,11 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         return false
     }
     
+    func sort() {
+        historyCD.sort(by: { $0.date! > $1.date! })
+        self.tableView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         coins = 0
         retrieveData()
@@ -335,27 +346,40 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
 extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
+        //return self.sections.count
+        return self.historyCD.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let historySection = sections[section]
-        return historySection.rows.count
+        //let historySection = sections[section]
+        //return historySection.rows.count
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionn = self.sections[section]
-        let date = sectionn.sectionItem
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy"
-        return dateFormatter.string(from: date)
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        //headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let sectionn = self.sections[section]
+//        let date = sectionn.sectionItem
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd MMMM yyyy"
+//        return dateFormatter.string(from: date)
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PlayTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PlayTableViewCell
         
-        var historySection = self.sections[indexPath.section]
-        let displayItems = historySection.rows[indexPath.row]
+        //var historySection = self.sections[indexPath.section]
+        //let displayItems = historySection.rows[indexPath.row]
+        let displayItems = historyCD[indexPath.section]
         let date = displayItems.date
         let calendar = Calendar.current
         let minutes = calendar.component(.minute, from: date!)
@@ -373,9 +397,9 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         cell.clipsToBounds = true
         
         // Does not work! SO TIRED
-        historySection.rows.sort { _,_ in minutes > minutes }
+        //historySection.rows.sort { _,_ in minutes > minutes }
         
-        cell.contentView.backgroundColor = .white
+        //cell.contentView.backgroundColor = .white
         return cell
     }
     

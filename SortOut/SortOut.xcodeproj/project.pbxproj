@@ -33,6 +33,7 @@
 		544979C6264BD0970004735D /* HistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544979C5264BD0970004735D /* HistorySection.swift */; };
 		545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */; };
 		547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */ = {isa = PBXBuildFile; fileRef = 547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */; };
+		5477A84F265AA99900F2D8C3 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
 		5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498B3202646D24C00A1219E /* VocabListSection.swift */; };
@@ -113,6 +114,7 @@
 		544979C5264BD0970004735D /* HistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySection.swift; sourceTree = "<group>"; };
 		545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (1).json"; sourceTree = "<group>"; };
 		547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (2).json"; sourceTree = "<group>"; };
+		5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
 		5498B3202646D24C00A1219E /* VocabListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListSection.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				544979C0264BCEE70004735D /* PlayTableViewCell.swift */,
 				544979C5264BD0970004735D /* HistorySection.swift */,
 				54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */,
+				5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
 				543C9DD1265036C3008FBD51 /* WrongAnswerViewController.swift in Sources */,
+				5477A84F265AA99900F2D8C3 /* ModalTransitionMediator.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
 				54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */,
 				5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */,

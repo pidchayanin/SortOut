@@ -54,7 +54,7 @@ class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        //self.view.backgroundColor = .white
         
         DataManager.shared.dictVC = self
 
@@ -82,6 +82,10 @@ class DictionaryViewController: UIViewController {
                     } else if [i] == ["are"] {
                         word1.append(i)
                     } else if [i] == ["being"] {
+                        word1.append(i)
+                    } else if [i] == ["was"] {
+                        word1.append(i)
+                    } else if [i] == ["were"] {
                         word1.append(i)
                     }
                 }
@@ -228,7 +232,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
+        //headerView.backgroundColor = UIColor.clear
         return headerView
     }
     
@@ -241,6 +245,8 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell:DictionaryTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! DictionaryTableViewCell
         
         //let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        
+        cell.addToVocabListButton.layer.cornerRadius = 15
         
         var av = [String]()
         
@@ -387,9 +393,9 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
         //Undo แล้วยังไม่ลบ
         
            
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 1
+        //cell.backgroundColor = UIColor.white
+        //cell.layer.borderColor = UIColor.lightGray.cgColor
+        //cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         
         cell.clipsToBounds = true

@@ -73,7 +73,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        //self.view.backgroundColor = .white
 
         // Do any additional setup after loading the view.
         
@@ -88,17 +88,28 @@ class GameViewController: UIViewController {
     }
     
     func addDataToButtons() {
-        word1Button.layer.borderWidth = 1
-        word2Button.layer.borderWidth = 1
-        word3Button.layer.borderWidth = 1
-        word4Button.layer.borderWidth = 1
-        word5Button.layer.borderWidth = 1
-        word6Button.layer.borderWidth = 1
-        word7Button.layer.borderWidth = 1
-        word8Button.layer.borderWidth = 1
-        word9Button.layer.borderWidth = 1
-        word10Button.layer.borderWidth = 1
+//        word1Button.layer.borderWidth = 5
+//        word2Button.layer.borderWidth = 5
+//        word3Button.layer.borderWidth = 5
+//        word4Button.layer.borderWidth = 5
+//        word5Button.layer.borderWidth = 5
+//        word6Button.layer.borderWidth = 5
+//        word7Button.layer.borderWidth = 5
+//        word8Button.layer.borderWidth = 5
+//        word9Button.layer.borderWidth = 5
+//        word10Button.layer.borderWidth = 5
 
+        word1Button.layer.cornerRadius = 20
+        word2Button.layer.cornerRadius = 20
+        word3Button.layer.cornerRadius = 20
+        word4Button.layer.cornerRadius = 20
+        word5Button.layer.cornerRadius = 20
+        word6Button.layer.cornerRadius = 20
+        word7Button.layer.cornerRadius = 20
+        word8Button.layer.cornerRadius = 20
+        word9Button.layer.cornerRadius = 20
+        word10Button.layer.cornerRadius = 20
+        
 //        let number1 = numbers1
 //        let number2 = numbers2
 //        var tempInt = 0

@@ -13,4 +13,5 @@ class DataManager {
     var vocabVC = VocabListViewController()
     var dictVC = DictionaryViewController()
     var profileVC = ProfileViewController()
+    var ansVC = AnswerViewController()
 }

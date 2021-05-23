@@ -18,6 +18,7 @@ class VocabListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var editBtn: UIBarButtonItem!
     
     var i = Int()
  
@@ -120,12 +121,23 @@ class VocabListViewController: UIViewController {
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
         
         tableView.isEditing = !tableView.isEditing
-        switch tableView.isEditing {
-        case true:
-            editButtonItem.title = "Done"
-        case false:
-            editButtonItem.title = "Edit"
+        if tableView.isEditing {
+            sender.title = "Done"
+        } else {
+            sender.title = "Edit"
         }
+//        switch tableView.isEditing {
+//        case true:
+//            sender.title = "Done"
+//            //editBtn.title = "Done"
+//            print("done")
+//            //editButtonItem.title = "Hello"//"Done"
+//        case false:
+//            sender.title = "Edit"
+//            //editBtn.title = "Edit"
+//            print("edit")
+//            //editButtonItem.title = "World"
+//        }
         
         /*guard let systemItem = sender.value(forKey: "systemItem") as? Int else {
               return
@@ -250,7 +262,14 @@ extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {
             let removeRow = self.sections[indexPath.section].rows[indexPath.row]
             managedContext?.delete(removeRow)
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            
             self.sections[indexPath.section].rows.remove(at: i)
+            
+            wordAdded.remove(at: i)//indexPath.row)
+            posAdded.remove(at: i)//indexPath.row)
+            defAdded.remove(at: i)//indexPath.row)
+            synAdded.remove(at: i)//indexPath.row)
+            exAdded.remove(at: i)//indexPath.row)
             
             //DispatchQueue.main.async {
             tableView.deleteRows(at: [indexPath], with: .automatic)

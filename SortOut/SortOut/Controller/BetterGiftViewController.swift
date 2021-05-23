@@ -36,6 +36,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     var stars = 0
     private var coins = 0
     var vocabSeen = 0
+    var coinPrev = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,12 +79,12 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
             
         }
         
-        retrieveData()
-        addTask()
+        //retrieveData()
+        //addTask()
     }
     
     func addTask() {
-        let task = ["First Game of the day", "Royalty user: log in to the game", "Diligent leaner: study 5 vocabulary", "Starter kit: first-time user"]
+        let task = ["First Game of the day", "Royalty user: log in to the game", "Diligent learner: study 5 vocabulary", "Starter kit: first-time user"]
         let imageName = ["coin-reward.png", "coin-reward.png", "coin-reward.png", "coin-reward.png"]
         let amountGifts = [100, 100, 100, 100]
         let numOfTasks = [1, 1, 5, 1]
@@ -173,7 +174,10 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
 
 //            print("top2: ", itemNums)
 //            print("coins: ", coins)
-
+            if coins != coinPrev {
+                self.viewWillAppear(true)
+            }
+            coinPrev = coins
         }
         catch {
             
@@ -233,6 +237,7 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         coins = 0
         retrieveData()
+        addTask()
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -270,18 +275,41 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:GiftTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! GiftTableViewCell
         
+        UserDefaults.standard.removeObject(forKey: "isAppAlreadyLaunchedOnce")
+        
         vocabSeen = UserDefaults.standard.integer(forKey: "seeVocab")
         print("vocabSeen: ", vocabSeen)
         let firstGame = UserDefaults.standard.integer(forKey: "firstGame")
         let logIn = UserDefaults.standard.integer(forKey: "logIn")
-        let dateToday = UserDefaults.standard.string(forKey: "currentDate")
+        let dateToday = UserDefaults.standard.object(forKey: "currentDate")
         let currentDate = Date()
         /*let calendar = Calendar.current
         let day = calendar.dateComponents([.day], from: currentDate)*/
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let strDate = df.string(from: currentDate)
+//        let df = DateFormatter()
+//        df.dateFormat = "dd/MM/yyyy"
+//        let strDate = df.string(from: currentDate)
+//        var isCollected = true
+        if UserDefaults.standard.object(forKey: "firstGameCollected") == nil {
+            UserDefaults.standard.setValue(false, forKey: "firstGameCollected")
+            UserDefaults.standard.setValue(false, forKey: "logInCollected")
+            UserDefaults.standard.setValue(false, forKey: "seeVocabCollected")
+            UserDefaults.standard.setValue(false, forKey: "firstLaunchCollected")
+        }
         
+        var dataBaseArr = [Bool]()
+        dataBaseArr.append(UserDefaults.standard.bool(forKey: "firstGameCollected"))
+        dataBaseArr.append(UserDefaults.standard.bool(forKey: "logInCollected"))
+        dataBaseArr.append(UserDefaults.standard.bool(forKey: "seeVocabCollected"))
+        dataBaseArr.append(UserDefaults.standard.bool(forKey: "firstLaunchCollected"))
+        
+//        if dataBaseArrPrev == [] {
+//            dataBaseArrPrev = dataBaseArr
+//            print("init data prev")
+//        }
+        
+        cell.collectButton.tag = indexPath.section
+        
+        print("tag: ", cell.collectButton.tag)
         
         var taskName = ""
         var imgName = ""
@@ -298,12 +326,13 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
                 t.taskDone[1] = logIn
                 //UserDefaults.standard.removeObject(forKey: "logIn")
             }
-            if vocabSeen == t.numberOfTask[2] {
+            if vocabSeen >= t.numberOfTask[2] {
                 t.taskDone[2] = vocabSeen
                 //UserDefaults.standard.removeObject(forKey: "seeVocab")
             }
             if isAppAlreadyLaunchedOnce() == false {
                 t.taskDone[3] = 1
+                //cell.index(ofAccessibilityElement: t.taskDone)
             } /*else if isAppAlreadyLaunchedOnce() == true {
                 cell.contentView.alpha = 0.3
                 cell.collectButton.isHidden = true
@@ -312,6 +341,72 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.checkImg.isHidden = false
                 t.taskDone[3] = 1
             }*/
+            
+            DispatchQueue.main.async {
+                if t.task[indexPath.section] == t.task[1] {//"First Game of the day" {
+                    print("database[1]: ", dataBaseArr[1])
+                    if dataBaseArr[1] == false {
+//                        cell.inProgressLabel.isHidden = true
+//                        
+//                        cell.collectButton.isHidden = false
+//                        cell.collectButton.isEnabled = true
+                    } else {
+                        print("database[1] true")
+                        cell.contentView.alpha = 0.3
+                        cell.collectButton.isEnabled = false
+                        cell.collectButton.isHidden = true
+                        cell.checkImg.isHidden = false
+                    }
+                }
+                if t.task[indexPath.section] == t.task[0] {
+                    print("database[0]: ", dataBaseArr[0])
+                    if dataBaseArr[0] == false {
+//                        cell.inProgressLabel.isHidden = true
+//
+//                        cell.collectButton.isHidden = false
+//                        cell.collectButton.isEnabled = true
+                    } else {
+                        print("database[0] true")
+                        cell.contentView.alpha = 0.3
+                        cell.collectButton.isEnabled = false
+                        cell.collectButton.isHidden = true
+                        cell.checkImg.isHidden = false
+                    }
+                }
+                if t.task[indexPath.section] == t.task[2] {
+                    if dataBaseArr[2] == false {
+//                        cell.inProgressLabel.isHidden = true
+//
+//                        cell.collectButton.isHidden = false
+//                        cell.collectButton.isEnabled = true
+                    } else {
+                        //print("database true")
+                        cell.contentView.alpha = 0.3
+                        cell.collectButton.isEnabled = false
+                        cell.collectButton.isHidden = true
+                        cell.checkImg.isHidden = false
+                    }
+                }
+                if t.task[indexPath.section] == t.task[3] {
+                    if dataBaseArr[3] == false {
+                        cell.inProgressLabel.isHidden = true
+
+                        cell.collectButton.isHidden = false
+                        cell.collectButton.isEnabled = true
+                    } else {
+                        //print("database true")
+                        cell.contentView.alpha = 0.3
+                        cell.collectButton.isEnabled = false
+                        cell.collectButton.isHidden = true
+                        cell.checkImg.isHidden = false
+                    }
+                }
+            }
+            
+            
+//            if dataBaseArr != dataBaseArrPrev {
+//                self.tableView.reloadData()
+//            }
             
             taskName = t.task[indexPath.section]
             imgName = t.img[indexPath.section]
@@ -327,22 +422,45 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
         cell.numberOfgiftLabel.text = String(giftAmount)
         cell.backSlashLabel.text = "/"
         
-        
         cell.collectButton.isHidden = true
         cell.collectButton.isEnabled = false
         
         if taskDone == taskNum {
             cell.inProgressLabel.isHidden = true
-            
+
             cell.collectButton.isHidden = false
             cell.collectButton.isEnabled = true
+
+            //isCollected = true
         }
         
+//        if isCollected == true {
+//            cell.collectButton.isHidden = true
+//            cell.collectButton.isEnabled = false
+//            cell.checkImg.isHidden = false
+//            cell.inProgressLabel.isHidden = true
+//        }
+        
         cell.collectButtonAction = { [unowned self] in
-            cell.contentView.alpha = 0.3
-            cell.collectButton.isEnabled = false
-            cell.collectButton.isHidden = true
-            cell.checkImg.isHidden = false
+            
+            if cell.collectButton.tag == 1 {
+                UserDefaults.standard.setValue(true, forKey: "logInCollected")
+                //print("login = true")
+            }
+            if cell.collectButton.tag == 0 {
+                UserDefaults.standard.setValue(true, forKey: "firstGameCollected")
+            }
+            if cell.collectButton.tag == 2 {
+                UserDefaults.standard.setValue(true, forKey: "seeVocabCollected")
+            }
+            if cell.collectButton.tag == 3 {
+                UserDefaults.standard.setValue(true, forKey: "firstLaunchCollected")
+            }
+            
+//            cell.contentView.alpha = 0.3
+//            cell.collectButton.isEnabled = false
+//            cell.collectButton.isHidden = true
+//            cell.checkImg.isHidden = false
             
             coins = giftAmount
 
@@ -358,23 +476,74 @@ extension BetterGiftViewController: UITableViewDelegate, UITableViewDataSource {
                (value: Bool) in
                    self.receivedImg.isHidden = true
             })
+            //isCollected = true
+            self.tableView.reloadData()
         }
         
         
         
-        cell.backgroundColor = UIColor.white
+//        if cell.checkImg.isHidden == false {
+//            cell.collectButton.isHidden = true
+//            cell.collectButton.isEnabled = false
+//            cell.inProgressLabel.isHidden = true
+//        } //else {
+//            cell.collectButton.isHidden = false
+//            cell.collectButton.isEnabled = true
+//            cell.inProgressLabel.isHidden = false
+//        }
+        
+        
+        //cell.backgroundColor = UIColor.white
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
         
-        if strDate != dateToday {
+        //let order = Calendar.current.compare(currentDate, to: dateToday as! Date, toGranularity: .hour)
+        
+        let isSameDate = Calendar.current.isDate(currentDate, equalTo: dateToday as! Date, toGranularity: .day)
+        
+        if isSameDate == false {
+            let userDefault = UserDefaults.standard
+            
+            cell.collectButton.isHidden = false
+            cell.collectButton.isEnabled = true
+            cell.inProgressLabel.isHidden = false
+            cell.checkImg.isHidden = true
+//            isCollected = false
+            
+            userDefault.removeObject(forKey: "seeVocab")
+            userDefault.removeObject(forKey: "firstGame")
+            userDefault.removeObject(forKey: "logIn")
+        } else {
+//            isCollected = true
+            print("It is the same date!")
+        }
+
+        /*switch order {
+        case .orderedDescending:
             let userDefault = UserDefaults.standard
             userDefault.removeObject(forKey: "seeVocab")
             userDefault.removeObject(forKey: "firstGame")
             userDefault.removeObject(forKey: "logIn")
-        }
+            print("DESCENDING")
+        case .orderedAscending:
+            let userDefault = UserDefaults.standard
+            userDefault.removeObject(forKey: "seeVocab")
+            userDefault.removeObject(forKey: "firstGame")
+            userDefault.removeObject(forKey: "logIn")
+            print("ASCENDING")
+        case .orderedSame:
+            print("SAME")
+        }*/
         
+        /*if strDate != dateToday {
+            let userDefault = UserDefaults.standard
+            userDefault.removeObject(forKey: "seeVocab")
+            userDefault.removeObject(forKey: "firstGame")
+            userDefault.removeObject(forKey: "logIn")
+        }*/
+//        dataBaseArrPrev = dataBaseArr
         return cell
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate {
+class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate, ModalTransitionListener {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var starNumLabel: UILabel!
@@ -15,6 +15,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var topStarImg: UIImageView!
     @IBOutlet weak var topCoinImg: UIImageView!
+    @IBOutlet weak var closeBtn: UIButton!
     
 //    var itemList: ItemProp!
     
@@ -37,7 +38,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        ModalTransitionMediator.instance.setListener(listener: self)
         
         // Do any additional setup after loading the view.
 
@@ -92,6 +93,10 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
         
         retrieveData()
  
+    }
+    
+    func popoverDismissed() {
+        self.dismiss(animated: true, completion: nil)
     }
         
     func retrieveData() {
@@ -217,6 +222,10 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
         return false
     }
     
+    @IBAction func closeTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        DataManager.shared.ansVC.viewDidLoad()
+    }
     
     @IBAction func buyTapped(_ sender: Any) {
         
