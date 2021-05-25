@@ -27,7 +27,6 @@ class ProfileViewController: UIViewController {
         
         //NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         DataManager.shared.profileVC = self
-        self.view.backgroundColor = .white
         dateLabel?.text = text
         let time = UserDefaults.standard.string(forKey: "dateTime")
         timeLabel.text = time

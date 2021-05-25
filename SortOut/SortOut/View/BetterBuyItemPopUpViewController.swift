@@ -46,6 +46,10 @@ class BetterBuyItemPopUpViewController: UIViewController, UIPopoverPresentationC
         buyBtn.layer.cornerRadius = 10
         buyBtn.setTitle("BUY - 100 coins", for: .normal)
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getCoin()
     }
     

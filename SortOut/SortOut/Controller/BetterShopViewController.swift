@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate, ModalTransitionListener {
+class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var starNumLabel: UILabel!
@@ -37,8 +37,6 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ModalTransitionMediator.instance.setListener(listener: self)
         
         // Do any additional setup after loading the view.
 
@@ -223,8 +221,12 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     }
     
     @IBAction func closeTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        
+        DataManager.shared.ansVC.numberOfItemLabel.text = String(self.itemNums)
         DataManager.shared.ansVC.viewDidLoad()
+
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func buyTapped(_ sender: Any) {
@@ -306,22 +308,10 @@ extension BetterShopViewController: UITableViewDelegate, UITableViewDataSource {
         
         print("Notice me senpai!")
         
-//        let retryItem = itemCD[indexPath.row]
-        
-//        itemNums = Int(retryItem.itemNum + Int64(numFromPopUp))
-//        itemNames = "Retry"
-//        itemDescriptions = "This item is using for something"
-//        itemPrices = 100
-        
-       // retryItem.itemNum = itemNums
-//        print("name", retryItem.itemName!)
-//        print("description", retryItem.itemDescription!)
-//        print("price", retryItem.itemPrice)
-//
-        cell.itemNameLabel.text = itemNames//retryItem.itemName
-        cell.itemDescriptionLabel.text = itemDescriptions//retryItem.itemDescription
-        cell.itemPriceLabel.text = String(itemPrices)//String(retryItem.itemPrice)
-        cell.itemNumLabel.text = String(itemNums)//String(retryItem.itemNum)
+        cell.itemNameLabel.text = itemNames
+        cell.itemDescriptionLabel.text = itemDescriptions
+        cell.itemPriceLabel.text = String(itemPrices)
+        cell.itemNumLabel.text = String(itemNums)
         cell.itemImage.image = self.itemImageName[indexPath.row]
         cell.coinImage.image = self.coinImageName[indexPath.row]
         
@@ -332,11 +322,11 @@ extension BetterShopViewController: UITableViewDelegate, UITableViewDataSource {
 //        print(cell.itemNumLabel.text!)
 //        print("count", itemCD.count)
         
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 1
+        //cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 0
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
-        cell.contentView.backgroundColor = .white
+        //cell.contentView.backgroundColor = .white
 //        try! context.save()
 //        DispatchQueue.main.async {
         //(UIApplication.shared.delegate as? AppDelegate)?.saveContext()

@@ -60,11 +60,13 @@ PODS:
   - PromisesObjC (1.2.12)
   - Protobuf (3.17.0)
   - SSZipArchive (2.2.3)
+  - SwiftyGif (5.4.0)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - GoogleMLKit/Translate
   - HandySwift
+  - SwiftyGif
   - SwiftyJSON
 
 SPEC REPOS:
@@ -83,6 +85,7 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - SSZipArchive
+    - SwiftyGif
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -100,8 +103,9 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 61119d46967498143eabbfbf5c831aba15e1e7e6
+PODFILE CHECKSUM: 4507d84f8c793c999e7736ae50db45462c968922
 
 COCOAPODS: 1.10.1

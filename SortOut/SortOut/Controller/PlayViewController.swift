@@ -380,9 +380,9 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         //var historySection = self.sections[indexPath.section]
         //let displayItems = historySection.rows[indexPath.row]
         let displayItems = historyCD[indexPath.section]
-        let date = displayItems.date
-        let calendar = Calendar.current
-        let minutes = calendar.component(.minute, from: date!)
+//        let date = displayItems.date
+//        let calendar = Calendar.current
+//        let minutes = calendar.component(.minute, from: date!)
         
         cell.engSentenceLabel.text = displayItems.englishSentence ?? ""
         
@@ -390,11 +390,15 @@ extension PlayViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.starImage.image = UIImage(named: (displayItems.receivedStar ?? ""))
         
-        cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 1
+        //cell.backgroundColor = UIColor.white
+        //cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 0
         cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
+        cell.layer.shadowOffset = CGSize(width: 20, height: 20)
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.23
+        cell.layer.shadowRadius = 4
         
         // Does not work! SO TIRED
         //historySection.rows.sort { _,_ in minutes > minutes }

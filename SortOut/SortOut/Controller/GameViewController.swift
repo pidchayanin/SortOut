@@ -881,6 +881,9 @@ class GameViewController: UIViewController {
             textfield.text = ""
 //            print("normal")
         }
+        if textfield.text == "" {
+            submitBtn.isEnabled = false
+        }
         
         
     }
@@ -896,6 +899,12 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: Any) {
+        if textfield.text == "" {
+            let alert = UIAlertController(title: "No word has arranged!", message: "Please tap words to arrange into a sentence.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
        /* let engSentence = textfield.text! + "."
         
         guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {

@@ -40,8 +40,6 @@ class BetterGiftViewController: UIViewController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .white
         
         // Do any additional setup after loading the view.
         self.tableView.delegate = self

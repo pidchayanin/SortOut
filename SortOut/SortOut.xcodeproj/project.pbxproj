@@ -23,6 +23,13 @@
 		40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */; };
 		40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28E4226405933009E9E9F /* DatePopUpViewController.swift */; };
 		4DF948112650496F00E4DCA4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF948102650496F00E4DCA4 /* GameKit.framework */; };
+		540C3D02265D56C100CB5509 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 540C3D01265D56C100CB5509 /* Root.storyboard */; };
+		540C3D07265D596A00CB5509 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C3D06265D596A00CB5509 /* UIWindowExtension.swift */; };
+		540C3D0F265D5F0400CB5509 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C3D0E265D5F0400CB5509 /* SplashScreenViewController.swift */; };
+		540C3D14265D63A900CB5509 /* sortOut.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 540C3D13265D63A800CB5509 /* sortOut.mp4 */; };
+		540C3D3E265D74B000CB5509 /* sortOutSplash.gif in Resources */ = {isa = PBXBuildFile; fileRef = 540C3D3D265D74B000CB5509 /* sortOutSplash.gif */; };
+		540C3D43265D772700CB5509 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C3D42265D772700CB5509 /* LogoAnimationView.swift */; };
+		540C3D60265D7B4E00CB5509 /* UIView + Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540C3D5F265D7B4E00CB5509 /* UIView + Constraint.swift */; };
 		543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */; };
 		543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */; };
 		543C9DD1265036C3008FBD51 /* WrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543C9DD0265036C2008FBD51 /* WrongAnswerViewController.swift */; };
@@ -33,7 +40,6 @@
 		544979C6264BD0970004735D /* HistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544979C5264BD0970004735D /* HistorySection.swift */; };
 		545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */; };
 		547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */ = {isa = PBXBuildFile; fileRef = 547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */; };
-		5477A84F265AA99900F2D8C3 /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */; };
 		548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548AB4002613008C00C98D94 /* PopUpWindow.swift */; };
 		548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */ = {isa = PBXBuildFile; fileRef = 548AB40526132EA700C98D94 /* English sentences - Sheet1.json */; };
 		5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5498B3202646D24C00A1219E /* VocabListSection.swift */; };
@@ -104,6 +110,13 @@
 		40F28E3D26405845009E9E9F /* TimePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePopUpViewController.swift; sourceTree = "<group>"; };
 		40F28E4226405933009E9E9F /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
 		4DF948102650496F00E4DCA4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		540C3D01265D56C100CB5509 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
+		540C3D06265D596A00CB5509 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		540C3D0E265D5F0400CB5509 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		540C3D13265D63A800CB5509 /* sortOut.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sortOut.mp4; sourceTree = "<group>"; };
+		540C3D3D265D74B000CB5509 /* sortOutSplash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sortOutSplash.gif; sourceTree = "<group>"; };
+		540C3D42265D772700CB5509 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
+		540C3D5F265D7B4E00CB5509 /* UIView + Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Constraint.swift"; sourceTree = "<group>"; };
 		543C9DC0264FBBBA008FBD51 /* BetterGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterGiftViewController.swift; sourceTree = "<group>"; };
 		543C9DC5264FBC9E008FBD51 /* GiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftTableViewCell.swift; sourceTree = "<group>"; };
 		543C9DD0265036C2008FBD51 /* WrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongAnswerViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +127,6 @@
 		544979C5264BD0970004735D /* HistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySection.swift; sourceTree = "<group>"; };
 		545BC024263EB82B00340BBC /* Englishsentences - Dictionary (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (1).json"; sourceTree = "<group>"; };
 		547565EB264048A4007ADF25 /* Englishsentences - Dictionary (2).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Englishsentences - Dictionary (2).json"; sourceTree = "<group>"; };
-		5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		548AB4002613008C00C98D94 /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		548AB40526132EA700C98D94 /* English sentences - Sheet1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "English sentences - Sheet1.json"; sourceTree = "<group>"; };
 		5498B3202646D24C00A1219E /* VocabListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabListSection.swift; sourceTree = "<group>"; };
@@ -175,6 +187,7 @@
 		40BE7AEA25BC045800464BDB = {
 			isa = PBXGroup;
 			children = (
+				540C3D3D265D74B000CB5509 /* sortOutSplash.gif */,
 				40BE7AF525BC045800464BDB /* SortOut */,
 				40BE7B0F25BC045E00464BDB /* SortOutTests */,
 				40BE7B1A25BC045E00464BDB /* SortOutUITests */,
@@ -197,6 +210,7 @@
 		40BE7AF525BC045800464BDB /* SortOut */ = {
 			isa = PBXGroup;
 			children = (
+				540C3D13265D63A800CB5509 /* sortOut.mp4 */,
 				54E73343264EED8900D6C20E /* Englishsentences - answers.csv */,
 				54E73339264EDC4D00D6C20E /* ApprenticeGrammarCheckerNew.mlmodel */,
 				54E73334264EC23900D6C20E /* ApprenticeGrammarChecker.mlmodel */,
@@ -207,12 +221,12 @@
 				548AB40526132EA700C98D94 /* English sentences - Sheet1.json */,
 				40BE7AF625BC045800464BDB /* AppDelegate.swift */,
 				40BE7AF825BC045800464BDB /* SceneDelegate.swift */,
+				5477A867265BB2B000F2D8C3 /* SplashScreen */,
 				5493950B25C54AF400F0B754 /* Model */,
 				5493950C25C54AFE00F0B754 /* View */,
 				5493950D25C54B0E00F0B754 /* Controller */,
 				40BE7AFC25BC045800464BDB /* Main.storyboard */,
 				40BE7B0225BC045D00464BDB /* Assets.xcassets */,
-				40BE7B0425BC045D00464BDB /* LaunchScreen.storyboard */,
 				40BE7B0725BC045D00464BDB /* Info.plist */,
 				40BE7AFF25BC045800464BDB /* SortOut.xcdatamodeld */,
 			);
@@ -246,6 +260,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5477A867265BB2B000F2D8C3 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				40BE7B0425BC045D00464BDB /* LaunchScreen.storyboard */,
+				540C3D01265D56C100CB5509 /* Root.storyboard */,
+				540C3D06265D596A00CB5509 /* UIWindowExtension.swift */,
+				540C3D0E265D5F0400CB5509 /* SplashScreenViewController.swift */,
+				540C3D42265D772700CB5509 /* LogoAnimationView.swift */,
+				540C3D5F265D7B4E00CB5509 /* UIView + Constraint.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		5493950B25C54AF400F0B754 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,7 +292,6 @@
 				544979C0264BCEE70004735D /* PlayTableViewCell.swift */,
 				544979C5264BD0970004735D /* HistorySection.swift */,
 				54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */,
-				5477A84E265AA99900F2D8C3 /* ModalTransitionMediator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,6 +448,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540C3D3E265D74B000CB5509 /* sortOutSplash.gif in Resources */,
+				540C3D02265D56C100CB5509 /* Root.storyboard in Resources */,
 				545BC025263EB82B00340BBC /* Englishsentences - Dictionary (1).json in Resources */,
 				54B36ECC263C5AF90055D913 /* English sentences(2).json in Resources */,
 				548AB40626132EA700C98D94 /* English sentences - Sheet1.json in Resources */,
@@ -430,6 +458,7 @@
 				40BE7B0325BC045D00464BDB /* Assets.xcassets in Resources */,
 				54E73344264EED8900D6C20E /* Englishsentences - answers.csv in Resources */,
 				547565EC264048A5007ADF25 /* Englishsentences - Dictionary (2).json in Resources */,
+				540C3D14265D63A900CB5509 /* sortOut.mp4 in Resources */,
 				40BE7AFE25BC045800464BDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +554,7 @@
 				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
 				40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */,
+				540C3D60265D7B4E00CB5509 /* UIView + Constraint.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
 				543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */,
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
@@ -536,8 +566,10 @@
 				54B36ED1263D91FC0055D913 /* FavoriteVocabViewController.swift in Sources */,
 				549C54F025D7D6130086AEA3 /* GiftViewController.swift in Sources */,
 				54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */,
+				540C3D43265D772700CB5509 /* LogoAnimationView.swift in Sources */,
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
+				540C3D07265D596A00CB5509 /* UIWindowExtension.swift in Sources */,
 				543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
 				4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */,
@@ -545,11 +577,11 @@
 				549C54FA25D9222B0086AEA3 /* test1.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
 				543C9DD1265036C3008FBD51 /* WrongAnswerViewController.swift in Sources */,
-				5477A84F265AA99900F2D8C3 /* ModalTransitionMediator.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
 				54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */,
 				5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */,
 				54FA285E25E2616A00D01711 /* VocabMeaningViewController.swift in Sources */,
+				540C3D0F265D5F0400CB5509 /* SplashScreenViewController.swift in Sources */,
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
 				54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */,
@@ -754,7 +786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XULSS2SBZ7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SortOut/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

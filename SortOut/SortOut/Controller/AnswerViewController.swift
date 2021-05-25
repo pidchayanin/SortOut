@@ -27,6 +27,7 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var homeLabel: UILabel!
     @IBOutlet weak var retryBtn: UIButton!
     @IBOutlet weak var retryItemBtn: UIButton!
+    @IBOutlet weak var numberOfItemLabel: UILabel!
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -42,9 +43,7 @@ class AnswerViewController: UIViewController {
     var thaiSentence = ""
     var compliments = ""
     var itemNumber = 0
-    var useItem = 0
     var usedItemPrev = 0
-    var useItemPrev = 0
     
     var sentenceAns = [SentenceAnswers]()
     
@@ -54,26 +53,27 @@ class AnswerViewController: UIViewController {
     
     var starCollect = 0
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+//        updateDataToJSON()
+        checkSentences()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //ModalTransitionMediator.instance.sendPopoverDismissed(modelChanged: true)
+
         DataManager.shared.ansVC = self
-        
-        //print("ansrs: ", receiveSentence)
 
         starImage.image = UIImage(named: receiveStar)
         
         coinImage.image = UIImage(named: "coin.png")
         coinReceiveLabel.text = "+ \(coins)"
-        //coinReceiveLabel.text = "+ 100"
-        //complimentLabel.text = compliments
         
         retryLabel.text = "Try again"
         playNextLabel.text = "Play next"
         homeLabel.text = "Home"
         ansImage.image = UIImage(named: receiveImage)
-        //print("ri", receiveImage)
         
         let jsonInItObject: [Any]  = [
             [
@@ -94,19 +94,17 @@ class AnswerViewController: UIViewController {
             
         }
 
-        checkSentences()
-        //coinReceiveLabel.text = "+ 100"
-        // Do any additional setup after loading the view.
         engSentenceLabel.text = receiveEnglishSentence
         engToThaiTranslation()
         updateDataToJSON()
-        //saveToCoreData()
+
         UserDefaults.standard.setValue(1, forKey: "firstGame")
     }
     
     func checkSentences() {
-        //updateDataToJSON()
-        
+
+        itemNumber = UserDefaults.standard.integer(forKey: "itemNums")
+        print("CHECK ITEM COUNT: ", itemNumber)
         
         guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
             return
@@ -136,6 +134,7 @@ class AnswerViewController: UIViewController {
                     print("score: ", score)
                     print("====score:====")
                     if score == 3 {
+                        numberOfItemLabel.isHidden = true
                         receiveStar = threeStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 100
@@ -144,12 +143,16 @@ class AnswerViewController: UIViewController {
                         ansImage.isHidden = false
                         retryBtn.isHidden = false
                         retryItemBtn.isHidden = true
+                        
+                       //updateDataToJSON()
+                        
                         retryLabel.text = "Retry"
                         coinReceiveLabel.text = "+ \(coins)"
                         complimentLabel.text = "You are an expert at this!"
                         playNextLabel.text = "Play next"
                     }
                     else if score == 2 {
+                        numberOfItemLabel.isHidden = true
                         receiveStar = twoStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 50
@@ -158,12 +161,16 @@ class AnswerViewController: UIViewController {
                         ansImage.isHidden = false
                         retryBtn.isHidden = false
                         retryItemBtn.isHidden = true
+                        
+                        //updateDataToJSON()
+                        
                         retryLabel.text = "Retry"
                         coinReceiveLabel.text = "+ \(coins)"
                         complimentLabel.text = "Great job!"
                         playNextLabel.text = "Play next"
                     }
                     else if score == 1 {
+                        numberOfItemLabel.isHidden = true
                         receiveStar = oneStar
                         starImage.image = UIImage(named: receiveStar)
                         coins = 25
@@ -172,6 +179,9 @@ class AnswerViewController: UIViewController {
                         ansImage.isHidden = false
                         retryBtn.isHidden = false
                         retryItemBtn.isHidden = true
+                        
+                        //updateDataToJSON()
+                        
                         coinReceiveLabel.text = "+ \(coins)"
                         retryLabel.text = "Retry"
                         complimentLabel.text = "You have unique potential!"
@@ -181,8 +191,10 @@ class AnswerViewController: UIViewController {
                 
                 if coinImage.isHidden == true {
                     print("score 0")
-                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
-                    print("init useditem", usedItem)
+                    
+                    numberOfItemLabel.isHidden = false
+                    numberOfItemLabel.text = String(itemNumber)
+                    
                     receiveStar = zeroStar
                     starImage.image = UIImage(named: receiveStar)
                     coinImage.isHidden = true
@@ -190,38 +202,12 @@ class AnswerViewController: UIViewController {
                     ansImage.isHidden = true
                     retryBtn.isHidden = true
                     retryItemBtn.isHidden = false
-//                    if usedItem != useItemPrev {
-                    retryLabel.text = "Retry (item \(usedItem) left)"
-                    print("usedItem != 0: ", usedItem)
-                    print("useditemPrev1: ", useItemPrev)
-//                    }
-//                    else {
-//                        retryLabel.text = "Retry (item \(usedItem) left)"
-//                        //retryLabel.text = "Retry (item 0 left)"
-//                        print("usedItem == 0: ", usedItem)
-//                        print("useditemPrev2: ", useItemPrev)
-//                    }
+                    retryLabel.text = "Retry (Use Item)"
                     complimentLabel.text = "Don't give up!"
                     playNextLabel.text = "Skip"
-                    useItemPrev = usedItem
+
                 }
-//                else {
-//                    print("score 0")
-//                    let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
-//                    receiveStar = zeroStar
-//                    starImage.image = UIImage(named: receiveStar)
-//                    coinImage.isHidden = true
-//                    coinReceiveLabel.isHidden = true
-//                    ansImage.isHidden = true
-//                    retryBtn.isHidden = true
-//                    retryItemBtn.isHidden = false
-//                    retryLabel.text = "Retry (item \(usedItem) left)"
-//                    complimentLabel.text = "Don't give up!"
-//                    playNextLabel.text = "Skip"
-//                }
-                
             }
-            
         }
         catch {
             fatalError("cannot use model")
@@ -279,22 +265,27 @@ class AnswerViewController: UIViewController {
     }
     
     func useRetryItem() {
-        let items = UserDefaults.standard.integer(forKey: "itemNums")
-        if items != 0 {
-            useItem = items
-            print("useItem1: ", useItem)
-            UserDefaults.standard.setValue(items, forKey: "usedItem")
+        var items = UserDefaults.standard.integer(forKey: "itemNums")
+        if items > 0 {
+            //useItem = items
+            print("useItem1: ", items)
+            print("CHECK ITEMNUMBER ", itemNumber)
+            //UserDefaults.standard.setValue(items, forKey: "itemNums")
             let alert = UIAlertController(title: "Try again (Use Item)", message: "Are you sure?", preferredStyle: .alert)
             
             //YES
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
                 //var items = UserDefaults.standard.integer(forKey: "itemNums")
                 
-                self.useItem -= 1
-                //self.updateDataToJSON()
+                items -= 1
+                
+                self.itemNumber = items
+                print("use item yes: ", self.itemNumber)
+                //self.itemNumber = items
+                self.updateDataToJSON()
                 //self.useItem -= 1
-                UserDefaults.standard.setValue(self.useItem, forKey: "usedItem")
-                print("useItem2: ", self.useItem)
+                UserDefaults.standard.setValue(items, forKey: "itemNums")
+                print("useItem2: ", items)
                 let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
                 UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
                 UserDefaults.standard.setValue(newReceiveSentence, forKey: "randomSentence")
@@ -307,7 +298,7 @@ class AnswerViewController: UIViewController {
             
             //NO
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("Tap no")
+                print("useItem no: ", items)
           }))
             
             self.present(alert, animated: true, completion: nil)
@@ -319,7 +310,7 @@ class AnswerViewController: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)*/
             
-            let alert = UIAlertController(title: "You do not have enough coins", message: "Want to visit the shop?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "You do not have an item.", message: "Want to visit the shop?", preferredStyle: .alert)
             
             //YES
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
@@ -355,8 +346,9 @@ class AnswerViewController: UIViewController {
                 itemNums = num["itemNum"] as! Int
             }
             coin += coins
-            itemNumber = itemNums
+//            itemNumber = itemNums
             print("itemNumber: ", itemNums)
+//            print("itemNumber2: ", itemNumber)
             UserDefaults.standard.setValue(itemNums, forKey: "itemNums")
             
             if starImage.image == UIImage(named: "3-star.png") {
@@ -369,13 +361,9 @@ class AnswerViewController: UIViewController {
                 starCollect = 0
             }
             star += starCollect
-            //useRetryItem()
-            let usedItem = UserDefaults.standard.integer(forKey: "usedItem")
             
-            itemNums = usedItem
+            itemNums = itemNumber
             
-            print("usedItem3: ", usedItem)
-            print("itemNums - useItem: ", itemNums)
             let jsonObject: [Any]  = [
                 [
                     "star": star,
@@ -392,10 +380,10 @@ class AnswerViewController: UIViewController {
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
             
-//            if usedItem != usedItemPrev {
-//                self.viewDidLoad()
-//            }
-//            usedItemPrev = usedItem
+            if itemNumber != usedItemPrev {
+                self.viewWillAppear(true)
+            }
+            usedItemPrev = itemNumber
         }
         catch {
             let error = error
