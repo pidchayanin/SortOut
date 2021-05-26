@@ -13,53 +13,67 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var notifyBtn: UIButton!
+    @IBOutlet weak var dateStackView: UIStackView!
     
     //**START time and date picker
     let datePicker = UIDatePicker()
     let timePicker = UIDatePicker()
+    let notificationManager = LocalNotificationManager()
+    var text: String = "Day of the week"
+    var time: Date?
+    var date: [Day]?
     
-    var text:String = "Day of the week"
-    
-    //let userDefaults = UserDefaults()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        let ud = UserDefaults.standard
-        text = ud.string(forKey: "showDate") ?? ""
-        dateLabel?.text = text
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         DataManager.shared.profileVC = self
-        
-        let time = UserDefaults.standard.string(forKey: "dateTime")
-        timeLabel.text = time
-        //save time
-        //userDefaults.setValue(timeLabel.text , forKey: "time")
-        UserDefaults.standard.setValue(timeLabel.text, forKey: "time")
-        //userDefaults.value(forKey: "time")
-        
-        
-        // Do any additional setup after loading the view.
+        notificationManager.listScheduleNotifications()
     }
     
-    
-    
-    @objc func handlePopupClosing(notification: Notification) {
-        let dateVc = notification.object as! TimePopUpViewController
-        timeLabel.text = dateVc.formattedDate
+    @IBAction func alertMe(_ sender: Any) {
+        guard let time = time, let date = date else { return }
+        var calendar = Calendar.current
+        calendar.locale = Locale(identifier: "th")
+        let hour = calendar.component(.hour, from: time)
+        let minutes = calendar.component(.minute, from: time)
+        date.forEach { dateItem in
+            print(dateItem, time)
+            let dateComponent = DateComponents(calendar: calendar, hour: hour, minute: minutes, weekday: dateItem.rawValue)
+            notificationManager.addNotification(id: UUID().uuidString, title: "Notify ME!", dateTime: dateComponent)
+        }
+        notificationManager.schedule()
+    }
+    @IBAction func openTimeViewController(_ sender: Any) {
+        guard let timeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TimeViewController") as? TimePopUpViewController else { return }
+        timeViewController.delegate = self
+        present(timeViewController, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
+    @IBAction func openDateViewController(_ sender: Any) {
+        guard let dateViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DateViewController") as? DatePopUpViewController else { return }
+        dateViewController.delegate = self
+        present(dateViewController, animated: true, completion: nil)
+    }
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ProfileViewController: DatePopUpViewControllerDelegate {
+    func datePopUpViewControllerDidSelectDate(date: [Day]) {
+        self.date = date
+        var dateText = ""
+        notifyBtn.isEnabled = !(self.time == nil || self.date == nil)
+        date.enumerated().forEach { (index, item) in
+            dateText += (index == 0 ? "" : ", ") + item.convertDay()
+        }
+        dateLabel.text = dateText
     }
-    */
-    
+}
+
+extension ProfileViewController: TimePopUpViewControllerDelegate {
+    func timePopUpViewControllerDidSelectTime(time: Date, timeText: String) {
+        self.time = time
+        timeLabel.text = timeText
+        notifyBtn.isEnabled = !(self.time == nil || self.date == nil)
+        dateStackView.isHidden = self.time == nil
+    }
 }

@@ -7,6 +7,39 @@
 
 import UIKit
 
+protocol DatePopUpViewControllerDelegate: NSObject {
+    func datePopUpViewControllerDidSelectDate(date: [Day])
+}
+
+enum Day: Int, CaseIterable {
+    case sunday = 1
+    case monday = 2
+    case tuesday = 3
+    case wednesday = 4
+    case thursday = 5
+    case friday = 6
+    case saturday = 7
+    
+    func convertDay() -> String {
+        switch self {
+        case .sunday:
+            return "Sun."
+        case .monday:
+            return "Mon."
+        case .tuesday:
+            return "Tue."
+        case .wednesday:
+            return "Wed."
+        case .thursday:
+            return "Thu."
+        case .friday:
+            return "Fri."
+        case .saturday:
+            return "Sat."
+        }
+    }
+}
+
 class DatePopUpViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,7 +54,7 @@ class DatePopUpViewController: UIViewController {
     @IBOutlet weak var cbDate6: UIButton!
     @IBOutlet weak var cbDate7: UIButton!
     
-    
+    weak var delegate: DatePopUpViewControllerDelegate?
     var flag1 = false
     var flag2 = false
     var flag3 = false
@@ -42,54 +75,32 @@ class DatePopUpViewController: UIViewController {
 
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
-
-        var dateText:String = ""
-        let date1:String = "Sun."
-        let date2:String = "Mon."
-        let date3:String = "Tue."
-        let date4:String = "Wed."
-        let date5:String = "Thu."
-        let date6:String = "Fri."
-        let date7:String = "Sat."
         //check if checkbox is ticked
+        var result: [Day] = []
         if flag1 == true {
-            dateText += date1
+            result.append(.sunday)
         }
         if flag2 == true {
-            dateText += date2
+            result.append(.monday)
         }
         if flag3 == true {
-            dateText += date3
+            result.append(.tuesday)
         }
         if flag4 == true {
-            dateText += date4
+            result.append(.wednesday)
         }
         if flag5 == true {
-            dateText += date5
+            result.append(.thursday)
         }
         if flag6 == true {
-            dateText += date6
+            result.append(.friday)
         }
         if flag7 == true {
-            dateText += date7
+            result.append(.saturday)
         }
-        let final = dateText.inserting(separator: ", ", every: 4)
-        showDate = final
-        print(final)
-        //dismiss(animated: true)
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabbarID") as! TabbarViewController
-        vc.selectedIndex = 4
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
-        
-        let ud = UserDefaults.standard
-        ud.setValue(showDate, forKey: "showDate")
-        print("show date: ", showDate)
-        
-
-        //self.performSegue(withIdentifier: "DatePickerSegue", sender: self)
-       
+        delegate?.datePopUpViewControllerDidSelectDate(date: result)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -183,24 +194,6 @@ class DatePopUpViewController: UIViewController {
             flag7 = false
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-//    {
-//        if segue.destination is ProfileViewController {
-//            let vc = segue.destination as? ProfileViewController
-//            vc?.text = showDate
-//        }
-//    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

@@ -7,6 +7,3 @@
 
 import Foundation
 
-extension Notification.Name {
-    static let saveDateTime = Notification.Name(rawValue: "saveDateTime")
-}
