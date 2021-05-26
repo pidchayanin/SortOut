@@ -55,9 +55,8 @@ class AnswerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("CHECK")
-        checkSentences()
         updateDataToJSON()
+        checkSentences()
     }
     
     override func viewDidLoad() {
