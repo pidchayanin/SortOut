@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol BetterShopViewControllerDelegate: NSObject {
+    func betterShopViewControllerUpdateDate(items: Int)
+}
+
 class BetterShopViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,6 +35,7 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     var coins = Int()
     var numFromPopUp = Int()
     var coinFromPopUp = Int()
+    weak var delegate: BetterShopViewControllerDelegate?
     
     let itemImageName = [UIImage(named: "retry-item.png")]
     let coinImageName = [UIImage(named: "coin.png")]
@@ -222,11 +227,8 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     
     @IBAction func closeTapped(_ sender: Any) {
         
-        DataManager.shared.ansVC.numberOfItemLabel.text = String(self.itemNums)
-        DataManager.shared.ansVC.viewDidLoad()
-
+        delegate?.betterShopViewControllerUpdateDate(items: itemNums)
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func buyTapped(_ sender: Any) {
