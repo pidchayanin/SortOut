@@ -25,12 +25,34 @@ class SplashScreenViewController: UIViewController {
         super.viewDidAppear(animated)
         logoAnimationView.logoGifImageView.startAnimatingGif()
         delay(by: .seconds(5)) {
-            self.showView()
+            if self.isAppAlreadyLaunchedOnce() == false {
+                self.showTutorial()
+            }
+            else {
+                self.showView()
+            }
         }
     }
     
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
+    }
     
-    
+    func showTutorial() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TutorialID")
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true, completion: nil)
+    }
     
     func showView() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabbarID")

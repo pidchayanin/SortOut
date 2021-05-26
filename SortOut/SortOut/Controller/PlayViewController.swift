@@ -38,6 +38,8 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
     
     let currentDate = Date()
     
+    let gameViewID = "FirstGameID"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -325,7 +327,34 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         retrieveData()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "firstPlay"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.set(true, forKey: "firstPlay")
+            print("App launched first time")
+            return false
+        }
+    }
+    
+    @IBAction func playTapped(_ sender: Any) {
+        if self.isAppAlreadyLaunchedOnce() == false {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: gameViewID)
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+        }
+        else {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "gameViewID")
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(animated)
 //
 //        self.tabBarController?.delegate = self

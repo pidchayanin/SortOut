@@ -316,6 +316,10 @@ extension BetterShopViewController: UITableViewDelegate, UITableViewDataSource {
         cell.coinImage.image = self.coinImageName[indexPath.row]
         
 
+        cell.itemNumLabel.layer.backgroundColor = UIColor.darkGray.cgColor
+        cell.itemNumLabel.textColor = .white
+        cell.itemNumLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        cell.itemNumLabel.layer.cornerRadius = 10
 //
 //        print(retryItem.itemNum)
 //        print(itemNums)

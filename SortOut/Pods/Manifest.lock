@@ -62,12 +62,14 @@ PODS:
   - SSZipArchive (2.2.3)
   - SwiftyGif (5.4.0)
   - SwiftyJSON (5.0.1)
+  - TransitionableTab (0.2.0)
 
 DEPENDENCIES:
   - GoogleMLKit/Translate
   - HandySwift
   - SwiftyGif
   - SwiftyJSON
+  - TransitionableTab
 
 SPEC REPOS:
   trunk:
@@ -87,6 +89,7 @@ SPEC REPOS:
     - SSZipArchive
     - SwiftyGif
     - SwiftyJSON
+    - TransitionableTab
 
 SPEC CHECKSUMS:
   GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
@@ -105,7 +108,8 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
+  TransitionableTab: 54a5d0af475033bdb83959fde4e5d6201af7e2ab
 
-PODFILE CHECKSUM: 4507d84f8c793c999e7736ae50db45462c968922
+PODFILE CHECKSUM: 6a08ef805d15ea4dfca9fff26463e1949cf79c7d
 
 COCOAPODS: 1.10.1

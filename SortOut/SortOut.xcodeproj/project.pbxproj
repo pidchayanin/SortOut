@@ -53,6 +53,11 @@
 		54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779325E799A20096768D /* StarsAndCoinsModel.swift */; };
 		54C0779925E799C00096768D /* ShopItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0779825E799C00096768D /* ShopItemModel.swift */; };
 		54D083592628423900F5DD37 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D083582628423900F5DD37 /* AnswerViewController.swift */; };
+		54D74FDD265E80FE00C98813 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D74FDC265E80FE00C98813 /* TutorialViewController.swift */; };
+		54D74FE5265E935300C98813 /* FirstGameTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D74FE4265E935300C98813 /* FirstGameTutorialViewController.swift */; };
+		54D74FEA265E94EF00C98813 /* FirstGameContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D74FE9265E94EF00C98813 /* FirstGameContinueViewController.swift */; };
+		54D74FEF265E95FE00C98813 /* FirstAnswerCorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D74FEE265E95FE00C98813 /* FirstAnswerCorrectViewController.swift */; };
+		54D74FF4265E96B800C98813 /* FirstAnswerIncorrectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D74FF3265E96B800C98813 /* FirstAnswerIncorrectViewController.swift */; };
 		54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */; };
 		54E73344264EED8900D6C20E /* Englishsentences - answers.csv in Resources */ = {isa = PBXBuildFile; fileRef = 54E73343264EED8900D6C20E /* Englishsentences - answers.csv */; };
 		54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */; };
@@ -132,6 +137,11 @@
 		54C0779325E799A20096768D /* StarsAndCoinsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAndCoinsModel.swift; sourceTree = "<group>"; };
 		54C0779825E799C00096768D /* ShopItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemModel.swift; sourceTree = "<group>"; };
 		54D083582628423900F5DD37 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		54D74FDC265E80FE00C98813 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		54D74FE4265E935300C98813 /* FirstGameTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGameTutorialViewController.swift; sourceTree = "<group>"; };
+		54D74FE9265E94EF00C98813 /* FirstGameContinueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstGameContinueViewController.swift; sourceTree = "<group>"; };
+		54D74FEE265E95FE00C98813 /* FirstAnswerCorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAnswerCorrectViewController.swift; sourceTree = "<group>"; };
+		54D74FF3265E96B800C98813 /* FirstAnswerIncorrectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAnswerIncorrectViewController.swift; sourceTree = "<group>"; };
 		54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceAnswers.swift; sourceTree = "<group>"; };
 		54E73343264EED8900D6C20E /* Englishsentences - answers.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Englishsentences - answers.csv"; sourceTree = "<group>"; };
 		54FA284E25DFA34C00D01711 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +210,7 @@
 				54B36ECB263C5AF90055D913 /* English sentences(2).json */,
 				40BE7AF625BC045800464BDB /* AppDelegate.swift */,
 				40BE7AF825BC045800464BDB /* SceneDelegate.swift */,
+				54D74FDB265E80C200C98813 /* TutorialController */,
 				5477A867265BB2B000F2D8C3 /* SplashScreen */,
 				5493950B25C54AF400F0B754 /* Model */,
 				5493950C25C54AFE00F0B754 /* View */,
@@ -303,6 +314,18 @@
 				54B36ED0263D91FB0055D913 /* FavoriteVocabViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		54D74FDB265E80C200C98813 /* TutorialController */ = {
+			isa = PBXGroup;
+			children = (
+				54D74FDC265E80FE00C98813 /* TutorialViewController.swift */,
+				54D74FE4265E935300C98813 /* FirstGameTutorialViewController.swift */,
+				54D74FE9265E94EF00C98813 /* FirstGameContinueViewController.swift */,
+				54D74FEE265E95FE00C98813 /* FirstAnswerCorrectViewController.swift */,
+				54D74FF3265E96B800C98813 /* FirstAnswerIncorrectViewController.swift */,
+			);
+			path = TutorialController;
 			sourceTree = "<group>";
 		};
 		B34E3E77BFCAE5B08882394A /* Frameworks */ = {
@@ -518,17 +541,20 @@
 			files = (
 				54C0779925E799C00096768D /* ShopItemModel.swift in Sources */,
 				4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */,
+				54D74FDD265E80FE00C98813 /* TutorialViewController.swift in Sources */,
 				40BE7B0125BC045800464BDB /* SortOut.xcdatamodeld in Sources */,
 				4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */,
 				549C54F525D7D7F80086AEA3 /* GiftCustomCell.swift in Sources */,
 				54B36E6B263820A90055D913 /* BetterBuyItemPopUpViewController.swift in Sources */,
 				40F28E3E26405845009E9E9F /* TimePopUpViewController.swift in Sources */,
 				54B36E5B26381E0F0055D913 /* BetterShopTableViewCell.swift in Sources */,
+				54D74FEF265E95FE00C98813 /* FirstAnswerCorrectViewController.swift in Sources */,
 				548AB4012613008C00C98D94 /* PopUpWindow.swift in Sources */,
 				40F28E4326405933009E9E9F /* DatePopUpViewController.swift in Sources */,
 				540C3D60265D7B4E00CB5509 /* UIView + Constraint.swift in Sources */,
 				549C550725DE5A020086AEA3 /* ShopTableViewCell.swift in Sources */,
 				543C9DC1264FBBBA008FBD51 /* BetterGiftViewController.swift in Sources */,
+				54D74FF4265E96B800C98813 /* FirstAnswerIncorrectViewController.swift in Sources */,
 				40BE7AF725BC045800464BDB /* AppDelegate.swift in Sources */,
 				544979C6264BD0970004735D /* HistorySection.swift in Sources */,
 				54B36E5626381D6F0055D913 /* BetterShopViewController.swift in Sources */,
@@ -545,12 +571,14 @@
 				4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */,
 				54B36E9D263BF7550055D913 /* TableItem.swift in Sources */,
 				54FA284F25DFA34C00D01711 /* ProfileTableViewCell.swift in Sources */,
+				54D74FEA265E94EF00C98813 /* FirstGameContinueViewController.swift in Sources */,
 				5448EFD92625A2B200EB32D1 /* DictionaryViewController.swift in Sources */,
 				54E7333F264EECFA00D6C20E /* SentenceAnswers.swift in Sources */,
 				5498B3212646D24D00A1219E /* VocabListSection.swift in Sources */,
 				54FA285E25E2616A00D01711 /* VocabMeaningViewController.swift in Sources */,
 				540C3D0F265D5F0400CB5509 /* SplashScreenViewController.swift in Sources */,
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
+				54D74FE5265E935300C98813 /* FirstGameTutorialViewController.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
 				54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */,
 				54B36E6326381E3B0055D913 /* DataManager.swift in Sources */,
@@ -733,6 +761,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WPX2B235ZL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SortOut/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -755,6 +787,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SortOut/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

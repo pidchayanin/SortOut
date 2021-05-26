@@ -10,5 +10,6 @@ target 'SortOut' do
   pod 'HandySwift'
   pod 'GoogleMLKit/Translate'
   pod 'SwiftyGif'
+  pod 'TransitionableTab'
 
 end

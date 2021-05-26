@@ -57,7 +57,7 @@ class AnswerViewController: UIViewController {
         super.viewWillAppear(true)
 //        updateDataToJSON()
         checkSentences()
-        
+        updateDataToJSON()
     }
     
     override func viewDidLoad() {
@@ -96,7 +96,7 @@ class AnswerViewController: UIViewController {
 
         engSentenceLabel.text = receiveEnglishSentence
         engToThaiTranslation()
-        updateDataToJSON()
+        //updateDataToJSON()
 
         UserDefaults.standard.setValue(1, forKey: "firstGame")
     }
@@ -194,6 +194,9 @@ class AnswerViewController: UIViewController {
                     
                     numberOfItemLabel.isHidden = false
                     numberOfItemLabel.text = String(itemNumber)
+                    numberOfItemLabel.layer.backgroundColor = UIColor.darkGray.cgColor
+                    numberOfItemLabel.textColor = .white
+                    numberOfItemLabel.layer.cornerRadius = 10
                     
                     receiveStar = zeroStar
                     starImage.image = UIImage(named: receiveStar)
@@ -361,6 +364,7 @@ class AnswerViewController: UIViewController {
                 starCollect = 0
             }
             star += starCollect
+            print("starCollect: ", starCollect)
             
             itemNums = itemNumber
             
@@ -375,7 +379,8 @@ class AnswerViewController: UIViewController {
                 ]
             ]
             
-            //print("coin:", coin)
+            print("star:, ", star)
+            print("coin:", coin)
             
             let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
             print("check: ", check)
