@@ -267,9 +267,7 @@ class AnswerViewController: UIViewController {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
                 
                 self.itemNumber -= 1
-                
-                print("use item yes: ", self.itemNumber)
-                //self.itemNumber = items
+                self.updateValueToJSON()
                 self.updateDataToJSON()
                 //self.useItem -= 1
                 let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
@@ -309,6 +307,66 @@ class AnswerViewController: UIViewController {
             }))
             
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func updateValueToJSON() {
+        do {
+            var coin = 0
+            var star = 0
+            var itemNums = 0
+            let jsons = try loadJSON(withFilename: "ItemProp")
+            //            print(jsons!)
+            guard let array = jsons as? [Any] else {return}
+            for i in array {
+                guard let num = i as? [String: Any] else { return }
+                coin = num["coin"] as! Int
+                star = num["star"] as! Int
+                itemNums = num["itemNum"] as! Int
+            }
+            coin += coins
+            itemNumber = itemNums
+            
+            if starImage.image == UIImage(named: "3-star.png") {
+                starCollect = 3
+            } else if starImage.image == UIImage(named: "2-star.png") {
+                starCollect = 2
+            } else if starImage.image == UIImage(named: "1-star.png") {
+                starCollect = 1
+            } else if starImage.image == UIImage(named: "0-star.png") {
+                starCollect = 0
+            }
+            star += starCollect
+            print("starCollect: ", starCollect)
+            
+            itemNums = itemNumber - 1
+            
+            
+            let jsonObject: [Any]  = [
+                [
+                    "star": star,
+                    "coin": coin,
+                    "itemName": "RETRY",
+                    "itemDescription": "Use this to try again when your answer is incorrect.",
+                    "itemPrice": 100,
+                    "itemNum": itemNums
+                ]
+            ]
+            
+            print("star:, ", star)
+            print("coin:", coin)
+            
+            let check = try save(jsonObject: jsonObject, toFilename: "ItemProp")
+            print("check: ", check)
+            
+            if itemNumber != usedItemPrev {
+                self.viewWillAppear(true)
+            }
+            usedItemPrev = itemNumber
+        }
+        catch {
+            let error = error
+            print(error)
         }
     }
     
@@ -481,6 +539,7 @@ class AnswerViewController: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: "Default action"), style: .default, handler: { _ in
             
             let newReceiveSentence: [String] = self.receiveSentence.compactMap {String(describing: $0)}
+            self.updateValueToJSON()
             UserDefaults.standard.setValue(self.receiveNum, forKey: "randomNum")
             UserDefaults.standard.setValue(newReceiveSentence, forKey: "randomSentence")
             UserDefaults.standard.setValue(self.receiveImage, forKey: "randomImg")
