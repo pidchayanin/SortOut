@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TimePopUpViewControllerDelegate: NSObject {
+    func timePopUpViewControllerDidSelectTime(time: Date, timeText: String)
+}
+
 class TimePopUpViewController: UIViewController {
 
     @IBOutlet weak var timeLabel: UILabel!
@@ -14,7 +18,7 @@ class TimePopUpViewController: UIViewController {
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     
-    
+    weak var delegate: TimePopUpViewControllerDelegate?
     var formattedDate: String {
         get {
             let formatter = DateFormatter()
@@ -27,33 +31,16 @@ class TimePopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        
-        // get time using userDefaults
-        
-        // Do any additional setup after loading the view.
+        timePicker.locale = Locale(identifier: "th")
     }
     
     @IBAction func doneBtn_TouchUpinside(_ sender: Any) {
-        /*NotificationCenter.default.post(name: .saveDateTime , object: self)
-        dismiss(animated: true)*/
-        UserDefaults.standard.setValue(formattedDate, forKey: "dateTime")
+        print("DATE: ", formattedDate)
+        delegate?.timePopUpViewControllerDidSelectTime(time: timePicker.date, timeText: formattedDate)
         dismiss(animated: true, completion: nil)
-        DataManager.shared.profileVC.viewDidLoad()
     }
     
     @IBAction func cancelBtn_TouchUpinside(_ sender: Any) {
         dismiss(animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

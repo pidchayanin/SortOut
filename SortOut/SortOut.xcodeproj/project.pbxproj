@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		026DCB576A2B315DD970757A /* Pods_SortOut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013147F6289F7B3B25835C49 /* Pods_SortOut.framework */; };
+		1717A603265E494E0016DC6E /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1717A602265E494E0016DC6E /* LocalNotificationManager.swift */; };
+		1717A605265E49890016DC6E /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1717A604265E49890016DC6E /* Notification.swift */; };
 		4023DB532642CE8E002851F8 /* NotificationTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */; };
 		4099E4B925E24FD30087CDA2 /* GameSettingPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */; };
 		4099E4BE25E2514D0087CDA2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E4BD25E2514D0087CDA2 /* GameViewController.swift */; };
@@ -80,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		013147F6289F7B3B25835C49 /* Pods_SortOut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SortOut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1717A602265E494E0016DC6E /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		1717A604265E49890016DC6E /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		392E5A7D0EA4668723D2D1A4 /* Pods-SortOut.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SortOut.debug.xcconfig"; path = "Target Support Files/Pods-SortOut/Pods-SortOut.debug.xcconfig"; sourceTree = "<group>"; };
 		4023DB522642CE8E002851F8 /* NotificationTimeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTimeExtension.swift; sourceTree = "<group>"; };
 		4099E4B825E24FD20087CDA2 /* GameSettingPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingPopUpViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				40BE7B0225BC045D00464BDB /* Assets.xcassets */,
 				40BE7B0725BC045D00464BDB /* Info.plist */,
 				40BE7AFF25BC045800464BDB /* SortOut.xcdatamodeld */,
+				1717A602265E494E0016DC6E /* LocalNotificationManager.swift */,
 			);
 			path = SortOut;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				544979C0264BCEE70004735D /* PlayTableViewCell.swift */,
 				544979C5264BD0970004735D /* HistorySection.swift */,
 				54E7333E264EECFA00D6C20E /* SentenceAnswers.swift */,
+				1717A604265E49890016DC6E /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,15 +332,12 @@
 				40BE7AF025BC045800464BDB /* Frameworks */,
 				40BE7AF125BC045800464BDB /* Resources */,
 				D97103FDA13DA739644929B5 /* [CP] Embed Pods Frameworks */,
-				04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SortOut;
-			packageProductDependencies = (
-			);
 			productName = SortOut;
 			productReference = 40BE7AF325BC045800464BDB /* SortOut.app */;
 			productType = "com.apple.product-type.application";
@@ -406,8 +409,6 @@
 				Base,
 			);
 			mainGroup = 40BE7AEA25BC045800464BDB;
-			packageReferences = (
-			);
 			productRefGroup = 40BE7AF425BC045800464BDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -453,23 +454,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04D80790A3BDD33E460D7459 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SortOut/Pods-SortOut-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9134384B4B13BC96E6B35B56 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -539,6 +523,7 @@
 				540C3D43265D772700CB5509 /* LogoAnimationView.swift in Sources */,
 				549C54E025D66E6E0086AEA3 /* ProfileViewController.swift in Sources */,
 				40CA207125E7ADCA0049B7A0 /* PlayViewController.swift in Sources */,
+				1717A605265E49890016DC6E /* Notification.swift in Sources */,
 				540C3D07265D596A00CB5509 /* UIWindowExtension.swift in Sources */,
 				543C9DC6264FBC9E008FBD51 /* GiftTableViewCell.swift in Sources */,
 				54FA285925E245B600D01711 /* VocabListViewController.swift in Sources */,
@@ -553,6 +538,7 @@
 				54C0779425E799A20096768D /* StarsAndCoinsModel.swift in Sources */,
 				40BE7AF925BC045800464BDB /* SceneDelegate.swift in Sources */,
 				54FA285425E2445500D01711 /* VocablistTableViewCell.swift in Sources */,
+				1717A603265E494E0016DC6E /* LocalNotificationManager.swift in Sources */,
 				54B36E6326381E3B0055D913 /* DataManager.swift in Sources */,
 				5448EFD12625999700EB32D1 /* DictionaryTableViewCell.swift in Sources */,
 			);
