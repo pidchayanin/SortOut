@@ -108,7 +108,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" rowHeight="154" id="IkW-fu-t7r" customClass="BetterShopTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="382" height="154"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IkW-fu-t7r" id="Uyl-2W-mtV">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="154"/>
@@ -822,8 +822,14 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons made by https://www.flaticon.com/authors/ddara" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quO-Yt-Dsh">
-                                        <rect key="frame" x="60" y="0.0" width="322" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="60" y="0.0" width="120.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music by Limuji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDv-rt-DfK">
+                                        <rect key="frame" x="190.5" y="0.0" width="191.5" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1601,7 +1607,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="140" id="T9f-Sl-jMB" customClass="PlayTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="382" height="140"/>
+                                                <rect key="frame" x="0.0" y="28" width="382" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9f-Sl-jMB" id="aTU-m2-25D">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="140"/>
@@ -2358,7 +2364,7 @@
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.86274509799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dictCell" rowHeight="615" id="4dF-Mx-AuY" customClass="DictionaryTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="382" height="615"/>
+                                        <rect key="frame" x="0.0" y="28" width="382" height="615"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4dF-Mx-AuY" id="FPG-eG-Hoy">
                                             <rect key="frame" x="0.0" y="0.0" width="382" height="615"/>

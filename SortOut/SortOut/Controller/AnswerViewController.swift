@@ -184,7 +184,7 @@ class AnswerViewController: UIViewController {
                     print("score 0")
                     
                     numberOfItemLabel.isHidden = false
-                    numberOfItemLabel.text = String(itemNumbers)
+                    //numberOfItemLabel.text = String(itemNumbers)
                     numberOfItemLabel.layer.backgroundColor = UIColor.darkGray.cgColor
                     numberOfItemLabel.textColor = .white
                     numberOfItemLabel.layer.cornerRadius = 10
