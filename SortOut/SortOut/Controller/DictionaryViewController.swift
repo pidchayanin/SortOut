@@ -265,7 +265,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
 
-            cell.addToListLabel.isHidden = false
+            cell.btnStack.isHidden = true
 
             cell.undoButton.isHidden = true
             cell.undoButton.isEnabled = false
@@ -276,7 +276,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addToVocabListButton.isEnabled = false
             cell.addToVocabListButton.backgroundColor = .darkGray
         
-            cell.addToListLabel.isHidden = true
+            cell.btnStack.isHidden = false
             
             cell.undoButton.isHidden = false
             cell.undoButton.isEnabled = true
@@ -305,7 +305,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addToVocabListButton.isEnabled = true
             cell.addToVocabListButton.backgroundColor = .systemBlue
             
-            cell.addToListLabel.isHidden = false
+            cell.btnStack.isHidden = true
             //print(addWord)
             print("undo pressed")
             
@@ -345,7 +345,7 @@ extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addToVocabListButton.isEnabled = false
             cell.addToVocabListButton.backgroundColor = .darkGray
         
-            cell.addToListLabel.isHidden = true
+            cell.btnStack.isHidden = true
             
             cell.undoButton.isHidden = false
             cell.undoButton.isEnabled = true
