@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import HandySwift
+import AVFoundation
 
 var isReload = false
 
@@ -29,6 +30,9 @@ class GameViewController: UIViewController {
     
     
     @IBOutlet weak var textfield: UITextField!
+    
+    var AudioPlayer = AVAudioPlayer()
+    var AudioPlayer2 = AVAudioPlayer()
     
     var words1 = ""
     var words2 = ""
@@ -77,6 +81,8 @@ class GameViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        DataManager.shared.gameVc = self
+        
         if textfield.text == "" {
 //            submitBtn.backgroundColor = UIColor.gray
             submitBtn.isEnabled = false
@@ -85,6 +91,17 @@ class GameViewController: UIViewController {
         retreiveData()
         addDataToButtons()
         //retrieveDictionary()
+        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Sweet Talks", ofType: "wav")!)
+        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+        AudioPlayer.prepareToPlay()
+        //AudioPlayer.numberOfLoops = -1
+        AudioPlayer.play()
+        AudioPlayer.volume = 0.5
+        
+        let AssortedMusics2 = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Slamming", ofType: "mp3")!)
+        AudioPlayer2 = try! AVAudioPlayer(contentsOf: AssortedMusics2 as URL)
+        AudioPlayer2.prepareToPlay()
+        
     }
     
     func addDataToButtons() {
@@ -571,6 +588,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word1Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word1Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -598,6 +616,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word2Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word2Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -613,6 +632,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word3Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word3Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -628,6 +648,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word4Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word4Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -643,6 +664,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word5Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word5Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -658,6 +680,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word6Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word6Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -673,6 +696,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word7Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word7Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -688,6 +712,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word8Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word8Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -703,6 +728,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word9Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word9Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -717,6 +743,7 @@ class GameViewController: UIViewController {
     
     @IBAction func word10Tapped(_ sender: UIButton) {
         
+        AudioPlayer2.play()
         word10Button.isEnabled = false
         sender.alpha = 0.5
         submitBtn.isEnabled = true
@@ -895,7 +922,6 @@ class GameViewController: UIViewController {
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParent: self)
-        
     }
     
     @IBAction func submitTapped(_ sender: Any) {
@@ -905,115 +931,7 @@ class GameViewController: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
-       /* let engSentence = textfield.text! + "."
-        
-        guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
-            return
-        }
-        var data = ""
-        do {
-            data = try String(contentsOfFile: filepath)
-            var rows = data.components(separatedBy: "\n")
-            rows.removeFirst()
-            for row in rows {
-                let columns = row.components(separatedBy: ",")
-                print("columns: ", columns)
-                let sentences = columns[0]
-                let scoring = Int(String(columns[1].filter {!"\r".contains($0)})) ?? 0
-                print("scoring: ", scoring)
-                let ans = SentenceAnswers(sentences: sentences, score: scoring)
-                sentenceAns.append(ans)
-            }
-            //print("sentenceAns: ", sentenceAns)
-            for sentence in sentenceAns {
-                let sentences = sentence.sentences
-                //print("senScore", sentence.score)
-                print("engSen1: ", engSentence)
-                if engSentence == sentences {
-                    //performSegue(withIdentifier: "toCorrectAnswer", sender: self)
-                    print("reEng: ", engSentence)
-                    print("sent: ", sentences)
-                    let score = sentence.score
-                    print("score: ", score)
-                    print("====score:====")
-                    if score == 3 {
-                        getStar = threeStar
-                        coins = 100
-                        compliments = "You are an expert at this!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    else if score == 2 {
-                        getStar = twoStar
-                        coins = 50
-                        compliments = "Great job!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    else if score == 1 {
-                        getStar = oneStar
-                        coins = 25
-                        compliments = "You have unique potential!"
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyBoard.instantiateViewController(identifier: "answerID") as! AnswerViewController
-                        
-                        vc.receiveEnglishSentence = engSentence
-                        vc.receiveImage = image
-                        vc.receiveNum = randomNum
-                        vc.receiveSentence = randomSentence
-                        vc.receiveStar = getStar
-                        vc.coins = coins
-                        vc.compliments = compliments
-                        
-                        self.present(vc, animated: true, completion: nil)
-                    }
-                    
-                }else {
-                    print("ไม่เท่าไง")
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
-                    
-                    getStar = zeroStar
-                    compliments = "Don't give up!"
-                    
-                    vc.compliments = compliments
-                    vc.receiveStar = getStar
-                    vc.receiveEngSentence = engSentence
-                    
-                    self.present(vc, animated: true, completion: nil)
-                }
-                /*else if engSentence != sentences {
-                    print("ไม่เท่าไง")
-                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyBoard.instantiateViewController(identifier: "wrongAnswerID") as! WrongAnswerViewController
-                    self.present(vc, animated: true, completion: nil)
-                }*/
-            }
-        }
-        catch {
-            fatalError("cannot use model")
-            //return
-        }*/
+        AudioPlayer.stop()
     }
     
     // MARK: - Navigation

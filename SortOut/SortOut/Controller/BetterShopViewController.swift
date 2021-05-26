@@ -223,6 +223,8 @@ class BetterShopViewController: UIViewController, UIPopoverPresentationControlle
     @IBAction func closeTapped(_ sender: Any) {
         
         DataManager.shared.ansVC.numberOfItemLabel.text = String(self.itemNums)
+        print("popup itemnum: ", self.itemNums)
+        UserDefaults.standard.setValue(self.itemNums, forKey: "popupitems")
         DataManager.shared.ansVC.viewDidLoad()
 
         self.dismiss(animated: true, completion: nil)

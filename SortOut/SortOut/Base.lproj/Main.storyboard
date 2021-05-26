@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLD-ac-080">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLD-ac-080">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,7 +27,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" rowHeight="154" id="IkW-fu-t7r" customClass="BetterShopTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="390" height="154"/>
+                                        <rect key="frame" x="0.0" y="28" width="390" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IkW-fu-t7r" id="Uyl-2W-mtV">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
@@ -443,6 +443,9 @@
                                         <state key="normal" title="                Sound: On">
                                             <color key="titleColor" red="0.0" green="0.37647058823529411" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="muteOrUnMutetapped:" destination="mDb-Eq-siY" eventType="touchUpInside" id="ziZ-ij-dG5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZu-JQ-MFu">
                                         <rect key="frame" x="41" y="110" width="147" height="50"/>
@@ -473,6 +476,8 @@
                     <connections>
                         <outlet property="quitView" destination="Gzu-If-lRh" id="8yg-db-SMv"/>
                         <outlet property="settingView" destination="XSg-ov-lhQ" id="sKb-B1-EQW"/>
+                        <outlet property="soundBtn" destination="2wp-dO-JRx" id="bd6-Af-zeb"/>
+                        <outlet property="soundImg" destination="2fg-Uc-xdH" id="fFE-U4-s9l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iR-IG-ilF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -492,7 +497,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vocabListCell" rowHeight="70" id="ciQ-kL-TXN" customClass="VocablistTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ciQ-kL-TXN" id="pO6-aD-8as">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -726,7 +731,7 @@
             </objects>
             <point key="canvasLocation" x="2892.753623188406" y="780.80357142857144"/>
         </scene>
-        <!--Profile-->
+        <!--Setting-->
         <scene sceneID="vKt-wi-erZ">
             <objects>
                 <viewController storyboardIdentifier="ProfileID" id="jWj-8o-dlc" customClass="ProfileViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
@@ -822,7 +827,7 @@
                                             <constraint firstAttribute="height" constant="50" id="CB6-4G-WB3"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons made by https://www.flaticon.com/authors/ddara dDara" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quO-Yt-Dsh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icons made by https://www.flaticon.com/authors/ddara" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quO-Yt-Dsh">
                                         <rect key="frame" x="60" y="0.0" width="322" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -843,7 +848,7 @@
                             <constraint firstItem="Bdv-jR-fVU" firstAttribute="leading" secondItem="66a-St-97g" secondAttribute="leading" constant="16" id="qvd-Xq-jxD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="qz0-4F-ljn"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="megaphone.fill" catalog="system" id="qz0-4F-ljn"/>
                     <navigationItem key="navigationItem" id="Q0u-YU-S8T"/>
                     <connections>
                         <outlet property="dateLabel" destination="pD3-WF-ihU" id="0ON-Oi-hyE"/>
@@ -1286,7 +1291,7 @@
                                 <color key="sectionIndexBackgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="giftCell" rowHeight="128" id="d2R-3w-q6P" customClass="GiftTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="390" height="128"/>
+                                        <rect key="frame" x="0.0" y="28" width="390" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2R-3w-q6P" id="txy-hQ-S5u">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
@@ -1538,7 +1543,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="140" id="T9f-Sl-jMB" customClass="PlayTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="358" height="140"/>
+                                                <rect key="frame" x="0.0" y="28" width="358" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9f-Sl-jMB" id="aTU-m2-25D">
                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="140"/>
@@ -2262,7 +2267,7 @@
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.86274509799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dictCell" rowHeight="615" id="4dF-Mx-AuY" customClass="DictionaryTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="384" height="615"/>
+                                        <rect key="frame" x="0.0" y="28" width="384" height="615"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4dF-Mx-AuY" id="FPG-eG-Hoy">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="615"/>
@@ -2648,8 +2653,8 @@
         <image name="doc.fill" catalog="system" width="115" height="128"/>
         <image name="gift.fill" catalog="system" width="128" height="124"/>
         <image name="home" width="500" height="500"/>
+        <image name="megaphone.fill" catalog="system" width="128" height="114"/>
         <image name="minus" width="66" height="18"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="play" width="960" height="170"/>
         <image name="play-next" width="500" height="500"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

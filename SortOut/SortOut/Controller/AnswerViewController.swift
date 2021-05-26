@@ -57,7 +57,7 @@ class AnswerViewController: UIViewController {
         super.viewWillAppear(true)
 //        updateDataToJSON()
         checkSentences()
-        updateDataToJSON()
+//        updateDataToJSON()
     }
     
     override func viewDidLoad() {
@@ -93,10 +93,12 @@ class AnswerViewController: UIViewController {
         catch {
             
         }
+        
+        checkSentences()
 
         engSentenceLabel.text = receiveEnglishSentence
         engToThaiTranslation()
-        //updateDataToJSON()
+        updateDataToJSON()
 
         UserDefaults.standard.setValue(1, forKey: "firstGame")
     }
@@ -105,6 +107,7 @@ class AnswerViewController: UIViewController {
 
         itemNumber = UserDefaults.standard.integer(forKey: "itemNums")
         print("CHECK ITEM COUNT: ", itemNumber)
+        let itemNumbers = UserDefaults.standard.integer(forKey: "popupitems")
         
         guard let filepath = Bundle.main.path(forResource: "Englishsentences - answers", ofType: "csv") else {
             return
@@ -193,7 +196,7 @@ class AnswerViewController: UIViewController {
                     print("score 0")
                     
                     numberOfItemLabel.isHidden = false
-                    numberOfItemLabel.text = String(itemNumber)
+                    numberOfItemLabel.text = String(itemNumbers)
                     numberOfItemLabel.layer.backgroundColor = UIColor.darkGray.cgColor
                     numberOfItemLabel.textColor = .white
                     numberOfItemLabel.layer.cornerRadius = 10
@@ -282,6 +285,10 @@ class AnswerViewController: UIViewController {
                 
                 items -= 1
                 
+                var itemnumFromPopup = UserDefaults.standard.integer(forKey: "popupitems")
+                itemnumFromPopup -= 1
+                UserDefaults.standard.setValue(itemnumFromPopup, forKey: "popupitems")
+                
                 self.itemNumber = items
                 print("use item yes: ", self.itemNumber)
                 //self.itemNumber = items
@@ -367,6 +374,8 @@ class AnswerViewController: UIViewController {
             print("starCollect: ", starCollect)
             
             itemNums = itemNumber
+            print("JSON itemNums: ", itemNums)
+            print("JSON itemNumber: ", itemNumber)
             
             let jsonObject: [Any]  = [
                 [
