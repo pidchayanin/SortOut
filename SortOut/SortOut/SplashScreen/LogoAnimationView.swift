@@ -11,7 +11,7 @@ import SwiftyGif
 class LogoAnimationView: UIView {
     
     let logoGifImageView: UIImageView = {
-        guard let gifImage = try? UIImage(gifName: "sortOutSplash.gif") else {
+        guard let gifImage = try? UIImage(gifName: "sortOutIconGif.gif") else {
             return UIImageView()
         }
         return UIImageView(gifImage: gifImage, loopCount: 1)

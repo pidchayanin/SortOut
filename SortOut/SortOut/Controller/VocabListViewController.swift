@@ -62,8 +62,7 @@ class VocabListViewController: UIViewController {
         getData()
         //getDate()
         
-        self.sections = VocabListSection.group(rows: self.addToVocabCD, by: { firstDayOfMonth(date: $0.addedDate!) })
-        self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
+        
         
         //sortByDate()
         
@@ -159,10 +158,12 @@ class VocabListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //getFavorites()
-        //switchIsChanged(switchButton: switchButton)
+        super.viewWillAppear(animated)
         getData()
+        self.sections = VocabListSection.group(rows: self.addToVocabCD, by: { firstDayOfMonth(date: $0.addedDate!) })
+        self.sections.sort { lhs, rhs in lhs.sectionItem > rhs.sectionItem }
     }
+    
 }
 
 extension VocabListViewController: UITableViewDelegate, UITableViewDataSource {

@@ -54,8 +54,6 @@ class DictionaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.view.backgroundColor = .white
-        
         DataManager.shared.dictVC = self
 
         // Do any additional setup after loading the view.
@@ -63,7 +61,6 @@ class DictionaryViewController: UIViewController {
         dictionaryTableView.dataSource = self
         
         getData()
-        //print("add vocab", addVocab)
         
         let temp = word.joined(separator: ", ")
 
@@ -118,7 +115,7 @@ class DictionaryViewController: UIViewController {
         var ex = ""
         var vocab = ""
         var temp = ""
-        guard let path = Bundle.main.path(forResource: "Englishsentences - Dictionary (2)", ofType: "json") else {return}
+        guard let path = Bundle.main.path(forResource: "Dictionary", ofType: "json") else {return}
                 
         let url = URL(fileURLWithPath: path)
         
@@ -165,11 +162,6 @@ class DictionaryViewController: UIViewController {
         }
     }
     
-    /*func getData() {
-        guard let appDelegate = <#expression#> else { return <#return value#> }
-    }*/
-    
-    
     func getData() {
         print("getData")
         addVocab.removeAll()
@@ -190,30 +182,7 @@ class DictionaryViewController: UIViewController {
     @IBAction func backTapped(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    //    @IBAction func addToListTapped(_ sender: UIButton) {
-//        switch sender.tag {
-//                    case 0:
-//                        print("Button 1 Clicked")
-//                    case 1:
-//                        let vocabTab = (self.tabBarController?.viewControllers?[3]) as? VocabListViewController
-//                        performSegue(withIdentifier: "addToVocabList", sender: self)
-//                        
-//                        //print(vocabTab?.words)
-//                    default: break
-//              }
-//    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension DictionaryViewController: UITableViewDelegate, UITableViewDataSource {

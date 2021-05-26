@@ -21,21 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sortOut-icon" translatesAutoresizingMaskIntoConstraints="NO" id="3pi-os-pKV">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Chk-xT-QeE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="RkZ-CK-xMt"/>
-                            <constraint firstItem="3pi-os-pKV" firstAttribute="leading" secondItem="Chk-xT-QeE" secondAttribute="leading" id="S5a-gu-mVG"/>
-                            <constraint firstItem="3pi-os-pKV" firstAttribute="bottom" secondItem="Chk-xT-QeE" secondAttribute="bottom" id="UYc-gb-215"/>
-                            <constraint firstItem="3pi-os-pKV" firstAttribute="top" secondItem="Chk-xT-QeE" secondAttribute="top" id="Ucw-CO-4wq"/>
                             <constraint firstItem="Chk-xT-QeE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xve-Ff-w6k"/>
                             <constraint firstItem="Chk-xT-QeE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Y5Z-v3-mPq"/>
                             <constraint firstItem="Chk-xT-QeE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-44" id="clz-wo-sZV"/>
-                            <constraint firstItem="3pi-os-pKV" firstAttribute="trailing" secondItem="Chk-xT-QeE" secondAttribute="trailing" id="mwz-8g-5Is"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -45,7 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sortOut-icon" width="500" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

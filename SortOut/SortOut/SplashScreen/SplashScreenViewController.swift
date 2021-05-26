@@ -24,7 +24,7 @@ class SplashScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         logoAnimationView.logoGifImageView.startAnimatingGif()
-        delay(by: .seconds(4)) {
+        delay(by: .seconds(5)) {
             self.showView()
         }
     }
