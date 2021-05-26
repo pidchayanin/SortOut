@@ -727,7 +727,7 @@
         <!--Profile-->
         <scene sceneID="vKt-wi-erZ">
             <objects>
-                <viewController id="jWj-8o-dlc" customClass="ProfileViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="jWj-8o-dlc" customClass="ProfileViewController" customModule="SortOut" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bk5-Bo-qhs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -971,7 +971,6 @@
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="doneBtn_TouchUpinside:" destination="F9n-9w-WtX" eventType="touchUpInside" id="hG9-uD-2XR"/>
-                                            <segue destination="jWj-8o-dlc" kind="show" identifier="DatePickerSegue" id="87q-Jy-Gyz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oT-sj-6eL">
@@ -1497,9 +1496,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="English Sentence" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vc-pl-dxg">
-                                                            <rect key="frame" x="20" y="13" width="127.5" height="64"/>
+                                                            <rect key="frame" x="20" y="13" width="245" height="64"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="64" id="VnO-Cw-gMY"/>
+                                                                <constraint firstAttribute="height" constant="64" id="tx1-To-ii5"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -1514,15 +1513,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.25882352941176467" green="0.52156862745098043" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="6Vc-pl-dxg" firstAttribute="top" secondItem="aTU-m2-25D" secondAttribute="topMargin" constant="2" id="2NW-RP-BEb"/>
+                                                        <constraint firstItem="6Vc-pl-dxg" firstAttribute="leading" secondItem="dD9-dG-RgU" secondAttribute="leading" id="46q-5b-wGw"/>
                                                         <constraint firstItem="dD9-dG-RgU" firstAttribute="top" secondItem="Jky-6z-ZTZ" secondAttribute="bottom" constant="47" id="72f-oV-20j"/>
-                                                        <constraint firstItem="dD9-dG-RgU" firstAttribute="top" secondItem="6Vc-pl-dxg" secondAttribute="bottom" constant="3" id="C0K-bJ-wkr"/>
                                                         <constraint firstItem="Jky-6z-ZTZ" firstAttribute="trailing" secondItem="dD9-dG-RgU" secondAttribute="trailing" id="ID3-bT-EZt"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="dD9-dG-RgU" secondAttribute="bottom" constant="7" id="ZUd-dI-88O"/>
                                                         <constraint firstItem="Jky-6z-ZTZ" firstAttribute="top" secondItem="aTU-m2-25D" secondAttribute="topMargin" id="dfY-g7-GMA"/>
+                                                        <constraint firstItem="Jky-6z-ZTZ" firstAttribute="leading" secondItem="6Vc-pl-dxg" secondAttribute="trailing" constant="8" symbolic="YES" id="fDa-NM-eNE"/>
+                                                        <constraint firstItem="6Vc-pl-dxg" firstAttribute="top" secondItem="aTU-m2-25D" secondAttribute="topMargin" constant="2" id="ipZ-Za-fpE"/>
                                                         <constraint firstItem="Jky-6z-ZTZ" firstAttribute="trailing" secondItem="aTU-m2-25D" secondAttribute="trailingMargin" id="lkr-hr-kP4"/>
-                                                        <constraint firstItem="dD9-dG-RgU" firstAttribute="leading" secondItem="6Vc-pl-dxg" secondAttribute="leading" id="nUg-je-acj"/>
                                                         <constraint firstItem="dD9-dG-RgU" firstAttribute="leading" secondItem="aTU-m2-25D" secondAttribute="leadingMargin" id="qaS-DJ-aiY"/>
+                                                        <constraint firstItem="dD9-dG-RgU" firstAttribute="top" secondItem="6Vc-pl-dxg" secondAttribute="bottom" constant="3" id="xIr-12-vO5"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -2408,9 +2408,6 @@
             <point key="canvasLocation" x="1382.608695652174" y="780.80357142857144"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="1QA-eE-uBU"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="bin" width="512" height="512"/>
         <image name="buy" width="272" height="139"/>

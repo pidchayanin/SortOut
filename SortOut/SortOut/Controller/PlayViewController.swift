@@ -93,9 +93,9 @@ class PlayViewController: UIViewController, UITabBarControllerDelegate {
         let dateToday = Date()
         /*let calendar1 = Calendar.current
         let compo = calendar1.dateComponents([.day], from: dateToday)*/
-        let df = DateFormatter()
-        df.dateFormat = "dd/MM/yyyy"
-        let str = df.string(from: dateToday)
+//        let df = DateFormatter()
+//        df.dateFormat = "dd/MM/yyyy"
+//        let str = df.string(from: dateToday)
         
         UserDefaults.standard.setValue(1, forKey: "logIn")
         UserDefaults.standard.setValue(dateToday, forKey: "currentDate")

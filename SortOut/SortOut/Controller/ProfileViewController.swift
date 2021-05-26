@@ -22,12 +22,18 @@ class ProfileViewController: UIViewController {
     
     //let userDefaults = UserDefaults()
     
+    override func viewWillAppear(_ animated: Bool) {
+        let ud = UserDefaults.standard
+        text = ud.string(forKey: "showDate") ?? ""
+        dateLabel?.text = text
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveDateTime, object: nil)
         DataManager.shared.profileVC = self
-        dateLabel?.text = text
+        
         let time = UserDefaults.standard.string(forKey: "dateTime")
         timeLabel.text = time
         //save time

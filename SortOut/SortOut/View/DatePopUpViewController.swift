@@ -78,7 +78,17 @@ class DatePopUpViewController: UIViewController {
         print(final)
         //dismiss(animated: true)
         
-        self.performSegue(withIdentifier: "DatePickerSegue", sender: self)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TabbarID") as! TabbarViewController
+        vc.selectedIndex = 4
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+        
+        let ud = UserDefaults.standard
+        ud.setValue(showDate, forKey: "showDate")
+        print("show date: ", showDate)
+        
+
+        //self.performSegue(withIdentifier: "DatePickerSegue", sender: self)
        
     }
     
@@ -174,13 +184,13 @@ class DatePopUpViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is ProfileViewController {
-            let vc = segue.destination as? ProfileViewController
-            vc?.text = showDate
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+//    {
+//        if segue.destination is ProfileViewController {
+//            let vc = segue.destination as? ProfileViewController
+//            vc?.text = showDate
+//        }
+//    }
     
     /*
     // MARK: - Navigation
