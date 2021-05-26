@@ -43,8 +43,8 @@ class LocalNotificationManager {
         print("START ADD NOTIFICATION")
         notifications.forEach({ notification in
             let content = UNMutableNotificationContent()
-            content.title = notification.title
-            content.body = "Alert from SortOut \(notification.id)"
+            content.title = "Hey! It is time for SortOut!"
+            content.body = "Just a quick reminder, knowing English might increase your chance of getting a job after college :)"
             content.sound = .default
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: notification.datetime, repeats: true)
