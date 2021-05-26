@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLD-ac-080">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLD-ac-080">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,7 +27,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.99215686270000003" green="0.97647058819999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopCell" rowHeight="154" id="IkW-fu-t7r" customClass="BetterShopTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="154"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="390" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IkW-fu-t7r" id="Uyl-2W-mtV">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="154"/>
@@ -492,7 +492,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vocabListCell" rowHeight="70" id="ciQ-kL-TXN" customClass="VocablistTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ciQ-kL-TXN" id="pO6-aD-8as">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
@@ -1286,7 +1286,7 @@
                                 <color key="sectionIndexBackgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="giftCell" rowHeight="128" id="d2R-3w-q6P" customClass="GiftTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="128"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="390" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d2R-3w-q6P" id="txy-hQ-S5u">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
@@ -1538,7 +1538,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="140" id="T9f-Sl-jMB" customClass="PlayTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="358" height="140"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="358" height="140"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9f-Sl-jMB" id="aTU-m2-25D">
                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="140"/>
@@ -2262,7 +2262,7 @@
                                 <color key="backgroundColor" red="0.78039215689999997" green="0.86274509799999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dictCell" rowHeight="615" id="4dF-Mx-AuY" customClass="DictionaryTableViewCell" customModule="SortOut" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="615"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="384" height="615"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4dF-Mx-AuY" id="FPG-eG-Hoy">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="615"/>

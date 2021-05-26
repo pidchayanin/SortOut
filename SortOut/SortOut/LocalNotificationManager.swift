@@ -2,8 +2,7 @@
 //  LocalNotificationManager.swift
 //  SortOut
 //
-//  Created by Prapawit Patthasirivichot on 26/5/2564 BE.
-//
+
 
 import Foundation
 import UserNotifications
